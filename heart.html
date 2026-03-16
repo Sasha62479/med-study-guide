@@ -1,189 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Heart - Study Guide</title>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f7f9;color:#1a1a2e;line-height:1.7}nav{background:#00574b;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}nav .logo{color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:1px}nav ul{list-style:none;display:flex;gap:20px;flex-wrap:wrap}nav ul li a{color:#c8f0ea;text-decoration:none;font-size:.9rem;padding:5px 9px;border-radius:6px;transition:background .2s}nav ul li a:hover,nav ul li a.active{background:#007a67;color:#fff}.page-wrapper{max-width:960px;margin:40px auto;padding:0 24px}.page-header{background:linear-gradient(135deg,#00574b,#007a67);color:#fff;border-radius:12px;padding:36px 40px;margin-bottom:32px}.page-header .tag{background:rgba(255,255,255,.2);color:#fff;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px}.page-header h1{font-size:2.4rem;margin-bottom:12px}.page-header p{font-size:1rem;color:#c8f0ea;max-width:760px}.toc{background:#fff;border-left:5px solid #00574b;border-radius:8px;padding:20px 28px;margin-bottom:36px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.toc h2{font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:#00574b;margin-bottom:12px}.toc ol{padding-left:20px}.toc ol li{margin-bottom:6px}.toc ol li a{color:#007a67;text-decoration:none;font-size:.95rem}.card{background:#fff;border-radius:12px;padding:30px 36px;margin-bottom:28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}.card h2{font-size:1.45rem;color:#00574b;border-bottom:2px solid #e0f2ef;padding-bottom:10px;margin-bottom:18px}.card h3{font-size:1.1rem;color:#005540;margin:18px 0 8px}.card p{font-size:.97rem;margin-bottom:12px;color:#2c2c2c}.card ul{padding-left:22px;margin-bottom:12px}.card ul li{font-size:.95rem;margin-bottom:6px;color:#2c2c2c}.card ul li ul{margin-top:4px;padding-left:20px}.highlight{background:#e8f8f5;border-left:4px solid #00574b;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#1a3c34}.highlight strong{color:#00574b}.warning{background:#fff8e1;border-left:4px solid #f0ad00;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#4a3800}.mnemonic{background:#f0e8ff;border-left:4px solid #7c4dff;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#2d0070}.mnemonic strong{color:#5c00d2}.table-wrap{overflow-x:auto;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:.91rem}table th{background:#00574b;color:#fff;padding:10px 14px;text-align:left}table td{padding:10px 14px;border-bottom:1px solid #e0eeec;vertical-align:top}table tr:nth-child(even) td{background:#f4faf9}footer{text-align:center;color:#999;font-size:.82rem;padding:32px 0 20px}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart — FNP Board Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } :root { --lavender: #D7D9FB; --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --mid-green: #92B079; --white: #FFFFFF; --card-bg: rgba(255,255,255,0.75); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; } body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); } nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.15); position: sticky; top: 0; z-index: 100; padding: 0 2rem; } .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap; min-height: 58px; gap: 0.5rem; } .nav-brand { font-family: 'Barrio', fantasy; font-size: 1.4rem; color: var(--orange); text-decoration: none; margin-right: 1rem; } .nav-links { display: flex; flex-wrap: wrap; gap: 0.15rem; align-items: center; list-style: none; } .nav-links a { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--forest); text-decoration: none; padding: 0.35rem 0.65rem; border-radius: 20px; transition: all 0.2s; } .nav-links a:hover, .nav-links a.active { background: var(--orange); color: var(--white); } .page-hero { background: linear-gradient(120deg, rgba(215,217,251,0.8) 0%, rgba(243,245,231,0.8) 100%); border-bottom: 1px solid rgba(20,61,13,0.1); padding: 2.5rem 2rem 2rem; } .page-hero-inner { max-width: 1200px; margin: 0 auto; } .page-tag { font-family: 'Aboreto', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--forest); text-transform: uppercase; opacity: 0.6; margin-bottom: 0.4rem; } .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2.5rem,6vw,4.5rem); color: var(--orange); text-shadow: 3px 3px 0 rgba(115,78,147,0.3); line-height: 1; margin-bottom: 0.5rem; } .page-subtitle { font-family: 'Aboreto', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--forest); opacity: 0.7; } .layout { max-width: 1200px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 220px 1fr; gap: 2rem; } @media(max-width:768px){ .layout { grid-template-columns: 1fr; } .toc { display: none; } } .toc { position: sticky; top: 78px; align-self: start; background: var(--card-bg); border-radius: 16px; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 4px 16px rgba(20,61,13,0.07); } .toc-title { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--forest); text-transform: uppercase; margin-bottom: 0.8rem; opacity: 0.7; } .toc a { display: block; font-size: 0.76rem; color: var(--text-muted); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 8px; margin-bottom: 0.2rem; transition: all 0.2s; border-left: 2px solid transparent; } .toc a:hover { background: rgba(242,80,50,0.08); color: var(--orange); border-left-color: var(--orange); } .content { display: flex; flex-direction: column; gap: 1.5rem; } .card { background: var(--card-bg); border-radius: 20px; padding: 1.8rem; border: 1.5px solid rgba(255,255,255,0.9); box-shadow: 0 4px 20px rgba(20,61,13,0.07); } .card-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1.5px solid rgba(20,61,13,0.08); } .card-header-icon { font-size: 1.4rem; } .card-header h2 { font-family: 'Barrio', fantasy; font-size: 1.6rem; color: var(--orange); } .card p, .card li { font-size: 0.88rem; line-height: 1.75; color: var(--text); margin-bottom: 0.5rem; } .card ul, .card ol { padding-left: 1.4rem; margin-bottom: 0.8rem; } .card h3 { font-family: 'Aboreto', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--forest); text-transform: uppercase; margin: 1rem 0 0.5rem; opacity: 0.8; } .card strong { color: var(--forest); } .box { border-radius: 12px; padding: 1rem 1.2rem; margin: 0.8rem 0; font-size: 0.84rem; line-height: 1.7; } .box-clinical { background: rgba(210,228,199,0.5); border-left: 3px solid #6BA057; } .box-pearl { background: rgba(255,240,180,0.5); border-left: 3px solid #E8B400; } .box-mnemonic { background: rgba(210,190,230,0.4); border-left: 3px solid var(--purple); } .box-label { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; } .box-clinical .box-label { color: #3D6B2A; } .box-pearl .box-label { color: #8A6A00; } .box-mnemonic .box-label { color: var(--purple); } table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0.8rem 0; } th { background: var(--forest); color: var(--white); font-family: 'Aboreto', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; } td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(20,61,13,0.08); } tr:nth-child(even) td { background: rgba(210,228,199,0.25); } footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.55; border-top: 1px solid rgba(20,61,13,0.1); } ::-webkit-scrollbar { width: 7px; } ::-webkit-scrollbar-track { background: var(--cream); } ::-webkit-scrollbar-thumb { background: var(--mid-green); border-radius: 4px; }
+</style>
 </head>
 <body>
-<nav><span class="logo">&#128218; Med Study Guide</span><ul><li><a href="index.html">Home</a></li><li><a href="liver.html">Liver</a></li><li><a href="gallbladder.html">Gallbladder</a></li><li><a href="pancreas.html">Pancreas</a></li><li><a href="kidney.html">Kidney</a></li><li><a href="heart.html" class="active">Heart</a></li><li><a href="lungs.html">Lungs</a></li></ul></nav>
-<div class="page-wrapper">
-  <div class="page-header">
-    <span class="tag">Cardiovascular System</span>
-    <h1>Heart</h1>
-    <p>A muscular organ in the middle mediastinum that pumps blood through the circulatory system via four chambers, four valves, and a specialized conduction system.</p>
-  </div>
-  <div class="toc">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#gross">Gross Anatomy</a></li>
-      <li><a href="#valves">Heart Valves</a></li>
-      <li><a href="#coronary">Coronary Arteries</a></li>
-      <li><a href="#conduction">Conduction System</a></li>
-      <li><a href="#micro">Microscopic Anatomy</a></li>
-      <li><a href="#embryology">Embryology</a></li>
-      <li><a href="#clinical">Clinical Significance</a></li>
-    </ol>
-  </div>
-
-  <div class="card" id="gross">
-    <h2>1. Gross Anatomy</h2>
-    <h3>Overview</h3>
-    <ul>
-      <li>Two ventricles and two atria; roughly fist-sized; weighs 300-500 g</li>
-      <li>Surrounded by pericardium (fibroserous, fluid-filled sac)</li>
-      <li>Location: middle mediastinum between the lungs</li>
-      <li>Anterior: sternum and rib cartilage; Posterior: vertebral column (T5-T8), esophagus, carina</li>
-      <li>Upper heart at level of 3rd costal cartilage; Cardiac apex left of sternum at 4th-5th ICS</li>
-    </ul>
-    <h3>Heart Chambers</h3>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Chamber</th><th>Receives</th><th>Pumps To</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td>Right atrium</td><td>Deoxygenated blood from SVC, IVC, coronary veins</td><td>Right ventricle</td><td>Contains fossa ovalis; cavotricuspid isthmus = common AFl re-entry site; LAA = thrombus site in AFib</td></tr>
-        <tr><td>Right ventricle</td><td>Right atrium</td><td>Pulmonary trunk</td><td>Anteriormost part of heart; greatest risk in chest trauma; contains moderator band (conduction)</td></tr>
-        <tr><td>Left atrium</td><td>Oxygenated blood from 4 pulmonary veins</td><td>Left ventricle</td><td>Posteriormost part; visualized with TEE; LAA = thrombus site in AFib</td></tr>
-        <tr><td>Left ventricle</td><td>Left atrium</td><td>Aorta (systemic circulation)</td><td>Thickest walls; pumps via LVOT</td></tr>
-      </tbody>
-    </table></div>
-    <h3>Cardiac Borders (Frontal View)</h3>
-    <ul>
-      <li>Right border: right atrium</li>
-      <li>Left border: left ventricle + left atrial appendage</li>
-      <li>Inferior border: right ventricle</li>
-      <li>Superior border: atria and great vessels</li>
-    </ul>
-    <div class="highlight"><strong>CXR:</strong> Cardiac borders form the cardiac silhouette on chest X-ray. Right ventricle forms the anterior border on lateral view.</div>
-  </div>
-
-  <div class="card" id="valves">
-    <h2>2. Heart Valves</h2>
-    <p>The cardiac skeleton consists of four fibrous rings (annuli fibrosi cordis) that anchor valves, separate atria from ventricles, and provide electrical insulation.</p>
-    <h3>Atrioventricular (AV) Valves</h3>
-    <ul>
-      <li>Tricuspid valve (3 leaflets): between right atrium and right ventricle</li>
-      <li>Mitral valve/bicuspid valve (2 leaflets): between left atrium and left ventricle</li>
-      <li>Subvalvular apparatus: chordae tendineae (fibrous cords) + papillary muscles (prevent leaflet prolapse during systole)</li>
-    </ul>
-    <h3>Semilunar Valves</h3>
-    <ul>
-      <li>Pulmonary valve (3 cusps): between right ventricle and pulmonary trunk; no subvalvular apparatus</li>
-      <li>Aortic valve (3 cusps): between left ventricle and aorta; aortic sinuses (left and right give rise to coronary arteries); aortic bulb = dilation of root of aorta</li>
-    </ul>
-    <div class="mnemonic"><strong>Mnemonic:</strong> "Try PULling My AORTA" = Tricuspid, Pulmonary, Mitral, Aortic - order blood flows through valves.<br>
-    Tricuspid = 3 leaflets, Right side (like 3-lobed Right lung). Bicuspid = 2 leaflets, Left side (like 2-lobed Left lung).</div>
-  </div>
-
-  <div class="card" id="coronary">
-    <h2>3. Coronary Arteries</h2>
-    <p>Coronary blood flow peaks in early diastole. Coronary dominance refers to which artery supplies the posterior descending artery (PDA).</p>
-    <h3>Dominance</h3>
-    <ul>
-      <li>Right-dominant (~85%): PDA from RCA</li>
-      <li>Left-dominant (~8%): PDA from LCX</li>
-      <li>Codominant (~7%): PDA from both</li>
-    </ul>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Artery</th><th>Origin</th><th>Territory</th></tr></thead>
-      <tbody>
-        <tr><td>Left anterior descending (LAD)</td><td>Left coronary artery (LCA) from left aortic sinus</td><td>Anterior left ventricle, anterior 2/3 of IV septum, anterolateral papillary muscle, cardiac apex. Most commonly occluded = "widow maker"</td></tr>
-        <tr><td>Left circumflex (LCX)</td><td>LCA</td><td>Posterolateral left atrium and ventricle, anterolateral papillary muscle; SA node in 40%; PDA in left-dominant</td></tr>
-        <tr><td>Right coronary artery (RCA)</td><td>Right aortic sinus</td><td>Majority of RA and RV, SA node (usually), AV node, PDA (in right-dominant) - bundle of His</td></tr>
-      </tbody>
-    </table></div>
-    <h3>Venous Drainage</h3>
-    <ul>
-      <li>Coronary sinus: largest cardiac vein; lies in left posterior AV groove; drains into right atrium</li>
-      <li>Receives: great, posterior, small, and middle cardiac veins</li>
-    </ul>
-    <div class="warning"><strong>Clinical:</strong> RCA stenosis/occlusion often leads to cardiac arrhythmias because it supplies the SA and AV nodes.</div>
-  </div>
-
-  <div class="card" id="conduction">
-    <h2>4. Conduction System</h2>
-    <ul>
-      <li>SA node: upper wall of right atrium (SVC junction) - primary pacemaker</li>
-      <li>AV node: within AV septum, superior and medial to coronary sinus opening</li>
-      <li>Bundle of His: below cardiac skeleton in membranous IV septum; branches into left and right bundle branches</li>
-      <li>Purkinje fibers: terminal conducting fibers in subendocardium</li>
-    </ul>
-    <h3>Innervation</h3>
-    <div class="table-wrap"><table>
-      <thead><tr><th>System</th><th>Effect</th></tr></thead>
-      <tbody>
-        <tr><td>Sympathetic (cardiac plexus)</td><td>Increased heart rate (chronotropy), contractility (inotropy), conduction velocity (dromotropy), coronary dilation</td></tr>
-        <tr><td>Parasympathetic (vagus nerve)</td><td>Decreased heart rate, contractility, conduction velocity</td></tr>
-        <tr><td>Somatic (phrenic nerve)</td><td>Sensory innervation of pericardium only</td></tr>
-      </tbody>
-    </table></div>
-  </div>
-
-  <div class="card" id="micro">
-    <h2>5. Microscopic Anatomy</h2>
-    <h3>Layers of the Heart Wall</h3>
-    <ul>
-      <li>Endocardium (innermost): endothelium + loose connective tissue + subendocardium (contains Purkinje cells)</li>
-      <li>Myocardium: cardiomyocytes (striated, single central nucleus, many mitochondria); connected by intercalated discs (adherent junctions = mechanical; gap junctions = electrical)</li>
-      <li>Epicardium: connective tissue = visceral layer of serous pericardium</li>
-    </ul>
-    <h3>Pericardium Layers</h3>
-    <ul>
-      <li>Fibrous pericardium (outermost, stiff)</li>
-      <li>Parietal layer of serous pericardium</li>
-      <li>Pericardial cavity (serous fluid)</li>
-      <li>Visceral layer of serous pericardium (epicardium)</li>
-    </ul>
-    <div class="highlight"><strong>ANP:</strong> Atrial cardiomyocytes release atrial natriuretic peptide (ANP) when stretched (high BP) - increases water and Na+ excretion by kidneys - decreases BP.</div>
-    <div class="warning"><strong>Clinical:</strong> Pericardial tamponade occurs when fluid accumulates in the pericardial space, increasing intrapericardial pressure and impairing cardiac function. Pericarditis can cause referred pain to neck, arms, or shoulders (phrenic nerve innervation).</div>
-  </div>
-
-  <div class="card" id="embryology">
-    <h2>6. Embryology</h2>
-    <p>Origin: mesoderm (myocardium, pericardium, endocardium, blood vessels).</p>
-    <h3>Key Steps</h3>
-    <ul>
-      <li>Two endocardial tubes merge to form the heart tube</li>
-      <li>Heart tube loops (S-shape) during week 4 - establishes left-right polarity</li>
-      <li>Endocardial cushions fuse to separate atria and ventricles and form valves</li>
-      <li>Truncus arteriosus divides into aorta and pulmonary trunk via aorticopulmonary septum</li>
-    </ul>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Embryonic Structure</th><th>Adult Derivative</th></tr></thead>
-      <tbody>
-        <tr><td>Truncus arteriosus</td><td>Ascending aorta and pulmonary trunk</td></tr>
-        <tr><td>Bulbus cordis</td><td>Left and right ventricular outflow tracts</td></tr>
-        <tr><td>Primitive ventricle</td><td>Trabeculated portions of ventricles</td></tr>
-        <tr><td>Primitive atrium</td><td>Trabeculated portions of atria</td></tr>
-        <tr><td>Sinus venosus (right horn)</td><td>Smooth part of right atrium (sinus venarum)</td></tr>
-        <tr><td>Sinus venosus (left horn)</td><td>Coronary sinus</td></tr>
-        <tr><td>Primitive pulmonary vein</td><td>Smooth portion of left atrium</td></tr>
-      </tbody>
-    </table></div>
-    <div class="warning"><strong>Key defects:</strong> VSD = most common congenital cardiac anomaly (failure of membranous IV septum). Transposition of great vessels = failure of AP septum to spiral. Tetralogy of Fallot = malaligned AP septum. Patent foramen ovale = failure of septum primum and secundum to fuse.</div>
-  </div>
-
-  <div class="card" id="clinical">
-    <h2>7. Clinical Significance</h2>
-    <h3>Coronary Artery Disease</h3>
-    <ul><li>Acute coronary syndrome (unstable angina, NSTEMI, STEMI), Myocardial infarction</li></ul>
-    <h3>Arrhythmias</h3>
-    <ul><li>Atrial fibrillation, Atrial flutter (cavotricuspid isthmus), AV block, Bundle branch blocks, WPW</li></ul>
-    <h3>Heart Failure</h3>
-    <ul><li>Systolic vs. diastolic heart failure, Cardiomyopathies (dilated, hypertrophic, restrictive)</li></ul>
-    <h3>Valvular Disease</h3>
-    <ul><li>Aortic stenosis/regurgitation, Mitral stenosis/regurgitation/prolapse, Tricuspid/pulmonary valve disease</li></ul>
-    <h3>Pericardial Disease</h3>
-    <ul><li>Pericarditis, Pericardial effusion, Cardiac tamponade (Beck's triad: hypotension, JVD, muffled heart sounds)</li></ul>
-    <h3>Congenital Heart Defects</h3>
-    <ul>
-      <li>Cyanotic: Tetralogy of Fallot, Transposition of great vessels, Truncus arteriosus, Tricuspid atresia</li>
-      <li>Acyanotic: VSD (most common), ASD, PDA, Coarctation of aorta</li>
-    </ul>
-    <h3>Other</h3>
-    <ul><li>Infective endocarditis, Rheumatic heart disease, Myocarditis, Cardiac myxoma</li></ul>
-  </div>
+<nav><div class="nav-inner"><a class="nav-brand" href="index.html">🌿 FNP Prep</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="liver.html">Liver</a></li><li><a href="gallbladder.html">Gallbladder</a></li><li><a href="pancreas.html">Pancreas</a></li><li><a href="kidney.html">Kidney</a></li><li><a href="heart.html" class="active">Heart</a></li><li><a href="lungs.html">Lungs</a></li></ul></div></nav>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-tag">Cardiovascular System</div><h1 class="page-title">Heart</h1><div class="page-subtitle">Gross Anatomy · Valves · Coronary Arteries · Conduction System · Microscopic · Embryology · Clinical</div></div></div>
+<div class="layout">
+<aside class="toc"><div class="toc-title">Contents</div><a href="#gross">Gross Anatomy</a><a href="#valves">Valves</a><a href="#coronary">Coronary Arteries</a><a href="#conduction">Conduction System</a><a href="#micro">Microscopic</a><a href="#embryo">Embryology</a><a href="#clinical">Clinical Pearls</a></aside>
+<div class="content">
+<div class="card" id="gross"><div class="card-header"><span class="card-header-icon">❤️</span><h2>Gross Anatomy</h2></div><p>The heart is a four-chambered muscular organ (~300 g) located in the middle mediastinum. It lies obliquely: apex points left/inferiorly (5th ICS, MCL); base faces right/superiorly.</p><h3>Chambers</h3><table><tr><th>Chamber</th><th>Wall Thickness</th><th>Key Feature</th></tr><tr><td>Right atrium</td><td>Thin</td><td>SVC/IVC/coronary sinus inflow; fossa ovalis (closed foramen ovale)</td></tr><tr><td>Right ventricle</td><td>~3-4 mm</td><td>Crista supraventricularis; trabecular (spongy); moderator band</td></tr><tr><td>Left atrium</td><td>Thin</td><td>4 pulmonary veins; posterior-most chamber</td></tr><tr><td>Left ventricle</td><td>~8-12 mm</td><td>Thickest; smooth outflow tract; papillary muscles</td></tr></table><h3>Pericardium</h3><ul><li><strong>Fibrous pericardium</strong> — tough outer layer; attaches to diaphragm</li><li><strong>Parietal pericardium</strong> — inner lining of fibrous layer</li><li><strong>Visceral pericardium (epicardium)</strong> — directly on heart surface; contains coronary vessels and fat</li><li><strong>Pericardial cavity</strong> — 15-50 mL serous fluid; reduces friction</li></ul><div class="box box-clinical"><div class="box-label">🩺 Clinical</div><p>Cardiac tamponade: Beck's triad = hypotension + JVD + muffled heart sounds. Pulsus paradoxus (&gt;10 mmHg drop in SBP during inspiration). Pericardiocentesis at left 5th ICS or subxiphoid approach.</p></div></div>
+<div class="card" id="valves"><div class="card-header"><span class="card-header-icon">🔁</span><h2>Heart Valves</h2></div><table><tr><th>Valve</th><th>Type</th><th>Location</th><th>Closes When</th><th>Opens When</th></tr><tr><td><strong>Tricuspid</strong></td><td>AV; 3 leaflets</td><td>R atrium → R ventricle</td><td>RV contraction</td><td>RV relaxation</td></tr><tr><td><strong>Pulmonary</strong></td><td>Semilunar; 3 cusps</td><td>RV → pulmonary trunk</td><td>Diastole (PA&gt;RV)</td><td>Systole (RV&gt;PA)</td></tr><tr><td><strong>Mitral</strong></td><td>AV; 2 leaflets (bicuspid)</td><td>L atrium → L ventricle</td><td>LV contraction</td><td>LV relaxation</td></tr><tr><td><strong>Aortic</strong></td><td>Semilunar; 3 cusps</td><td>LV → aorta</td><td>Diastole (Ao&gt;LV)</td><td>Systole (LV&gt;Ao)</td></tr></table><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>S1 = mitral + tricuspid closure (AV valves close at start of systole). S2 = aortic + pulmonic closure (semilunar valves close at start of diastole). S3 (ventricular filling) = HF/volume overload. S4 (atrial kick against stiff ventricle) = HTN, AS, HCM.</p></div><div class="box box-mnemonic"><div class="box-label">🧠 Mnemonic</div><p><strong>Valve locations (auscultation):</strong> "APT M" clockwise: Aortic (R 2nd ICS), Pulmonic (L 2nd ICS), Tricuspid (L lower sternal border), Mitral (L 5th ICS MCL = apex).</p></div></div>
+<div class="card" id="coronary"><div class="card-header"><span class="card-header-icon">🩸</span><h2>Coronary Arteries</h2></div><table><tr><th>Artery</th><th>Branches</th><th>Territory</th></tr><tr><td><strong>LCA → LAD</strong></td><td>Diagonal, septal perforators</td><td>Anterior LV wall, anterior 2/3 IVS, apex</td></tr><tr><td><strong>LCA → LCx</strong></td><td>Obtuse marginals</td><td>Lateral/posterior LV wall</td></tr><tr><td><strong>RCA</strong></td><td>SA nodal (60%), AV nodal (85%), marginals, PDA</td><td>RV, inferior LV, posterior IVS (PDA), SA/AV nodes</td></tr></table><p><strong>Dominance:</strong> Determined by which artery gives off the PDA (posterior descending artery). Right dominant (~70%), left dominant (~10%), co-dominant (~20%).</p><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>MI territory: <strong>LAD</strong> = anterior MI (leads II, III, aVF ≠ anterior — that's V1-V4). <strong>RCA</strong> = inferior MI (II, III, aVF); also right-sided leads if RV involved. <strong>LCx</strong> = lateral MI (I, aVL, V5-V6). RCA occlusion → AV block (nodal ischemia).</p></div></div>
+<div class="card" id="conduction"><div class="card-header"><span class="card-header-icon">⚡</span><h2>Conduction System</h2></div><table><tr><th>Structure</th><th>Rate</th><th>Notes</th></tr><tr><td>SA node</td><td>60-100 bpm</td><td>Pacemaker; right atrium near SVC; supplied by RCA (60%) or LCx</td></tr><tr><td>AV node</td><td>40-60 bpm</td><td>Floor of RA; delays impulse; supplied by RCA (85%)</td></tr><tr><td>Bundle of His</td><td>-</td><td>Passes through fibrous skeleton; enters IVS</td></tr><tr><td>L/R bundle branches</td><td>-</td><td>LBBB = LV disease; RBBB = RV strain/congenital</td></tr><tr><td>Purkinje fibers</td><td>20-40 bpm</td><td>Fastest conduction velocity in heart; subendocardial</td></tr></table><div class="box box-clinical"><div class="box-label">🩺 Clinical</div><p>Wolff-Parkinson-White: accessory pathway (Bundle of Kent) bypasses AV node → delta wave on EKG, short PR interval, wide QRS. Risk of SVT and sudden death. Treatment: ablation.</p></div></div>
+<div class="card" id="micro"><div class="card-header"><span class="card-header-icon">🔬</span><h2>Microscopic Anatomy</h2></div><h3>Cardiac Muscle</h3><ul><li>Branching cells (not parallel like skeletal muscle)</li><li>Single central nucleus</li><li>Intercalated discs — contain gap junctions (electrical coupling) and desmosomes (mechanical coupling)</li><li>T-tubules at Z lines (vs. A-I junction in skeletal muscle)</li><li>Abundant mitochondria (~30% cell volume) — high aerobic demands</li></ul><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>Cardiac muscle uses gap junctions for electrical syncytium — action potential spreads throughout atria as a unit, then through AV node delay, then through ventricles. Gap junction protein = connexin 43.</p></div><h3>Frank-Starling Relationship</h3><p>Increased preload (end-diastolic volume/stretch) → increased stroke volume. Operates through length-dependent activation of myosin-actin crossbridges.</p></div>
+<div class="card" id="embryo"><div class="card-header"><span class="card-header-icon">🧬</span><h2>Embryology</h2></div><p>Heart develops from <strong>splanchnic lateral plate mesoderm</strong> (cardiogenic region) by ~week 3; first organ to function (~day 22).</p><ul><li>Two heart tubes fuse → single primitive heart tube</li><li>Cardiac looping (week 4): tube bends rightward (D-loop) → forms cardiac chambers</li><li><strong>Septa formation:</strong> septum primum + secundum → atrial septum; muscular + membranous IVS → ventricular septum</li><li><strong>Foramen ovale</strong> — R→L shunt in fetus (bypasses pulmonary circulation); closes at birth due to ↑LA pressure</li><li><strong>Ductus arteriosus</strong> — shunts blood from PA to aorta in fetus; closes with ↑O2 and ↓PGE2 at birth; indomethacin closes PDA; PGE1 keeps it open</li></ul><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>L-TGA (dextro-looping) = aorta anterior-right, PA posterior-left = most common cause of cyanosis in the first 24 hours. VSD = most common congenital heart defect overall. ToF = most common CYANOTIC CHD after infancy.</p></div></div>
+<div class="card" id="clinical"><div class="card-header"><span class="card-header-icon">🏥</span><h2>Clinical Pearls</h2></div><table><tr><th>Condition</th><th>Key Features</th><th>Pearl</th></tr><tr><td>STEMI</td><td>ST elevation, troponin rise; complete occlusion</td><td>Time to PCI &lt;90 min (door-to-balloon)</td></tr><tr><td>NSTEMI</td><td>Troponin rise, no ST elevation</td><td>Partial occlusion; treat with ACS protocol</td></tr><tr><td>Heart failure</td><td>HFrEF (EF&lt;40%) vs HFpEF (EF&gt;50%)</td><td>ACEi/ARB + BB + diuretics + aldosterone antagonist for HFrEF</td></tr><tr><td>Aortic stenosis</td><td>Systolic murmur; syncope, angina, dyspnea triad</td><td>Survival: angina 5 yr, syncope 3 yr, dyspnea 2 yr</td></tr><tr><td>Mitral regurgitation</td><td>Holosystolic murmur at apex → axilla</td><td>Volume overload; LA/LV dilation</td></tr><tr><td>Endocarditis</td><td>Fever, new murmur, emboli; IV drug use → tricuspid</td><td>Duke criteria; treat with IV antibiotics</td></tr></table><div class="box box-clinical"><div class="box-label">🩺 Clinical</div><p>Cardiac biomarkers: Troponin I/T (rise 3-6h, peak 24h, normalize 7-10d) = most specific. CK-MB (rise 3-6h, normalize 48-72h) = useful for re-infarction. BNP/NT-proBNP = heart failure diagnosis and prognosis.</p></div></div>
 </div>
-<footer><p>Study Guide - Based on AMBOSS Heart Article - For educational use only</p></footer>
+</div>
+<footer><p>FNP Board Exam Prep &#9673; Heart &#9673; Built for NP Students</p></footer>
 </body>
 </html>
