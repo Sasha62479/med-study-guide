@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liver - Study Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f9; color: #1a1a2e; line-height: 1.7; }
+    nav { background-color: #00574b; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    nav .logo { color: #fff; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav ul li a { color: #c8f0ea; text-decoration: none; font-size: 0.95rem; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; }
+    nav ul li a:hover, nav ul li a.active { background-color: #007a67; color: #fff; }
+    .page-wrapper { max-width: 960px; margin: 40px auto; padding: 0 24px; }
+    .page-header { background: linear-gradient(135deg, #00574b, #007a67); color: white; border-radius: 12px; padding: 36px 40px; margin-bottom: 32px; }
+    .page-header .tag { background: rgba(255,255,255,0.2); color: #fff; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px; }
+    .page-header h1 { font-size: 2.4rem; margin-bottom: 12px; }
+    .page-header p { font-size: 1.0rem; color: #c8f0ea; max-width: 760px; }
+    .toc { background: #fff; border-left: 5px solid #00574b; border-radius: 8px; padding: 20px 28px; margin-bottom: 36px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .toc h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: #00574b; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; }
+    .toc ol li { margin-bottom: 6px; }
+    .toc ol li a { color: #007a67; text-decoration: none; font-size: 0.95rem; }
+    .card { background: #fff; border-radius: 12px; padding: 30px 36px; margin-bottom: 28px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    .card h2 { font-size: 1.45rem; color: #00574b; border-bottom: 2px solid #e0f2ef; padding-bottom: 10px; margin-bottom: 18px; }
+    .card h3 { font-size: 1.1rem; color: #005540; margin: 18px 0 8px; }
+    .card p { font-size: 0.97rem; margin-bottom: 12px; color: #2c2c2c; }
+    .card ul { padding-left: 22px; margin-bottom: 12px; }
+    .card ul li { font-size: 0.95rem; margin-bottom: 6px; color: #2c2c2c; }
+    .card ul li ul { margin-top: 4px; padding-left: 20px; }
+    .highlight { background: #e8f8f5; border-left: 4px solid #00574b; border-radius: 6px; padding: 14px 18px; margin: 14px 0; font-size: 0.94rem; color: #1a3c34; }
+    .highlight strong { color: #00574b; }
+    .warning { background: #fff8e1; border-left: 4px solid #f0ad00; border-radius: 6px; padding: 14px 18px; margin: 14px 0; font-size: 0.94rem; color: #4a3800; }
+    .mnemonic { background: #f0e8ff; border-left: 4px solid #7c4dff; border-radius: 6px; padding: 14px 18px; margin: 14px 0; font-size: 0.94rem; color: #2d0070; }
+    .mnemonic strong { color: #5c00d2; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; }
+    table th { background-color: #00574b; color: #fff; padding: 10px 14px; text-align: left; }
+    table td { padding: 10px 14px; border-bottom: 1px solid #e0eeec; vertical-align: top; }
+    table tr:nth-child(even) td { background-color: #f4faf9; }
+    footer { text-align: center; color: #999; font-size: 0.82rem; padding: 32px 0 20px; }
+  </style>
+</head>
+<body>
+<nav>
+  <span class="logo">&#128218; Med Study Guide</span>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="liver.html" class="active">Liver</a></li>
+    <li><a href="gallbladder.html">Gallbladder</a></li>
+    <li><a href="pancreas.html">Pancreas</a></li>
+    <li><a href="kidney.html">Kidney</a></li>
+  </ul>
+</nav>
+<div class="page-wrapper">
+  <div class="page-header">
+    <span class="tag">Anatomy &amp; Physiology</span>
+    <h1>Liver</h1>
+    <p>The liver is a wedge-shaped organ located beneath the diaphragm in the right upper quadrant. It plays a central role in metabolism, synthesis, detoxification, and storage.</p>
+  </div>
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#gross">Gross Anatomy</a></li>
+      <li><a href="#micro">Microscopic Anatomy</a></li>
+      <li><a href="#function">Function</a></li>
+      <li><a href="#ethanol">Ethanol Metabolism</a></li>
+      <li><a href="#embryology">Embryology</a></li>
+      <li><a href="#clinical">Clinical Significance</a></li>
+    </ol>
+  </div>
+  <div class="card" id="gross">
+    <h2>1. Gross Anatomy</h2>
+    <h3>General Structure</h3>
+    <ul>
+      <li>Largest gland in the body; weight: 2.6-3.3 lb in adults</li>
+      <li>Wedge-shaped; four lobes: Right (largest), Left, Quadrate, Caudate</li>
+      <li>Divided into 8 segments (Couinaud classification)</li>
+      <li>Hepatic capsule: outer serous layer (peritoneum) + Glisson capsule (inner fibrous)</li>
+    </ul>
+    <h3>Porta Hepatis Structures</h3>
+    <ul>
+      <li>Common hepatic duct (leaving)</li>
+      <li>Hepatic artery proper (entering)</li>
+      <li>Hepatic portal vein (entering)</li>
+      <li>Hepatic nerve plexus and lymphatic vessels</li>
+    </ul>
+    <h3>Ligaments</h3>
+    <ul>
+      <li><strong>Falciform ligament:</strong> connects liver to abdominal wall; contains round ligament</li>
+      <li><strong>Hepatoduodenal ligament:</strong> connects liver to duodenum; contains portal triad</li>
+      <li><strong>Gastrohepatic ligament:</strong> connects liver to lesser curvature of stomach; contains gastric arteries</li>
+    </ul>
+    <div class="highlight"><strong>Clinical Correlate:</strong> In liver hemorrhage, temporary clamping of the hepatoduodenal ligament (Pringle maneuver) achieves hemostasis.</div>
+    <h3>Vasculature</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Vessel</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Artery</td><td>Hepatic artery proper</td><td>20-40% of blood supply; branch of celiac trunk</td></tr>
+          <tr><td>Portal vein</td><td>Portal vein</td><td>60-80% of blood; from SMV + splenic vein; delivers nutrients</td></tr>
+          <tr><td>Vein</td><td>Hepatic veins</td><td>Drain into IVC</td></tr>
+          <tr><td>Lymphatics</td><td>Celiac lymph nodes</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Innervation</h3>
+    <ul>
+      <li>Capsule and serosa: lower intercostal nerves</li>
+      <li>Parenchyma: hepatic plexus (sympathetic from celiac plexus + parasympathetic vagus nerve)</li>
+      <li>Pain refers to: right shoulder, upper right quadrant, epigastric region</li>
+    </ul>
+  </div>
+  <div class="card" id="micro">
+    <h2>2. Microscopic Anatomy</h2>
+    <h3>Hepatic Lobules</h3>
+    <p>The liver is divided into hexagonal lobules, each with a central hepatic vein and portal triads at the vertices. Each portal triad = branch of hepatic artery + branch of portal vein + bile ductule + lymphatics + vagus nerve branch.</p>
+    <h3>Parenchyma and Sinusoids</h3>
+    <ul>
+      <li>Mostly hepatocytes with large amounts of smooth ER (detoxification)</li>
+      <li>Hepatic sinusoids: large capillaries with highly fenestrated endothelium</li>
+      <li>Kupffer cells (macrophages) in sinusoids: phagocytize bacteria, foreign particles, old RBCs</li>
+      <li>Space of Disse: contains hepatic stellate cells (Ito cells) - store vitamin A; main source of fibrosis in liver injury</li>
+    </ul>
+    <h3>Histological Zones</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Zone</th><th>Location</th><th>O2 Supply</th><th>Vulnerability</th></tr></thead>
+        <tbody>
+          <tr><td>Zone 1 (Periportal)</td><td>Nearest portal triad</td><td>Best oxygenated</td><td>Viral hepatitis, toxic ingestion (cocaine)</td></tr>
+          <tr><td>Zone 2 (Intermediate)</td><td>Middle</td><td>Intermediate</td><td>Yellow fever</td></tr>
+          <tr><td>Zone 3 (Centrilobular)</td><td>Nearest central vein</td><td>Least oxygenated</td><td>Ischemia, EtOH, acetaminophen, CCl4; highest P-450</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mnemonic"><strong>Mnemonic:</strong> Zone 1 is first to receive O2. Zone 3 is last. Zone 2 = Yellow fever.</div>
+  </div>
+  <div class="card" id="function">
+    <h2>3. Function</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Function</th><th>Key Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Energy metabolism</strong></td><td>Glycolysis, beta-oxidation, amino acid degradation, lipid metabolism, LDL receptors, HDL/VLDL handling</td></tr>
+          <tr><td><strong>Synthesis</strong></td><td>Gluconeogenesis, ketone bodies, plasma proteins (albumin, clotting factors, CRP, ferritin), bile acids, Vitamin D activation</td></tr>
+          <tr><td><strong>Glucose homeostasis</strong></td><td>Raise via glycogenolysis and gluconeogenesis; Lower via glycogen synthesis and glycolysis</td></tr>
+          <tr><td><strong>Storage</strong></td><td>Glycogen, lipoproteins, fat-soluble vitamins (A, D, E, K), folate, B12, iron, copper</td></tr>
+          <tr><td><strong>Detoxification</strong></td><td>Urea cycle, cytochrome P-450, biotransformation, ethanol breakdown, bilirubin conjugation</td></tr>
+          <tr><td><strong>Fetal</strong></td><td>Site of erythropoiesis 6 weeks gestation until birth</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight"><strong>Note:</strong> The liver cannot use ketone bodies for itself - hepatocytes lack beta-ketoacyl-CoA transferase (thiophorase).</div>
+    <div class="highlight"><strong>Fasting:</strong> Day 1 = glycogen for gluconeogenesis. Days 1-3 (after glycogen depleted) = free fatty acids for energy.</div>
+  </div>
+  <div class="card" id="ethanol">
+    <h2>4. Ethanol Metabolism</h2>
+    <p>Zero-order elimination (~1 oz/hour). NAD+ is the limiting reactant.</p>
+    <h3>Pathway</h3>
+    <ul>
+      <li>Ethanol to Acetaldehyde (alcohol dehydrogenase)</li>
+      <li>Acetaldehyde to Acetate (acetaldehyde dehydrogenase)</li>
+      <li>Acetate + CoA to Acetyl-CoA (thiokinase, uses ATP)</li>
+    </ul>
+    <div class="highlight"><strong>Disulfiram:</strong> Inhibits acetaldehyde dehydrogenase, causing acetaldehyde buildup and hangover symptoms. Used in alcohol use disorder treatment.</div>
+    <div class="mnemonic"><strong>Mnemonic:</strong> It is DISgusting to drink alcohol when taking DISulfiram!</div>
+    <h3>Consequences of Heavy Ethanol Use (increased NADH/NAD+ ratio)</h3>
+    <ul>
+      <li>Lactic acidosis: increased pyruvate to lactate conversion</li>
+      <li>Ketoacidosis: TCA cycle inhibited, acetyl-CoA shunted to ketogenesis</li>
+      <li>Fasting hypoglycemia: impaired gluconeogenesis</li>
+      <li>Hepatosteatosis: increased triglyceride synthesis and accumulation</li>
+    </ul>
+    <div class="warning"><strong>Sex differences:</strong> Females more susceptible to ethanol intoxication - lower total body water and lower alcohol dehydrogenase activity.</div>
+  </div>
+  <div class="card" id="embryology">
+    <h2>5. Embryology</h2>
+    <ul>
+      <li>Origin: Endoderm</li>
+      <li>Derived from junction of foregut and midgut</li>
+      <li>Ligamentum teres: formed from obliterated umbilical vein; in free edge of falciform ligament</li>
+    </ul>
+  </div>
+  <div class="card" id="clinical">
+    <h2>6. Clinical Significance</h2>
+    <h3>Hepatic Inflammation</h3>
+    <ul><li>Alcoholic hepatitis, NASH, Autoimmune hepatitis, Fitz-Hugh-Curtis syndrome</li></ul>
+    <h3>Hepatic Infections</h3>
+    <ul><li>Viral hepatitis, liver abscesses (Klebsiella, amebic), parasitic (P. vivax/ovale hypnozoites reside in liver)</li></ul>
+    <h3>Hepatic Tumors</h3>
+    <ul><li>Hepatocellular carcinoma, Angiosarcoma (arsenic/vinyl chloride), Colon cancer metastases, Hepatic adenoma, Hydatid cyst</li></ul>
+    <h3>Hereditary Diseases</h3>
+    <ul>
+      <li>Hemochromatosis: iron overload</li>
+      <li>Wilson disease: copper overload</li>
+      <li>Von Gierke's disease: increased liver glycogen</li>
+      <li>Dubin-Johnson syndrome: black liver</li>
+    </ul>
+    <h3>Others</h3>
+    <ul><li>Fatty liver, Hepatomegaly, Budd-Chiari syndrome, Ischemia (Zone 3), Cirrhosis</li></ul>
+  </div>
+</div>
+<footer><p>Study Guide - Based on AMBOSS Liver Article - For educational use only</p></footer>
+</body>
+</html>
