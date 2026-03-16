@@ -1,227 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pancreas - Study Guide</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f7f9;color:#1a1a2e;line-height:1.7}
-    nav{background:#00574b;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-    nav .logo{color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:1px}
-    nav ul{list-style:none;display:flex;gap:24px}
-    nav ul li a{color:#c8f0ea;text-decoration:none;font-size:.95rem;padding:6px 10px;border-radius:6px;transition:background .2s}
-    nav ul li a:hover,nav ul li a.active{background:#007a67;color:#fff}
-    .page-wrapper{max-width:960px;margin:40px auto;padding:0 24px}
-    .page-header{background:linear-gradient(135deg,#00574b,#007a67);color:#fff;border-radius:12px;padding:36px 40px;margin-bottom:32px}
-    .page-header .tag{background:rgba(255,255,255,.2);color:#fff;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px}
-    .page-header h1{font-size:2.4rem;margin-bottom:12px}
-    .page-header p{font-size:1rem;color:#c8f0ea;max-width:760px}
-    .toc{background:#fff;border-left:5px solid #00574b;border-radius:8px;padding:20px 28px;margin-bottom:36px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-    .toc h2{font-size:1rem;text-transform:uppercase;letter-spacing:1px;color:#00574b;margin-bottom:12px}
-    .toc ol{padding-left:20px}
-    .toc ol li{margin-bottom:6px}
-    .toc ol li a{color:#007a67;text-decoration:none;font-size:.95rem}
-    .card{background:#fff;border-radius:12px;padding:30px 36px;margin-bottom:28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-    .card h2{font-size:1.45rem;color:#00574b;border-bottom:2px solid #e0f2ef;padding-bottom:10px;margin-bottom:18px}
-    .card h3{font-size:1.1rem;color:#005540;margin:18px 0 8px}
-    .card p{font-size:.97rem;margin-bottom:12px;color:#2c2c2c}
-    .card ul{padding-left:22px;margin-bottom:12px}
-    .card ul li{font-size:.95rem;margin-bottom:6px;color:#2c2c2c}
-    .card ul li ul{margin-top:4px;padding-left:20px}
-    .highlight{background:#e8f8f5;border-left:4px solid #00574b;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#1a3c34}
-    .highlight strong{color:#00574b}
-    .warning{background:#fff8e1;border-left:4px solid #f0ad00;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#4a3800}
-    .mnemonic{background:#f0e8ff;border-left:4px solid #7c4dff;border-radius:6px;padding:14px 18px;margin:14px 0;font-size:.94rem;color:#2d0070}
-    .mnemonic strong{color:#5c00d2}
-    .table-wrap{overflow-x:auto;margin:16px 0}
-    table{width:100%;border-collapse:collapse;font-size:.91rem}
-    table th{background:#00574b;color:#fff;padding:10px 14px;text-align:left}
-    table td{padding:10px 14px;border-bottom:1px solid #e0eeec;vertical-align:top}
-    table tr:nth-child(even) td{background:#f4faf9}
-    footer{text-align:center;color:#999;font-size:.82rem;padding:32px 0 20px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pancreas — FNP Board Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } :root { --lavender: #D7D9FB; --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --mid-green: #92B079; --white: #FFFFFF; --card-bg: rgba(255,255,255,0.75); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; } body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); } nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.15); position: sticky; top: 0; z-index: 100; padding: 0 2rem; } .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap; min-height: 58px; gap: 0.5rem; } .nav-brand { font-family: 'Barrio', fantasy; font-size: 1.4rem; color: var(--orange); text-decoration: none; margin-right: 1rem; } .nav-links { display: flex; flex-wrap: wrap; gap: 0.15rem; align-items: center; list-style: none; } .nav-links a { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--forest); text-decoration: none; padding: 0.35rem 0.65rem; border-radius: 20px; transition: all 0.2s; } .nav-links a:hover, .nav-links a.active { background: var(--orange); color: var(--white); } .page-hero { background: linear-gradient(120deg, rgba(215,217,251,0.8) 0%, rgba(243,245,231,0.8) 100%); border-bottom: 1px solid rgba(20,61,13,0.1); padding: 2.5rem 2rem 2rem; } .page-hero-inner { max-width: 1200px; margin: 0 auto; } .page-tag { font-family: 'Aboreto', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--forest); text-transform: uppercase; opacity: 0.6; margin-bottom: 0.4rem; } .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2.5rem,6vw,4.5rem); color: var(--orange); text-shadow: 3px 3px 0 rgba(115,78,147,0.3); line-height: 1; margin-bottom: 0.5rem; } .page-subtitle { font-family: 'Aboreto', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--forest); opacity: 0.7; } .layout { max-width: 1200px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 220px 1fr; gap: 2rem; } @media(max-width:768px){ .layout { grid-template-columns: 1fr; } .toc { display: none; } } .toc { position: sticky; top: 78px; align-self: start; background: var(--card-bg); border-radius: 16px; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 4px 16px rgba(20,61,13,0.07); } .toc-title { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--forest); text-transform: uppercase; margin-bottom: 0.8rem; opacity: 0.7; } .toc a { display: block; font-size: 0.76rem; color: var(--text-muted); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 8px; margin-bottom: 0.2rem; transition: all 0.2s; border-left: 2px solid transparent; } .toc a:hover { background: rgba(242,80,50,0.08); color: var(--orange); border-left-color: var(--orange); } .content { display: flex; flex-direction: column; gap: 1.5rem; } .card { background: var(--card-bg); border-radius: 20px; padding: 1.8rem; border: 1.5px solid rgba(255,255,255,0.9); box-shadow: 0 4px 20px rgba(20,61,13,0.07); } .card-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1.5px solid rgba(20,61,13,0.08); } .card-header-icon { font-size: 1.4rem; } .card-header h2 { font-family: 'Barrio', fantasy; font-size: 1.6rem; color: var(--orange); } .card p, .card li { font-size: 0.88rem; line-height: 1.75; color: var(--text); margin-bottom: 0.5rem; } .card ul, .card ol { padding-left: 1.4rem; margin-bottom: 0.8rem; } .card h3 { font-family: 'Aboreto', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--forest); text-transform: uppercase; margin: 1rem 0 0.5rem; opacity: 0.8; } .card strong { color: var(--forest); } .box { border-radius: 12px; padding: 1rem 1.2rem; margin: 0.8rem 0; font-size: 0.84rem; line-height: 1.7; } .box-clinical { background: rgba(210,228,199,0.5); border-left: 3px solid #6BA057; } .box-pearl { background: rgba(255,240,180,0.5); border-left: 3px solid #E8B400; } .box-mnemonic { background: rgba(210,190,230,0.4); border-left: 3px solid var(--purple); } .box-label { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; } .box-clinical .box-label { color: #3D6B2A; } .box-pearl .box-label { color: #8A6A00; } .box-mnemonic .box-label { color: var(--purple); } table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0.8rem 0; } th { background: var(--forest); color: var(--white); font-family: 'Aboreto', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; } td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(20,61,13,0.08); } tr:nth-child(even) td { background: rgba(210,228,199,0.25); } footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.55; border-top: 1px solid rgba(20,61,13,0.1); } ::-webkit-scrollbar { width: 7px; } ::-webkit-scrollbar-track { background: var(--cream); } ::-webkit-scrollbar-thumb { background: var(--mid-green); border-radius: 4px; }
+</style>
 </head>
 <body>
-<nav>
-  <span class="logo">&#128218; Med Study Guide</span>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="liver.html">Liver</a></li>
-    <li><a href="gallbladder.html">Gallbladder</a></li>
-    <li><a href="pancreas.html" class="active">Pancreas</a></li>
-    <li><a href="kidney.html">Kidney</a></li>
-  </ul>
-</nav>
-<div class="page-wrapper">
-  <div class="page-header">
-    <span class="tag">Anatomy &amp; Physiology</span>
-    <h1>Pancreas</h1>
-    <p>A retroperitoneal glandular organ with both exocrine (digestive enzymes) and endocrine (insulin, glucagon) functions, derived from the foregut endoderm.</p>
-  </div>
-  <div class="toc">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#gross">Gross Anatomy</a></li>
-      <li><a href="#micro">Microscopic Anatomy</a></li>
-      <li><a href="#exocrine">Exocrine Pancreas</a></li>
-      <li><a href="#endocrine">Endocrine Pancreas</a></li>
-      <li><a href="#embryology">Embryology</a></li>
-      <li><a href="#clinical">Clinical Significance</a></li>
-    </ol>
-  </div>
-  <div class="card" id="gross">
-    <h2>1. Gross Anatomy</h2>
-    <h3>Overview</h3>
-    <ul>
-      <li>Glandular organ; Length: 12-15 cm; Weight: ~80 g</li>
-      <li>Location: retroperitoneal, between duodenal curvature and splenic hilum at level L1/L2</li>
-      <li>Secondary retroperitoneal; caudal to omental bursa</li>
-    </ul>
-    <h3>Anatomical Subdivisions</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Part</th><th>Location</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>Head</td><td>Within C-shaped duodenal curvature</td><td>Contains pancreatic duct and distal CBD; uncinate process lies posterior to SMA</td></tr>
-          <tr><td>Neck</td><td>Anterior to portal vein</td><td>-</td></tr>
-          <tr><td>Body</td><td>Anterior to aorta</td><td>Extends to left kidney</td></tr>
-          <tr><td>Tail</td><td>Splenorenal ligament to splenic hilum</td><td>Distal segment is intraperitoneal</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <h3>Pancreatic Ducts</h3>
-    <ul>
-      <li>Duct of Wirsung (main): extends from tail to head; joins CBD to form ampulla of Vater; empties at major duodenal papilla</li>
-      <li>Sphincter of Oddi: controls bile and pancreatic fluid release into duodenum</li>
-      <li>Duct of Santorini (accessory): drains head and body; empties at minor duodenal papilla</li>
-    </ul>
-    <div class="highlight"><strong>Clinical:</strong> Pancreatic head tumors often obstruct the bile duct causing painless jaundice (Courvoisier sign). Gallstones blocking ampulla of Vater cause both pancreatitis and cholangitis (double duct sign).</div>
-    <h3>Vasculature</h3>
-    <ul>
-      <li>Head and neck arteries: superior pancreaticoduodenal (from gastroduodenal artery) and inferior pancreaticoduodenal (from SMA)</li>
-      <li>Body and tail arteries: branches of splenic artery (from celiac trunk)</li>
-      <li>Veins: pancreatic veins to SMV or splenic vein to portal vein</li>
-      <li>Lymphatics: celiac, SMA, and splenic lymph nodes to paraaortic nodes</li>
-      <li>Innervation: celiac ganglia (sympathetic T6-12; parasympathetic vagus nerve)</li>
-    </ul>
-  </div>
-  <div class="card" id="micro">
-    <h2>2. Microscopic Anatomy</h2>
-    <h3>Exocrine Compartment (more than 90% of pancreas)</h3>
-    <ul>
-      <li>Serous glandular tissue separated into lobules by collagenous septae</li>
-      <li>Pancreatic acini: secretory acinar cells surrounding a lumen; secrete proenzymes (e.g., trypsinogen) into intercalated ducts</li>
-      <li>Centroacinar cells: pale cells in center of acini; secrete bicarbonate into pancreatic fluid</li>
-      <li>EM appearance: basophilic rER at basal pole; eosinophilic zymogen granules at apical pole</li>
-    </ul>
-    <div class="highlight"><strong>Histology pearl:</strong> The exocrine pancreas resembles salivary glands but lacks myoepithelial cells and striated ducts. Centroacinar cells are unique to the pancreas.</div>
-    <h3>Endocrine Compartment - Islets of Langerhans</h3>
-    <ul>
-      <li>Alpha cells (periphery): glucagon</li>
-      <li>Beta cells (center/INSide): INSulin</li>
-      <li>Delta cells: somatostatin</li>
-      <li>Epsilon cells: ghrelin</li>
-      <li>PP cells: pancreatic polypeptide</li>
-    </ul>
-    <div class="mnemonic"><strong>Mnemonic:</strong> Beta cells are on the INSide of islets and produce INSulin.</div>
-    <div class="warning"><strong>Boards pearl:</strong> Most pancreatic malignancies are adenocarcinomas originating in the ductal epithelium.</div>
-  </div>
-  <div class="card" id="exocrine">
-    <h2>3. Exocrine Pancreas</h2>
-    <p>The pancreatic fluid is isotonic and contains digestive enzymes, bicarbonate, and electrolytes. Secreted as inactive proenzymes (zymogens) to prevent autodigestion.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Enzyme</th><th>Substrate</th><th>Activation</th></tr></thead>
-        <tbody>
-          <tr><td>Trypsin (from trypsinogen)</td><td>Proteins</td><td>Activated by enterokinase at brush border; activates other zymogens (positive feedback)</td></tr>
-          <tr><td>Chymotrypsin (from chymotrypsinogen)</td><td>Proteins</td><td>Activated by trypsin</td></tr>
-          <tr><td>Elastase</td><td>Elastin</td><td>Activated by trypsin</td></tr>
-          <tr><td>Carboxypeptidase</td><td>Proteins (C-terminus)</td><td>Activated by trypsin</td></tr>
-          <tr><td>Pancreatic amylase</td><td>Carbohydrates</td><td>Secreted in active form</td></tr>
-          <tr><td>Pancreatic lipase</td><td>Triglycerides</td><td>Active form</td></tr>
-          <tr><td>Phospholipase A</td><td>Phospholipids</td><td>Active form</td></tr>
-          <tr><td>Nucleases</td><td>RNA and DNA</td><td>Active form</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <h3>Regulation</h3>
-    <ul>
-      <li>Stimulation: CCK (from duodenum), Secretin (from duodenum)</li>
-      <li>Inhibition: Somatostatin</li>
-    </ul>
-    <div class="warning"><strong>Acute pancreatitis:</strong> Premature activation of pancreatic enzymes within ducts causes autodigestion. Serum lipase and amylase are elevated.<br><strong>Cystic fibrosis:</strong> Defective Cl- channel impairs water/electrolyte secretion, causing ductal obstruction and maldigestion/malabsorption.</div>
-  </div>
-  <div class="card" id="endocrine">
-    <h2>4. Endocrine Pancreas</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Cell</th><th>Hormone</th><th>Function</th><th>Stimulated by</th><th>Inhibited by</th></tr></thead>
-        <tbody>
-          <tr><td>Alpha</td><td>Glucagon</td><td>Gluconeogenesis, glycogenolysis, lipolysis, ketogenesis (catabolic)</td><td>Hypoglycemia</td><td>Hyperglycemia, insulin, somatostatin</td></tr>
-          <tr><td>Beta</td><td>Insulin</td><td>Glucose uptake in muscle/adipose, glycogenesis, lipid synthesis, protein synthesis (anabolic)</td><td>Hyperglycemia, beta2-agonists, incretins (GLP-1, GIP), amino acids, FFAs</td><td>Alpha2-agonists, epinephrine, cortisol, glucagon, somatostatin</td></tr>
-          <tr><td>Delta</td><td>Somatostatin</td><td>Inhibits insulin and glucagon; decreases GH, gastric acid, gallbladder contraction; splanchnic vasoconstriction</td><td>Gastric acid, vagus nerve</td><td>-</td></tr>
-          <tr><td>Epsilon</td><td>Ghrelin</td><td>Stimulates appetite; promotes GH release from pituitary</td><td>Fasting, sleep deprivation</td><td>Food intake</td></tr>
-          <tr><td>PP cells</td><td>Pancreatic polypeptide</td><td>Increases gastric acid; decreases exocrine secretions; promotes satiety</td><td>Fasting</td><td>Food intake</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <h3>Insulin Secretion Pathway</h3>
-    <ul>
-      <li>Glucose enters beta-cells via GLUT2</li>
-      <li>Glucokinase converts glucose to glucose-6-phosphate</li>
-      <li>Increased ATP (from glycolysis) closes ATP-sensitive K+ channels</li>
-      <li>Membrane depolarization opens voltage-gated Ca2+ channels</li>
-      <li>Ca2+ influx triggers insulin exocytosis</li>
-    </ul>
-    <h3>Insulin Synthesis</h3>
-    <ul>
-      <li>Insulin gene transcription and translation in rER of beta-cells produces preproinsulin</li>
-      <li>Signal peptide removed = proinsulin; transported to Golgi, packaged in granules</li>
-      <li>Proteases cleave proinsulin = mature insulin + C-peptide (secreted equimolarly)</li>
-    </ul>
-    <div class="highlight"><strong>C-peptide:</strong> Absent in exogenous insulin. Used to distinguish endogenous (insulinoma, sulfonylurea use) from exogenous hyperinsulinism.</div>
-    <div class="highlight"><strong>Oral vs IV glucose:</strong> Oral glucose stimulates MORE insulin release than IV due to incretin (GLP-1, GIP) secretion from the gut.</div>
-  </div>
-  <div class="card" id="embryology">
-    <h2>5. Embryology</h2>
-    <ul>
-      <li>Origin: endoderm of the foregut</li>
-      <li>Ventral pancreatic bud: forms main pancreatic duct, uncinate process, lower head</li>
-      <li>Dorsal pancreatic bud: forms rest of head, neck, body, tail, and accessory duct</li>
-      <li>Foregut rotation causes ventral bud to fuse with dorsal bud then secondary retroperitonealization</li>
-    </ul>
-    <h3>Congenital Anomalies</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Anomaly</th><th>Mechanism</th><th>Presentation</th></tr></thead>
-        <tbody>
-          <tr><td>Annular pancreas</td><td>Failure of ventral bud rotation - ring of pancreas around 2nd part of duodenum</td><td>Polyhydramnios; bilious or non-bilious vomiting; double bubble sign on X-ray; associated with Down syndrome</td></tr>
-          <tr><td>Pancreas divisum</td><td>Failure of ventral and dorsal buds to fuse by week 8 (most common congenital defect)</td><td>Usually asymptomatic; may cause chronic abdominal pain or pancreatitis</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="card" id="clinical">
-    <h2>6. Clinical Significance</h2>
-    <h3>Exocrine Disorders</h3>
-    <ul>
-      <li>Cystic fibrosis, Acute pancreatitis, Chronic pancreatitis</li>
-      <li>Pancreatic cancer (adenocarcinoma), Gallstone pancreatitis</li>
-      <li>Cholangitis, Mumps, Pancreatic pseudocyst</li>
-    </ul>
-    <h3>Endocrine Disorders</h3>
-    <ul>
-      <li>Diabetes mellitus (Type 1 and Type 2)</li>
-      <li>Pancreatic neuroendocrine tumors: Insulinoma, Gastrinoma (Zollinger-Ellison syndrome), Glucagonoma, Somatostatinoma, VIPoma</li>
-      <li>MEN 1 syndrome, Hemochromatosis</li>
-    </ul>
-    <h3>Embryological Anomalies</h3>
-    <ul>
-      <li>Annular pancreas, Pancreas divisum</li>
-    </ul>
-  </div>
+<nav><div class="nav-inner"><a class="nav-brand" href="index.html">🌿 FNP Prep</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="liver.html">Liver</a></li><li><a href="gallbladder.html">Gallbladder</a></li><li><a href="pancreas.html" class="active">Pancreas</a></li><li><a href="kidney.html">Kidney</a></li><li><a href="heart.html">Heart</a></li><li><a href="lungs.html">Lungs</a></li></ul></div></nav>
+<div class="page-hero"><div class="page-hero-inner"><div class="page-tag">Gastrointestinal System</div><h1 class="page-title">Pancreas</h1><div class="page-subtitle">Gross Anatomy · Exocrine · Endocrine · Islets · Embryology · Clinical</div></div></div>
+<div class="layout">
+<aside class="toc"><div class="toc-title">Contents</div><a href="#gross">Gross Anatomy</a><a href="#exocrine">Exocrine Function</a><a href="#endocrine">Endocrine</a><a href="#islets">Islets</a><a href="#embryo">Embryology</a><a href="#clinical">Clinical Pearls</a></aside>
+<div class="content">
+<div class="card" id="gross"><div class="card-header"><span class="card-header-icon">🔴</span><h2>Gross Anatomy</h2></div><p>Retroperitoneal mixed gland (~15 cm long) from duodenal C-loop to splenic hilum.</p><h3>Parts</h3><ul><li><strong>Head</strong> — in C-loop of duodenum; CBD passes through; uncinate process</li><li><strong>Neck</strong> — over SMA/SMV junction</li><li><strong>Body</strong> — crosses vertebral column</li><li><strong>Tail</strong> — touches splenic hilum; most mobile</li></ul><h3>Duct System</h3><ul><li><strong>Main duct (Wirsung)</strong> — joins CBD at ampulla of Vater; enters D2</li><li><strong>Accessory duct (Santorini)</strong> — drains head; opens at minor papilla</li></ul><table><tr><th>Region</th><th>Arterial Supply</th></tr><tr><td>Head</td><td>Superior/inferior pancreaticoduodenal aa.</td></tr><tr><td>Body/Tail</td><td>Splenic artery branches</td></tr></table><div class="box box-clinical"><div class="box-label">🩺 Clinical</div><p>Courvoisier sign: painless palpable GB + jaundice = pancreatic head cancer until proven otherwise.</p></div></div>
+<div class="card" id="exocrine"><div class="card-header"><span class="card-header-icon">⚗️</span><h2>Exocrine Function</h2></div><p>~98% of gland. Acinar cells produce enzymes; ductal cells secrete HCO3-rich fluid.</p><h3>Acinar Cell Products (as zymogens)</h3><ul><li>Trypsinogen, chymotrypsinogen, proelastase, procarboxypeptidase</li><li>Pancreatic lipase, phospholipase A2 (active form)</li><li>Amylase (active form; digests starch)</li></ul><p><strong>Activation:</strong> Enterokinase (duodenal brush border) activates trypsinogen → trypsin activates all others</p><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>GET SMASHED: <strong>G</strong>allstones, <strong>E</strong>thanol, <strong>T</strong>rauma, <strong>S</strong>teroids, <strong>M</strong>umps, <strong>A</strong>utoimmune, <strong>S</strong>corpion, <strong>H</strong>yperlipidemia/Hypercalcemia, <strong>E</strong>RCP, <strong>D</strong>rugs — causes of pancreatitis</p></div><p>Secretin (duodenal S-cells) → ductal HCO3- secretion. CCK (I-cells) → enzyme secretion.</p></div>
+<div class="card" id="endocrine"><div class="card-header"><span class="card-header-icon">🔬</span><h2>Endocrine Function</h2></div><p>Islets of Langerhans (~1-2% of gland; concentrated in tail). Hormones drain into portal circulation.</p><table><tr><th>Cell</th><th>% Islet</th><th>Hormone</th><th>Stimulus</th></tr><tr><td><strong>Beta (B)</strong></td><td>~65%; center</td><td>Insulin, C-peptide</td><td>High glucose, GLP-1</td></tr><tr><td><strong>Alpha (A)</strong></td><td>~20%; periphery</td><td>Glucagon</td><td>Low glucose, stress</td></tr><tr><td><strong>Delta (D)</strong></td><td>~10%</td><td>Somatostatin</td><td>High glucose/AA/fat</td></tr><tr><td>PP cells</td><td>~5%</td><td>Pancreatic polypeptide</td><td>Fasting, vagal</td></tr></table><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p>C-peptide distinguishes endogenous (HIGH) vs exogenous insulin (LOW). Insulinoma = high insulin + high C-peptide. Factitious hypoglycemia = high insulin + LOW C-peptide.</p></div><div class="box box-mnemonic"><div class="box-label">🧠 Mnemonic</div><p><strong>Islet layout outside-in: "DAB"</strong> — Delta, Alpha, Beta (center). Beta cells are in the center like a Bear in a cave.</p></div></div>
+<div class="card" id="embryo"><div class="card-header"><span class="card-header-icon">🧬</span><h2>Embryology</h2></div><p>Two endodermal buds from the foregut fuse at week 7:</p><ul><li><strong>Dorsal bud</strong> → body, tail, superior head (Santorini duct)</li><li><strong>Ventral bud</strong> (rotates with bile duct) → uncinate + inferior head (Wirsung duct)</li></ul><div class="box box-pearl"><div class="box-label">⭐ Boards Pearl</div><p><strong>Annular pancreas</strong>: ventral bud fails to rotate → ring around duodenum → double-bubble sign in neonates. <strong>Pancreas divisum</strong>: ducts fail to fuse → most common congenital pancreatic anomaly → chronic pancreatitis risk.</p></div></div>
+<div class="card" id="clinical"><div class="card-header"><span class="card-header-icon">🏥</span><h2>Clinical Pearls</h2></div><table><tr><th>Condition</th><th>Key Features</th><th>Lab Clue</th></tr><tr><td>Acute pancreatitis</td><td>Epigastric → back pain; Cullen/Grey Turner (severe)</td><td>↑↑Lipase (more specific), ↑Amylase</td></tr><tr><td>Chronic pancreatitis</td><td>Steatorrhea, DM, calcifications; alcohol/CF</td><td>↓Fecal elastase; ↑fecal fat</td></tr><tr><td>Pancreatic adenocarcinoma</td><td>Courvoisier sign; Virchow node; Trousseau</td><td>↑CA 19-9</td></tr><tr><td>Insulinoma</td><td>Whipple triad: hypoglycemia + neuro + glucose relief</td><td>↑Insulin, ↑C-peptide</td></tr><tr><td>Glucagonoma</td><td>Necrolytic migratory erythema, DM, weight loss</td><td>↑Glucagon</td></tr><tr><td>VIPoma</td><td>Watery Diarrhea, Hypokalemia, Achlorhydria</td><td>↑VIP</td></tr></table><div class="box box-clinical"><div class="box-label">🩺 Clinical</div><p>Acute pancreatitis: lipase is preferred over amylase (more sensitive/specific). Severe disease: Ranson criteria, BISAP score. Complications: pseudocyst, necrosis, abscess, ARDS.</p></div></div>
 </div>
-<footer><p>Study Guide - Based on AMBOSS Pancreas Article - For educational use only</p></footer>
+</div>
+<footer><p>FNP Board Exam Prep &#9673; Pancreas &#9673; Built for NP Students</p></footer>
 </body>
 </html>
