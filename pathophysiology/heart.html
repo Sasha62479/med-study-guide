@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Heart Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html" class="active-sub">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Cardiac Disease</h1>
+  <p>Heart failure, ACS (STEMI/NSTEMI/UA), arrhythmias &amp; valvular disease</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#hf">Heart Failure</a>
+  <a href="#acs">Acute Coronary Syndromes</a>
+  <a href="#arrhythmias">Arrhythmias</a>
+  <a href="#valvular">Valvular Disease</a>
+</aside>
+<div class="content">
+
+<section id="hf">
+<h2>Heart Failure</h2>
+<h3>HFrEF vs HFpEF</h3>
+<table>
+<tr><th>Feature</th><th>HFrEF (Systolic)</th><th>HFpEF (Diastolic)</th></tr>
+<tr><td>EF</td><td>&lt;40%</td><td>≥50% (HFmrEF 41–49%)</td></tr>
+<tr><td>Mechanism</td><td>Impaired contractility → reduced SV and CO</td><td>Impaired relaxation/compliance → elevated filling pressures despite normal EF</td></tr>
+<tr><td>Causes</td><td>Ischemia (CAD/MI), DCM, myocarditis, alcohol, chemotherapy (anthracyclines), viral</td><td>HTN (#1), obesity, DM, hypertrophic CMP, aging, AF</td></tr>
+<tr><td>Pathophysiology</td><td>Neurohormonal activation: RAAS, SNS → Na/H2O retention → volume overload; cardiac remodeling</td><td>Impaired lusitropy → elevated LVEDP → pulmonary congestion with normal systolic function</td></tr>
+<tr><td>Treatment</td><td>ACE-I/ARB or ARNi (sacubitril/valsartan), Beta-blocker (carvedilol, metoprolol succinate, bisoprolol), MRA (spironolactone), SGLT-2 inhibitor (dapagliflozin/empagliflozin) = GDMT</td><td>Diuretics for symptoms; SGLT-2 inhibitors (only proven mortality benefit); treat underlying HTN, AF, obesity; no ACE-I/beta-blocker survival benefit proven</td></tr>
+</table>
+<h3>NYHA Classification</h3>
+<table>
+<tr><th>Class</th><th>Symptoms</th></tr>
+<tr><td>I</td><td>No limitation; ordinary activity does not cause symptoms</td></tr>
+<tr><td>II</td><td>Slight limitation; comfortable at rest; ordinary activity causes symptoms</td></tr>
+<tr><td>III</td><td>Marked limitation; comfortable at rest; less than ordinary activity causes symptoms</td></tr>
+<tr><td>IV</td><td>Symptoms at rest; inability to carry on any activity without discomfort</td></tr>
+</table>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — HFrEF GDMT: ABCD</strong>ACE-I/ARB/ARNi · Beta-blocker · Cardiac device (ICD if EF &lt;35%) · Diuretics (symptom management) + SGLT-2 inhibitors</div>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>BNP/NT-proBNP: elevated in HF (BNP &gt;100 pg/mL or NT-proBNP &gt;300 pg/mL suggests HF; BNP &lt;100 pg/mL makes HF very unlikely). ICD indicated for EF ≤35% despite ≥3 months GDMT. CRT indicated for EF ≤35% + LBBB with QRS &gt;150ms. Furosemide is NOT a life-prolonging drug — treat for symptoms only.</div>
+</section>
+
+<section id="acs">
+<h2>Acute Coronary Syndromes</h2>
+<h3>Pathophysiology</h3>
+<p>ACS results from plaque rupture or erosion in a coronary artery → platelet aggregation and thrombus formation → partial or complete occlusion → myocardial ischemia/infarction. Plaque vulnerability depends on lipid core size, fibrous cap thickness, and inflammatory activity.</p>
+<h3>ACS Spectrum</h3>
+<table>
+<tr><th>Type</th><th>Occlusion</th><th>ECG</th><th>Troponin</th><th>Key Action</th></tr>
+<tr><td>Unstable Angina (UA)</td><td>Partial; no infarction</td><td>ST depression or T-wave changes (or normal)</td><td>Negative</td><td>Antiplatelet + anticoagulation; early cath</td></tr>
+<tr><td>NSTEMI</td><td>Partial; subendocardial infarction</td><td>ST depression, T-wave inversion (or normal)</td><td>Elevated</td><td>Same as UA + troponin elevated = NSTEMI</td></tr>
+<tr><td>STEMI</td><td>Complete transmural infarction</td><td>ST elevation ≥1mm in ≥2 contiguous leads (or LBBB)</td><td>Elevated</td><td>EMERGENT reperfusion: PCI within 90 min (door-to-balloon); fibrinolytics if PCI unavailable within 120 min</td></tr>
+</table>
+<h3>ECG Localization of MI</h3>
+<table>
+<tr><th>Territory</th><th>Leads</th><th>Artery</th></tr>
+<tr><td>Anterior</td><td>V1–V4</td><td>LAD</td></tr>
+<tr><td>Lateral</td><td>I, aVL, V5–V6</td><td>LCx</td></tr>
+<tr><td>Inferior</td><td>II, III, aVF</td><td>RCA (80%) or LCx (20%)</td></tr>
+<tr><td>Posterior</td><td>ST depression V1–V3 (reciprocal); tall R waves V1–V2</td><td>RCA or LCx</td></tr>
+<tr><td>RV infarct</td><td>ST elevation in V4R; occurs with inferior MI</td><td>Proximal RCA</td></tr>
+</table>
+<h3>Complications of MI</h3>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — MI Complications by Timeline: DREAD</strong>Day 1–2: Death (arrhythmia, VF) · Reperfusion arrhythmias · 2–5 days: Extension, Embolism · Days 3–5: Aneurysm, papillary muscle rupture (MR), free wall rupture, VSD · Days 5–10: Dressler syndrome (weeks later)</div>
+<div class="box-clinical"><strong>🏥 Post-MI Management (MONA + BATMAN)</strong>Morphine (pain, preload), Oxygen (if SaO2 &lt;90%), Nitrates (angina relief), Aspirin 325mg; then: Beta-blocker (reduce remodeling, arrhythmia), ACE-I (reduce remodeling, especially anterior MI), Thrombus management (anticoagulation), Aldosterone antagonist (EF &lt;40% + HF/DM), Statin (high-intensity: atorvastatin 80mg), New platelet inhibitor (clopidogrel or ticagrelor or prasugrel for 12 months).</div>
+</section>
+
+<section id="arrhythmias">
+<h2>Arrhythmias</h2>
+<table>
+<tr><th>Arrhythmia</th><th>Mechanism</th><th>ECG</th><th>Treatment</th></tr>
+<tr><td>Atrial Fibrillation</td><td>Chaotic atrial depolarizations from multiple re-entrant wavelets; most common sustained arrhythmia</td><td>Irregularly irregular, absent P waves, wavy baseline, narrow QRS</td><td>Rate control (beta-blocker, diltiazem, digoxin); rhythm control (amiodarone, flecainide, cardioversion); anticoagulation (CHA₂DS₂-VASc ≥2 men, ≥3 women)</td></tr>
+<tr><td>Atrial Flutter</td><td>Single re-entrant circuit in RA; atrial rate ~300 bpm</td><td>Sawtooth flutter waves (best in II, III, aVF); 2:1, 3:1, or 4:1 block; ventricular rate ~150 bpm (2:1)</td><td>Rate control; cardioversion; ablation (highly effective in flutter)</td></tr>
+<tr><td>SVT (AVNRT)</td><td>Re-entrant circuit within or near AV node; retrograde P waves buried in or just after QRS</td><td>Narrow QRS tachycardia ~150–250 bpm; P waves not visible or retrograde</td><td>Vagal maneuvers; adenosine (drug of choice); verapamil/diltiazem; ablation for recurrent</td></tr>
+<tr><td>Ventricular Tachycardia</td><td>Re-entrant circuit or automaticity in ventricle; associated with structural heart disease, ischemia, cardiomyopathy</td><td>Wide QRS (&gt;0.12s) tachycardia ≥3 beats; AV dissociation, fusion beats, capture beats</td><td>Stable: amiodarone, lidocaine; Unstable: synchronized cardioversion; Pulseless: defibrillation; ICD for recurrent sustained VT</td></tr>
+<tr><td>Ventricular Fibrillation</td><td>Completely chaotic ventricular depolarization; no effective cardiac output</td><td>Coarse or fine irregular waveforms; no organized QRS</td><td>Immediate defibrillation; ACLS; epinephrine, amiodarone</td></tr>
+<tr><td>Complete Heart Block (3rd°)</td><td>No conduction from atria to ventricles; independent atrial and ventricular rates</td><td>AV dissociation; atrial rate &gt; ventricular rate (junctional ~40–60, ventricular ~20–40 bpm)</td><td>Atropine (temporary); transcutaneous pacing; permanent pacemaker</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl — AF Anticoagulation</strong>CHA₂DS₂-VASc score: Congestive HF (1) · HTN (1) · Age ≥75 (2) · Diabetes (1) · Stroke/TIA history (2) · Vascular disease (1) · Age 65–74 (1) · Sex category female (1). Anticoagulate with score ≥2 (men) or ≥3 (women). DOACs preferred over warfarin. Hold anticoagulation if CrCl &lt;15 or on dialysis (check agent-specific thresholds).</div>
+</section>
+
+<section id="valvular">
+<h2>Valvular Disease</h2>
+<table>
+<tr><th>Lesion</th><th>Mechanism</th><th>Murmur</th><th>Key Features</th><th>Treatment</th></tr>
+<tr><td>Aortic Stenosis</td><td>Progressive calcification/fibrosis of aortic valve leaflets; congenital bicuspid aortic valve</td><td>Harsh crescendo-decrescendo systolic murmur at RUSB; radiates to neck; paradoxical splitting of S2</td><td>Triad: Angina, Syncope, CHF (SAD); EF may be preserved until late; AS = most common valvular disease in adults</td><td>Symptomatic: TAVR or surgical AVR; NO vasodilators (will cause decompensation)</td></tr>
+<tr><td>Aortic Regurgitation</td><td>Aortic root dilation (Marfan's, HTN, syphilitic aortitis) or valve disease (endocarditis, bicuspid, rheumatic)</td><td>Diastolic decrescendo blowing murmur at LUSB; Austin Flint murmur (apical rumble)</td><td>Wide pulse pressure; Corrigan's pulse (water-hammer); de Musset's sign; Quincke's pulses</td><td>Acute severe: emergency surgery. Chronic: surgery when EF &lt;55% or symptomatic; vasodilators (nifedipine, ACE-I)</td></tr>
+<tr><td>Mitral Stenosis</td><td>Rheumatic fever → leaflet thickening and fusion, commissural fusion, chordal shortening</td><td>Diastolic rumble at apex; opening snap; loud S1</td><td>LA enlargement → AF, emboli; pulmonary congestion; hemoptysis; opening snap moves closer to S2 as severity increases</td><td>Diuretics; rate control for AF; anticoagulation; percutaneous mitral balloon valvotomy (PMBV) or valve replacement</td></tr>
+<tr><td>Mitral Regurgitation</td><td>MVP (most common), ischemic papillary muscle rupture, rheumatic, endocarditis, dilated CMP</td><td>Holosystolic blowing murmur at apex; radiates to axilla; soft S1</td><td>LV volume overload → LV dilation; eccentric hypertrophy; LA enlargement → AF</td><td>Acute severe: emergency surgery. Chronic: surgery when EF &lt;60% or LVESD &gt;40mm; vasodilators; no proven benefit of medical therapy in chronic</td></tr>
+</table>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Murmur Locations</strong>RUSB (2nd R intercostal) = Aortic stenosis · LUSB = Aortic regurgitation, Pulmonary stenosis/regurgitation · LSB (3rd–4th intercostal) = VSD, HCM, TR · Apex = Mitral stenosis (diastolic), Mitral regurgitation (systolic)</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
