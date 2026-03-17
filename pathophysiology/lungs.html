@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lungs Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html" class="active-sub">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Pulmonary Disease</h1>
+  <p>Asthma, COPD, pneumonia, pulmonary embolism, pneumothorax &amp; ARDS</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#asthma">Asthma</a>
+  <a href="#copd">COPD</a>
+  <a href="#pneumonia">Pneumonia</a>
+  <a href="#pe">Pulmonary Embolism</a>
+  <a href="#pneumothorax">Pneumothorax</a>
+  <a href="#ards">ARDS</a>
+</aside>
+<div class="content">
+
+<section id="asthma">
+<h2>Asthma</h2>
+<h3>Pathophysiology</h3>
+<p>Asthma is a chronic inflammatory airway disease characterized by episodic, reversible airway obstruction, bronchial hyperresponsiveness, and airway remodeling. Key mechanism: Th2-mediated inflammation → mast cell degranulation (histamine, leukotrienes, prostaglandins) → bronchospasm, mucosal edema, increased mucus secretion. Chronic inflammation → subepithelial fibrosis, smooth muscle hypertrophy, goblet cell hyperplasia (remodeling).</p>
+<h3>Classification &amp; Step Therapy</h3>
+<table>
+<tr><th>Step</th><th>Severity</th><th>Controller Therapy</th><th>Reliever</th></tr>
+<tr><td>1</td><td>Intermittent (&lt;2d/week symptoms, &lt;2 nights/month)</td><td>None (PRN SABA)</td><td>SABA (albuterol)</td></tr>
+<tr><td>2</td><td>Mild persistent</td><td>Low-dose ICS</td><td>SABA PRN</td></tr>
+<tr><td>3</td><td>Moderate persistent</td><td>Low-dose ICS + LABA or medium ICS</td><td>SABA PRN</td></tr>
+<tr><td>4</td><td>Severe persistent</td><td>Medium-high dose ICS + LABA</td><td>SABA PRN</td></tr>
+<tr><td>5</td><td>Very severe</td><td>High-dose ICS + LABA + tiotropium or biologic (omalizumab, mepolizumab)</td><td>SABA PRN</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>PFTs in asthma: obstructive pattern (FEV1/FVC &lt;0.70); FEV1 improves &gt;12% and 200 mL post-bronchodilator = reversible obstruction. Methacholine challenge if spirometry normal but asthma suspected. Status asthmaticus: severe exacerbation not responding to bronchodilators; treat with IV magnesium sulfate, systemic steroids, heliox; avoid intubation if possible (high risk); intubate with permissive hypercapnia.</div>
+</section>
+
+<section id="copd">
+<h2>COPD</h2>
+<h3>Pathophysiology</h3>
+<p>COPD is a progressive, largely irreversible airflow limitation caused by airway and/or alveolar damage from noxious particles or gases (smoking #1, alpha-1 antitrypsin deficiency). Two main phenotypes: Chronic bronchitis (productive cough ≥3 months/year for ≥2 consecutive years; mucus hypersecretion, airway inflammation) and Emphysema (destruction of alveolar walls → loss of elastic recoil → air trapping → hyperinflation).</p>
+<h3>Emphysema vs. Chronic Bronchitis</h3>
+<table>
+<tr><th>Feature</th><th>Emphysema ("Pink Puffer")</th><th>Chronic Bronchitis ("Blue Bloater")</th></tr>
+<tr><td>Body type</td><td>Thin, barrel chest</td><td>Overweight, cyanotic</td></tr>
+<tr><td>Cough</td><td>Minimal, non-productive</td><td>Chronic productive cough</td></tr>
+<tr><td>SpO2</td><td>Near normal (pursed-lip breathing compensates)</td><td>Low (chronic hypoxemia/hypercapnia)</td></tr>
+<tr><td>PFTs</td><td>Low DLCO (alveolar destruction), TLC increased</td><td>Normal or slightly decreased DLCO</td></tr>
+<tr><td>CXR</td><td>Hyperinflation, flat diaphragms, bullae</td><td>Increased bronchovascular markings ("dirty chest")</td></tr>
+</table>
+<h3>GOLD Staging (Spirometry-Based)</h3>
+<table>
+<tr><th>GOLD Grade</th><th>FEV1 (% predicted)</th><th>Severity</th></tr>
+<tr><td>1</td><td>≥80%</td><td>Mild</td></tr>
+<tr><td>2</td><td>50–79%</td><td>Moderate</td></tr>
+<tr><td>3</td><td>30–49%</td><td>Severe</td></tr>
+<tr><td>4</td><td>&lt;30%</td><td>Very severe</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 COPD Management</strong>Smoking cessation (#1 intervention to slow progression). Bronchodilators: SABA (albuterol) PRN → LAMA (tiotropium) or LABA → LAMA + LABA → add ICS. Phosphodiesterase-4 inhibitor (roflumilast) for frequent exacerbators with chronic bronchitis. Supplemental O2 if SaO2 ≤88% at rest (only intervention improving mortality). Pulmonary rehab. Vaccinate (influenza, pneumococcal, COVID-19). COPD exacerbation: nebulized bronchodilators, systemic steroids (5-day prednisone), antibiotics if purulent sputum (azithromycin, doxycycline, amoxicillin-clavulanate). Avoid high-flow O2 (hypoxic drive).</div>
+</section>
+
+<section id="pneumonia">
+<h2>Pneumonia</h2>
+<table>
+<tr><th>Type</th><th>Common Pathogens</th><th>Clinical Features</th><th>Treatment</th></tr>
+<tr><td>CAP (typical)</td><td>S. pneumoniae (#1), H. influenzae, Moraxella catarrhalis</td><td>Acute onset, productive cough, lobar consolidation, pleuritic chest pain, fever</td><td>Outpatient: amoxicillin or doxycycline; Inpatient: beta-lactam + macrolide or respiratory fluoroquinolone</td></tr>
+<tr><td>CAP (atypical)</td><td>Mycoplasma pneumoniae (#1 in young adults), Chlamydophila pneumoniae, Legionella</td><td>Gradual onset, dry cough, headache, myalgias; "walking pneumonia"</td><td>Doxycycline or macrolide; respiratory FQ for Legionella</td></tr>
+<tr><td>HAP/VAP</td><td>P. aeruginosa, MRSA, Klebsiella, Enterobacter, Acinetobacter</td><td>Onset ≥48h after hospitalization; fever, leukocytosis, purulent sputum, new infiltrate</td><td>Anti-pseudomonal beta-lactam ± MRSA coverage (vancomycin/linezolid)</td></tr>
+<tr><td>Aspiration</td><td>Mixed oral flora (anaerobes); RLL or RML typically</td><td>Risk factors: altered consciousness, dysphagia, GERD; putrid sputum, lower lobe infiltrate</td><td>Amoxicillin-clavulanate or clindamycin; treat any abscess</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl — Pneumonia Severity</strong>CURB-65 (outpatient vs. inpatient): Confusion, Urea &gt;20mg/dL (BUN &gt;19), RR ≥30, BP &lt;90 systolic or ≤60 diastolic, Age ≥65. Score 0–1: outpatient; 2: inpatient; ≥3: ICU consideration. PSI/PORT score is more complex but more predictive. "Silver-staining organism" seen with Pneumocystis jirovecii (PCP) in immunocompromised patients (HIV, CD4 &lt;200).</div>
+</section>
+
+<section id="pe">
+<h2>Pulmonary Embolism</h2>
+<h3>Pathophysiology</h3>
+<p>PE occurs when a thrombus (usually from DVT in proximal leg veins) embolizes to the pulmonary vasculature. Virchow's Triad: venous stasis + hypercoagulability + endothelial injury. Massive PE → acute right ventricular failure (RV afterload overload → RV dilation, interventricular septal shift → reduced LV preload → hemodynamic collapse).</p>
+<h3>Clinical Presentation &amp; Wells Score</h3>
+<table>
+<tr><th>Wells Criteria</th><th>Points</th></tr>
+<tr><td>Clinical signs of DVT</td><td>3</td></tr>
+<tr><td>Alternative diagnosis less likely than PE</td><td>3</td></tr>
+<tr><td>HR &gt;100 bpm</td><td>1.5</td></tr>
+<tr><td>Immobilization or surgery within 4 weeks</td><td>1.5</td></tr>
+<tr><td>Prior DVT/PE</td><td>1.5</td></tr>
+<tr><td>Hemoptysis</td><td>1</td></tr>
+<tr><td>Malignancy</td><td>1</td></tr>
+</table>
+<p style="font-size:0.85rem;color:#666;margin-top:0.4rem;">Score &lt;2: low probability. 2–6: moderate. &gt;6: high. Low/moderate → D-dimer (if negative, PE excluded). High probability or positive D-dimer → CT pulmonary angiography (gold standard).</p>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — ECG in PE: S1Q3T3</strong>S wave in lead I · Q wave in lead III · T-wave inversion in lead III. Most common ECG findings: sinus tachycardia, right heart strain (RAD, RBB, RBBB, T inversion V1–V4). Normal ECG in PE does not exclude the diagnosis.</div>
+<div class="box-clinical"><strong>🏥 Treatment</strong>Hemodynamically stable: anticoagulation (LMWH, UFH, or DOAC — rivaroxaban or apixaban preferred). Hemodynamically unstable (massive PE): systemic thrombolytics (tPA) or surgical/catheter-directed embolectomy. Long-term anticoagulation: 3 months if provoked; indefinite if unprovoked or hypercoagulable state. IVC filter only if anticoagulation absolutely contraindicated.</div>
+</section>
+
+<section id="pneumothorax">
+<h2>Pneumothorax</h2>
+<table>
+<tr><th>Type</th><th>Mechanism</th><th>Patient</th><th>Treatment</th></tr>
+<tr><td>Spontaneous (primary)</td><td>Rupture of apical blebs; no underlying lung disease</td><td>Tall, thin young males; smokers</td><td>Small (&lt;2cm): observation; Large or symptomatic: needle aspiration or chest tube</td></tr>
+<tr><td>Spontaneous (secondary)</td><td>Underlying lung disease (COPD, asthma, CF, PCP, TB)</td><td>Older, diseased lungs</td><td>Chest tube; treat underlying disease</td></tr>
+<tr><td>Tension pneumothorax</td><td>One-way valve → air accumulates under pressure → mediastinal shift → cardiovascular collapse</td><td>Any; trauma, mechanically ventilated patients</td><td>EMERGENCY: immediate needle decompression (2nd ICS, MCL) → chest tube</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl — Tension PTX</strong>Tension PTX is a clinical diagnosis — DO NOT wait for imaging. Signs: respiratory distress, absent breath sounds ipsilateral, tracheal deviation away, hypotension, JVD. Treat immediately with large-bore needle at 2nd intercostal space, midclavicular line, followed by chest tube (5th ICS, anterior axillary line).</div>
+</section>
+
+<section id="ards">
+<h2>Acute Respiratory Distress Syndrome (ARDS)</h2>
+<h3>Berlin Definition Criteria</h3>
+<ul>
+<li>Acute onset (within 1 week of known insult)</li>
+<li>Bilateral opacities on CXR not fully explained by effusion, atelectasis, or nodules</li>
+<li>Not fully explained by cardiac failure or fluid overload</li>
+<li>PaO2/FiO2 ratio: Mild 201–300; Moderate 101–200; Severe ≤100 (all with PEEP ≥5 cmH2O)</li>
+</ul>
+<h3>Pathophysiology</h3>
+<p>Diffuse alveolar damage (DAD): direct (pneumonia, aspiration, inhalation) or indirect (sepsis, trauma, pancreatitis, transfusion/TRALI) insult → neutrophil activation → endothelial and epithelial injury → protein-rich edema → hyaline membranes → impaired gas exchange → refractory hypoxemia.</p>
+<div class="box-clinical"><strong>🏥 Management — ARDSnet Protocol</strong>Low tidal volume ventilation: 6 mL/kg ideal body weight (lung-protective: prevents ventilator-induced lung injury). Plateau pressure ≤30 cmH2O. Permissive hypercapnia (allow pH 7.2–7.45). PEEP to optimize oxygenation. Prone positioning &gt;16 hours/day (reduces mortality in severe ARDS — PaO2/FiO2 &lt;150). Conservative fluid strategy (avoid excess fluids). Neuromuscular blockade (cisatracurium) for severe ARDS. Corticosteroids: methylprednisolone reduces duration of mechanical ventilation. Prone positioning reduces 28-day mortality by 16% in severe ARDS (PROSEVA trial).</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
