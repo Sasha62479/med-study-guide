@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neuro Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html" class="active-sub">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Neurological Disease</h1>
+  <p>Stroke, TIA, seizures, meningitis, Parkinson's, Alzheimer's &amp; multiple sclerosis</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#stroke">Stroke &amp; TIA</a>
+  <a href="#seizures">Seizures &amp; Epilepsy</a>
+  <a href="#meningitis">Meningitis</a>
+  <a href="#parkinsons">Parkinson's Disease</a>
+  <a href="#alzheimers">Alzheimer's Disease</a>
+  <a href="#ms">Multiple Sclerosis</a>
+</aside>
+<div class="content">
+
+<section id="stroke">
+<h2>Stroke &amp; TIA</h2>
+<h3>Ischemic Stroke</h3>
+<p>Ischemic stroke (~87%) results from cerebral arterial occlusion causing neuronal death from lack of oxygen and glucose. Mechanisms: cardioembolic (AF, endocarditis, LV thrombus — 20%), large vessel atherothrombosis (25%), small vessel (lacunar — 25%), cryptogenic (30%). Ischemic penumbra = surrounding tissue that is electrically silent but metabolically salvageable — target for reperfusion.</p>
+<h3>Hemorrhagic Stroke</h3>
+<p>ICH (~13%): HTN (deep structures — putamen, thalamus, pons, cerebellum), amyloid angiopathy (lobar bleeds in elderly), anticoagulation, arteriovenous malformation. SAH: rupture of saccular (berry) aneurysm (most common); "worst headache of my life"; blood in subarachnoid space; xanthochromia on LP.</p>
+<h3>Time-Sensitive Criteria</h3>
+<table>
+<tr><th>Intervention</th><th>Window</th><th>Criteria</th></tr>
+<tr><td>IV tPA (alteplase)</td><td>0–4.5 hours from symptom onset</td><td>NIHSS-based; BP &lt;185/110 before administration; no hemorrhage on CT; many exclusion criteria</td></tr>
+<tr><td>Mechanical thrombectomy</td><td>0–24 hours (selected patients up to 24h)</td><td>Large vessel occlusion (ICA, MCA-M1); NIHSS ≥6; salvageable penumbra on imaging</td></tr>
+</table>
+<h3>TIA</h3>
+<p>Transient Ischemic Attack = focal neurological deficit lasting &lt;24 hours (usually &lt;1 hour) without infarction on DWI MRI. ABCD2 score predicts 2-day stroke risk. All TIAs should be urgently evaluated (treat as minor stroke — start antiplatelet, statin, BP control, work up embolic sources).</p>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Stroke FAST + 2</strong>Face drooping · Arm weakness · Speech difficulty · Time to call 911 + Balance problems · Eyes (vision changes)</div>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>tPA is absolutely contraindicated with: hemorrhage, BP &gt;185/110 uncontrolled, prior stroke or head trauma within 3 months, INR &gt;1.7, platelet &lt;100K, blood glucose &lt;50 or &gt;400. Posterior circulation (basilar) strokes: vertigo, diplopia, ataxia, dysphagia, crossed signs. "Locked-in" syndrome = basilar artery occlusion → quadriplegia + aphonia, preserved consciousness and vertical gaze.</div>
+</section>
+
+<section id="seizures">
+<h2>Seizures &amp; Epilepsy</h2>
+<table>
+<tr><th>Type</th><th>Features</th><th>EEG Pattern</th><th>First-Line Treatment</th></tr>
+<tr><td>Focal aware (simple partial)</td><td>Motor, sensory, autonomic, or psychic symptoms; no LOC; Jacksonian march (motor spread)</td><td>Focal spike/sharp waves</td><td>Carbamazepine, oxcarbazepine, lamotrigine</td></tr>
+<tr><td>Focal unaware (complex partial)</td><td>Impaired consciousness; automatisms (lip smacking, hand gesturing); temporal lobe most common (temporal lobe epilepsy)</td><td>Focal temporal slowing</td><td>Carbamazepine, levetiracetam, lamotrigine</td></tr>
+<tr><td>Generalized tonic-clonic</td><td>Bilateral convulsion; LOC; postictal confusion; incontinence; Todd's paralysis post-ictally</td><td>Generalized spike-and-wave</td><td>Valproate, lamotrigine, levetiracetam</td></tr>
+<tr><td>Absence (petit mal)</td><td>Brief (5–30 sec) staring spells; abrupt onset/offset; no postictal phase; children 4–12</td><td>3 Hz spike-and-wave (pathognomonic)</td><td>Ethosuximide (absence only); valproate (+ other types)</td></tr>
+<tr><td>Myoclonic</td><td>Brief muscle jerks; usually morning after waking; juvenile myoclonic epilepsy (JME) in teens/young adults</td><td>Polyspike-and-wave</td><td>Valproate, levetiracetam; avoid carbamazepine (worsens myoclonic)</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Status Epilepticus</strong>Seizure lasting &gt;5 minutes or ≥2 seizures without return to baseline. Emergency: ABC, IV access, glucose check. Benzodiazepine (lorazepam 4mg IV or diazepam 10mg IM/IN first line). If no response (5 min): IV levetiracetam, fosphenytoin, or valproate. Refractory (no response after 2nd agent): intubation, propofol, midazolam infusion, or phenobarbital. New-onset seizure in adult: MRI brain, EEG, LP if fever or immunocompromised, metabolic workup.</div>
+</section>
+
+<section id="meningitis">
+<h2>Meningitis</h2>
+<table>
+<tr><th>Feature</th><th>Bacterial</th><th>Viral (Aseptic)</th><th>Fungal</th></tr>
+<tr><td>Classic triad</td><td>Fever + headache + nuchal rigidity (+ altered mental status)</td><td>Fever + headache + nuchal rigidity (milder)</td><td>Subacute onset; immunocompromised</td></tr>
+<tr><td>CSF appearance</td><td>Cloudy/turbid</td><td>Clear</td><td>Clear</td></tr>
+<tr><td>WBC</td><td>&gt;1000 PMNs (neutrophilic)</td><td>100–1000 (lymphocytic)</td><td>Lymphocytic</td></tr>
+<tr><td>Glucose</td><td>Very low (&lt;40 mg/dL)</td><td>Normal or slightly low</td><td>Low</td></tr>
+<tr><td>Protein</td><td>Elevated (&gt;200 mg/dL)</td><td>Mildly elevated</td><td>Elevated</td></tr>
+<tr><td>Common organisms</td><td>S. pneumoniae, N. meningitidis (young adults), Listeria (elderly/immunocompromised), GBS + E. coli (neonates)</td><td>Enteroviruses (most common), HSV-2, mumps</td><td>Cryptococcus neoformans (HIV, CD4 &lt;100)</td></tr>
+<tr><td>Treatment</td><td>Empiric: ceftriaxone + vancomycin + dexamethasone (↓ complications); add ampicillin for Listeria (age &gt;50, immunocompromised)</td><td>Supportive; acyclovir for HSV</td><td>Amphotericin B + flucytosine → fluconazole maintenance</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>DO NOT delay antibiotics for LP if signs of increased ICP (papilledema, focal deficits, altered consciousness) → get CT first, then LP, but give antibiotics IMMEDIATELY (don't wait for CT or LP results — each hour of delay increases mortality). Kernig's sign: resistance to knee extension when hip flexed. Brudzinski's sign: flexion of knees/hips when neck flexed. Meningococcal meningitis: petechial/purpuric rash, waterhouse-friderichsen syndrome (adrenal hemorrhage).</div>
+</section>
+
+<section id="parkinsons">
+<h2>Parkinson's Disease</h2>
+<h3>Pathophysiology</h3>
+<p>Loss of dopaminergic neurons in the substantia nigra pars compacta → reduced striatal dopamine → loss of basal ganglia modulation of voluntary movement. Lewy bodies (aggregates of alpha-synuclein) are pathological hallmark. Idiopathic PD is most common; secondary parkinsonism: antipsychotics (dopamine blockers), MPTP, manganese, striatonigral degeneration (MSA).</p>
+<h3>Cardinal Motor Features: TRAP</h3>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — TRAP</strong>Tremor (resting, "pill-rolling," 4–6 Hz, improves with intentional movement) · Rigidity (cogwheel or lead-pipe; throughout range of motion) · Akinesia/Bradykinesia (slowness, reduced arm swing, shuffling gait, micrographia, masked facies) · Postural instability (loss of righting reflexes; late feature; major cause of falls)</div>
+<h3>Non-Motor Features</h3>
+<ul>
+<li>Constipation, anosmia (may precede motor symptoms by years)</li>
+<li>REM sleep behavior disorder (acts out dreams)</li>
+<li>Depression, anxiety (up to 50%)</li>
+<li>Orthostatic hypotension (autonomic dysfunction)</li>
+<li>Dementia (20–30% develop Parkinson's disease dementia)</li>
+</ul>
+<div class="box-clinical"><strong>🏥 Treatment</strong>Levodopa/carbidopa (L-DOPA): most effective. Carbidopa prevents peripheral conversion, reducing side effects. Long-term: wearing-off, on-off fluctuations, dyskinesias (peak-dose). Add dopamine agonists (pramipexole, ropinirole, rotigotine) as adjunct or initial therapy in young patients. MAO-B inhibitors (selegiline, rasagiline) provide modest benefit. Amantadine for dyskinesias. Deep brain stimulation (DBS) of subthalamic nucleus for medication-refractory motor fluctuations.</div>
+</section>
+
+<section id="alzheimers">
+<h2>Alzheimer's Disease</h2>
+<h3>Pathophysiology</h3>
+<p>Most common dementia (60–80% of cases). Characterized by amyloid plaques (extracellular beta-amyloid Abeta-42 aggregation) and neurofibrillary tangles (intracellular hyperphosphorylated tau protein). Amyloid cascade hypothesis: amyloid deposition is primary driver; triggers tau pathology, neuroinflammation, synaptic loss, and neurodegeneration. Cholinergic hypothesis: loss of cholinergic neurons in nucleus basalis of Meynert → impaired ACh-mediated memory consolidation.</p>
+<h3>Clinical Stages &amp; Features</h3>
+<table>
+<tr><th>Stage</th><th>Features</th></tr>
+<tr><td>MCI (preclinical/mild)</td><td>Memory complaints beyond normal aging; preserved ADLs; hippocampal atrophy on MRI</td></tr>
+<tr><td>Mild AD</td><td>Episodic memory loss (short-term worse than long-term); getting lost; word-finding difficulty; MMSE 20–26</td></tr>
+<tr><td>Moderate AD</td><td>Needs help with ADLs; behavioral symptoms (agitation, wandering, delusions, sundowning); MMSE 10–20</td></tr>
+<tr><td>Severe AD</td><td>Fully dependent; loss of speech, incontinence, inability to walk/swallow; MMSE &lt;10</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Cholinesterase inhibitors (donepezil, rivastigmine, galantamine): symptom management in mild-moderate AD; no disease modification. Memantine (NMDA antagonist): add in moderate-severe AD. Lecanemab and donanemab (anti-amyloid antibodies): first disease-modifying therapies approved (2023); modest benefit in early AD; risk of ARIA (amyloid-related imaging abnormalities). Screen with MMSE/MoCA. Work up reversible causes of dementia: hypothyroidism, B12 deficiency, NPH (wet/wacky/wobbly), neurosyphilis, HIV, structural lesions.</div>
+</section>
+
+<section id="ms">
+<h2>Multiple Sclerosis</h2>
+<h3>Pathophysiology</h3>
+<p>Autoimmune demyelinating disease of the CNS. T-cell mediated attack on myelin and oligodendrocytes → plaques (areas of demyelination and axonal damage) in white matter. Common locations: periventricular white matter, corpus callosum (Dawson's fingers on MRI), brainstem, spinal cord, optic nerves. Onset typically age 20–40; female:male 3:1; more common in northern latitudes.</p>
+<h3>Clinical Presentations</h3>
+<table>
+<tr><th>Syndrome</th><th>Features</th><th>Lesion Location</th></tr>
+<tr><td>Optic neuritis</td><td>Painful unilateral vision loss, dyschromatopsia, Marcus Gunn pupil (RAPD)</td><td>Optic nerve</td></tr>
+<tr><td>Internuclear ophthalmoplegia</td><td>Impaired adduction of one eye with nystagmus of abducting eye; preserved convergence</td><td>MLF (medial longitudinal fasciculus)</td></tr>
+<tr><td>Lhermitte's sign</td><td>Electric shock sensation down spine with neck flexion</td><td>Cervical spinal cord</td></tr>
+<tr><td>Uhthoff's phenomenon</td><td>Worsening symptoms with heat/exercise (action potential failure in demyelinated axons)</td><td>Any demyelinated tract</td></tr>
+<tr><td>Transverse myelitis</td><td>Paraparesis, sensory level, sphincter dysfunction</td><td>Spinal cord</td></tr>
+</table>
+<h3>MS Types &amp; Treatment</h3>
+<table>
+<tr><th>Type</th><th>Course</th><th>DMT Examples</th></tr>
+<tr><td>RRMS (85%)</td><td>Relapsing-remitting; most common; complete or incomplete recovery between attacks</td><td>IFN-beta, glatiramer acetate, natalizumab, ocrelizumab, alemtuzumab</td></tr>
+<tr><td>PPMS</td><td>Progressive from onset; no relapses; older age; ocrelizumab is only FDA-approved DMT</td><td>Ocrelizumab (anti-CD20)</td></tr>
+<tr><td>SPMS</td><td>Follows RRMS; progressive accumulation of disability; siponimod, cladribine</td><td>Siponimod, cladribine</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Acute Relapse Treatment</strong>High-dose IV methylprednisolone (1g/day × 3–5 days) accelerates recovery but does not change long-term disability. MRI: McDonald criteria for diagnosis — dissemination in space (DIS) and time (DIT). Oligoclonal bands in CSF (IgG) in &gt;90%. CSF: mildly elevated protein, lymphocytic pleocytosis. Bladder dysfunction: oxybutynin, clean intermittent catheterization. Spasticity: baclofen, tizanidine, cannabis-based therapy.</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
