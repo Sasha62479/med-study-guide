@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pancreas Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html" class="active-sub">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Pancreatic Disease</h1>
+  <p>Acute &amp; chronic pancreatitis, diabetes mellitus types 1 &amp; 2, and pancreatic cancer</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#acute-pancreatitis">Acute Pancreatitis</a>
+  <a href="#chronic-pancreatitis">Chronic Pancreatitis</a>
+  <a href="#dm1">Diabetes Mellitus Type 1</a>
+  <a href="#dm2">Diabetes Mellitus Type 2</a>
+  <a href="#pancreatic-cancer">Pancreatic Cancer</a>
+</aside>
+<div class="content">
+
+<section id="acute-pancreatitis">
+<h2>Acute Pancreatitis</h2>
+<h3>Pathophysiology</h3>
+<p>Acute pancreatitis results from premature activation of pancreatic proteases (particularly trypsinogen → trypsin) within the pancreas, causing autodigestion. Trypsin activates other zymogens (elastase, phospholipase A2, chymotrypsin), leading to acinar cell necrosis, inflammatory cascade (IL-1, IL-6, TNF-α), and systemic inflammatory response.</p>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Causes: GET SMASH'D</strong>Gallstones (most common, 40%) · Ethanol (35%) · Trauma · Steroids · Mumps/viral · Autoimmune · Scorpion sting · Hyperlipidemia/Hypercalcemia · ERCP · Drugs (azathioprine, furosemide, sulfa, valproate)</div>
+<h3>Diagnosis (Revised Atlanta Criteria)</h3>
+<p>Diagnosis requires 2 of 3: (1) Characteristic abdominal pain (epigastric, radiating to back, severe, constant); (2) Serum lipase or amylase ≥3× ULN; (3) Characteristic CT findings. Lipase is more specific than amylase (remains elevated longer).</p>
+<h3>Severity Assessment — Ranson's Criteria</h3>
+<table>
+<tr><th>At Admission</th><th>At 48 Hours</th></tr>
+<tr><td>Age &gt;55</td><td>Hct drop &gt;10%</td></tr>
+<tr><td>WBC &gt;16,000</td><td>BUN rise &gt;5 mg/dL</td></tr>
+<tr><td>Glucose &gt;200 mg/dL</td><td>Ca &lt;8 mg/dL</td></tr>
+<tr><td>LDH &gt;350 IU/L</td><td>PO2 &lt;60 mmHg</td></tr>
+<tr><td>AST &gt;250 IU/L</td><td>Base deficit &gt;4 mEq/L</td></tr>
+<tr><td>—</td><td>Fluid sequestration &gt;6L</td></tr>
+</table>
+<p style="font-size:0.85rem;color:#666;margin-top:0.4rem;">Score 0–2: mild (&lt;5% mortality); 3–4: moderate (15%); 5–6: severe (40%); &gt;6: &gt;99% mortality</p>
+<h3>Complications</h3>
+<ul>
+<li><strong>Local:</strong> Pancreatic necrosis (sterile vs. infected), pseudocyst (4+ weeks), abscess, walled-off necrosis</li>
+<li><strong>Systemic:</strong> ARDS, acute kidney injury, shock, GI bleeding, hypocalcemia (saponification), DIC</li>
+</ul>
+<div class="box-clinical"><strong>🏥 Management</strong>Aggressive IV hydration (lactated Ringer's preferred; 250–500 mL/hr initially). NPO → advance diet as tolerated (early enteral nutrition via NG/NJ tube preferred over TPN). Analgesia (opioids). Treat etiology (ERCP for gallstone pancreatitis with cholangitis). Antibiotics ONLY for confirmed infected necrosis (not prophylactically).</div>
+</section>
+
+<section id="chronic-pancreatitis">
+<h2>Chronic Pancreatitis</h2>
+<h3>Pathophysiology</h3>
+<p>Repeated episodes of acute pancreatitis or chronic ductal hypertension → progressive parenchymal fibrosis → loss of exocrine (acinar cells) and endocrine (islet cells) function. Most common cause in adults: alcohol abuse (70%). Other causes: hereditary (PRSS1 mutation), autoimmune, idiopathic, tropical, obstructive (stricture, tumor).</p>
+<h3>Clinical Features</h3>
+<ul>
+<li><strong>Recurrent epigastric pain:</strong> chronic, often radiates to back; worse after eating</li>
+<li><strong>Exocrine insufficiency:</strong> steatorrhea (malabsorption of fat, fat-soluble vitamins A, D, E, K), weight loss — occurs when &gt;90% of exocrine function lost</li>
+<li><strong>Endocrine insufficiency:</strong> type 3c diabetes mellitus (pancreatogenic); brittle, hypoglycemia-prone</li>
+<li><strong>Imaging:</strong> CT shows calcifications (pathognomonic), ductal dilation, atrophy</li>
+</ul>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Calcifications on CT/X-ray = chronic pancreatitis. Secretin-stimulated MRCP or EUS are most sensitive early tests. Treat exocrine insufficiency with pancreatic enzyme replacement (lipase &gt;40,000–50,000 units per meal with fatty meals). Pain management: analgesic ladder → celiac plexus block → surgery (Whipple or lateral pancreatojejunostomy). Screen for pancreatic cancer.</div>
+</section>
+
+<section id="dm1">
+<h2>Diabetes Mellitus Type 1</h2>
+<h3>Pathophysiology</h3>
+<p>Type 1 DM is an autoimmune disease resulting in T-cell mediated destruction of pancreatic beta cells, causing absolute insulin deficiency. Associated with HLA-DR3 and HLA-DR4 antigens. Autoantibodies: anti-GAD65, anti-insulin antibodies (IAA), anti-islet cell antibodies (ICA), anti-IA-2. Without insulin, cells cannot take up glucose → hyperglycemia, and lipolysis is unchecked → free fatty acids → ketone bodies (DKA).</p>
+<h3>Diabetic Ketoacidosis (DKA)</h3>
+<table>
+<tr><th>Feature</th><th>DKA (T1DM)</th><th>HHS (T2DM)</th></tr>
+<tr><td>Glucose</td><td>&gt;250 mg/dL (often 300–500)</td><td>&gt;600 mg/dL</td></tr>
+<tr><td>pH</td><td>&lt;7.3</td><td>&gt;7.3</td></tr>
+<tr><td>Bicarb</td><td>&lt;18 mEq/L</td><td>&gt;15 mEq/L</td></tr>
+<tr><td>Anion gap</td><td>Elevated (&gt;12)</td><td>Normal or mildly elevated</td></tr>
+<tr><td>Ketones</td><td>Moderate–large (serum and urine)</td><td>Minimal</td></tr>
+<tr><td>Osmolality</td><td>Variable</td><td>&gt;320 mOsm/kg</td></tr>
+<tr><td>Mortality</td><td>Low if treated (&lt;5%)</td><td>Higher (10–20%)</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 DKA Management</strong>IV fluids (0.9% NS, then 0.45% NS + dextrose when glucose &lt;250). IV insulin infusion. Potassium replacement (do not start insulin if K &lt;3.3 mEq/L). Identify precipitant (infection, missed insulin, new-onset T1DM). Bicarbonate only if pH &lt;6.9. Transition to subcutaneous insulin when anion gap closed, patient eating, and gap closing.</div>
+</section>
+
+<section id="dm2">
+<h2>Diabetes Mellitus Type 2</h2>
+<h3>Pathophysiology</h3>
+<p>Type 2 DM involves progressive insulin resistance (peripheral tissues fail to respond to insulin) combined with beta cell dysfunction and eventual decline. Key mediators: excess visceral adiposity → elevated free fatty acids and adipokines (TNF-α, IL-6, resistin) → impaired insulin signaling (IRS-1 serine phosphorylation). Beta cells compensate with hyperinsulinemia until they fail (~50% beta cell loss at diagnosis).</p>
+<h3>Diagnostic Criteria</h3>
+<table>
+<tr><th>Test</th><th>Normal</th><th>Prediabetes</th><th>Diabetes</th></tr>
+<tr><td>Fasting glucose</td><td>&lt;100 mg/dL</td><td>100–125</td><td>≥126 (×2)</td></tr>
+<tr><td>2-hr OGTT (75g)</td><td>&lt;140 mg/dL</td><td>140–199</td><td>≥200</td></tr>
+<tr><td>HbA1c</td><td>&lt;5.7%</td><td>5.7–6.4%</td><td>≥6.5% (×2)</td></tr>
+<tr><td>Random glucose</td><td>—</td><td>—</td><td>≥200 + symptoms</td></tr>
+</table>
+<h3>Microvascular &amp; Macrovascular Complications</h3>
+<ul>
+<li><strong>Nephropathy:</strong> microalbuminuria → macroalbuminuria → ESRD; ACE inhibitor/ARB for protection</li>
+<li><strong>Retinopathy:</strong> non-proliferative → proliferative; VEGF drives neovascularization; anti-VEGF therapy</li>
+<li><strong>Neuropathy:</strong> symmetric distal polyneuropathy (stocking-glove); autonomic neuropathy (gastroparesis, orthostatic hypotension)</li>
+<li><strong>Cardiovascular:</strong> 2–4× increased risk of MI, stroke, PAD</li>
+<li><strong>Foot disease:</strong> neuropathy + PVD → ulcers, infections, amputations</li>
+</ul>
+<div class="box-pearl"><strong>🎯 Boards Pearl — HbA1c Targets</strong>General: &lt;7% (ADA). Individualize: &lt;6.5% in young/healthy; &lt;8% in elderly/comorbidities/hypoglycemia-prone. Screening: q3 years in average risk; annual if at risk. Metformin remains first-line unless contraindicated (eGFR &lt;30). Add GLP-1 agonist (liraglutide, semaglutide) or SGLT-2 inhibitor (empagliflozin, canagliflozin) for CVD/HF/CKD benefit.</div>
+</section>
+
+<section id="pancreatic-cancer">
+<h2>Pancreatic Adenocarcinoma</h2>
+<h3>Epidemiology &amp; Risk Factors</h3>
+<p>Pancreatic ductal adenocarcinoma (PDAC) is the 4th leading cause of cancer death in the US with 5-year survival ~12%. Most arise in the head of the pancreas (60–70%). Risk factors: age &gt;60, smoking (2× risk), chronic pancreatitis, T2DM, obesity, family history, hereditary syndromes (BRCA2, Lynch, FAMM, Peutz-Jeghers), new-onset DM in older adult with weight loss.</p>
+<h3>Clinical Presentation</h3>
+<table>
+<tr><th>Location</th><th>Classic Presentation</th></tr>
+<tr><td>Head (60–70%)</td><td>Painless obstructive jaundice, Courvoisier's sign (palpable non-tender GB), steatorrhea, weight loss</td></tr>
+<tr><td>Body/Tail (30–40%)</td><td>Epigastric/back pain (invasion of celiac plexus), weight loss, new-onset DM — usually late presentation, unresectable</td></tr>
+</table>
+<h3>Diagnosis &amp; Staging</h3>
+<ul>
+<li>CT abdomen with triple-phase contrast (imaging of choice)</li>
+<li>ERCP or EUS + biopsy for tissue diagnosis</li>
+<li>CA 19-9: tumor marker (not used for screening; elevated in cholangiocarcinoma, pancreatitis)</li>
+<li>Only ~20% are resectable at diagnosis</li>
+</ul>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Courvoisier's sign = palpable, non-tender gallbladder in the setting of painless jaundice → suggests pancreatic head mass (or other periampullary tumor) compressing CBD. Trousseau's sign (migratory thrombophlebitis) is associated with visceral cancers including pancreatic cancer. New-onset DM + weight loss in a patient &gt;50 → rule out pancreatic cancer. Resectable: Whipple procedure (pancreaticoduodenectomy); adjuvant chemotherapy (FOLFIRINOX or gemcitabine + capecitabine).</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
