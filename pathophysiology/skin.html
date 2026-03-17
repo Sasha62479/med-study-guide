@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Skin Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html" class="active-sub">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Dermatology</h1>
+  <p>Psoriasis, eczema, cellulitis, melanoma, BCC, SCC, acne, rosacea &amp; tinea</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#inflammatory">Inflammatory Skin Diseases</a>
+  <a href="#infections">Skin Infections</a>
+  <a href="#skin-cancer">Skin Cancers</a>
+  <a href="#acne">Acne &amp; Rosacea</a>
+  <a href="#dermatitis">Contact &amp; Other Dermatitis</a>
+</aside>
+<div class="content">
+
+<section id="inflammatory">
+<h2>Inflammatory Skin Diseases</h2>
+<h3>Psoriasis</h3>
+<p>Psoriasis is a chronic immune-mediated inflammatory skin disease characterized by epidermal hyperproliferation (turnover 3–4 days vs. normal 28–30 days). Pathophysiology: T-helper cell (Th1/Th17) activation → TNF-α, IL-17, IL-23 → keratinocyte proliferation + inflammation. Genetic component (HLA-Cw6 association). Triggers: stress, infection (strep throat → guttate psoriasis), medications (lithium, beta-blockers, NSAIDs, antimalarials), alcohol.</p>
+<table>
+<tr><th>Type</th><th>Features</th></tr>
+<tr><td>Plaque (most common, 80–90%)</td><td>Well-demarcated, salmon-pink plaques with silvery-white scale; extensor surfaces (knees, elbows), scalp, lumbosacral area; Auspitz sign (pinpoint bleeding when scale removed)</td></tr>
+<tr><td>Guttate</td><td>Small drop-shaped lesions; triggered by strep pharyngitis; young patients; good prognosis</td></tr>
+<tr><td>Pustular</td><td>Sterile pustules; can be generalized (von Zumbusch — systemic toxicity) or palmoplantar</td></tr>
+<tr><td>Erythrodermic</td><td>Diffuse erythema covering &gt;90% BSA; life-threatening; risk of fluid loss, infection, hypothermia</td></tr>
+<tr><td>Inverse</td><td>Smooth, shiny plaques in skin folds (axilla, groin, inframammary)</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Psoriasis Treatment — Severity-Based</strong>Mild (BSA &lt;3%): topical steroids (1st line), vitamin D analogues (calcipotriene), topical calcineurin inhibitors, salicylic acid. Moderate-severe (BSA &gt;10% or DLQI &gt;10): phototherapy (NBUVB), methotrexate, cyclosporine, acitretin. Biologics: TNF-α inhibitors (adalimumab, etanercept, infliximab), IL-17 inhibitors (secukinumab, ixekizumab), IL-23 inhibitors (guselkumab, risankizumab) — most effective. Psoriatic arthritis affects ~30%: treat with DMARDs (methotrexate) or biologics.</div>
+<h3>Atopic Dermatitis (Eczema)</h3>
+<p>Chronic, relapsing inflammatory skin disease characterized by pruritus and dry skin. Pathophysiology: filaggrin gene mutations (FLG) → impaired skin barrier → transepidermal water loss + allergen penetration → Th2-driven inflammation → IL-4, IL-13, IgE elevation → mast cell and eosinophil activation. Associated with atopic triad: asthma, allergic rhinitis, atopic dermatitis.</p>
+<table>
+<tr><th>Age</th><th>Location</th><th>Features</th></tr>
+<tr><td>Infants (0–2y)</td><td>Face (sparing nasal tip), scalp, extensor surfaces</td><td>Weeping, crusting; often first manifestation of atopic march</td></tr>
+<tr><td>Children/adults</td><td>Flexural areas (antecubital, popliteal fossae, neck, wrists, ankles)</td><td>Lichenification (skin thickening); excoriations; Dennie-Morgan lines; xerosis</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Hanifin-Rajka criteria (major): pruritus, chronic relapsing course, typical distribution, personal/family history of atopy. Emollients are cornerstone of management. Topical corticosteroids (acute flares). Topical calcineurin inhibitors (tacrolimus, pimecrolimus) for face/skin folds. Dupilumab (IL-4/IL-13 biologic) for moderate-severe AD — highly effective. Avoid: hot baths, harsh soaps, known triggers. Secondary bacterial infection (S. aureus) is common — mupirocin or oral antibiotics.</div>
+</section>
+
+<section id="infections">
+<h2>Skin Infections</h2>
+<table>
+<tr><th>Infection</th><th>Organism</th><th>Features</th><th>Treatment</th></tr>
+<tr><td>Impetigo</td><td>S. aureus (most common), Group A Strep</td><td>Superficial; honey-colored crusts over erosions; non-bullous vs. bullous (S. aureus toxin); highly contagious; face/extremities in children</td><td>Mupirocin (topical) for limited; oral cephalexin or dicloxacillin for extensive. MRSA: TMP-SMX or doxycycline</td></tr>
+<tr><td>Cellulitis</td><td>S. aureus, GAS (S. pyogenes)</td><td>Non-purulent: diffuse erythema, warmth, swelling, tenderness; no fluctuance; usually lower extremities; fever/leukocytosis in severe</td><td>Non-purulent: cephalexin or dicloxacillin × 5–7 days; MRSA concern: TMP-SMX or doxycycline. IV antibiotics (cefazolin) if systemic signs. Mark borders with pen to track progression</td></tr>
+<tr><td>Erysipelas</td><td>Group A Strep (primarily)</td><td>Superficial cellulitis involving upper dermis/lymphatics; sharply demarcated raised border (unlike cellulitis); bright red; typically face or lower legs; systemic symptoms common</td><td>Penicillin (drug of choice); amoxicillin or cephalexin for oral</td></tr>
+<tr><td>Folliculitis/Furuncle/Carbuncle</td><td>S. aureus</td><td>Folliculitis: pustules at hair follicles; Furuncle (boil): deeper nodule with fluctuance; Carbuncle: confluence of furuncles with multiple sinus tracts</td><td>Folliculitis: topical antibiotics or antiseptic wash. Furuncle/carbuncle: incision &amp; drainage (I&amp;D) is cornerstone; add antibiotics (TMP-SMX or doxycycline) if systemic signs, multiple lesions, or immunocompromised</td></tr>
+<tr><td>Tinea (Dermatophytosis)</td><td>Trichophyton, Microsporum, Epidermophyton (fungi)</td><td>Tinea pedis (athlete's foot); tinea corporis (ringworm); tinea cruris (jock itch); tinea capitis (scalp — children); tinea unguium (onychomycosis — nails). KOH prep: hyphae and spores</td><td>Topical azoles (clotrimazole, miconazole) for body/feet/groin. Oral terbinafine or griseofulvin for scalp, nails, or extensive. Nail: terbinafine × 6–12 weeks</td></tr>
+<tr><td>Herpes Zoster (Shingles)</td><td>VZV reactivation</td><td>Dermatomal distribution; prodrome of pain → vesicular rash; resolves in 2–4 weeks; post-herpetic neuralgia (PHN) in elderly. Disseminated if immunocompromised</td><td>Acyclovir, valacyclovir, or famciclovir × 7 days (start within 72 hours of rash onset). Steroids: controversial, some use for ophthalmic zoster. PHN: gabapentin, TCAs, lidocaine patch, capsaicin. Prevention: Shingrix vaccine (recombinant, preferred, 2 doses — all adults ≥50)</td></tr>
+</table>
+</section>
+
+<section id="skin-cancer">
+<h2>Skin Cancers</h2>
+<table>
+<tr><th>Cancer</th><th>Cell Origin</th><th>Risk Factors</th><th>Appearance</th><th>Management</th></tr>
+<tr><td>Basal Cell Carcinoma (BCC)</td><td>Basal cell layer of epidermis</td><td>UV radiation, fair skin, Gorlin syndrome (PTCH mutation), arsenic, ionizing radiation</td><td>Pearly/translucent papule with rolled borders and telangiectasias ("rodent ulcer"); rarely metastasizes; most common skin cancer; nodular, superficial, morpheaform subtypes</td><td>Surgical excision (Mohs micrographic surgery for high-risk/cosmetically sensitive areas); electrodesiccation and curettage; vismodegib (hedgehog inhibitor) for advanced/inoperable</td></tr>
+<tr><td>Squamous Cell Carcinoma (SCC)</td><td>Keratinocytes</td><td>UV, smoking, HPV (genital/oral SCC), immunosuppression, chronic wounds, arsenic, actinic keratosis (precursor)</td><td>Erythematous, scaly, keratotic plaque or nodule; may ulcerate; more aggressive than BCC; can metastasize (especially on ear, lip, immunosuppressed patients); actinic keratosis = premalignant</td><td>Surgical excision; Mohs for high-risk; radiation; cemiplimab/pembrolizumab (anti-PD1) for advanced/metastatic</td></tr>
+<tr><td>Melanoma</td><td>Melanocytes</td><td>UV exposure, fair skin/light eyes, numerous nevi, dysplastic nevi, family history, CDKN2A mutation, BRAF V600E mutation (50–60% of melanomas)</td><td>ABCDE criteria; thin melanoma = excellent prognosis (5-year survival &gt;95%); Clark level/Breslow thickness determine staging and prognosis; subtypes: superficial spreading (most common), nodular (most aggressive, blue-black), lentigo maligna (elderly, sun-damaged), acral lentiginous (palms/soles/nails, AA patients)</td><td>Wide local excision; sentinel lymph node biopsy if Breslow &gt;0.8mm; adjuvant therapy for high-risk; metastatic: BRAF inhibitors (vemurafenib, dabrafenib) + MEK inhibitor if BRAF-mutated; immunotherapy: pembrolizumab, nivolumab (PD-1 inhibitors), ipilimumab (CTLA-4)</td></tr>
+</table>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Melanoma ABCDE</strong>Asymmetry · Border irregularity · Color variation (multiple colors) · Diameter &gt;6mm (size of pencil eraser) · Evolution (changing over time)</div>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>BCC vs. SCC: BCC rarely metastasizes; SCC can (lymph nodes, lung). Actinic keratosis: sun-damaged, scaly, rough precursor to SCC; treat with liquid nitrogen, 5-fluorouracil (5-FU) cream, imiquimod, photodynamic therapy. Keratoacanthoma: rapidly growing, dome-shaped nodule with central keratin plug; some consider variant of SCC; excise. Seborrheic keratosis: benign, "stuck-on" waxy appearance; Leser-Trélat sign = sudden eruption of multiple SK → possible internal malignancy.</div>
+</section>
+
+<section id="acne">
+<h2>Acne Vulgaris &amp; Rosacea</h2>
+<h3>Acne Vulgaris</h3>
+<p>Pathophysiology: 4 key factors — (1) excess sebum production (androgens stimulate sebaceous glands), (2) follicular hyperkeratinization (plugging of pilosebaceous duct), (3) Cutibacterium acnes (formerly P. acnes) colonization, (4) inflammation. Comedones → papules/pustules → nodules/cysts.</p>
+<table>
+<tr><th>Grade</th><th>Lesions</th><th>Treatment</th></tr>
+<tr><td>Mild</td><td>Comedones, few papules/pustules</td><td>Topical retinoids (tretinoin, adapalene) ± topical antibiotics (clindamycin, erythromycin) ± benzoyl peroxide</td></tr>
+<tr><td>Moderate</td><td>More papules/pustules, some nodules</td><td>Add oral antibiotics (doxycycline, minocycline — 3 months max); consider combined OCP or spironolactone (women)</td></tr>
+<tr><td>Severe/Cystic</td><td>Nodules, cysts, risk of scarring</td><td>Isotretinoin (oral vitamin A derivative — most effective; requires iPLEDGE program; teratogenic; monitor LFTs/lipids)</td></tr>
+</table>
+<h3>Rosacea</h3>
+<p>Chronic inflammatory skin disease of the central face. Subtypes: erythematotelangiectatic (flushing, persistent erythema, telangiectasias), papulopustular ("acne rosacea" — papules/pustules on erythematous background), phymatous (skin thickening, rhinophyma), ocular (eye involvement — blepharitis, conjunctivitis). Triggers: alcohol, spicy food, heat, sun, exercise, emotional stress.</p>
+<div class="box-clinical"><strong>🏥 Rosacea Management</strong>Sun protection (SPF 30+). Topical: metronidazole (1st line), azelaic acid, ivermectin (for Demodex mites). Oral: doxycycline 40mg (sub-antimicrobial dose) or standard dose for severe. Laser for telangiectasias. Rhinophyma: surgical removal. Avoid triggers. Unlike acne: no comedones; no isotretinoin for rosacea (not standard treatment).</div>
+</section>
+
+<section id="dermatitis">
+<h2>Other Common Dermatoses</h2>
+<table>
+<tr><th>Condition</th><th>Mechanism</th><th>Features</th><th>Treatment</th></tr>
+<tr><td>Contact Dermatitis (allergic)</td><td>Type IV hypersensitivity (T-cell mediated); common allergens: nickel (jewelry), poison ivy/oak (urushiol), latex, fragrances, neomycin</td><td>Pruritic vesicular rash confined to contact area; may take 24–72h to appear; linear/geometric distribution with poison ivy</td><td>Identify and avoid allergen; topical steroids; systemic steroids for severe/widespread; patch testing for identification</td></tr>
+<tr><td>Contact Dermatitis (irritant)</td><td>Direct chemical/physical damage to skin; not immune-mediated; most common type</td><td>Burning/stinging (vs. itching in allergic); erythema, dryness, cracking; hands most commonly affected; healthcare workers, cleaning staff</td><td>Barrier protection, emollients, avoidance of irritant; topical steroids for acute inflammation</td></tr>
+<tr><td>Seborrheic Dermatitis</td><td>Malassezia yeast overgrowth + abnormal inflammatory response in sebum-rich areas; worsens with stress, cold, neurological disease (Parkinson's, HIV)</td><td>Greasy, yellowish scales on erythematous base; scalp (dandruff), nasolabial folds, eyebrows, chest; non-contagious</td><td>Scalp: selenium sulfide, zinc pyrithione, or ketoconazole shampoo. Face: topical ketoconazole, low-potency steroid, calcineurin inhibitors. Treat Parkinson's/HIV as contributing factors</td></tr>
+<tr><td>Urticaria (Hives)</td><td>IgE-mediated (type I) or non-IgE mast cell degranulation → histamine release → vascular leak; acute (&lt;6 weeks) vs. chronic (&gt;6 weeks, often idiopathic)</td><td>Transient, pruritic wheals (each lesion &lt;24h); angioedema if deeper dermis involved; anaphylaxis if systemic symptoms</td><td>Antihistamines (cetirizine, loratadine) first line; systemic steroids for severe; omalizumab for chronic spontaneous urticaria; epinephrine for anaphylaxis</td></tr>
+</table>
+</section>
+
+</div>
+</div>
+</body>
+</html>
