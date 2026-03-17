@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pulmonary Physiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
+a{text-decoration:none;color:inherit;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
+.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
+.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
+.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
+.sub-nav{background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(115,78,147,0.15);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
+.sub-nav a{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:#143D0D;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.sub-nav a:hover{border-color:#143D0D;background:rgba(20,61,13,0.08);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;border-color:#143D0D;}
+.hero{text-align:center;padding:3rem 2rem 2rem;}
+.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',fantasy;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:0.5rem;}
+.hero p{color:#666;font-size:1rem;max-width:600px;margin:0 auto;}
+.page-body{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1100px;margin:2rem auto;padding:0 2rem 4rem;}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.7);border-radius:14px;padding:1.25rem;box-shadow:0 4px 16px rgba(115,78,147,0.1);}
+.toc h3{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem;text-transform:uppercase;}
+.toc a{display:block;font-size:0.82rem;color:#444;padding:0.3rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content{display:flex;flex-direction:column;gap:1.5rem;}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:16px;padding:1.75rem;box-shadow:0 4px 20px rgba(115,78,147,0.1);}
+.card h2{font-family:'Aboreto',sans-serif;font-size:0.8rem;letter-spacing:0.12em;color:#143D0D;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.card p,.card li{font-size:0.95rem;line-height:1.75;color:#333;margin-bottom:0.5rem;}
+.card ul{padding-left:1.25rem;margin-bottom:0.75rem;}
+.card table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+.card th{background:#143D0D;color:#fff;padding:0.6rem 0.75rem;text-align:left;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+.card td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+.card tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.1);border-left:4px solid #734E93;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.box-clinical strong{color:#143D0D;}.box-pearl strong{color:#F25032;}.box-mnemonic strong{color:#734E93;}
+@media(max-width:700px){.page-body{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
+  <div class="nav-tabs">
+    <a href="../anatomy/index.html">Anatomy</a>
+    <a href="index.html" class="active">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophysiology</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../tests/index.html">Tests</a>
+  </div>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html" class="active-sub">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU / Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Physiology</div>
+  <h1>Pulmonary Physiology</h1>
+  <p>Ventilation, gas exchange, V/Q matching, lung volumes, and respiratory control</p>
+</div>
+<div class="page-body">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <a href="#volumes">Lung Volumes</a>
+    <a href="#mechanics">Mechanics</a>
+    <a href="#gasex">Gas Exchange</a>
+    <a href="#vq">V/Q Matching</a>
+    <a href="#transport">O2 Transport</a>
+    <a href="#control">Respiratory Control</a>
+    <a href="#clinical">Clinical Pearls</a>
+  </aside>
+  <div class="content">
+    <div class="card" id="volumes">
+      <h2>Lung Volumes and Capacities</h2>
+      <table>
+        <tr><th>Volume / Capacity</th><th>Normal Value</th><th>Definition</th></tr>
+        <tr><td>Tidal volume (TV)</td><td>500 mL</td><td>Volume with normal breath</td></tr>
+        <tr><td>IRV</td><td>3000 mL</td><td>Extra air inhaled after normal inspiration</td></tr>
+        <tr><td>ERV</td><td>1200 mL</td><td>Extra air exhaled after normal expiration</td></tr>
+        <tr><td>RV</td><td>1200 mL</td><td>Air remaining after maximal exhalation (cannot measure with spirometry)</td></tr>
+        <tr><td>VC (IRV+TV+ERV)</td><td>4700 mL</td><td>Maximum air moved in one breath</td></tr>
+        <tr><td>FRC (ERV+RV)</td><td>2400 mL</td><td>Volume at end-expiration (lung at rest)</td></tr>
+        <tr><td>TLC (all volumes)</td><td>6000 mL</td><td>Total lung capacity</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Spirometry Patterns</strong>Obstructive (asthma, COPD): FEV1 decreased, FVC normal or decreased, FEV1/FVC ratio less than 0.7, TLC increased (air trapping). Restrictive (IPF, obesity, NMD): FEV1 decreased, FVC decreased, FEV1/FVC ratio normal or increased, TLC decreased.</div>
+    </div>
+    <div class="card" id="mechanics">
+      <h2>Breathing Mechanics</h2>
+      <p>Inspiration is active (diaphragm + external intercostals contract). Normal expiration is passive (elastic recoil). Forced expiration uses internal intercostals and abdominals.</p>
+      <ul>
+        <li><strong>Compliance</strong> = change in volume / change in pressure. High compliance = easy to stretch (emphysema). Low compliance = stiff lung (pulmonary fibrosis, pulmonary edema).</li>
+        <li><strong>Surfactant</strong> (produced by type II pneumocytes) reduces surface tension → increases compliance → prevents alveolar collapse. Deficient in RDS of newborn (premature infants).</li>
+        <li><strong>Airway resistance</strong> — increases in small airways (asthma, mucus, edema). Bronchodilators (beta-2 agonists) decrease resistance.</li>
+      </ul>
+      <div class="box-clinical"><strong>&#129657; Surfactant Physiology</strong>Surfactant prevents collapse of small alveoli (LaPlace law: P = 2T/r; small r = high pressure → collapse without surfactant). Lecithin:sphingomyelin ratio (L:S ratio) greater than 2 = fetal lung maturity. Betamethasone given to mother to stimulate fetal surfactant production.</div>
+    </div>
+    <div class="card" id="gasex">
+      <h2>Gas Exchange</h2>
+      <p>Gas exchange occurs at the alveolar-capillary membrane by passive diffusion (Fick's law: rate proportional to area, pressure gradient, and diffusion coefficient; inversely proportional to membrane thickness).</p>
+      <table>
+        <tr><th>Gas</th><th>Alveolar Level</th><th>Arterial Level</th><th>Venous Level</th></tr>
+        <tr><td>PO2</td><td>PAO2 ~100 mmHg</td><td>PaO2 ~95 mmHg</td><td>PvO2 ~40 mmHg</td></tr>
+        <tr><td>PCO2</td><td>PACO2 ~40 mmHg</td><td>PaCO2 ~40 mmHg</td><td>PvCO2 ~46 mmHg</td></tr>
+      </table>
+      <p><strong>A-a gradient</strong> = PAO2 - PaO2 (normal: less than 10-15 mmHg on room air). Elevated in V/Q mismatch, diffusion impairment, R-to-L shunt. Normal in hypoventilation (PaCO2 elevated, PaO2 decreased).</p>
+    </div>
+    <div class="card" id="vq">
+      <h2>V/Q Matching</h2>
+      <p>Ventilation-perfusion (V/Q) ratio determines gas exchange efficiency. Normal V/Q ~0.8.</p>
+      <table>
+        <tr><th>V/Q State</th><th>V/Q Ratio</th><th>Example</th><th>Effect</th></tr>
+        <tr><td>Normal</td><td>~0.8</td><td>Healthy lung base (better perfusion)</td><td>Efficient gas exchange</td></tr>
+        <tr><td>V/Q = 0 (shunt)</td><td>0</td><td>Pneumonia, atelectasis, ARDS</td><td>Blood passes without gas exchange; hypoxia does NOT improve with O2</td></tr>
+        <tr><td>V/Q = infinity (dead space)</td><td>Infinity</td><td>Pulmonary embolism</td><td>Ventilated but not perfused; CO2 retention</td></tr>
+        <tr><td>V/Q mismatch</td><td>Between 0 and infinity</td><td>COPD, asthma</td><td>Most common cause of hypoxia; responds to supplemental O2</td></tr>
+      </table>
+    </div>
+    <div class="card" id="transport">
+      <h2>O2 and CO2 Transport</h2>
+      <p><strong>Oxygen transport:</strong> 97% bound to hemoglobin (1 Hgb carries 4 O2); 3% dissolved in plasma. Oxyhemoglobin dissociation curve: S-shaped (cooperative binding). Right shift (decreased affinity — offloads O2 to tissues): increased temperature, increased CO2, increased 2,3-DPG, acidosis.</p>
+      <p><strong>CO2 transport:</strong> 70% as bicarbonate (CO2 + H2O ↔ H2CO3 ↔ H+ + HCO3-; catalyzed by carbonic anhydrase in RBCs). 20% as carbaminohemoglobin. 10% dissolved.</p>
+      <div class="box-mnemonic"><strong>&#129488; Ox-Hgb Curve Right Shift — CADET face right!</strong>CO2 increase, Acid (H+), 2,3-DPG increase, Exercise, Temperature increase → Right shift → decreased O2 affinity → more O2 released to tissues.</div>
+    </div>
+    <div class="card" id="control">
+      <h2>Respiratory Control</h2>
+      <p>The <strong>respiratory center</strong> is in the medulla (pre-Botzinger complex for rhythm) and pons (apneustic and pneumotaxic centers for rate modification).</p>
+      <ul>
+        <li><strong>Central chemoreceptors</strong> (medulla): respond primarily to PaCO2 (via CO2 crossing BBB → H+ production). Main driver of respiratory drive in healthy individuals.</li>
+        <li><strong>Peripheral chemoreceptors</strong> (carotid bodies, aortic arch): respond to PaO2 less than 60 mmHg, PaCO2, pH. Primary driver in COPD patients (hypoxic drive).</li>
+      </ul>
+      <div class="box-pearl"><strong>&#11088; COPD and O2 Therapy</strong>Chronic COPD patients are CO2 retainers — their respiratory drive shifts from CO2 sensitivity to hypoxic drive. High-flow O2 can suppress this drive → apnea. Use controlled O2 (target SpO2 88-92%) in COPD exacerbations. Do NOT withhold O2 if the patient is critically hypoxic — correct hypoxia first.</div>
+    </div>
+    <div class="card" id="clinical">
+      <h2>Clinical Pearls</h2>
+      <div class="box-pearl"><strong>&#11088; Hypoxemia vs Hypoxia</strong>Hypoxemia = decreased PaO2 in arterial blood (measurable). Hypoxia = inadequate O2 delivery to tissues. Causes of hypoxemia: hypoventilation (high PaCO2), V/Q mismatch, shunt, diffusion impairment, low FiO2. Causes of hypoxia with normal PaO2: anemia, CO poisoning, shock.</div>
+      <div class="box-clinical"><strong>&#129657; Pulmonary Embolism ABG Pattern</strong>Classic PE ABG: low PaO2, low PaCO2 (hyperventilating to compensate), respiratory alkalosis, elevated A-a gradient. ECG: sinus tachycardia (most common); S1Q3T3 (classic but uncommon); right heart strain pattern.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
