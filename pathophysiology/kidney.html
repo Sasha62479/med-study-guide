@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kidney Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html" class="active-sub">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Renal Disease</h1>
+  <p>AKI, CKD staging, nephrotic &amp; nephritic syndromes, glomerulonephritis</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#aki">Acute Kidney Injury</a>
+  <a href="#ckd">Chronic Kidney Disease</a>
+  <a href="#nephrotic">Nephrotic Syndrome</a>
+  <a href="#nephritic">Nephritic Syndrome</a>
+  <a href="#glomerulopathies">Glomerulopathies</a>
+</aside>
+<div class="content">
+
+<section id="aki">
+<h2>Acute Kidney Injury (AKI)</h2>
+<h3>Definition</h3>
+<p>AKI is defined by the KDIGO criteria as an increase in serum creatinine by ≥0.3 mg/dL within 48 hours, or ≥1.5× baseline within 7 days, or urine output &lt;0.5 mL/kg/hr for ≥6 hours.</p>
+<h3>Classification</h3>
+<table>
+<tr><th>Category</th><th>Causes</th><th>BUN:Cr Ratio</th><th>FENa</th><th>Urinalysis</th></tr>
+<tr><td>Prerenal</td><td>Dehydration, hemorrhage, heart failure, sepsis, NSAIDs (reduce GFR), ACE inhibitors (bilateral RAS)</td><td>&gt;20:1</td><td>&lt;1%</td><td>Normal (concentrated urine, SG &gt;1.020, hyaline casts)</td></tr>
+<tr><td>Intrinsic (renal)</td><td>ATN (ischemia, nephrotoxins: aminoglycosides, contrast, myoglobin), AIN (drug hypersensitivity, infection), GN</td><td>&lt;20:1</td><td>&gt;2%</td><td>Muddy brown granular casts (ATN), WBC casts (AIN/pyelonephritis), RBC casts (GN)</td></tr>
+<tr><td>Postrenal</td><td>BPH, prostate cancer, bilateral ureteral obstruction, bladder outlet obstruction, retroperitoneal fibrosis</td><td>&gt;20:1 initially</td><td>Variable</td><td>Unremarkable unless infection; hydronephrosis on ultrasound</td></tr>
+</table>
+<div class="box-mnemonic"><strong>🧠 Cast Mnemonic — Urinary Casts</strong>Hyaline = normal/prerenal · Granular/muddy brown = ATN · RBC casts = Glomerulonephritis · WBC casts = pyelonephritis/AIN · Waxy/broad = advanced CKD · Fatty (oval fat bodies) = nephrotic syndrome</div>
+<div class="box-clinical"><strong>🏥 Management</strong>Identify and treat cause. Stop nephrotoxic agents (NSAIDs, aminoglycosides, contrast when possible). Volume resuscitation for prerenal. Monitor electrolytes (hyperkalemia, acidosis). Indications for emergent dialysis: AEIOU — Acidosis (pH &lt;7.1), Electrolytes (K+ &gt;6.5 refractory), Intoxication, fluid Overload refractory, Uremic symptoms (pericarditis, encephalopathy).</div>
+</section>
+
+<section id="ckd">
+<h2>Chronic Kidney Disease (CKD)</h2>
+<h3>Definition &amp; Staging</h3>
+<p>CKD is defined as kidney damage or GFR &lt;60 mL/min/1.73m² for ≥3 months. Most common causes: Diabetic nephropathy (#1), Hypertensive nephrosclerosis (#2), Glomerulonephritis.</p>
+<table>
+<tr><th>Stage</th><th>GFR (mL/min/1.73m²)</th><th>Description</th></tr>
+<tr><td>G1</td><td>≥90</td><td>Normal or high GFR with kidney damage markers</td></tr>
+<tr><td>G2</td><td>60–89</td><td>Mildly decreased</td></tr>
+<tr><td>G3a</td><td>45–59</td><td>Mildly to moderately decreased</td></tr>
+<tr><td>G3b</td><td>30–44</td><td>Moderately to severely decreased</td></tr>
+<tr><td>G4</td><td>15–29</td><td>Severely decreased (prepare for RRT)</td></tr>
+<tr><td>G5</td><td>&lt;15</td><td>Kidney failure (ESRD)</td></tr>
+</table>
+<h3>Complications of CKD</h3>
+<table>
+<tr><th>Complication</th><th>Mechanism</th><th>Management</th></tr>
+<tr><td>Anemia</td><td>Decreased EPO production by peritubular cells</td><td>ESAs (epoetin alfa, darbepoetin); iron supplementation; target Hgb 10–11.5 g/dL</td></tr>
+<tr><td>Renal osteodystrophy</td><td>Decreased 1-alpha hydroxylase → decreased active vitamin D → secondary hyperparathyroidism → bone resorption</td><td>Phosphate restriction, phosphate binders, calcitriol, cinacalcet (for secondary/tertiary HPT)</td></tr>
+<tr><td>Metabolic acidosis</td><td>Decreased ammoniagenesis → inability to excrete H+</td><td>Sodium bicarbonate supplementation</td></tr>
+<tr><td>Hyperkalemia</td><td>Decreased distal K+ secretion; reduced aldosterone responsiveness</td><td>Dietary K+ restriction; patiromer (K+ binder); loop diuretics; dialysis</td></tr>
+<tr><td>HTN</td><td>Sodium/water retention; increased RAAS activation; decreased PGE2</td><td>ACE-I/ARB (first-line, also reduce proteinuria), loop diuretics</td></tr>
+<tr><td>Cardiovascular disease</td><td>Non-traditional risk factors: uremia, oxidative stress, inflammation, calcium-phosphate product</td><td>Risk factor modification, statin therapy</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Refer to nephrology when GFR &lt;30 (Stage G4). Start RRT planning when GFR &lt;20. Absolute indications for dialysis: uremic pericarditis, encephalopathy, bleeding diathesis, electrolyte/acid-base crises. ACE-I/ARB are renoprotective in diabetic nephropathy — reduce intraglomerular pressure, reduce proteinuria. Do NOT use in bilateral renal artery stenosis or pregnancy.</div>
+</section>
+
+<section id="nephrotic">
+<h2>Nephrotic Syndrome</h2>
+<h3>Definition &amp; Hallmarks</h3>
+<p>Heavy proteinuria (&gt;3.5 g/day) + hypoalbuminemia + edema + hyperlipidemia + lipiduria. Results from damage to the glomerular filtration barrier (podocyte/GBM injury) leading to loss of large proteins (albumin, immunoglobulins, antithrombin III, transferrin).</p>
+<table>
+<tr><th>Cause</th><th>Age</th><th>Mechanism</th><th>Treatment</th></tr>
+<tr><td>Minimal Change Disease (MCD)</td><td>Children (#1); adults</td><td>T-cell dysfunction → podocyte injury; effacement of foot processes on EM</td><td>Prednisone (corticosteroid-responsive in 90% children)</td></tr>
+<tr><td>Focal Segmental Glomerulosclerosis (FSGS)</td><td>Adults (Black patients)</td><td>Podocyte injury; associated with HIV, heroin, obesity, sickle cell</td><td>Corticosteroids, cyclosporine; poor prognosis</td></tr>
+<tr><td>Membranous Nephropathy</td><td>Adults (&gt;40)</td><td>Sub-epithelial immune complex deposits (IgG anti-PLA2R Ab); associated with HBV, SLE, malignancy, NSAIDs</td><td>ACE-I, immunosuppression; 1/3 spontaneous remission</td></tr>
+<tr><td>Diabetic Nephropathy</td><td>Diabetics</td><td>Glomerular hypertrophy → Kimmelstiel-Wilson nodules; nonenzymatic glycosylation</td><td>RAAS blockade, glycemic control, SGLT-2 inhibitors</td></tr>
+<tr><td>Amyloidosis</td><td>Older adults</td><td>AL (plasma cell dyscrasia) or AA (chronic inflammation) amyloid deposits in glomeruli</td><td>Treat underlying cause; bortezomib for AL</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Complications</strong>Thromboembolism: loss of antithrombin III → hypercoagulable state; renal vein thrombosis (membranous nephropathy); PE risk. Infection: loss of IgG and complement → increased risk of encapsulated organisms (pneumococcus). Hyperlipidemia: decreased oncotic pressure → hepatic overproduction of VLDL/LDL. Treat with RAAS blockade, diuretics, statins, and sodium restriction.</div>
+</section>
+
+<section id="nephritic">
+<h2>Nephritic Syndrome</h2>
+<h3>Definition &amp; Hallmarks</h3>
+<p>Hematuria (RBC casts), hypertension, proteinuria (subnephrotic, &lt;3.5 g/day), oliguria, azotemia. Results from glomerular inflammation and immune complex deposition causing endothelial/mesangial injury and disruption of the filtration membrane.</p>
+<table>
+<tr><th>Disease</th><th>Age</th><th>Mechanism</th><th>Key Finding</th></tr>
+<tr><td>Post-streptococcal GN</td><td>Children (2–3 wks post strep pharyngitis or impetigo)</td><td>Immune complex deposition (sub-epithelial humps); low complement (C3)</td><td>Cola-colored urine, periorbital edema, low C3, anti-DNase B elevated</td></tr>
+<tr><td>IgA Nephropathy (Berger's)</td><td>Young adults</td><td>IgA1 O-glycosylation defect → mesangial IgA deposits</td><td>Gross hematuria with URI (concurrent or 1–2 days after); normal complement; IgA deposits on biopsy</td></tr>
+<tr><td>Membranoproliferative GN</td><td>Children-young adults</td><td>Type 1: immune complexes; Type 2 (dense deposit disease): C3 nephritic factor</td><td>Tram-track appearance (mesangial interposition); low C3</td></tr>
+<tr><td>Rapidly Progressive GN (RPGN)</td><td>Adults</td><td>Crescent formation from proliferating parietal cells; three types: anti-GBM, immune complex, pauci-immune (ANCA+)</td><td>Days-to-weeks course; crescent formation on biopsy; ANCA-associated (Wegener's, microscopic polyangiitis)</td></tr>
+<tr><td>Lupus Nephritis</td><td>Young women</td><td>SLE immune complex deposition; WHO/ISN class I–VI</td><td>Low C3/C4, ANA, anti-dsDNA; "wire loop" lesions (class IV)</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Nephritic vs. Nephrotic: "inflamed" vs. "leaky." RBC casts = nephritic (inflamed glomerulus). Fatty casts/oval fat bodies = nephrotic (leaky glomerulus). IgA nephropathy is most common GN worldwide. ANCA-associated RPGN: treat with high-dose steroids + cyclophosphamide or rituximab. Anti-GBM disease (Goodpasture's): linear IgG deposits on GBM; also affects lungs (hemoptysis). Treatment: plasmapheresis + immunosuppression.</div>
+</section>
+
+<section id="glomerulopathies">
+<h2>Glomerulopathy Quick Reference</h2>
+<table>
+<tr><th>Disease</th><th>Syndrome</th><th>EM/IF Pattern</th><th>Complement</th></tr>
+<tr><td>Minimal Change Disease</td><td>Nephrotic</td><td>EM: foot process effacement; IF: negative</td><td>Normal</td></tr>
+<tr><td>FSGS</td><td>Nephrotic</td><td>LM: segmental sclerosis; IF: IgM, C3 deposits</td><td>Normal</td></tr>
+<tr><td>Membranous Nephropathy</td><td>Nephrotic</td><td>EM: sub-epithelial deposits; IF: granular IgG, C3; LM: spike and dome</td><td>Normal</td></tr>
+<tr><td>Post-strep GN</td><td>Nephritic</td><td>EM: sub-epithelial humps; IF: granular IgG, C3</td><td>Low C3</td></tr>
+<tr><td>IgA Nephropathy</td><td>Nephritic</td><td>IF: mesangial IgA deposits</td><td>Normal</td></tr>
+<tr><td>Anti-GBM (Goodpasture's)</td><td>RPGN</td><td>IF: linear IgG along GBM</td><td>Normal</td></tr>
+<tr><td>ANCA-associated RPGN</td><td>RPGN</td><td>IF: pauci-immune (no deposits)</td><td>Normal</td></tr>
+<tr><td>Lupus Nephritis (Class IV)</td><td>Both</td><td>IF: "full house" (IgG, IgA, IgM, C3, C1q)</td><td>Low C3, C4</td></tr>
+</table>
+</section>
+
+</div>
+</div>
+</body>
+</html>
