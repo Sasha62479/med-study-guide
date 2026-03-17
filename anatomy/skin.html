@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Integumentary System – Anatomy | FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
+a{text-decoration:none;color:inherit;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
+.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
+.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
+.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
+.sub-nav{background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(115,78,147,0.15);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
+.sub-nav a{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:#143D0D;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.sub-nav a:hover{border-color:#143D0D;background:rgba(20,61,13,0.08);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;border-color:#143D0D;}
+.hero{text-align:center;padding:3rem 2rem 2rem;}
+.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',fantasy;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:0.5rem;}
+.hero p{color:#666;font-size:1rem;max-width:600px;margin:0 auto;}
+.page-body{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1100px;margin:2rem auto;padding:0 2rem 4rem;}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.7);border-radius:14px;padding:1.25rem;box-shadow:0 4px 16px rgba(115,78,147,0.1);}
+.toc h3{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem;text-transform:uppercase;}
+.toc a{display:block;font-size:0.82rem;color:#444;padding:0.3rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content{display:flex;flex-direction:column;gap:1.5rem;}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:16px;padding:1.75rem;box-shadow:0 4px 20px rgba(115,78,147,0.1);}
+.card h2{font-family:'Aboreto',sans-serif;font-size:0.8rem;letter-spacing:0.12em;color:#143D0D;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.card p,.card li{font-size:0.95rem;line-height:1.75;color:#333;margin-bottom:0.5rem;}
+.card ul{padding-left:1.25rem;margin-bottom:0.75rem;}
+.card table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+.card th{background:#143D0D;color:#fff;padding:0.6rem 0.75rem;text-align:left;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+.card td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+.card tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.1);border-left:4px solid #734E93;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:700px){.page-body{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
+  <div class="nav-tabs">
+    <a href="index.html" class="active">Anatomy</a>
+    <a href="../physiology/index.html">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophysiology</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../tests/index.html">Tests</a>
+  </div>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU / Repro</a>
+  <a href="skin.html" class="active-sub">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Anatomy</div>
+  <h1>Integumentary System</h1>
+  <p>Skin layers, appendages, cells, and neurovascular supply — the body's largest organ</p>
+</div>
+<div class="page-body">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <a href="#layers">Skin Layers</a>
+    <a href="#epidermis">Epidermis Detail</a>
+    <a href="#dermis">Dermis and Hypodermis</a>
+    <a href="#cells">Skin Cell Types</a>
+    <a href="#appendages">Skin Appendages</a>
+    <a href="#function">Functions</a>
+    <a href="#clinical">Clinical Pearls</a>
+  </aside>
+  <div class="content">
+    <div class="card" id="layers">
+      <h2>Skin Layers Overview</h2>
+      <p>The skin (integument) has three main layers: epidermis, dermis, and hypodermis (subcutaneous tissue). It is the largest organ of the body (~1.5-2 m² surface area, 4-5 kg).</p>
+      <table>
+        <tr><th>Layer</th><th>Tissue Type</th><th>Key Contents</th></tr>
+        <tr><td>Epidermis</td><td>Stratified squamous epithelium</td><td>Keratinocytes, melanocytes, Langerhans cells, Merkel cells; NO blood vessels</td></tr>
+        <tr><td>Dermis (papillary)</td><td>Loose connective tissue</td><td>Dermal papillae, capillary loops, Meissner corpuscles (light touch)</td></tr>
+        <tr><td>Dermis (reticular)</td><td>Dense irregular connective tissue</td><td>Collagen I and III, elastin, hair follicles, glands, Pacinian corpuscles (pressure)</td></tr>
+        <tr><td>Hypodermis</td><td>Adipose and loose connective tissue</td><td>Fat storage, thermoregulation, Ruffini endings (stretch); NOT part of skin proper</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>Epidermis is avascular — oxygen and nutrients reach it by diffusion from dermal capillaries. This is why thin skin grafts (split-thickness) can survive initially without blood supply.</div>
+    </div>
+    <div class="card" id="epidermis">
+      <h2>Epidermis — Layers (Deep to Superficial)</h2>
+      <table>
+        <tr><th>Layer</th><th>Latin Name</th><th>Key Features</th></tr>
+        <tr><td>Stratum basale</td><td>Germinativum</td><td>Deepest; mitotically active; contains melanocytes and Merkel cells; attached to basement membrane</td></tr>
+        <tr><td>Stratum spinosum</td><td>Spinosum</td><td>Prickle cells; desmosomes (strong cell junctions); site of acantholysis in pemphigus vulgaris</td></tr>
+        <tr><td>Stratum granulosum</td><td>Granulosum</td><td>Keratohyalin granules; lamellar bodies release lipids (waterproof barrier)</td></tr>
+        <tr><td>Stratum lucidum</td><td>Lucidum</td><td>Only in thick skin (palms, soles); clear, dead cells</td></tr>
+        <tr><td>Stratum corneum</td><td>Corneum</td><td>Outermost; dead, anucleate, keratin-filled; barrier function; shed (desquamation) ~14 days</td></tr>
+      </table>
+      <div class="box-mnemonic"><strong>&#129488; Mnemonic — Layers deep to surface</strong>"Come, Let's Get Sun-burned" = Basale, Spinosum, Granulosum, Lucidum, Corneum (or "Californians Like Girls in String bikinis")</div>
+    </div>
+    <div class="card" id="dermis">
+      <h2>Dermis and Hypodermis</h2>
+      <p>The dermis provides mechanical strength via type I collagen (most abundant) and elasticity via elastin fibers. The dermis-epidermis junction has rete ridges (epidermis projecting down) and dermal papillae (dermis projecting up) — this undulating interface increases adhesion surface area.</p>
+      <ul>
+        <li><strong>Type I collagen</strong> — mature skin, tendons (most abundant collagen)</li>
+        <li><strong>Type III collagen</strong> — fetal skin, wound healing, blood vessels (reticulin)</li>
+        <li><strong>Type IV collagen</strong> — basement membrane</li>
+        <li><strong>Elastin</strong> — provides recoil; degrades with UV exposure (solar elastosis)</li>
+      </ul>
+      <div class="box-clinical"><strong>&#129657; Clinical Note</strong>Ehlers-Danlos syndrome: defect in collagen synthesis/processing → hyperextensible skin, joint hypermobility, easy bruising. Type depends on collagen affected.</div>
+    </div>
+    <div class="card" id="cells">
+      <h2>Skin Cell Types</h2>
+      <table>
+        <tr><th>Cell</th><th>Origin</th><th>Location</th><th>Function / Relevance</th></tr>
+        <tr><td>Keratinocytes</td><td>Ectoderm</td><td>All epidermal layers</td><td>90% of epidermis; produce keratin; barrier function</td></tr>
+        <tr><td>Melanocytes</td><td>Neural crest</td><td>Stratum basale</td><td>Produce melanin (UV protection); 1:10 ratio to keratinocytes; melanoma origin</td></tr>
+        <tr><td>Langerhans cells</td><td>Bone marrow (monocyte)</td><td>Stratum spinosum</td><td>Antigen-presenting cells; destroyed by UV; express CD1a; Birbeck granules on EM</td></tr>
+        <tr><td>Merkel cells</td><td>Neural crest</td><td>Stratum basale</td><td>Slow-adapting mechanoreceptors (fine touch, sustained pressure); Merkel cell carcinoma</td></tr>
+        <tr><td>Fibroblasts</td><td>Mesoderm</td><td>Dermis</td><td>Collagen and elastin synthesis; wound healing</td></tr>
+        <tr><td>Mast cells</td><td>Bone marrow</td><td>Dermis (near vessels)</td><td>IgE-mediated degranulation; histamine release; urticaria, anaphylaxis</td></tr>
+      </table>
+    </div>
+    <div class="card" id="appendages">
+      <h2>Skin Appendages</h2>
+      <table>
+        <tr><th>Appendage</th><th>Origin</th><th>Function</th><th>Key Points</th></tr>
+        <tr><td>Hair follicle</td><td>Epidermis (downgrowth)</td><td>Hair production, thermoregulation</td><td>Arrector pili (sympathetic adrenergic) = goosebumps; stem cells in bulge region</td></tr>
+        <tr><td>Eccrine sweat glands</td><td>Epidermis</td><td>Thermoregulation (aqueous sweat)</td><td>Cholinergic innervation (sympathetic but ACh); all over body; most numerous on palms/soles</td></tr>
+        <tr><td>Apocrine sweat glands</td><td>Epidermis</td><td>Pheromones, emotional sweat</td><td>Axilla, groin, areola; active after puberty; odor from bacterial breakdown</td></tr>
+        <tr><td>Sebaceous glands</td><td>Epidermis</td><td>Sebum (lipid-rich, waterproofing, antimicrobial)</td><td>Attached to hair follicles; androgen-stimulated; acne = plugged pore + P. acnes</td></tr>
+        <tr><td>Nails</td><td>Epidermis</td><td>Protection, fine manipulation</td><td>Nail matrix (under lunula) = nail growth; ~3 mm/month fingernails</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>Eccrine glands = cholinergic even though sympathetic. All other sympathetic effectors use norepinephrine. This is a classic pharmacology/autonomic boards question.</div>
+    </div>
+    <div class="card" id="function">
+      <h2>Skin Functions</h2>
+      <ul>
+        <li><strong>Protection</strong> — physical barrier (keratin, lipids), UV protection (melanin), antimicrobial (acidic pH ~5.5, sebum, defensins)</li>
+        <li><strong>Thermoregulation</strong> — vasodilation/constriction, eccrine sweating (evaporative cooling)</li>
+        <li><strong>Sensation</strong> — mechanoreceptors (Meissner, Pacinian, Ruffini, Merkel), free nerve endings (pain, temperature)</li>
+        <li><strong>Vitamin D synthesis</strong> — UV-B converts 7-dehydrocholesterol → previtamin D3 → vitamin D3 (cholecalciferol); converted to active 1,25-OH vitamin D in kidney</li>
+        <li><strong>Immune function</strong> — Langerhans cells, mast cells, IgA in sweat</li>
+        <li><strong>Fluid barrier</strong> — prevents transepidermal water loss (TEWL)</li>
+      </ul>
+    </div>
+    <div class="card" id="clinical">
+      <h2>Clinical Pearls</h2>
+      <div class="box-pearl"><strong>&#11088; Burn Classification</strong>1st degree (superficial): epidermis only, painful, erythema, no blisters (sunburn). 2nd degree (partial thickness): epidermis + part of dermis, very painful, blisters. 3rd degree (full thickness): all layers destroyed, painless (nerve destruction), leathery. 4th degree: to bone/muscle.</div>
+      <div class="box-clinical"><strong>&#129657; Wound Healing Phases</strong>Hemostasis (immediate): platelet plug, clot. Inflammation (days 1-4): neutrophils then macrophages; debridement. Proliferative (days 4-21): fibroblasts, collagen III, angiogenesis, granulation tissue. Remodeling (weeks-years): collagen III replaced by I; scar matures; tensile strength never exceeds 80% of original.</div>
+      <div class="box-mnemonic"><strong>&#129488; ABCDE of Melanoma</strong>Asymmetry, Border irregularity, Color variation, Diameter greater than 6mm, Evolution (change over time). Most common in males: back. Most common in females: legs.</div>
+      <div class="box-pearl"><strong>&#11088; Sensory Receptors Quick Reference</strong>Meissner corpuscles (papillary dermis) = light touch, two-point discrimination. Pacinian corpuscles (reticular dermis/hypodermis) = pressure, vibration. Ruffini endings (dermis) = skin stretch. Merkel discs (stratum basale) = sustained pressure, fine touch. Free nerve endings = pain, temperature, itch.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
