@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GU/Reproductive Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html" class="active-sub">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>GU / Reproductive Disease</h1>
+  <p>UTI, BPH, PCOS, endometriosis, STIs, preeclampsia &amp; ectopic pregnancy</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#uti">UTI &amp; Pyelonephritis</a>
+  <a href="#bph">BPH &amp; Prostate Cancer</a>
+  <a href="#stis">STIs</a>
+  <a href="#pcos">PCOS</a>
+  <a href="#endo">Endometriosis</a>
+  <a href="#gyn-cancers">Gynecologic Cancers</a>
+  <a href="#ob-complications">OB Complications</a>
+</aside>
+<div class="content">
+
+<section id="uti">
+<h2>UTI &amp; Pyelonephritis</h2>
+<table>
+<tr><th>Condition</th><th>Organism</th><th>Symptoms</th><th>Diagnosis</th><th>Treatment</th></tr>
+<tr><td>Uncomplicated cystitis (women)</td><td>E. coli (85%), S. saprophyticus (young women), Klebsiella, Proteus</td><td>Dysuria, frequency, urgency, suprapubic pain; no fever</td><td>UA: pyuria, bacteriuria, nitrites (gram-neg), leukocyte esterase; culture if complicated</td><td>Nitrofurantoin × 5 days or TMP-SMX × 3 days or fosfomycin × 1 dose</td></tr>
+<tr><td>Complicated UTI</td><td>Broader spectrum; resistant organisms more common</td><td>Male, pregnant, immunocompromised, structural abnormality, catheter-associated</td><td>Urine culture required</td><td>Fluoroquinolone or augmentin × 7–14 days based on sensitivities</td></tr>
+<tr><td>Pyelonephritis (uncomplicated)</td><td>E. coli most common</td><td>Fever (&gt;38°C), chills, flank pain, CVA tenderness, nausea/vomiting + lower UTI symptoms</td><td>UA + urine culture; CBC (leukocytosis); imaging if no improvement after 48–72h</td><td>Outpatient: ciprofloxacin × 7 days or TMP-SMX × 14 days; Inpatient: IV ceftriaxone or fluoroquinolone</td></tr>
+<tr><td>Recurrent UTI (women)</td><td>E. coli predominant</td><td>≥2 in 6 months or ≥3 in 1 year</td><td>Culture each episode</td><td>Prophylactic nitrofurantoin, post-coital prophylaxis, topical vaginal estrogen (postmenopause)</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Asymptomatic bacteriuria: ONLY treat in pregnancy (risk of pyelonephritis and preterm labor) and prior to urologic procedures. Do NOT treat in elderly, catheterized patients, or DM patients — increases resistance without benefit. Proteus mirabilis causes struvite (staghorn) kidney stones via urease splitting urea to ammonia → alkaline urine. S. saprophyticus is the classic UTI in young, sexually active women (coagulase-negative staph).</div>
+</section>
+
+<section id="bph">
+<h2>BPH &amp; Prostate Cancer</h2>
+<h3>Benign Prostatic Hyperplasia (BPH)</h3>
+<p>Hyperplasia of periurethral transitional zone (not peripheral zone like cancer) → urethral compression → LUTS. DHT (5-alpha-reductase converts testosterone → DHT) drives prostate growth. LUTS: obstructive (hesitancy, weak stream, intermittency, incomplete emptying, post-void dribbling) and irritative (frequency, urgency, nocturia).</p>
+<h3>BPH Management — AUA Symptom Score</h3>
+<table>
+<tr><th>Severity</th><th>Score</th><th>Treatment</th></tr>
+<tr><td>Mild</td><td>0–7</td><td>Watchful waiting; lifestyle modification (limit evening fluids, caffeine, alcohol)</td></tr>
+<tr><td>Moderate</td><td>8–19</td><td>Alpha-blocker (tamsulosin, alfuzosin, doxazosin — relax smooth muscle, rapid onset) ± 5-alpha-reductase inhibitor (finasteride, dutasteride — reduce prostate size, 6-month delay)</td></tr>
+<tr><td>Severe</td><td>20–35</td><td>Combination therapy; consider surgery (TURP) for refractory/complications</td></tr>
+</table>
+<h3>Prostate Cancer</h3>
+<p>Most common cancer in men; second leading cause of cancer death. Arises in peripheral zone. Risk factors: age, AA race, positive family history. Usually adenocarcinoma; Gleason grading system (sum of two most prevalent grades, 1–5; Gleason 6–10; grade groups 1–5).</p>
+<div class="box-clinical"><strong>🏥 Prostate Cancer Screening</strong>PSA + DRE (digital rectal exam). USPSTF: shared decision-making for screening ages 55–69; individual decision. PSA &gt;4 ng/mL (or &gt;2.5 in young men or significant rise) → consider biopsy. Free PSA: lower ratio of free:total PSA = higher cancer risk. PSA velocity: rapid rise concerning. Treatment: localized — active surveillance vs. radical prostatectomy vs. radiation. Metastatic: androgen deprivation therapy (ADT) ± chemotherapy (docetaxel), enzalutamide, abiraterone.</div>
+</section>
+
+<section id="stis">
+<h2>Sexually Transmitted Infections</h2>
+<table>
+<tr><th>STI</th><th>Organism</th><th>Presentation</th><th>Diagnosis</th><th>Treatment</th></tr>
+<tr><td>Chlamydia</td><td>C. trachomatis</td><td>Often asymptomatic; urethritis, cervicitis, PID; epididymitis; reactive arthritis (Reiter's)</td><td>NAAT (urine or swab) — gold standard</td><td>Doxycycline × 7 days (1st line) or azithromycin 1g × 1 dose</td></tr>
+<tr><td>Gonorrhea</td><td>N. gonorrhoeae</td><td>Purulent urethral/cervical discharge; PID; disseminated: dermatitis-arthritis syndrome</td><td>NAAT; culture for resistance testing</td><td>Ceftriaxone 500mg IM × 1 dose (dual therapy with doxycycline if chlamydia not excluded)</td></tr>
+<tr><td>Syphilis</td><td>T. pallidum</td><td>1°: painless chancre. 2°: diffuse rash (palms/soles), condyloma lata, flu-like. 3°: gummas, tabes dorsalis, aortitis. Latent: asymptomatic</td><td>Non-treponemal (RPR, VDRL) for screening/monitoring; treponemal (FTA-ABS) for confirmation</td><td>1°/2°/early latent: benzathine penicillin G 2.4M units IM × 1; late latent/3°: × 3 doses; neurosyphilis: IV penicillin G 14 days</td></tr>
+<tr><td>Herpes (HSV-2)</td><td>HSV-2 (genital); HSV-1 (increasing)</td><td>Painful vesicles/ulcers on genitalia; prodrome of burning/tingling; recurs periodically; neonatal herpes risk</td><td>PCR swab of lesion (most sensitive); serology (HSV IgG) for type</td><td>Acyclovir/valacyclovir: 1st episode × 7–10 days; recurrent × 5 days; daily suppression for frequent recurrences or serodiscordant couples</td></tr>
+<tr><td>Trichomonas</td><td>T. vaginalis (protozoan)</td><td>Frothy, malodorous, yellow-green discharge; strawberry cervix; pruritus; male often asymptomatic</td><td>NAAT (most sensitive); wet mount: motile trichomonads</td><td>Metronidazole 2g × 1 or 500mg BID × 7 days; treat partner</td></tr>
+<tr><td>HPV</td><td>HPV (types 6/11 = warts; 16/18 = cancer)</td><td>Genital warts (condyloma acuminata); cervical, anal, oropharyngeal cancer</td><td>Clinical; Pap smear; colposcopy/biopsy; HPV co-testing</td><td>Warts: podophyllin, imiquimod, cryotherapy, excision; cancer: Pap/HPV surveillance; vaccine (Gardasil-9 through age 26, consider 27–45)</td></tr>
+</table>
+</section>
+
+<section id="pcos">
+<h2>Polycystic Ovary Syndrome (PCOS)</h2>
+<h3>Pathophysiology</h3>
+<p>PCOS is the most common endocrine disorder in women of reproductive age (5–10%). Exact mechanism unknown; key features: insulin resistance → hyperinsulinemia → increased ovarian androgen production + decreased SHBG → elevated free testosterone. Disrupted GnRH pulsatility → elevated LH:FSH ratio → excess androgen production, arrested follicular development, oligo/anovulation.</p>
+<h3>Rotterdam Criteria (2 of 3)</h3>
+<ul>
+<li>Oligo/anovulation (irregular periods or absence)</li>
+<li>Clinical or biochemical hyperandrogenism (hirsutism, acne, alopecia; elevated free testosterone)</li>
+<li>Polycystic ovaries on ultrasound (≥12 follicles 2–9mm per ovary or volume &gt;10 mL)</li>
+</ul>
+<div class="box-clinical"><strong>🏥 Management</strong>Lifestyle modification: weight loss 5–10% improves cycle regularity and reduces androgens. Combined OCP: regulate cycles, reduce hirsutism/acne (1st line for non-fertility goals). Metformin: improves insulin sensitivity; useful for metabolic features, menstrual irregularity. Fertility: clomiphene or letrozole (1st line for ovulation induction); gonadotropins; IVF. Spironolactone: anti-androgen for hirsutism/acne (not for women trying to conceive). Screen annually for DM and CVD risk. Endometrial cancer risk elevated (chronic unopposed estrogen from anovulation).</div>
+</section>
+
+<section id="endo">
+<h2>Endometriosis</h2>
+<h3>Pathophysiology</h3>
+<p>Endometrial glands and stroma outside the uterine cavity → ectopic implants respond to cyclic hormones → inflammation, fibrosis, and adhesions. Common sites: ovaries (endometrioma/"chocolate cyst"), peritoneum, uterosacral ligaments, rectovaginal septum. Theories: retrograde menstruation (most accepted), coelomic metaplasia, lymphatic/hematogenous spread.</p>
+<h3>Clinical Features &amp; Management</h3>
+<table>
+<tr><th>Feature</th><th>Detail</th></tr>
+<tr><td>Classic symptoms</td><td>Dysmenorrhea (cyclic pelvic pain worsening with menstruation), dyspareunia (deep), dyschezia (painful defecation), infertility (~30–50% with endometriosis)</td></tr>
+<tr><td>Diagnosis</td><td>Clinical suspicion; transvaginal ultrasound (endometriomas); MRI; definitive = laparoscopy with histology</td></tr>
+<tr><td>Treatment (pain)</td><td>NSAIDs; combined OCP (suppress endometrial growth); progestins (medroxyprogesterone, norethindrone); GnRH agonists (leuprolide — creates pseudomenopause; add-back estrogen to prevent bone loss); surgery for severe/refractory</td></tr>
+<tr><td>Treatment (fertility)</td><td>Surgical excision of endometriomas/adhesions; IVF for severe disease</td></tr>
+</table>
+</section>
+
+<section id="gyn-cancers">
+<h2>Gynecologic Cancers</h2>
+<table>
+<tr><th>Cancer</th><th>Key Risk Factors</th><th>Presentation</th><th>Screening/Diagnosis</th><th>Notes</th></tr>
+<tr><td>Cervical</td><td>HPV (16/18), smoking, multiple partners, early sexual activity, immunosuppression</td><td>Abnormal vaginal bleeding (post-coital, irregular); advanced: pelvic pain, weight loss</td><td>Pap smear (cytology) + HPV co-testing; colposcopy + biopsy for abnormal results</td><td>Pap q3yr (21–65) or Pap + HPV q5yr (30–65); most preventable with HPV vaccine + screening; SCC most common type (squamous); adenocarcinoma increasing</td></tr>
+<tr><td>Endometrial</td><td>Unopposed estrogen (obesity, PCOS, nulliparity, late menopause, ERT, tamoxifen), Lynch syndrome</td><td>Post-menopausal bleeding (PMB) — any PMB requires workup</td><td>Endometrial biopsy (gold standard); transvaginal ultrasound (endometrial stripe &gt;4mm in postmenopause)</td><td>Most common gynecologic malignancy in US; Type 1 (endometrioid, estrogen-dependent) vs. Type 2 (serous/clear cell, not hormone-related, worse prognosis)</td></tr>
+<tr><td>Ovarian</td><td>BRCA1/BRCA2, Lynch syndrome, nulliparity, endometriosis; OCPs are PROTECTIVE</td><td>Vague: bloating, early satiety, pelvic pressure, urinary urgency; often diagnosed late (Stage III–IV)</td><td>No effective screening; CA-125 + transvaginal U/S in high-risk; biopsy for diagnosis</td><td>Most lethal gyn malignancy; epithelial type most common (serous carcinoma); germ cell tumors in young women (dysgerminoma, yolk sac tumor); granulosa cell tumors produce estrogen</td></tr>
+</table>
+</section>
+
+<section id="ob-complications">
+<h2>Obstetric Complications</h2>
+<table>
+<tr><th>Condition</th><th>Definition</th><th>Features</th><th>Management</th></tr>
+<tr><td>Ectopic Pregnancy</td><td>Implantation outside uterine cavity (95% in fallopian tube)</td><td>Amenorrhea + lower abdominal pain + vaginal bleeding; beta-hCG positive but no IUP on ultrasound; hCG rises &lt;50% in 48h (abnormal); ruptured: hypotension, shoulder pain (hemoperitoneum)</td><td>Unruptured + stable: methotrexate (if criteria met). Ruptured or unstable: emergency surgery (salpingectomy or salpingostomy)</td></tr>
+<tr><td>Preeclampsia</td><td>BP ≥140/90 on ≥2 occasions ≥4 hours apart after 20 weeks + proteinuria (&gt;300mg/24h) OR severe features (BP ≥160/110, thrombocytopenia, renal insufficiency, impaired liver function, visual symptoms, pulmonary edema)</td><td>Usually asymptomatic; severe: headache, visual changes, RUQ/epigastric pain, edema; risks: seizures (eclampsia), HELLP syndrome, placental abruption, stroke</td><td>Definitive: delivery. BP management: labetalol, hydralazine, nifedipine (oral). Seizure prophylaxis: magnesium sulfate. Delivery at 37 weeks if stable; earlier for severe features</td></tr>
+<tr><td>HELLP Syndrome</td><td>Hemolysis + Elevated Liver enzymes + Low Platelets; variant of severe preeclampsia</td><td>RUQ/epigastric pain, nausea, malaise, jaundice; labs: hemolysis (LDH &gt;600, indirect bili elevated), AST &gt;70, platelets &lt;100K; DIC risk</td><td>Emergent delivery regardless of gestational age; magnesium sulfate; correct coagulopathy; may use corticosteroids to enhance fetal lung maturity if 34 weeks</td></tr>
+<tr><td>Gestational Diabetes</td><td>Glucose intolerance first identified during pregnancy</td><td>Often asymptomatic; diagnosed with 1-hr 50g GCT (&gt;140) → 3-hr 100g OGTT; ACOG: universal screen 24–28 weeks</td><td>Diet/exercise → insulin if glucose goals not met (metformin/glyburide are alternatives but not preferred). Risks: macrosomia, shoulder dystocia, neonatal hypoglycemia, polyhydramnios, preeclampsia</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Magnesium sulfate toxicity: loss of patellar reflex (first sign), respiratory depression, cardiac arrest. Antidote: calcium gluconate IV. Ectopic pregnancy: "Never, never, never put methotrexate in a patient who could rupture." Rule out surgical emergency first. Risk factors for ectopic: PID history, prior ectopic, IUD (relative risk), prior tubal surgery, smoking, assisted reproduction.</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
