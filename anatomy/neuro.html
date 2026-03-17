@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neurological System – Anatomy | FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
+a{text-decoration:none;color:inherit;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
+.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
+.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
+.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
+.sub-nav{background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(115,78,147,0.15);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
+.sub-nav a{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:#143D0D;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.sub-nav a:hover{border-color:#143D0D;background:rgba(20,61,13,0.08);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;border-color:#143D0D;}
+.hero{text-align:center;padding:3rem 2rem 2rem;}
+.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',fantasy;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:0.5rem;}
+.hero p{color:#666;font-size:1rem;max-width:600px;margin:0 auto;}
+.page-body{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1100px;margin:2rem auto;padding:0 2rem 4rem;}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.7);border-radius:14px;padding:1.25rem;box-shadow:0 4px 16px rgba(115,78,147,0.1);}
+.toc h3{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem;text-transform:uppercase;}
+.toc a{display:block;font-size:0.82rem;color:#444;padding:0.3rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content{display:flex;flex-direction:column;gap:1.5rem;}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:16px;padding:1.75rem;box-shadow:0 4px 20px rgba(115,78,147,0.1);}
+.card h2{font-family:'Aboreto',sans-serif;font-size:0.8rem;letter-spacing:0.12em;color:#143D0D;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.card p,.card li{font-size:0.95rem;line-height:1.75;color:#333;margin-bottom:0.5rem;}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:0.75rem;}
+.card table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+.card th{background:#143D0D;color:#fff;padding:0.6rem 0.75rem;text-align:left;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+.card td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+.card tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.1);border-left:4px solid #734E93;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:700px){.page-body{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
+  <div class="nav-tabs">
+    <a href="index.html" class="active">Anatomy</a>
+    <a href="../physiology/index.html">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophysiology</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../tests/index.html">Tests</a>
+  </div>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html" class="active-sub">Neuro</a>
+  <a href="gu.html">GU / Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Anatomy</div>
+  <h1>Neurological System</h1>
+  <p>Brain, spinal cord, peripheral nerves and supporting structures</p>
+</div>
+<div class="page-body">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <a href="#gross">Gross Anatomy</a>
+    <a href="#lobes">Cerebral Lobes</a>
+    <a href="#brainstem">Brainstem</a>
+    <a href="#spinal">Spinal Cord</a>
+    <a href="#cranial">Cranial Nerves</a>
+    <a href="#blood">Blood Supply</a>
+    <a href="#micro">Microanatomy</a>
+    <a href="#clinical">Clinical Pearls</a>
+  </aside>
+  <div class="content">
+    <div class="card" id="gross">
+      <h2>Gross Anatomy</h2>
+      <p>The CNS consists of the brain (~1400 g) and spinal cord, protected by the skull, three meningeal layers, and CSF. Major divisions: cerebrum, cerebellum, brainstem.</p>
+      <table>
+        <tr><th>Structure</th><th>Location</th><th>Key Function</th></tr>
+        <tr><td>Cerebrum</td><td>Largest division</td><td>Cognition, motor, sensory, language</td></tr>
+        <tr><td>Cerebellum</td><td>Posterior fossa</td><td>Coordination, balance, fine motor</td></tr>
+        <tr><td>Brainstem</td><td>Base of brain</td><td>Vital functions, CN nuclei III-XII</td></tr>
+        <tr><td>Spinal cord</td><td>Vertebral canal (to L1-L2)</td><td>Relay tracts, reflexes</td></tr>
+        <tr><td>Meninges</td><td>Brain/cord covering</td><td>Protection, CSF circulation</td></tr>
+      </table>
+      <div class="box-clinical"><strong>&#129657; Clinical Note</strong>The falx cerebri separates hemispheres; tentorium cerebelli separates cerebrum from cerebellum — key landmark in herniation syndromes.</div>
+    </div>
+    <div class="card" id="lobes">
+      <h2>Cerebral Lobes and Functions</h2>
+      <table>
+        <tr><th>Lobe</th><th>Primary Function</th><th>Key Structures</th></tr>
+        <tr><td>Frontal</td><td>Motor, executive function, personality</td><td>Precentral gyrus (motor), Broca's area</td></tr>
+        <tr><td>Parietal</td><td>Sensory integration, spatial awareness</td><td>Postcentral gyrus (somatosensory)</td></tr>
+        <tr><td>Temporal</td><td>Auditory, memory, language comprehension</td><td>Wernicke's area, hippocampus</td></tr>
+        <tr><td>Occipital</td><td>Visual processing</td><td>Calcarine sulcus (primary visual cortex)</td></tr>
+        <tr><td>Limbic</td><td>Emotion, memory, behavior</td><td>Amygdala, hippocampus, cingulate gyrus</td></tr>
+      </table>
+      <div class="box-mnemonic"><strong>&#129488; Mnemonic — Aphasia</strong>Broca's = Broken speech (expressive, frontal). Wernicke's = Wordy but Wrong (receptive, temporal).</div>
+    </div>
+    <div class="card" id="brainstem">
+      <h2>Brainstem and Cerebellum</h2>
+      <table>
+        <tr><th>Region</th><th>Cranial Nerves</th><th>Key Centers</th></tr>
+        <tr><td>Midbrain</td><td>CN III, IV</td><td>Pupillary reflex, vertical gaze, RAS</td></tr>
+        <tr><td>Pons</td><td>CN V, VI, VII, VIII</td><td>Pneumotaxic center, horizontal gaze</td></tr>
+        <tr><td>Medulla</td><td>CN IX, X, XI, XII</td><td>Cardiac, vasomotor, respiratory centers</td></tr>
+        <tr><td>Cerebellum</td><td>—</td><td>IPSILATERAL coordination; dysmetria with lesions</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>Crossed findings (contralateral face + ipsilateral body) = brainstem lesion. Wallenberg syndrome: dysphagia, hoarseness, ipsilateral Horner's, ipsilateral facial numbness, contralateral body pain/temp loss.</div>
+    </div>
+    <div class="card" id="spinal">
+      <h2>Spinal Cord Tracts</h2>
+      <table>
+        <tr><th>Tract</th><th>Column</th><th>Function</th><th>Decussates at</th></tr>
+        <tr><td>Corticospinal</td><td>Lateral</td><td>Voluntary motor</td><td>Medulla (pyramids)</td></tr>
+        <tr><td>Spinothalamic</td><td>Anterolateral</td><td>Pain, temperature, crude touch</td><td>Within 1-2 spinal levels</td></tr>
+        <tr><td>Dorsal columns (DCML)</td><td>Posterior</td><td>Vibration, proprioception, fine touch</td><td>Medulla (gracile/cuneate nuclei)</td></tr>
+      </table>
+      <div class="box-clinical"><strong>&#129657; Brown-Sequard Syndrome</strong>Hemisection: ipsilateral motor + proprioception loss; contralateral pain/temperature loss below lesion.</div>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>Isolated posterior column loss = B12 deficiency, tabes dorsalis (syphilis), or Friedreich ataxia.</div>
+    </div>
+    <div class="card" id="cranial">
+      <h2>Cranial Nerves</h2>
+      <table>
+        <tr><th>CN</th><th>Name</th><th>Type</th><th>Function</th></tr>
+        <tr><td>I</td><td>Olfactory</td><td>Sensory</td><td>Smell</td></tr>
+        <tr><td>II</td><td>Optic</td><td>Sensory</td><td>Vision; afferent pupillary reflex</td></tr>
+        <tr><td>III</td><td>Oculomotor</td><td>Motor</td><td>Eye movement (SR,IR,MR,IO), pupil constriction, eyelid</td></tr>
+        <tr><td>IV</td><td>Trochlear</td><td>Motor</td><td>Superior oblique (down and in)</td></tr>
+        <tr><td>V</td><td>Trigeminal</td><td>Both</td><td>Facial sensation (V1-V3), mastication</td></tr>
+        <tr><td>VI</td><td>Abducens</td><td>Motor</td><td>Lateral rectus (abduction)</td></tr>
+        <tr><td>VII</td><td>Facial</td><td>Both</td><td>Facial expression, taste ant. 2/3 tongue, lacrimation</td></tr>
+        <tr><td>VIII</td><td>Vestibulocochlear</td><td>Sensory</td><td>Hearing and balance</td></tr>
+        <tr><td>IX</td><td>Glossopharyngeal</td><td>Both</td><td>Taste post. 1/3 tongue, gag (afferent), carotid body</td></tr>
+        <tr><td>X</td><td>Vagus</td><td>Both</td><td>Parasympathetics thorax/abdomen, gag (efferent), voice</td></tr>
+        <tr><td>XI</td><td>Accessory</td><td>Motor</td><td>SCM and trapezius</td></tr>
+        <tr><td>XII</td><td>Hypoglossal</td><td>Motor</td><td>Tongue; deviation toward lesion side</td></tr>
+      </table>
+    </div>
+    <div class="card" id="blood">
+      <h2>Cerebral Blood Supply</h2>
+      <table>
+        <tr><th>Artery</th><th>Territory</th><th>Stroke Deficit</th></tr>
+        <tr><td>ACA</td><td>Medial frontal/parietal</td><td>Contralateral leg more than arm weakness</td></tr>
+        <tr><td>MCA</td><td>Lateral cortex</td><td>Contralateral face/arm; aphasia (dominant); neglect (non-dominant)</td></tr>
+        <tr><td>PCA</td><td>Occipital, medial temporal</td><td>Contralateral homonymous hemianopia</td></tr>
+        <tr><td>Basilar</td><td>Pons, cerebellum, midbrain</td><td>Locked-in syndrome; vertical gaze palsy</td></tr>
+        <tr><td>PICA</td><td>Lateral medulla</td><td>Wallenberg syndrome</td></tr>
+        <tr><td>Lenticulostriate</td><td>Basal ganglia, internal capsule</td><td>Lacunar infarcts; pure motor or sensory stroke</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>MCA most commonly occluded in ischemic stroke. tPA window: 3-4.5 hours from symptom onset (if no contraindications).</div>
+    </div>
+    <div class="card" id="micro">
+      <h2>Microanatomy and CSF</h2>
+      <ul>
+        <li><strong>Astrocytes</strong> — BBB support, scar formation (gliosis)</li>
+        <li><strong>Oligodendrocytes</strong> — CNS myelin (1 cell myelinates MANY axons)</li>
+        <li><strong>Schwann cells</strong> — PNS myelin (1 cell per 1 axon); can regenerate</li>
+        <li><strong>Microglia</strong> — CNS macrophages (mesodermal origin)</li>
+        <li><strong>Ependymal cells</strong> — line ventricles; produce CSF</li>
+      </ul>
+      <p>CSF flow: Choroid plexus → lateral ventricles → foramen of Monro → 3rd ventricle → cerebral aqueduct → 4th ventricle → subarachnoid space → arachnoid granulations → venous sinuses.</p>
+    </div>
+    <div class="card" id="clinical">
+      <h2>Clinical Pearls</h2>
+      <div class="box-pearl"><strong>&#11088; UMN vs LMN</strong>UMN: spasticity, hyperreflexia, Babinski positive, minimal atrophy. LMN: flaccidity, hyporeflexia, fasciculations, significant atrophy.</div>
+      <div class="box-clinical"><strong>&#129657; Meningeal Signs</strong>Kernig's: cannot extend knee with hip flexed. Brudzinski's: neck flexion causes involuntary knee flexion. Both = meningeal irritation.</div>
+      <div class="box-mnemonic"><strong>&#129488; Key Dermatomes</strong>C5=shoulder, C6=thumb, C7=middle finger, C8=pinky, T4=nipple, T10=umbilicus, L1=inguinal, L4=knee, L5=great toe, S1=heel/small toe, S2-4=saddle.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
