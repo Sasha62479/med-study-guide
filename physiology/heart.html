@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cardiac Physiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
+a{text-decoration:none;color:inherit;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
+.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
+.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
+.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
+.sub-nav{background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(115,78,147,0.15);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
+.sub-nav a{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:#143D0D;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.sub-nav a:hover{border-color:#143D0D;background:rgba(20,61,13,0.08);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;border-color:#143D0D;}
+.hero{text-align:center;padding:3rem 2rem 2rem;}
+.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',fantasy;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:0.5rem;}
+.hero p{color:#666;font-size:1rem;max-width:600px;margin:0 auto;}
+.page-body{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1100px;margin:2rem auto;padding:0 2rem 4rem;}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.7);border-radius:14px;padding:1.25rem;box-shadow:0 4px 16px rgba(115,78,147,0.1);}
+.toc h3{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem;text-transform:uppercase;}
+.toc a{display:block;font-size:0.82rem;color:#444;padding:0.3rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content{display:flex;flex-direction:column;gap:1.5rem;}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:16px;padding:1.75rem;box-shadow:0 4px 20px rgba(115,78,147,0.1);}
+.card h2{font-family:'Aboreto',sans-serif;font-size:0.8rem;letter-spacing:0.12em;color:#143D0D;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.card p,.card li{font-size:0.95rem;line-height:1.75;color:#333;margin-bottom:0.5rem;}
+.card ul{padding-left:1.25rem;margin-bottom:0.75rem;}
+.card table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+.card th{background:#143D0D;color:#fff;padding:0.6rem 0.75rem;text-align:left;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+.card td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+.card tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.1);border-left:4px solid #734E93;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.box-clinical strong{color:#143D0D;}.box-pearl strong{color:#F25032;}.box-mnemonic strong{color:#734E93;}
+@media(max-width:700px){.page-body{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
+  <div class="nav-tabs">
+    <a href="../anatomy/index.html">Anatomy</a>
+    <a href="index.html" class="active">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophysiology</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../tests/index.html">Tests</a>
+  </div>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html" class="active-sub">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU / Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Physiology</div>
+  <h1>Cardiac Physiology</h1>
+  <p>Cardiac cycle, action potentials, output regulation, and hemodynamics</p>
+</div>
+<div class="page-body">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <a href="#cycle">Cardiac Cycle</a>
+    <a href="#ap">Action Potentials</a>
+    <a href="#output">Cardiac Output</a>
+    <a href="#frank">Frank-Starling</a>
+    <a href="#bp">Blood Pressure</a>
+    <a href="#auto">Autonomic Control</a>
+    <a href="#clinical">Clinical Pearls</a>
+  </aside>
+  <div class="content">
+    <div class="card" id="cycle">
+      <h2>The Cardiac Cycle</h2>
+      <p>The cardiac cycle includes systole (contraction) and diastole (relaxation) coordinated by electrical signals.</p>
+      <table>
+        <tr><th>Phase</th><th>Valves</th><th>Key Events</th></tr>
+        <tr><td>Isovolumetric contraction</td><td>All closed</td><td>Pressure rises, no volume change; follows QRS on ECG</td></tr>
+        <tr><td>Rapid ejection</td><td>Aortic/pulmonic open</td><td>70% of SV ejected; peak systolic pressure</td></tr>
+        <tr><td>Isovolumetric relaxation</td><td>All closed</td><td>Pressure falls, no volume change; follows T wave</td></tr>
+        <tr><td>Rapid filling</td><td>Mitral/tricuspid open</td><td>80% of ventricular filling (passive); S3 sound here if pathologic</td></tr>
+        <tr><td>Atrial kick</td><td>Mitral/tricuspid open</td><td>Final 20% filling; S4 sound here if pathologic; lost in A-fib</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Heart Sounds</strong>S1 = mitral/tricuspid closure (systole onset). S2 = aortic/pulmonic closure (systole end). S3 = rapid filling (volume overload, HFrEF, normal in young). S4 = atrial kick against stiff ventricle (hypertension, LVH, AS).</div>
+    </div>
+    <div class="card" id="ap">
+      <h2>Cardiac Action Potentials</h2>
+      <table>
+        <tr><th>Phase</th><th>Ion Flow</th><th>Significance</th></tr>
+        <tr><td>Phase 0 — Rapid depolarization</td><td>Na+ in (fast channels)</td><td>Absent in SA/AV nodes; blocked by Class I antiarrhythmics</td></tr>
+        <tr><td>Phase 1 — Early repolarization</td><td>K+ out (Ito)</td><td>Notch on AP; prominent in Brugada syndrome</td></tr>
+        <tr><td>Phase 2 — Plateau</td><td>Ca2+ in, K+ out (balance)</td><td>Unique to cardiac muscle; sustains contraction; blocked by Class IV (CCBs)</td></tr>
+        <tr><td>Phase 3 — Rapid repolarization</td><td>K+ out (IKr, IKs)</td><td>Blocked by Class III antiarrhythmics (amiodarone, sotalol); prolongs QT</td></tr>
+        <tr><td>Phase 4 — Resting potential</td><td>K+ leak; pacemaker If (funny current)</td><td>SA node spontaneous depolarization; blocked by ivabradine</td></tr>
+      </table>
+      <div class="box-clinical"><strong>&#129657; SA vs Ventricular AP</strong>SA/AV node AP: no Phase 0 fast Na+; relies on slow Ca2+ channels (Phase 0). Slow conduction. Blocked by Class IV (CCBs) and Class II (beta-blockers). Ventricular AP: fast Na+ dependent; Class I antiarrhythmics work here.</div>
+    </div>
+    <div class="card" id="output">
+      <h2>Cardiac Output and Determinants</h2>
+      <p><strong>CO = HR x SV</strong> (normal ~5 L/min at rest)</p>
+      <table>
+        <tr><th>Determinant</th><th>Definition</th><th>Increases With</th><th>Decreases With</th></tr>
+        <tr><td>Heart rate</td><td>Beats per minute</td><td>Sympathetic, catecholamines, hyperthyroidism</td><td>Parasympathetic (vagal), beta-blockers, hypothyroidism</td></tr>
+        <tr><td>Preload</td><td>Ventricular EDV (stretch)</td><td>Increased venous return, fluid bolus</td><td>Diuretics, venodilatation (nitrates)</td></tr>
+        <tr><td>Afterload</td><td>Resistance ventricle pumps against</td><td>Hypertension, aortic stenosis, vasoconstriction</td><td>Vasodilators (ACEi, ARB, hydralazine)</td></tr>
+        <tr><td>Contractility (inotropy)</td><td>Intrinsic force at same preload</td><td>Catecholamines, digoxin, Ca2+, dobutamine</td><td>Beta-blockers, heart failure, acidosis, hypoxia</td></tr>
+      </table>
+    </div>
+    <div class="card" id="frank">
+      <h2>Frank-Starling Law</h2>
+      <p>The Frank-Starling law states that stroke volume increases with increased preload (end-diastolic volume), up to a point. Greater stretch of cardiac muscle fibers → greater force of contraction due to optimal actin-myosin overlap.</p>
+      <div class="box-pearl"><strong>&#11088; Boards Application</strong>In heart failure, the Frank-Starling curve is shifted DOWN and to the RIGHT — same preload produces less stroke volume. Inotropes shift the curve UP (more SV at same preload). This explains why HF patients decompensate with fluid challenges.</div>
+      <div class="box-mnemonic"><strong>&#129488; Quick Formula Review</strong>CO = HR x SV. MAP = DBP + 1/3 (SBP-DBP). SVR = (MAP - RAP) / CO x 80. Ejection fraction = SV/EDV (normal &gt;55%).</div>
+    </div>
+    <div class="card" id="bp">
+      <h2>Blood Pressure and Hemodynamics</h2>
+      <p><strong>BP = CO x SVR</strong> (systemic vascular resistance). Arterioles are the primary site of resistance. The baroreceptor reflex (carotid sinus, aortic arch) provides moment-to-moment BP regulation.</p>
+      <table>
+        <tr><th>Pressure Type</th><th>Normal Value</th><th>Clinical Note</th></tr>
+        <tr><td>Systolic BP</td><td>90-120 mmHg</td><td>Reflects CO and arterial compliance</td></tr>
+        <tr><td>Diastolic BP</td><td>60-80 mmHg</td><td>Reflects SVR and arterial tone</td></tr>
+        <tr><td>MAP</td><td>70-100 mmHg</td><td>Perfusion pressure; organs autoregulate within this range</td></tr>
+        <tr><td>Pulse pressure</td><td>SBP - DBP (~40 mmHg)</td><td>Widened in aortic regurgitation, aortic dissection; narrowed in cardiac tamponade, severe AS</td></tr>
+        <tr><td>CVP (RAP)</td><td>2-8 mmHg</td><td>Reflects preload; elevated in RHF, tamponade, tension pneumo</td></tr>
+      </table>
+    </div>
+    <div class="card" id="auto">
+      <h2>Autonomic Regulation of the Heart</h2>
+      <table>
+        <tr><th>Effect</th><th>Sympathetic (NE, Epi)</th><th>Parasympathetic (ACh)</th></tr>
+        <tr><td>Heart rate</td><td>Increase (beta-1)</td><td>Decrease (M2)</td></tr>
+        <tr><td>Contractility</td><td>Increase (beta-1)</td><td>Slight decrease (atria mainly)</td></tr>
+        <tr><td>AV conduction</td><td>Faster (shorter PR)</td><td>Slower (longer PR; AV block with excess)</td></tr>
+        <tr><td>Coronary vessels</td><td>Dilate (beta-2); constrict (alpha-1)</td><td>Dilate (indirect via metabolic demand)</td></tr>
+      </table>
+      <div class="box-clinical"><strong>&#129657; Valsalva Maneuver Phases</strong>Strain phase: increased intrathoracic pressure → decreased venous return → decreased CO → reflex tachycardia. Release phase: venous return surges → CO spike → reflex bradycardia. Used to terminate SVT (increases vagal tone).</div>
+    </div>
+    <div class="card" id="clinical">
+      <h2>Clinical Pearls</h2>
+      <div class="box-pearl"><strong>&#11088; Ejection Fraction Classification</strong>HFrEF: EF less than 40% (systolic dysfunction). HFmrEF: EF 40-49%. HFpEF: EF 50% or greater (diastolic dysfunction). HFpEF is now more common than HFrEF; associated with hypertension, obesity, DM, elderly women.</div>
+      <div class="box-clinical"><strong>&#129657; Starling Forces (Capillary Exchange)</strong>Filtration favored by: high capillary hydrostatic pressure (Pc), low interstitial oncotic pressure. Absorption favored by: high plasma oncotic pressure (albumin), low Pc. Edema: when filtration exceeds lymphatic drainage.</div>
+      <div class="box-mnemonic"><strong>&#129488; Orthostatic Hypotension Reflex</strong>Standing: gravity pools blood in legs → decreased venous return → decreased CO → baroreceptors detect BP drop → sympathetic activation → tachycardia + vasoconstriction → BP restored. Failure = orthostatic hypotension (20 mmHg systolic or 10 mmHg diastolic drop).</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
