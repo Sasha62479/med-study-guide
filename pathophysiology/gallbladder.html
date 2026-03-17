@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gallbladder Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html" class="active-sub">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Biliary Disease</h1>
+  <p>Cholelithiasis, cholecystitis, choledocholithiasis &amp; ascending cholangitis</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#cholelithiasis">Cholelithiasis</a>
+  <a href="#cholecystitis">Cholecystitis</a>
+  <a href="#choledocholithiasis">Choledocholithiasis</a>
+  <a href="#cholangitis">Ascending Cholangitis</a>
+  <a href="#comparison">Comparison Table</a>
+</aside>
+<div class="content">
+
+<section id="cholelithiasis">
+<h2>Cholelithiasis (Gallstones)</h2>
+<h3>Pathophysiology</h3>
+<p>Gallstones form when bile components precipitate out of solution. The two major types are cholesterol stones (80%) and pigment stones (20%). Cholesterol stones form when bile is supersaturated with cholesterol relative to bile salts and lecithin (lithogenic bile), combined with reduced gallbladder motility and crystal nucleation. Black pigment stones form from excess unconjugated bilirubin (hemolytic states); brown pigment stones form from bacterial enzymatic deconjugation of bilirubin in infected bile.</p>
+<h3>Risk Factors</h3>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — 4 F's + additional</strong>Fat · Female · Fertile (pregnancy) · Forty (age &gt;40) — PLUS: Fair (Native American/Hispanic), Family history, Rapid weight loss, OCPs/estrogen, Ileal disease (Crohn's, ileal resection), TPN, diabetes, hemolytic anemia</div>
+<h3>Stone Types</h3>
+<table>
+<tr><th>Type</th><th>Composition</th><th>Appearance</th><th>Association</th></tr>
+<tr><td>Cholesterol</td><td>&gt;50% cholesterol</td><td>Large, solitary, pale yellow, may float on X-ray</td><td>Obesity, OCP, pregnancy, rapid weight loss, Crohn's</td></tr>
+<tr><td>Black pigment</td><td>Calcium bilirubinate</td><td>Small, multiple, radio-opaque</td><td>Hemolysis (sickle cell, spherocytosis), cirrhosis, total parenteral nutrition</td></tr>
+<tr><td>Brown pigment</td><td>Calcium bilirubinate + fatty acids</td><td>Soft, brown, radio-lucent</td><td>Biliary stasis + infection (E. coli, Klebsiella)</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Clinical</strong>Most gallstones (80%) are asymptomatic. Biliary colic: episodic RUQ pain radiating to right shoulder, post-fatty meal, lasting 1–6 hours, with nausea/vomiting. RUQ ultrasound is the imaging of choice (sensitivity &gt;95%). Asymptomatic gallstones generally do not require cholecystectomy unless in high-risk populations (porcelain gallbladder, Native American heritage, transplant candidates).</div>
+</section>
+
+<section id="cholecystitis">
+<h2>Cholecystitis</h2>
+<h3>Acute Calculous Cholecystitis</h3>
+<p>Gallstone impaction in the cystic duct → bile accumulation → increased intraluminal pressure → gallbladder wall ischemia → inflammation and possible secondary bacterial infection. 90–95% of acute cholecystitis cases are calculous.</p>
+<h3>Clinical Presentation</h3>
+<table>
+<tr><th>Feature</th><th>Details</th></tr>
+<tr><td>Pain</td><td>Persistent RUQ or epigastric pain (&gt;6 hours), unlike biliary colic</td></tr>
+<tr><td>Murphy's sign</td><td>Inspiratory arrest during deep RUQ palpation (pathognomonic)</td></tr>
+<tr><td>Fever/leukocytosis</td><td>Low-grade fever, WBC 12,000–15,000</td></tr>
+<tr><td>Labs</td><td>Mild elevation of bilirubin, alkaline phosphatase, ALT/AST; WBC elevated</td></tr>
+<tr><td>Imaging</td><td>U/S: gallstones + gallbladder wall thickening (&gt;3mm), pericholecystic fluid, sonographic Murphy's sign</td></tr>
+</table>
+<h3>Complications of Cholecystitis</h3>
+<ul>
+<li><strong>Gangrenous cholecystitis:</strong> full-thickness necrosis; higher surgical risk</li>
+<li><strong>Emphysematous cholecystitis:</strong> gas-forming organisms (Clostridium, E. coli); diabetics; CT: gas in wall</li>
+<li><strong>Gallbladder perforation:</strong> pericholecystic abscess or bile peritonitis</li>
+<li><strong>Mirizzi syndrome:</strong> external compression of common bile duct by stone in cystic duct/gallbladder neck</li>
+</ul>
+<h3>Acalculous Cholecystitis</h3>
+<p>Gallbladder inflammation without stones; occurs in critically ill patients (ICU, trauma, major surgery, burns, TPN, sepsis). Mechanism: bile stasis + ischemia + mucosal injury. Higher risk of gangrene and perforation. Diagnosis: HIDA scan (if ultrasound non-diagnostic). Treatment: percutaneous cholecystostomy in unstable patients.</p>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Treatment of acute cholecystitis: NPO, IV fluids, analgesics, IV antibiotics (ceftriaxone + metronidazole, or piperacillin-tazobactam), and early laparoscopic cholecystectomy within 72 hours (preferred over delayed surgery). Delayed cholecystectomy (4–6 weeks) is reserved for high surgical risk patients.</div>
+</section>
+
+<section id="choledocholithiasis">
+<h2>Choledocholithiasis</h2>
+<p>Stones in the common bile duct (CBD). May be primary (formed in CBD) or secondary (migrated from gallbladder). Causes obstructive jaundice, biliary colic, and can lead to cholangitis or gallstone pancreatitis.</p>
+<table>
+<tr><th>Feature</th><th>Detail</th></tr>
+<tr><td>Symptoms</td><td>Jaundice, RUQ pain, acholic stools, dark urine, pruritus</td></tr>
+<tr><td>Labs</td><td>Elevated direct bilirubin, elevated alkaline phosphatase, mildly elevated AST/ALT</td></tr>
+<tr><td>Imaging</td><td>Ultrasound (dilated CBD &gt;6mm), MRCP (definitive non-invasive), ERCP (diagnostic + therapeutic)</td></tr>
+<tr><td>Treatment</td><td>ERCP with sphincterotomy and stone extraction; followed by laparoscopic cholecystectomy</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Clinical Note</strong>CBD dilation threshold: &gt;6mm after cholecystectomy; &gt;8mm before age 60 or in patients with intact gallbladder. MRCP is preferred over CT for CBD stone detection (no radiation, better sensitivity for soft tissue). ERCP is reserved for cases requiring intervention.</div>
+</section>
+
+<section id="cholangitis">
+<h2>Ascending (Acute) Cholangitis</h2>
+<h3>Pathophysiology</h3>
+<p>Biliary obstruction (most often from CBD stones) → increased intraluminal pressure → biliary-venous reflux → bacteremia. Common organisms: E. coli (most common), Klebsiella, Enterococcus, anaerobes.</p>
+<h3>Charcot's Triad &amp; Reynolds' Pentad</h3>
+<table>
+<tr><th>Charcot's Triad (classic)</th><th>Reynolds' Pentad (severe/suppurative)</th></tr>
+<tr><td>Fever + chills</td><td>Fever + chills</td></tr>
+<tr><td>Jaundice</td><td>Jaundice</td></tr>
+<tr><td>RUQ pain</td><td>RUQ pain</td></tr>
+<tr><td>—</td><td>Altered mental status</td></tr>
+<tr><td>—</td><td>Hypotension (septic shock)</td></tr>
+</table>
+<h3>Management</h3>
+<ul>
+<li>IV fluid resuscitation, NPO, IV antibiotics (coverage for gram-negatives and anaerobes)</li>
+<li>Urgent biliary decompression: ERCP (preferred), or percutaneous transhepatic cholangiography (PTC)</li>
+<li>Blood cultures before antibiotics</li>
+<li>ICU admission for Reynolds' pentad</li>
+</ul>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Ascending cholangitis is a surgical/GI emergency. Reynolds' pentad = suppurative cholangitis with septic shock — mortality up to 50% without prompt decompression. Don't delay ERCP waiting for broad workup. Charcot's triad is only present in ~50–70% of cases.</div>
+</section>
+
+<section id="comparison">
+<h2>Biliary Disease Comparison</h2>
+<table>
+<tr><th>Condition</th><th>Pain Duration</th><th>Fever</th><th>Jaundice</th><th>Key Finding</th><th>Treatment</th></tr>
+<tr><td>Biliary colic</td><td>1–6 hours</td><td>No</td><td>No</td><td>Gallstones on U/S</td><td>Elective cholecystectomy</td></tr>
+<tr><td>Acute cholecystitis</td><td>&gt;6 hours</td><td>Yes (low-grade)</td><td>Mild (5–10%)</td><td>Murphy's sign, wall thickening</td><td>Antibiotics + early cholecystectomy</td></tr>
+<tr><td>Choledocholithiasis</td><td>Variable</td><td>No (unless cholangitis)</td><td>Yes (direct)</td><td>CBD dilation, direct hyperbilirubinemia</td><td>ERCP + later cholecystectomy</td></tr>
+<tr><td>Ascending cholangitis</td><td>Constant</td><td>Yes (high, rigors)</td><td>Yes</td><td>Charcot's triad</td><td>Emergent ERCP + IV antibiotics</td></tr>
+<tr><td>Gallstone pancreatitis</td><td>Epigastric/back</td><td>Variable</td><td>Mild</td><td>Elevated lipase, dilated CBD</td><td>Supportive + ERCP if obstruction</td></tr>
+</table>
+</section>
+
+</div>
+</div>
+</body>
+</html>
