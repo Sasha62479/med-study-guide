@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Hepatic Physiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
+a{text-decoration:none;color:inherit;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
+.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
+.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
+.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
+.sub-nav{background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(115,78,147,0.15);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;}
+.sub-nav a{font-family:'Nunito',sans-serif;font-size:0.8rem;font-weight:600;color:#143D0D;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid transparent;transition:all 0.2s;white-space:nowrap;}
+.sub-nav a:hover{border-color:#143D0D;background:rgba(20,61,13,0.08);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;border-color:#143D0D;}
+.hero{text-align:center;padding:3rem 2rem 2rem;}
+.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',fantasy;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:0.5rem;}
+.hero p{color:#666;font-size:1rem;max-width:600px;margin:0 auto;}
+.page-body{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1100px;margin:2rem auto;padding:0 2rem 4rem;}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.7);border-radius:14px;padding:1.25rem;box-shadow:0 4px 16px rgba(115,78,147,0.1);}
+.toc h3{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem;text-transform:uppercase;}
+.toc a{display:block;font-size:0.82rem;color:#444;padding:0.3rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content{display:flex;flex-direction:column;gap:1.5rem;}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:16px;padding:1.75rem;box-shadow:0 4px 20px rgba(115,78,147,0.1);}
+.card h2{font-family:'Aboreto',sans-serif;font-size:0.8rem;letter-spacing:0.12em;color:#143D0D;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.card p,.card li{font-size:0.95rem;line-height:1.75;color:#333;margin-bottom:0.5rem;}
+.card ul{padding-left:1.25rem;margin-bottom:0.75rem;}
+.card table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+.card th{background:#143D0D;color:#fff;padding:0.6rem 0.75rem;text-align:left;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.06em;}
+.card td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+.card tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.1);border-left:4px solid #734E93;border-radius:8px;padding:1rem 1.25rem;margin:0.75rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.box-clinical strong{color:#143D0D;}.box-pearl strong{color:#F25032;}.box-mnemonic strong{color:#734E93;}
+@media(max-width:700px){.page-body{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
+  <div class="nav-tabs">
+    <a href="../anatomy/index.html">Anatomy</a>
+    <a href="index.html" class="active">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophysiology</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../tests/index.html">Tests</a>
+  </div>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html" class="active-sub">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU / Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Physiology</div>
+  <h1>Hepatic Physiology</h1>
+  <p>Metabolism, detoxification, bile production, protein synthesis, and glucose homeostasis</p>
+</div>
+<div class="page-body">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <a href="#metabolism">Carbohydrate Metabolism</a>
+    <a href="#lipid">Lipid Metabolism</a>
+    <a href="#protein">Protein Synthesis</a>
+    <a href="#bile">Bile Production</a>
+    <a href="#detox">Detoxification</a>
+    <a href="#clinical">Clinical Pearls</a>
+  </aside>
+  <div class="content">
+    <div class="card" id="metabolism">
+      <h2>Carbohydrate and Glucose Metabolism</h2>
+      <table>
+        <tr><th>State</th><th>Hepatic Response</th><th>Key Hormones</th></tr>
+        <tr><td>Fed state (postprandial)</td><td>Glycogenesis (glucose to glycogen storage); lipogenesis; glycolysis</td><td>Insulin (dominant); promotes GLUT2 uptake</td></tr>
+        <tr><td>Fasting (early)</td><td>Glycogenolysis (glycogen breakdown → glucose release)</td><td>Glucagon; epinephrine</td></tr>
+        <tr><td>Prolonged fasting</td><td>Gluconeogenesis (amino acids, lactate, glycerol → glucose)</td><td>Glucagon, cortisol</td></tr>
+        <tr><td>Stress / catabolism</td><td>Increased gluconeogenesis; decreased glycogen synthesis</td><td>Cortisol, epinephrine, glucagon</td></tr>
+      </table>
+      <div class="box-pearl"><strong>&#11088; Boards Pearl</strong>The liver is the only organ that releases glucose into the blood (via glucose-6-phosphatase). Muscle glycogen is used only by muscle (no G6Pase). In liver failure, gluconeogenesis fails → fasting hypoglycemia.</div>
+    </div>
+    <div class="card" id="lipid">
+      <h2>Lipid Metabolism</h2>
+      <ul>
+        <li><strong>Fatty acid synthesis</strong> — occurs in cytoplasm in the fed state (insulin promotes); uses acetyl-CoA from glucose; stored as triglycerides in liver or exported as VLDL</li>
+        <li><strong>Beta-oxidation</strong> — fatty acids broken down to acetyl-CoA for energy in fasting/starvation; occurs in mitochondria</li>
+        <li><strong>Ketogenesis</strong> — excess acetyl-CoA (prolonged starvation, DKA) → ketone bodies (acetoacetate, beta-hydroxybutyrate); used by brain and muscle</li>
+        <li><strong>Cholesterol synthesis</strong> — rate-limiting step: HMG-CoA reductase (target of statins)</li>
+        <li><strong>Lipoprotein production</strong> — liver synthesizes VLDL, IDL, HDL; converts IDL to LDL</li>
+      </ul>
+      <div class="box-clinical"><strong>&#129657; Non-Alcoholic Fatty Liver Disease (NAFLD)</strong>Excess hepatic lipogenesis (insulin resistance) → triglyceride accumulation in hepatocytes → steatosis → NASH (with inflammation) → fibrosis → cirrhosis. Associated with metabolic syndrome (obesity, DM, HTN, dyslipidemia).</div>
+    </div>
+    <div class="card" id="protein">
+      <h2>Protein Synthesis and Nitrogen Metabolism</h2>
+      <table>
+        <tr><th>Protein</th><th>Function</th><th>Clinical Note</th></tr>
+        <tr><td>Albumin</td><td>Oncotic pressure, drug/hormone binding, transport</td><td>Half-life 20 days; low in malnutrition, liver failure, nephrotic syndrome, chronic inflammation</td></tr>
+        <tr><td>Clotting factors</td><td>Coagulation cascade (all factors except VIII and vWF)</td><td>PT/INR elevated in liver failure; Vitamin K needed for factors II, VII, IX, X</td></tr>
+        <tr><td>Fibrinogen</td><td>Converted to fibrin by thrombin</td><td>Acute-phase reactant; decreased in DIC and liver failure</td></tr>
+        <tr><td>SHBG, TBG, CBG</td><td>Bind sex hormones, thyroid hormones, cortisol</td><td>Decreased in cirrhosis → altered hormone distribution</td></tr>
+        <tr><td>Urea cycle</td><td>Converts ammonia → urea for excretion</td><td>Liver failure → hyperammonemia → hepatic encephalopathy</td></tr>
+      </table>
+    </div>
+    <div class="card" id="bile">
+      <h2>Bile Production and Bilirubin Metabolism</h2>
+      <p>Bilirubin pathway: Heme (from RBC breakdown) → unconjugated bilirubin (lipid-soluble, bound to albumin) → liver → conjugated bilirubin (water-soluble, glucuronyl transferase) → bile → gut → urobilinogen (urine) or stercobilin (stool brown color).</p>
+      <table>
+        <tr><th>Type</th><th>Elevated In</th><th>Urine Bilirubin</th><th>Urine Urobilinogen</th></tr>
+        <tr><td>Pre-hepatic (hemolysis)</td><td>Unconjugated</td><td>Absent (can't be filtered)</td><td>Increased</td></tr>
+        <tr><td>Hepatic (hepatitis, cirrhosis)</td><td>Both</td><td>Present</td><td>Variable</td></tr>
+        <tr><td>Post-hepatic (bile duct obstruction)</td><td>Conjugated</td><td>Present (dark urine)</td><td>Decreased (pale stool)</td></tr>
+      </table>
+    </div>
+    <div class="card" id="detox">
+      <h2>Detoxification and Drug Metabolism</h2>
+      <p>The liver metabolizes drugs and toxins primarily via CYP450 enzymes (Phase I: oxidation/reduction/hydrolysis) and conjugation reactions (Phase II: glucuronidation, sulfation, acetylation). Phase I often activates intermediates; Phase II makes them water-soluble for excretion.</p>
+      <div class="box-pearl"><strong>&#11088; CYP450 Inducers and Inhibitors (High Yield)</strong>Inducers (increase CYP → decrease drug levels): Rifampin, Carbamazepine, Phenytoin, Phenobarbital, St. John's Wort, Griseofulvin, Chronic EtOH. Inhibitors (decrease CYP → increase drug levels/toxicity): Cimetidine, Grapefruit juice, Erythromycin, Ketoconazole, Isoniazid, Acute EtOH. Mnemonic: "QRPCPS" for inducers vs. "CAGE KID" for inhibitors.</div>
+    </div>
+    <div class="card" id="clinical">
+      <h2>Clinical Pearls</h2>
+      <div class="box-pearl"><strong>&#11088; LFT Interpretation</strong>AST and ALT (transaminases): hepatocellular injury. ALT is more liver-specific. AST:ALT ratio greater than 2 suggests alcoholic hepatitis. ALP and GGT: cholestatic pattern (bile duct obstruction, PBC, PSC). Total bilirubin: all causes of jaundice. Albumin and PT: synthetic function (chronic liver disease severity).</div>
+      <div class="box-mnemonic"><strong>&#129488; Child-Pugh Score</strong>Assesses cirrhosis severity using: Bilirubin, Albumin, PT/INR, Ascites, Encephalopathy. "BAAE" — Bilirubin, Albumin, Ascites, Encephalopathy. Class A (5-6) = well-compensated; Class C (10-15) = decompensated.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
