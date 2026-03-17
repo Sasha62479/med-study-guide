@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Liver Pathophysiology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(114,78,147,0.15);justify-content:center;}
+.sub-nav a{font-size:0.8rem;font-weight:600;color:#143D0D;text-decoration:none;padding:0.25rem 0.6rem;border-radius:12px;transition:background 0.2s;}
+.sub-nav a:hover{background:rgba(20,61,13,0.1);}
+.sub-nav a.active-sub{background:#143D0D;color:#fff;}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:3rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.5rem auto 0;font-size:1rem;color:#555;}
+.layout{max-width:1200px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.toc{position:sticky;top:80px;height:fit-content;background:rgba(255,255,255,0.75);border-radius:14px;padding:1.2rem;border:1px solid rgba(114,78,147,0.15);}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.8rem;}
+.toc a{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.2rem 0;border-left:2px solid transparent;padding-left:0.5rem;transition:all 0.2s;}
+.toc a:hover{color:#F25032;border-left-color:#F25032;}
+.content section{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(114,78,147,0.12);}
+.content h2{font-family:'Aboreto',cursive;font-size:1rem;letter-spacing:2px;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(20,61,13,0.15);}
+.content h3{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#2d2d2d;margin:1rem 0 0.4rem;}
+.content p,.content li{font-size:0.92rem;line-height:1.7;color:#3a3a3a;}
+.content ul{padding-left:1.2rem;margin-bottom:0.5rem;}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:0.5rem;}
+th{background:#143D0D;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-family:'Aboreto',cursive;letter-spacing:1px;font-size:0.78rem;}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid rgba(20,61,13,0.1);}
+tr:nth-child(even) td{background:rgba(20,61,13,0.04);}
+.box-clinical{background:rgba(20,61,13,0.08);border-left:4px solid #143D0D;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-pearl{background:rgba(242,80,50,0.08);border-left:4px solid #F25032;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-mnemonic{background:rgba(115,78,147,0.08);border-left:4px solid #734E93;border-radius:8px;padding:0.8rem 1rem;margin:0.8rem 0;}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:1px;margin-bottom:0.3rem;}
+.box-clinical strong{color:#143D0D;}
+.box-pearl strong{color:#F25032;}
+.box-mnemonic strong{color:#734E93;}
+@media(max-width:768px){.layout{grid-template-columns:1fr;}.toc{display:none;}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html" class="active">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html" class="active-sub">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">Pathophysiology</div>
+  <h1>Liver Disease</h1>
+  <p>Cirrhosis, hepatitis, NAFLD/NASH, portal hypertension &amp; hepatic encephalopathy</p>
+</div>
+<div class="layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#cirrhosis">Cirrhosis</a>
+  <a href="#hepatitis">Viral Hepatitis</a>
+  <a href="#nafld">NAFLD / NASH</a>
+  <a href="#portal-htn">Portal Hypertension</a>
+  <a href="#encephalopathy">Hepatic Encephalopathy</a>
+  <a href="#labs">Key Labs</a>
+</aside>
+<div class="content">
+
+<section id="cirrhosis">
+<h2>Cirrhosis</h2>
+<h3>Pathophysiology</h3>
+<p>Cirrhosis is the end-stage of chronic liver injury characterized by diffuse hepatic fibrosis and nodular regeneration that disrupts normal lobular architecture. Repeated hepatocyte injury activates hepatic stellate cells (Ito cells), which transdifferentiate into myofibroblasts and deposit collagen (especially type I and III), replacing functional parenchyma with scar tissue.</p>
+<h3>Etiology</h3>
+<ul>
+<li><strong>Alcohol:</strong> most common in US; direct hepatotoxicity + acetaldehyde-mediated oxidative stress</li>
+<li><strong>NAFLD/NASH:</strong> rapidly increasing; associated with metabolic syndrome</li>
+<li><strong>Chronic viral hepatitis:</strong> HBV, HCV</li>
+<li><strong>Autoimmune hepatitis, PBC, PSC</strong></li>
+<li><strong>Hemochromatosis, Wilson's disease, alpha-1 antitrypsin deficiency</strong></li>
+</ul>
+<h3>Clinical Manifestations</h3>
+<table>
+<tr><th>System</th><th>Manifestation</th><th>Mechanism</th></tr>
+<tr><td>Skin/nails</td><td>Jaundice, spider angiomas, palmar erythema, leukonychia</td><td>Decreased conjugation, increased estrogen</td></tr>
+<tr><td>Abdomen</td><td>Hepatomegaly (early), small firm liver (late), splenomegaly, caput medusae</td><td>Portal HTN, congestion</td></tr>
+<tr><td>Endocrine</td><td>Gynecomastia, testicular atrophy, amenorrhea</td><td>Decreased estrogen metabolism</td></tr>
+<tr><td>Hematologic</td><td>Thrombocytopenia, coagulopathy, anemia</td><td>Hypersplenism, decreased clotting factor synthesis, decreased EPO</td></tr>
+<tr><td>Neurologic</td><td>Asterixis, confusion</td><td>Hepatic encephalopathy</td></tr>
+</table>
+<h3>Staging — Child-Pugh Score</h3>
+<table>
+<tr><th>Parameter</th><th>1 pt</th><th>2 pts</th><th>3 pts</th></tr>
+<tr><td>Bilirubin (mg/dL)</td><td>&lt;2</td><td>2–3</td><td>&gt;3</td></tr>
+<tr><td>Albumin (g/dL)</td><td>&gt;3.5</td><td>2.8–3.5</td><td>&lt;2.8</td></tr>
+<tr><td>PT/INR</td><td>&lt;1.7</td><td>1.7–2.3</td><td>&gt;2.3</td></tr>
+<tr><td>Ascites</td><td>None</td><td>Mild</td><td>Moderate-severe</td></tr>
+<tr><td>Encephalopathy</td><td>None</td><td>Grade I-II</td><td>Grade III-IV</td></tr>
+</table>
+<p style="font-size:0.85rem;color:#666;margin-top:0.5rem;">Class A (5–6 pts): well-compensated. Class B (7–9 pts): significant dysfunction. Class C (10–15 pts): decompensated, poor prognosis.</p>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>MELD score (Model for End-Stage Liver Disease) = 3.78×ln(bilirubin) + 11.2×ln(INR) + 9.57×ln(creatinine) + 6.43. Used for liver transplant listing — higher score = higher priority.</div>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Complications of Cirrhosis: ABCDE</strong>Ascites / Asterixis · Bleeding (variceal) · Coagulopathy · Dilutional hyponatremia · Encephalopathy</div>
+</section>
+
+<section id="hepatitis">
+<h2>Viral Hepatitis</h2>
+<table>
+<tr><th>Virus</th><th>Transmission</th><th>Chronicity</th><th>Key Features</th></tr>
+<tr><td>HAV</td><td>Fecal-oral</td><td>Never</td><td>Self-limited; no carrier state; vaccine-preventable</td></tr>
+<tr><td>HBV</td><td>Blood, sexual, perinatal</td><td>5–10% adults; 90% neonates</td><td>HBsAg, anti-HBc, HBeAg; risk of HCC; treated with tenofovir/entecavir</td></tr>
+<tr><td>HCV</td><td>Blood (IVDU, transfusion)</td><td>75–85%</td><td>Leading cause of liver transplant in US; genotype 1 most common; cured with DAAs</td></tr>
+<tr><td>HDV</td><td>Blood; requires HBV</td><td>Co-infection vs. superinfection</td><td>Superinfection → 80% chronic; most severe hepatitis</td></tr>
+<tr><td>HEV</td><td>Fecal-oral</td><td>Rare</td><td>High mortality in pregnancy (20%); endemic in developing countries</td></tr>
+</table>
+<h3>HBV Serology Interpretation</h3>
+<table>
+<tr><th>HBsAg</th><th>Anti-HBs</th><th>Anti-HBc</th><th>Interpretation</th></tr>
+<tr><td>+</td><td>−</td><td>IgM</td><td>Acute HBV infection</td></tr>
+<tr><td>+</td><td>−</td><td>IgG</td><td>Chronic HBV infection</td></tr>
+<tr><td>−</td><td>+</td><td>+</td><td>Past infection, now immune</td></tr>
+<tr><td>−</td><td>+</td><td>−</td><td>Vaccinated (anti-HBs only)</td></tr>
+<tr><td>−</td><td>−</td><td>+</td><td>Window period or past infection</td></tr>
+</table>
+<div class="box-clinical"><strong>🏥 Clinical Note</strong>Screen all adults ≥18 for HCV at least once (USPSTF Grade B). Screen all pregnant women for HBsAg each pregnancy. Treat chronic HCV with direct-acting antivirals (DAAs) — &gt;95% cure rate. Monitor HBV patients on treatment with LFTs and viral load q6 months.</div>
+</section>
+
+<section id="nafld">
+<h2>NAFLD / NASH</h2>
+<h3>Spectrum of Disease</h3>
+<p>Non-alcoholic fatty liver disease (NAFLD) ranges from simple steatosis → non-alcoholic steatohepatitis (NASH) → fibrosis → cirrhosis → HCC. NAFLD is the most common liver disease in the US, affecting ~25% of adults, and is strongly associated with metabolic syndrome (obesity, T2DM, hypertension, dyslipidemia).</p>
+<h3>Pathophysiology — "Two-Hit" Model</h3>
+<ul>
+<li><strong>Hit 1:</strong> Insulin resistance → increased FFA delivery to liver → hepatic steatosis (triglyceride accumulation)</li>
+<li><strong>Hit 2:</strong> Oxidative stress, mitochondrial dysfunction, gut-derived endotoxins, adipokine imbalance → hepatocyte injury, inflammation, stellate cell activation → fibrosis</li>
+</ul>
+<table>
+<tr><th>Stage</th><th>Histology</th><th>Clinical</th></tr>
+<tr><td>NAFLD (steatosis)</td><td>&gt;5% hepatocytes with fat; no inflammation</td><td>Often asymptomatic; elevated ALT/AST</td></tr>
+<tr><td>NASH</td><td>Steatosis + lobular inflammation + hepatocyte ballooning ± fibrosis</td><td>RUQ discomfort, fatigue; risk of progression</td></tr>
+<tr><td>NASH-cirrhosis</td><td>Advanced fibrosis/cirrhosis</td><td>Portal HTN complications</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl</strong>Diagnosis of NAFLD requires exclusion of significant alcohol use (&lt;21 drinks/week men, &lt;14 drinks/week women). Gold standard = liver biopsy; non-invasive alternatives include FibroScan (elastography) and FIB-4 score. First-line treatment: weight loss (7–10% body weight reduces steatosis and inflammation).</div>
+</section>
+
+<section id="portal-htn">
+<h2>Portal Hypertension</h2>
+<h3>Definition &amp; Pathophysiology</h3>
+<p>Portal hypertension is defined as a portal venous pressure &gt;5 mmHg above IVC pressure (normal &lt;5 mmHg; clinically significant ≥10 mmHg; varices form ≥10 mmHg; variceal bleeding risk ≥12 mmHg). In cirrhosis, fibrosis increases intrahepatic vascular resistance, and splanchnic vasodilation (via NO, prostacyclin) increases portal blood flow — both elevate portal pressure.</p>
+<h3>Complications</h3>
+<table>
+<tr><th>Complication</th><th>Mechanism</th><th>Management</th></tr>
+<tr><td>Ascites</td><td>Portal HTN + hypoalbuminemia → fluid extravasation; RAAS activation → Na/H2O retention</td><td>Low-Na diet, spironolactone ± furosemide; large-volume paracentesis for tense ascites</td></tr>
+<tr><td>Spontaneous bacterial peritonitis (SBP)</td><td>Bacterial translocation from gut into ascitic fluid; PMN &gt;250 cells/mm³</td><td>Cefotaxime or ceftriaxone; prophylaxis with norfloxacin/ciprofloxacin</td></tr>
+<tr><td>Esophageal varices</td><td>Portosystemic shunting to esophageal veins → dilated, fragile vessels</td><td>Non-selective β-blocker (propranolol/nadolol) for prophylaxis; band ligation for active/secondary prophylaxis</td></tr>
+<tr><td>Hepatorenal syndrome</td><td>Severe splanchnic vasodilation → renal vasoconstriction → acute kidney injury</td><td>Terlipressin (or norepinephrine) + albumin; dialysis if refractory; only cure = liver transplant</td></tr>
+<tr><td>Hepatic hydrothorax</td><td>Ascitic fluid passes through diaphragmatic defects → pleural space (usually right side)</td><td>Treat underlying ascites; TIPS in refractory cases</td></tr>
+</table>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Portal HTN Complications: SAAHE</strong>SBP · Ascites · Asterixis/Encephalopathy · Hepatorenal syndrome · Esophageal varices</div>
+</section>
+
+<section id="encephalopathy">
+<h2>Hepatic Encephalopathy</h2>
+<h3>Pathophysiology</h3>
+<p>Hepatic encephalopathy (HE) results from accumulation of neurotoxins (primarily ammonia) that bypass hepatic detoxification through portosystemic shunts or due to hepatocyte dysfunction. Ammonia is produced by gut bacteria and intestinal glutaminase activity; normally converted to urea in the liver. In HE, ammonia crosses the blood-brain barrier → astrocyte swelling (Alzheimer type II astrocytes), cerebral edema, GABAergic neurotransmission enhancement, and altered neurotransmitter ratios.</p>
+<h3>Grading (West Haven Criteria)</h3>
+<table>
+<tr><th>Grade</th><th>Mental Status</th><th>Neurological Signs</th></tr>
+<tr><td>0 (covert)</td><td>Minimal changes; psychometric testing abnormal</td><td>None</td></tr>
+<tr><td>I</td><td>Trivial lack of awareness, euphoria/anxiety, shortened attention span</td><td>Mild asterixis, tremor</td></tr>
+<tr><td>II</td><td>Lethargy, disorientation, personality change</td><td>Asterixis, ataxia</td></tr>
+<tr><td>III</td><td>Somnolent, confusion, gross disorientation</td><td>Rigidity, hyperreflexia</td></tr>
+<tr><td>IV</td><td>Coma</td><td>Decerebrate posturing</td></tr>
+</table>
+<h3>Precipitating Factors &amp; Treatment</h3>
+<div class="box-mnemonic"><strong>🧠 Mnemonic — Precipitants: MASHED</strong>Medications (opioids, benzos, diuretics) · Ammonia load (GI bleed, high protein) · Sepsis/infection · Hypokalemia/electrolytes · Excessive diuresis · Dehydration</div>
+<div class="box-clinical"><strong>🏥 Management</strong>Identify and treat precipitant. Lactulose (1st line) — reduces ammonia by acidifying colonic pH, trapping NH4+, and acting as cathartic (goal 2–3 soft stools/day). Rifaximin (add-on or maintenance) — non-absorbable antibiotic reduces ammonia-producing gut bacteria. Dietary protein restriction is generally NOT recommended (maintain adequate nutrition).</div>
+</section>
+
+<section id="labs">
+<h2>Key Labs in Liver Disease</h2>
+<table>
+<tr><th>Test</th><th>Elevation Pattern</th><th>Significance</th></tr>
+<tr><td>ALT (SGPT)</td><td>Hepatocellular injury (AST:ALT &lt;1)</td><td>Most specific for hepatocyte damage</td></tr>
+<tr><td>AST (SGOT)</td><td>Alcoholic hepatitis: AST:ALT &gt;2:1</td><td>Less specific (also in muscle, heart, RBCs)</td></tr>
+<tr><td>Alkaline phosphatase</td><td>Cholestasis, biliary obstruction, bone disease</td><td>Elevated with GGT = hepatic origin</td></tr>
+<tr><td>GGT</td><td>Sensitive marker of alcohol use, cholestasis</td><td>Most sensitive for alcohol use</td></tr>
+<tr><td>Total bilirubin</td><td>Direct (conjugated) = cholestasis; Indirect = hemolysis or conjugation defect</td><td>Jaundice visible &gt;3 mg/dL</td></tr>
+<tr><td>Albumin</td><td>Decreased = chronic liver disease or malnutrition</td><td>Marker of synthetic function (long half-life ~20 days)</td></tr>
+<tr><td>PT/INR</td><td>Elevated = decreased synthetic function</td><td>Best acute marker of synthetic function (factors II,V,VII,X,IX)</td></tr>
+<tr><td>Platelets</td><td>Thrombocytopenia = hypersplenism or decreased thrombopoietin</td><td>Platelet &lt;150K suggests cirrhosis/portal HTN</td></tr>
+</table>
+<div class="box-pearl"><strong>🎯 Boards Pearl — De Ritis Ratio (AST:ALT)</strong>AST:ALT &gt;2:1 strongly suggests alcoholic hepatitis (alcohol inhibits pyridoxine → less ALT synthesis). AST:ALT &lt;1 with very high transaminases (&gt;1000) suggests viral hepatitis or ischemic hepatitis. Isolated elevated alkaline phosphatase → work up with GGT and imaging for biliary disease.</div>
+</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>
