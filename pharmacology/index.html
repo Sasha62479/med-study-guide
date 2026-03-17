@@ -6,50 +6,52 @@
 <title>Pharmacology – FNP Prep</title>
 <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2c2c2c;}
-a{text-decoration:none;color:inherit;}
-.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:2px solid rgba(115,78,147,0.2);padding:0 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;}
-.brand{font-family:'Barrio',fantasy;font-size:1.6rem;color:#F25032;text-shadow:2px 2px 0 rgba(115,78,147,0.35);padding:0.7rem 0;margin-right:1rem;white-space:nowrap;}
-.nav-tabs{display:flex;gap:0.25rem;flex-wrap:wrap;}
-.nav-tabs a{font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.08em;color:#143D0D;padding:0.9rem 0.9rem;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;}
-.nav-tabs a:hover{color:#F25032;border-bottom-color:#F25032;}
-.nav-tabs a.active{color:#F25032;border-bottom-color:#F25032;font-weight:700;}
-.hero{text-align:center;padding:5rem 2rem 3rem;}
-.hero .tag{font-family:'Aboreto',sans-serif;font-size:0.75rem;letter-spacing:0.15em;color:#143D0D;text-transform:uppercase;margin-bottom:0.75rem;}
-.hero h1{font-family:'Barrio',fantasy;font-size:3.5rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-bottom:1rem;}
-.hero p{font-size:1.1rem;color:#555;max-width:500px;margin:0 auto 2rem;}
-.coming-soon-wrap{display:flex;justify-content:center;padding:0 2rem 4rem;}
-.coming-soon-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(12px);border-radius:20px;box-shadow:0 8px 32px rgba(115,78,147,0.15);padding:3rem 4rem;text-align:center;max-width:520px;width:100%;}
-.coming-soon-card .icon{font-size:4rem;margin-bottom:1rem;}
-.coming-soon-card h2{font-family:'Barrio',fantasy;font-size:2.5rem;color:#143D0D;margin-bottom:0.75rem;}
-.coming-soon-card p{color:#666;line-height:1.7;margin-bottom:1.5rem;}
-.coming-soon-card .badge{display:inline-block;background:linear-gradient(135deg,#734E93,#9b6ec7);color:#fff;font-family:'Aboreto',sans-serif;font-size:0.7rem;letter-spacing:0.12em;padding:0.5rem 1.5rem;border-radius:50px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.active{background:#F25032;color:#fff;}
+.hero{text-align:center;padding:3rem 1rem 2rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
+.hero h1{font-family:'Barrio',cursive;font-size:3.5rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
+.hero p{max-width:600px;margin:0.8rem auto 0;font-size:1.05rem;color:#555;}
+.grid-section{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 4rem;}
+.organ-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;}
+.organ-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem 1rem;text-align:center;text-decoration:none;color:#2d2d2d;border:1.5px solid rgba(114,78,147,0.15);box-shadow:0 4px 15px rgba(0,0,0,0.07);transition:transform 0.2s,box-shadow 0.2s;}
+.organ-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.13);}
+.organ-card .icon{font-size:2.8rem;margin-bottom:0.6rem;}
+.organ-card h3{font-family:'Aboreto',cursive;font-size:0.85rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.4rem;}
+.organ-card p{font-size:0.8rem;color:#666;line-height:1.4;}
 </style>
 </head>
 <body>
 <nav class="top-nav">
-  <a class="brand" href="../index.html">&#127807; FNP Prep</a>
-  <div class="nav-tabs">
-    <a href="../anatomy/index.html">Anatomy</a>
-    <a href="../physiology/index.html">Physiology</a>
-    <a href="../pathophysiology/index.html">Pathophysiology</a>
-    <a href="../pharmacology/index.html" class="active">Pharmacology</a>
-    <a href="../cases/index.html">Cases</a>
-    <a href="../tests/index.html">Tests</a>
-  </div>
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html">Pathophysiology</a>
+  <a href="../pharmacology/index.html" class="active">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
 </nav>
 <div class="hero">
   <div class="tag">FNP Board Prep</div>
   <h1>Pharmacology</h1>
-  <p>Drug mechanisms, side effects, contraindications &amp; high-yield boards drugs</p>
+  <p>Drug classes, mechanisms, side effects, and clinical pearls — organized by body system.</p>
 </div>
-<div class="coming-soon-wrap">
-  <div class="coming-soon-card">
-    <div class="icon">&#128138;</div>
-    <h2>Coming Soon</h2>
-    <p>We're building out detailed pharmacology content — drug classes, mechanisms of action, side effects, and high-yield boards pearls — all organized for efficient FNP exam prep.</p>
-    <span class="badge">In Progress</span>
+<div class="grid-section">
+  <div class="organ-grid">
+    <a href="liver.html" class="organ-card"><div class="icon">🫀</div><h3>Liver</h3><p>Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol</p></a>
+    <a href="gallbladder.html" class="organ-card"><div class="icon">🟡</div><h3>Gallbladder</h3><p>Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics</p></a>
+    <a href="pancreas.html" class="organ-card"><div class="icon">🧬</div><h3>Pancreas</h3><p>Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes</p></a>
+    <a href="kidney.html" class="organ-card"><div class="icon">🫘</div><h3>Kidney</h3><p>Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer</p></a>
+    <a href="heart.html" class="organ-card"><div class="icon">❤️</div><h3>Heart</h3><p>Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets</p></a>
+    <a href="lungs.html" class="organ-card"><div class="icon">🫁</div><h3>Lungs</h3><p>SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics</p></a>
+    <a href="neuro.html" class="organ-card"><div class="icon">🧠</div><h3>Neuro</h3><p>AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs</p></a>
+    <a href="gu.html" class="organ-card"><div class="icon">🔬</div><h3>GU / Repro</h3><p>OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium</p></a>
+    <a href="skin.html" class="organ-card"><div class="icon">🩹</div><h3>Skin</h3><p>Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals</p></a>
   </div>
 </div>
 </body>
