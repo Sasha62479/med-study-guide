@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Liver Cases – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);min-height:100vh;color:#222}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;border-bottom:2px solid #D7D9FB;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.top-nav .brand{font-family:'Barrio',cursive;color:#F25032;font-size:1.4rem;text-decoration:none;margin-right:1rem}
+.top-nav a{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.08em;color:#143D0D;text-decoration:none;padding:1rem 0.5rem;border-bottom:3px solid transparent;transition:all 0.2s}
+.top-nav a:hover{color:#F25032}
+.top-nav a.active{border-bottom:3px solid #F25032;color:#F25032}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid #D7D9FB}
+.sub-nav a{font-size:0.75rem;font-family:'Nunito',sans-serif;font-weight:600;padding:0.3rem 0.75rem;border-radius:20px;background:rgba(255,255,255,0.8);color:#143D0D;text-decoration:none;transition:all 0.2s}
+.sub-nav a:hover{background:#143D0D;color:#fff}
+.sub-nav a.active-sub{background:#143D0D;color:#fff}
+.hero{padding:2.5rem 2rem 1.5rem;text-align:center}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:0.15em;color:#143D0D;margin-bottom:0.5rem}
+.hero h1{font-family:'Barrio',cursive;font-size:3.2rem;color:#F25032;text-shadow:3px 3px 0 #7B68EE,-1px -1px 0 #7B68EE;line-height:1.1}
+.hero p{font-size:1rem;color:#555;margin-top:0.5rem}
+.cases-wrap{max-width:860px;margin:0 auto;padding:1.5rem 2rem 4rem;display:flex;flex-direction:column;gap:2.5rem}
+.case-card{background:rgba(255,255,255,0.82);border-radius:18px;padding:1.75rem;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.case-card .case-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.case-card .case-num{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.12em;color:#143D0D;background:rgba(20,61,13,0.1);padding:0.25rem 0.75rem;border-radius:20px;white-space:nowrap}
+.case-card .case-topic{font-size:0.85rem;font-weight:700;color:#F25032}
+.vignette{background:linear-gradient(135deg,#f8f9ff,#f3f5e7);border:1px solid #D7D9FB;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:0.9rem;line-height:1.7;color:#333}
+.question{font-size:0.92rem;font-weight:700;color:#143D0D;margin:1rem 0 0.5rem}
+.options{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+.option{font-size:0.88rem;padding:0.5rem 0.75rem;border-radius:8px;background:rgba(255,255,255,0.8);border:1px solid #ddd;cursor:pointer;transition:all 0.2s;color:#333}
+.option:hover{background:#D7D9FB;border-color:#7B68EE}
+.option.correct{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.option.wrong{background:linear-gradient(135deg,#fce4ec,#fff3e0);border-color:#c62828;color:#b71c1c;font-weight:700}
+.explanation{display:none;background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:1rem 1.25rem;font-size:0.88rem;line-height:1.65;color:#1b5e20;margin-top:0.5rem}
+.explanation.show{display:block}
+.show-btn{font-family:'Aboreto',cursive;font-size:0.72rem;letter-spacing:0.1em;background:#143D0D;color:#fff;border:none;border-radius:20px;padding:0.4rem 1rem;cursor:pointer;transition:all 0.2s;margin-top:0.5rem}
+.show-btn:hover{background:#F25032}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html">Pathophysiology</a>
+  <a href="../pharmacology/index.html">Pharmacology</a>
+  <a href="../cases/index.html" class="active">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html" class="active-sub">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">CLINICAL CASES</div>
+  <h1>Liver Cases</h1>
+  <p>Work through each vignette, select your answer, then reveal the explanation.</p>
+</div>
+<div class="cases-wrap">
+
+<div class="case-card">
+  <div class="case-header"><span class="case-num">Case 1</span><span class="case-topic">Cirrhosis Complications</span></div>
+  <div class="vignette">A 52-year-old man with alcohol use disorder presents with increasing abdominal distension and weight gain over 3 weeks. He has not consumed alcohol in 6 months. Exam: jaundice, spider angiomata, caput medusae, shifting dullness, and bilateral pitting edema. Labs: Na 128, albumin 2.1, total bilirubin 4.8, INR 1.9, creatinine 1.0. Paracentesis: SAAG 1.3 g/dL, total protein 1.5 g/dL, WBC 150 cells/mm³ (70% PMNs).</div>
+  <div class="question">What is the most appropriate next management step?</div>
+  <div class="options" id="q1-opts">
+    <div class="option" onclick="answer('q1',this,'A')">A. Broad-spectrum antibiotics (cefotaxime IV)</div>
+    <div class="option" onclick="answer('q1',this,'B')">B. Add spironolactone and furosemide</div>
+    <div class="option" onclick="answer('q1',this,'C')">C. TIPS procedure</div>
+    <div class="option" onclick="answer('q1',this,'D')">D. Repeat paracentesis in 48 hours</div>
+  </div>
+  <button class="show-btn" onclick="toggleExplanation('q1-exp')">Reveal Explanation</button>
+  <div class="explanation" id="q1-exp">✅ <strong>Answer: A – Cefotaxime IV</strong><br><br>PMN count ≥250 cells/mm³ on paracentesis = spontaneous bacterial peritonitis (SBP) — treat immediately with cefotaxime 2g IV q8h for 5 days OR ceftriaxone 1g IV daily. Also give IV albumin 1.5 g/kg on day 1 and 1 g/kg on day 3 to prevent hepatorenal syndrome (reduces mortality). The low total protein (&lt;1.5 g/dL) and hyponatremia are consistent with advanced cirrhosis. After SBP treatment, start norfloxacin or TMP-SMX prophylaxis to prevent recurrence. TIPS is reserved for refractory ascites after diuretic optimization.</div>
+</div>
+
+<div class="case-card">
+  <div class="case-header"><span class="case-num">Case 2</span><span class="case-topic">Hepatitis B Serology</span></div>
+  <div class="vignette">A 34-year-old Vietnamese immigrant presents for a routine physical. He feels well and denies symptoms. Labs reveal: HBsAg positive, HBeAg positive, anti-HBc IgG positive, anti-HBs negative, HBV DNA 2,500,000 IU/mL, ALT 82 U/L (normal &lt;40), AST 64 U/L. Liver biopsy shows moderate fibrosis (Metavir F2).</div>
+  <div class="question">What is the most appropriate management?</div>
+  <div class="options" id="q2-opts">
+    <div class="option" onclick="answer('q2',this,'A')">A. Reassurance and repeat labs in 1 year</div>
+    <div class="option" onclick="answer('q2',this,'B')">B. Initiate tenofovir (TDF or TAF)</div>
+    <div class="option" onclick="answer('q2',this,'C')">C. Interferon-alpha monotherapy</div>
+    <div class="option" onclick="answer('q2',this,'D')">D. Liver transplant evaluation</div>
+  </div>
+  <button class="show-btn" onclick="toggleExplanation('q2-exp')">Reveal Explanation</button>
+  <div class="explanation" id="q2-exp">✅ <strong>Answer: B – Tenofovir</strong><br><br>This patient has HBeAg-positive chronic active hepatitis B with elevated HBV DNA (&gt;20,000 IU/mL), elevated aminotransferases, and moderate fibrosis (F2) — treatment is indicated. Tenofovir disoproxil fumarate (TDF) or tenofovir alafenamide (TAF — preferred if renal/bone concerns) are first-line nucleotide analogues. Entecavir is an alternative. Treatment suppresses viral replication, normalizes ALT, and prevents cirrhosis progression. HBeAg+ with high viral load and elevated liver enzymes = immune-active phase → treat. The pattern (HBsAg+, HBeAg+, no anti-HBs) confirms chronic active infection, not resolved disease or vaccination.</div>
+</div>
+
+<div class="case-card">
+  <div class="case-header"><span class="case-num">Case 3</span><span class="case-topic">Hepatic Encephalopathy</span></div>
+  <div class="vignette">A 61-year-old woman with known cirrhosis (Child-Pugh C) is brought in by her family for confusion and asterixis over 2 days. She takes lactulose and spironolactone. Her family reports she ran out of lactulose 5 days ago. Vitals: T 37.2°C, BP 100/65, HR 92. Exam: oriented to person only, asterixis present, no fever. Ammonia 142 μmol/L. UA shows nitrites and leukocyte esterase positive.</div>
+  <div class="question">What is the most likely precipitant and best next step?</div>
+  <div class="options" id="q3-opts">
+    <div class="option" onclick="answer('q3',this,'A')">A. Gastrointestinal bleed — perform EGD</div>
+    <div class="option" onclick="answer('q3',this,'B')">B. UTI as precipitant — treat infection and restart lactulose</div>
+    <div class="option" onclick="answer('q3',this,'C')">C. Worsening liver failure — refer for transplant urgently</div>
+    <div class="option" onclick="answer('q3',this,'D')">D. Benzodiazepine toxicity — give flumazenil</div>
+  </div>
+  <button class="show-btn" onclick="toggleExplanation('q3-exp')">Reveal Explanation</button>
+  <div class="explanation" id="q3-exp">✅ <strong>Answer: B – UTI precipitant, treat and restart lactulose</strong><br><br>Hepatic encephalopathy (HE) precipitants: GI bleed, infection (most common — UTI, SBP), constipation/lactulose non-compliance, hypokalemia, protein overload, sedatives, renal failure, portosystemic shunt. This patient has UTI (positive UA) PLUS lactulose non-compliance — both are contributing. Treatment: antibiotics for UTI + restart lactulose (titrate to 2–3 soft stools/day) + consider adding rifaximin 550mg BID for recurrent HE prevention. Rifaximin is highly effective at preventing HE recurrence. Ammonia levels correlate poorly with grade of encephalopathy; treatment is clinical.</div>
+</div>
+
+<div class="case-card">
+  <div class="case-header"><span class="case-num">Case 4</span><span class="case-topic">NAFLD/NASH</span></div>
+  <div class="vignette">A 48-year-old woman with T2DM and BMI 38 is referred for evaluation of elevated liver enzymes (ALT 68, AST 54). She drinks alcohol rarely (&lt;1 drink/week). RUQ ultrasound shows echogenic liver consistent with steatosis. Hepatitis B and C serologies are negative. She denies use of hepatotoxic medications. FIB-4 score is 1.8.</div>
+  <div class="question">What is the most appropriate next step in management?</div>
+  <div class="options" id="q4-opts">
+    <div class="option" onclick="answer('q4',this,'A')">A. Liver biopsy immediately to stage fibrosis</div>
+    <div class="option" onclick="answer('q4',this,'B')">B. Start pioglitazone and refer for weight loss program</div>
+    <div class="option" onclick="answer('q4',this,'C')">C. Advanced fibrosis assessment (elastography or FIB-4/ELF) and lifestyle modification</div>
+    <div class="option" onclick="answer('q4',this,'D')">D. Start metformin for liver protection</div>
+  </div>
+  <button class="show-btn" onclick="toggleExplanation('q4-exp')">Reveal Explanation</button>
+  <div class="explanation" id="q4-exp">✅ <strong>Answer: C – Fibrosis staging + lifestyle modification</strong><br><br>NAFLD diagnosis of exclusion (no alcohol, no other liver disease, positive steatosis imaging). FIB-4 score 1.8 is in the indeterminate range (1.3–2.67 = indeterminate → refer for elastography, e.g., FibroScan). For confirmed NASH: cornerstone of treatment is weight loss (≥5–10% body weight → improves steatosis/inflammation). GLP-1 agonists (semaglutide) have shown efficacy in NASH and promote weight loss. Pioglitazone improves NASH histology but causes weight gain/fluid retention. The only FDA-approved drug for NASH with fibrosis is resmetirom (Rezdiffra) as of 2024. Metformin does NOT improve liver histology in NASH.</div>
+</div>
+
+</div>
+<script>
+const correctAnswers = { q1:'A', q2:'B', q3:'B', q4:'C' };
+function answer(q, el, choice) {
+  const opts = document.getElementById(q+'-opts').children;
+  for(let o of opts) o.style.pointerEvents='none';
+  if(choice === correctAnswers[q]) {
+    el.classList.add('correct');
+    el.innerHTML += ' ✓';
+  } else {
+    el.classList.add('wrong');
+    el.innerHTML += ' ✗';
+    for(let o of opts) {
+      if(o.textContent.trim().startsWith(correctAnswers[q])) {
+        o.classList.add('correct');
+      }
+    }
+  }
+  document.getElementById(q+'-exp').classList.add('show');
+}
+function toggleExplanation(id) {
+  document.getElementById(id).classList.toggle('show');
+}
+</script>
+</body>
+</html>
