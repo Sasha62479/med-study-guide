@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Skin Pharmacology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);min-height:100vh;color:#222}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;border-bottom:2px solid #D7D9FB;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.top-nav .brand{font-family:'Barrio',cursive;color:#F25032;font-size:1.4rem;text-decoration:none;margin-right:1rem}
+.top-nav a{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.08em;color:#143D0D;text-decoration:none;padding:1rem 0.5rem;border-bottom:3px solid transparent;transition:all 0.2s}
+.top-nav a:hover{color:#F25032}
+.top-nav a.active{border-bottom:3px solid #F25032;color:#F25032}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid #D7D9FB}
+.sub-nav a{font-size:0.75rem;font-family:'Nunito',sans-serif;font-weight:600;padding:0.3rem 0.75rem;border-radius:20px;background:rgba(255,255,255,0.8);color:#143D0D;text-decoration:none;transition:all 0.2s}
+.sub-nav a:hover{background:#143D0D;color:#fff}
+.sub-nav a.active-sub{background:#143D0D;color:#fff}
+.hero{padding:2.5rem 2rem 1.5rem;text-align:center}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:0.15em;color:#143D0D;margin-bottom:0.5rem}
+.hero h1{font-family:'Barrio',cursive;font-size:3.2rem;color:#F25032;text-shadow:3px 3px 0 #7B68EE,-1px -1px 0 #7B68EE;line-height:1.1}
+.hero p{font-size:1rem;color:#555;margin-top:0.5rem}
+.page-layout{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.75);border-radius:16px;padding:1.25rem;box-shadow:0 4px 18px rgba(0,0,0,0.07)}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem}
+.toc a{display:block;font-size:0.82rem;color:#333;text-decoration:none;padding:0.25rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.15s}
+.toc a:hover{color:#F25032;border-left-color:#F25032}
+.content{display:flex;flex-direction:column;gap:1.5rem}
+.card{background:rgba(255,255,255,0.75);border-radius:16px;padding:1.5rem;box-shadow:0 4px 18px rgba(0,0,0,0.07)}
+.card h2{font-family:'Aboreto',cursive;font-size:0.9rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #D7D9FB}
+.card h3{font-size:0.95rem;font-weight:700;color:#143D0D;margin:0.75rem 0 0.4rem}
+.card p,.card li{font-size:0.9rem;line-height:1.65;color:#333}
+.card ul{padding-left:1.2rem}
+.card li{margin-bottom:0.3rem}
+table{width:100%;border-collapse:collapse;font-size:0.84rem;margin:0.75rem 0}
+thead tr{background:#143D0D;color:#fff}
+th,td{padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid #e0e7d0}
+tbody tr:hover{background:rgba(20,61,13,0.04)}
+tbody tr:nth-child(even){background:rgba(255,255,255,0.5)}
+.box-clinical{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-pearl{background:linear-gradient(135deg,#fff3e0,#fce4ec);border-left:4px solid #F25032;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-mnemonic{background:linear-gradient(135deg,#ede7f6,#fce4ec);border-left:4px solid #7B68EE;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-size:0.78rem;letter-spacing:0.1em;font-family:'Aboreto',cursive;margin-bottom:0.3rem}
+.box-clinical strong{color:#2e7d32}
+.box-pearl strong{color:#F25032}
+.box-mnemonic strong{color:#7B68EE}
+@media(max-width:768px){.page-layout{grid-template-columns:1fr}.toc{display:none}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html">Pathophysiology</a>
+  <a href="../pharmacology/index.html" class="active">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html">GU/Repro</a>
+  <a href="skin.html" class="active-sub">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">PHARMACOLOGY</div>
+  <h1>Skin / Dermatology</h1>
+  <p>Topical Steroids · Retinoids · Biologics · Antifungals · Acne · Rosacea · Antivirals</p>
+</div>
+<div class="page-layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#topical-steroids">Topical Steroids</a>
+  <a href="#retinoids">Retinoids</a>
+  <a href="#isotretinoin">Isotretinoin/iPLEDGE</a>
+  <a href="#biologics">Biologics</a>
+  <a href="#acne">Acne Tx</a>
+  <a href="#rosacea">Rosacea Tx</a>
+  <a href="#antifungals">Antifungals</a>
+  <a href="#antivirals">Antivirals</a>
+  <a href="#misc">Misc Agents</a>
+</aside>
+<div class="content">
+
+<div class="card" id="topical-steroids">
+<h2>Topical Corticosteroids</h2>
+<p>Classified into 7 potency classes (Class I = most potent, Class VII = least potent). Choose based on diagnosis, body site, and patient age.</p>
+<table>
+<thead><tr><th>Class</th><th>Potency</th><th>Examples</th><th>Use Cases</th></tr></thead>
+<tbody>
+<tr><td>I</td><td>Super high</td><td>Clobetasol 0.05%, halobetasol 0.05%</td><td>Psoriasis, lichen sclerosus, discoid lupus; avoid face/skin folds/genitals; max 2 weeks</td></tr>
+<tr><td>II–III</td><td>High</td><td>Fluocinonide 0.05%, betamethasone dipropionate 0.05%</td><td>Severe eczema, psoriasis on thick skin; avoid face &gt;2 weeks</td></tr>
+<tr><td>IV–V</td><td>Medium</td><td>Triamcinolone 0.1%, fluticasone 0.05%, betamethasone valerate 0.1%</td><td>Moderate atopic dermatitis, contact dermatitis on trunk/extremities</td></tr>
+<tr><td>VI</td><td>Low</td><td>Desonide 0.05%, alclometasone 0.05%</td><td>Face, intertriginous areas, children, mild dermatitis</td></tr>
+<tr><td>VII</td><td>Least</td><td>Hydrocortisone 1%, 2.5%</td><td>Face, diaper area, mild inflammation; OTC</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>Side effects increase with potency and duration: skin atrophy, striae, telangiectasias, hypopigmentation, perioral dermatitis, HPA axis suppression (especially in children). Face/genitals/intertriginous areas: Class VI–VII only. NEVER use high-potency on face long-term.</div>
+<div class="box-clinical"><strong>Practical Tips</strong>Fingertip unit (FTU) = 0.5g, covers 2 palmar areas. Ointments more potent than creams (better penetration). Wet wrap technique increases absorption. Taper gradually after extended high-potency use to avoid rebound.</div>
+</div>
+
+<div class="card" id="retinoids">
+<h2>Topical Retinoids</h2>
+<p>Vitamin A derivatives → bind retinoic acid receptors → normalize keratinocyte differentiation, reduce comedone formation, anti-inflammatory</p>
+<table>
+<thead><tr><th>Drug</th><th>Generation</th><th>Indications</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Tretinoin (Retin-A)</td><td>1st gen</td><td>Acne vulgaris, photoaging, melasma</td><td>Most studied; apply at night; initial irritation, purging (4–8 weeks); photosensitivity</td></tr>
+<tr><td>Adapalene (Differin)</td><td>3rd gen</td><td>Acne (OTC 0.1%, Rx 0.3%)</td><td>Less irritating than tretinoin; gel preferred; good for sensitive skin</td></tr>
+<tr><td>Tazarotene (Tazorac)</td><td>3rd gen acetylenic</td><td>Acne, psoriasis</td><td>Most potent topical; most irritating; CI in pregnancy (teratogenic)</td></tr>
+<tr><td>Trifarotene (Aklief)</td><td>4th gen</td><td>Acne (face + trunk)</td><td>RAR-γ selective; good for truncal acne</td></tr>
+</tbody>
+</table>
+<div class="box-mnemonic"><strong>Key Retinoid Rule</strong>Apply pea-sized amount to clean, dry skin at night. Start every other night to build tolerance. "Start low, go slow." All topical retinoids: avoid in pregnancy (teratogenic risk — tazarotene is Category X).</div>
+</div>
+
+<div class="card" id="isotretinoin">
+<h2>Isotretinoin (Accutane) &amp; iPLEDGE</h2>
+<h3>Mechanism</h3>
+<p>Oral retinoid → reduces sebum production (↓ sebaceous gland size), normalizes follicular epithelial desquamation, anti-inflammatory, anti-comedogenic</p>
+<h3>Indications</h3>
+<ul>
+<li>Severe nodular/cystic acne unresponsive to antibiotics</li>
+<li>Moderate acne causing scarring</li>
+<li>Acne causing significant psychological distress</li>
+<li>Gram-negative folliculitis</li>
+</ul>
+<h3>iPLEDGE Program (REMS)</h3>
+<div class="box-clinical"><strong>iPLEDGE Requirements</strong>
+<ul>
+<li>Monthly prescriptions only; 30-day supply max</li>
+<li>Females with reproductive potential: 2 forms of contraception starting 1 month BEFORE, DURING, and 1 month AFTER treatment</li>
+<li>2 negative pregnancy tests before starting (1 in office, 1 at certified lab)</li>
+<li>Monthly pregnancy tests during treatment</li>
+<li>All patients: monthly counseling, blood work (lipids, LFTs), mental health monitoring</li>
+</ul>
+</div>
+<h3>Side Effects &amp; Monitoring</h3>
+<table>
+<thead><tr><th>Side Effect</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Teratogenicity</td><td>Highest teratogenic risk of any drug; Category X; causes craniofacial, cardiac, CNS defects</td></tr>
+<tr><td>Mucocutaneous</td><td>Cheilitis (90%), dry skin/eyes/mouth; epistaxis; alopecia — use emollients, lip balm</td></tr>
+<tr><td>Hypertriglyceridemia</td><td>Monitor lipids monthly; discontinue if TG &gt;800 mg/dL (pancreatitis risk)</td></tr>
+<tr><td>Elevated LFTs</td><td>Usually mild and reversible; monitor monthly</td></tr>
+<tr><td>Mood/depression</td><td>Controversial; monitor for mood changes, suicidal ideation; inform patients</td></tr>
+<tr><td>Night blindness</td><td>Decreased rhodopsin; advise caution while driving at night</td></tr>
+<tr><td>Bone effects</td><td>Premature epiphyseal closure in children/adolescents; arthralgia, myalgia</td></tr>
+<tr><td>Pseudotumor cerebri</td><td>Increased ICP; headache, visual changes; DO NOT combine with tetracyclines (synergistic risk)</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>Do NOT combine isotretinoin + tetracyclines (doxycycline/minocycline) = ↑ pseudotumor cerebri risk. Do NOT donate blood during treatment + 1 month after (teratogenic risk to pregnant recipients). Course: typically 4–6 months; total cumulative dose 120–150 mg/kg determines remission rate.</div>
+</div>
+
+<div class="card" id="biologics">
+<h2>Biologics for Dermatologic Conditions</h2>
+<h3>Psoriasis Biologics</h3>
+<table>
+<thead><tr><th>Drug</th><th>Target</th><th>Class</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Adalimumab (Humira)</td><td>TNF-α</td><td>Anti-TNF</td><td>Also approved for PsA, hidradenitis suppurativa; TB reactivation risk; hepatitis B reactivation</td></tr>
+<tr><td>Etanercept (Enbrel)</td><td>TNF-α/β</td><td>Anti-TNF fusion</td><td>SQ injection; less immunogenic than adalimumab; can use in children ≥4yo</td></tr>
+<tr><td>Secukinumab (Cosentyx)</td><td>IL-17A</td><td>Anti-IL-17A</td><td>Also for PsA, ankylosing spondylitis; caution in IBD (may worsen Crohn's)</td></tr>
+<tr><td>Ixekizumab (Taltz)</td><td>IL-17A</td><td>Anti-IL-17A</td><td>Similar to secukinumab; monthly dosing after loading</td></tr>
+<tr><td>Ustekinumab (Stelara)</td><td>IL-12/23 (p40)</td><td>Anti-IL-12/23</td><td>Q12 week dosing; also Crohn's (safer in IBD patients); weight-based dosing</td></tr>
+<tr><td>Guselkumab (Tremfya)</td><td>IL-23 (p19)</td><td>Anti-IL-23</td><td>Highly selective IL-23; Q8 week maintenance; high PASI response rates</td></tr>
+<tr><td>Risankizumab (Skyrizi)</td><td>IL-23 (p19)</td><td>Anti-IL-23</td><td>Q12 week maintenance; among highest efficacy rates (PASI 90/100)</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Screening Before Biologics</strong>TB (PPD or IGRA), hepatitis B/C serology, CBC, CMP, HIV. Treat latent TB before starting. Update vaccines (live vaccines contraindicated while on biologics). Stop before surgery (typically 1 dosing cycle).</div>
+<h3>Atopic Dermatitis Biologics</h3>
+<table>
+<thead><tr><th>Drug</th><th>Target</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Dupilumab (Dupixent)</td><td>IL-4Rα (blocks IL-4 + IL-13)</td><td>First-line biologic for mod-severe atopic dermatitis; also approved for asthma, CRS with polyps, EoE, prurigo nodularis; SQ Q2 weeks; injection site reactions, conjunctivitis</td></tr>
+<tr><td>Tralokinumab (Adbry)</td><td>IL-13</td><td>Q2 week SQ; similar efficacy to dupilumab; fewer conjunctivitis reports</td></tr>
+<tr><td>Lebrikizumab (Ebglyss)</td><td>IL-13</td><td>Q2 week SQ for mod-severe AD</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>Dupilumab (Dupixent) is the blockbuster biologic for atopic dermatitis. Mechanism: blocks shared IL-4Rα receptor subunit → blocks BOTH IL-4 (Th2 differentiation) AND IL-13 (IgE production, itch signaling). Does NOT cause immunosuppression like TNF inhibitors.</div>
+<h3>JAK Inhibitors for Dermatology</h3>
+<p>Upadacitinib (Rinvoq), abrocitinib (Cibinqo) — oral JAK inhibitors for atopic dermatitis. Ruxolitinib cream (Opzelura) — topical JAK inhibitor for mild-mod AD. Baricitinib — alopecia areata. Tofacitinib — psoriasis and alopecia areata (off-label). FDA black box: thrombosis, MACE, malignancy, serious infections (oral JAKi).</p>
+</div>
+
+<div class="card" id="acne">
+<h2>Acne Vulgaris Treatment Ladder</h2>
+<table>
+<thead><tr><th>Severity</th><th>First-Line</th><th>Second-Line</th></tr></thead>
+<tbody>
+<tr><td>Mild (comedonal)</td><td>Topical retinoid (adapalene) ± BPO</td><td>Add topical antibiotic (clindamycin)</td></tr>
+<tr><td>Mild-moderate (papulopustular)</td><td>Topical retinoid + BPO + topical clindamycin</td><td>Dapsone 5–7.5% gel; azelaic acid</td></tr>
+<tr><td>Moderate (papulopustular)</td><td>Oral doxycycline 50–100mg daily + topical retinoid + BPO</td><td>Oral minocycline; Sarecycline (narrow spectrum)</td></tr>
+<tr><td>Severe (nodular/cystic)</td><td>Oral isotretinoin (see above)</td><td>Oral spironolactone (females); combined OCP</td></tr>
+<tr><td>Female hormonal acne</td><td>COC (norgestimate-EE); spironolactone 50–100mg</td><td>Clascoterone (Winlevi) — topical anti-androgen cream</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Key Agents</strong>
+<ul>
+<li>Benzoyl peroxide (BPO): bactericidal against C. acnes; prevents antibiotic resistance; always combine with topical antibiotics</li>
+<li>Clindamycin topical: most common topical antibiotic; gel or lotion; ALWAYS with BPO to prevent resistance</li>
+<li>Doxycycline: preferred oral antibiotic; take with food (GI upset); photosensitivity; esophagitis if not washed down</li>
+<li>Azelaic acid 15–20%: anti-inflammatory, anti-comedonal, hyperpigmentation; safe in pregnancy</li>
+</ul>
+</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Do NOT use topical antibiotics (clindamycin) alone without BPO — resistance develops. Oral antibiotics should be used for ≤3–6 months then transition to topical regimen. Sarecycline (Seysara) — narrow-spectrum tetracycline for acne; less GI side effects than doxy; better C. acnes selectivity.</div>
+</div>
+
+<div class="card" id="rosacea">
+<h2>Rosacea Pharmacotherapy</h2>
+<h3>Subtypes &amp; Treatments</h3>
+<table>
+<thead><tr><th>Subtype</th><th>Features</th><th>Treatment</th></tr></thead>
+<tbody>
+<tr><td>Erythematotelangiectatic (ETR)</td><td>Flushing, erythema, telangiectasias</td><td>Brimonidine gel 0.33% (Mirvaso) or oxymetazoline cream 1% (Rhofade); laser/IPL for telangiectasias; avoid triggers</td></tr>
+<tr><td>Papulopustular</td><td>Papules/pustules resembling acne (no comedones)</td><td>Metronidazole 0.75–1% gel/cream (first-line); azelaic acid 15% gel; ivermectin 1% cream (Soolantra); topical BPO; oral doxy 40mg DR (Oracea) for moderate-severe</td></tr>
+<tr><td>Phymatous</td><td>Rhinophyma (nose thickening)</td><td>Laser ablation; isotretinoin (medical); surgery</td></tr>
+<tr><td>Ocular</td><td>Blepharitis, conjunctivitis, keratitis</td><td>Lid hygiene; oral doxycycline 40–100mg; cyclosporine eye drops</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Trigger Avoidance</strong>Hot drinks, spicy food, alcohol (especially red wine), temperature extremes, UV exposure, emotional stress, exercise. Sunscreen (broad-spectrum SPF 30+) is essential daily.</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Brimonidine (alpha-2 agonist) — causes vasoconstriction; treats persistent erythema/flushing only (no papules). Rebound erythema may occur after cessation. Ivermectin cream (Soolantra) — kills Demodex mites; anti-inflammatory; better long-term efficacy than metronidazole for papulopustular rosacea in some trials. Oracea (doxycycline 40mg modified-release) — sub-antimicrobial dose; anti-inflammatory mechanism; lower resistance risk.</div>
+</div>
+
+<div class="card" id="antifungals">
+<h2>Dermatologic Antifungals</h2>
+<h3>Topical Antifungals</h3>
+<table>
+<thead><tr><th>Drug</th><th>Class</th><th>Spectrum</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>Clotrimazole (Lotrimin)</td><td>Azole</td><td>Dermatophytes, Candida</td><td>Tinea pedis/corporis/cruris, cutaneous candidiasis; OTC</td></tr>
+<tr><td>Miconazole (Monistat)</td><td>Azole</td><td>Dermatophytes, Candida</td><td>Vulvovaginal candidiasis (OTC); tinea infections</td></tr>
+<tr><td>Terbinafine (Lamisil)</td><td>Allylamine (inhibits squalene epoxidase)</td><td>Dermatophytes primarily</td><td>Tinea pedis (1 wk cream), nail involvement; cream OTC</td></tr>
+<tr><td>Ciclopirox (Penlac)</td><td>Hydroxypyridinone</td><td>Broad spectrum including Candida</td><td>Onychomycosis (lacquer), tinea versicolor, seborrheic dermatitis</td></tr>
+<tr><td>Ketoconazole 2% shampoo/cream</td><td>Azole</td><td>Dermatophytes, Candida, M. furfur</td><td>Seborrheic dermatitis, tinea versicolor; oral ketoconazole avoided (hepatotoxic)</td></tr>
+<tr><td>Nystatin (Mycostatin)</td><td>Polyene</td><td>Candida only</td><td>Oral thrush, diaper dermatitis, vulvovaginal candidiasis; NOT effective for tinea</td></tr>
+</tbody>
+</table>
+<h3>Systemic Antifungals for Skin/Nails</h3>
+<table>
+<thead><tr><th>Drug</th><th>Indication</th><th>Duration/Notes</th></tr></thead>
+<tbody>
+<tr><td>Terbinafine oral (Lamisil)</td><td>Onychomycosis (toenail/fingernail), tinea capitis</td><td>Toenail: 12 wks; fingernail: 6 wks. Check LFTs at baseline. Hepatotoxic (rare). Drug interactions via CYP2D6.</td></tr>
+<tr><td>Itraconazole (Sporanox)</td><td>Onychomycosis, tinea capitis, tinea unguium</td><td>Pulse dosing: 200mg BID x1wk/month x2-3 months. Many drug interactions (CYP3A4); negative inotrope — CI in HF</td></tr>
+<tr><td>Fluconazole (Diflucan)</td><td>Vulvovaginal candidiasis, tinea versicolor, Candida infections</td><td>VVC: 150mg x1 dose. Tinea versicolor: 400mg x1 or 200mg weekly x2. CYP2C9/3A4 inhibitor; prolongs QT</td></tr>
+<tr><td>Griseofulvin</td><td>Tinea capitis (children — preferred)</td><td>6–8 weeks; take with fatty meal; teratogenic — avoid in pregnancy; antifungal resistance emerging</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>Onychomycosis diagnosis: KOH prep or fungal culture (PAS stain on nail biopsy) before starting systemic antifungals — chronic nail changes have many mimics (psoriasis, trauma). Terbinafine oral = first-line for onychomycosis (best cure rates, 70–80% toenail). Topical antifungals NOT effective for onychomycosis (poor nail penetration) except efinaconazole and tavaborole for mild cases.</div>
+</div>
+
+<div class="card" id="antivirals">
+<h2>Antivirals for Skin Conditions</h2>
+<h3>Herpes Simplex &amp; Varicella-Zoster</h3>
+<table>
+<thead><tr><th>Drug</th><th>Indication</th><th>Dose/Duration</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Acyclovir (Zovirax)</td><td>HSV-1/2, VZV, primary episodes</td><td>HSV: 400mg TID x5-10d; VZV: 800mg 5x/day x7d</td><td>IV for immunocompromised, encephalitis, disseminated zoster; renal dose adjustment; well-tolerated</td></tr>
+<tr><td>Valacyclovir (Valtrex)</td><td>HSV (oral/genital), VZV, herpes zoster</td><td>Zoster: 1g TID x7d; HSV suppression: 500mg-1g daily</td><td>Prodrug of acyclovir; better bioavailability; preferred over acyclovir for most outpatient indications</td></tr>
+<tr><td>Famciclovir (Famvir)</td><td>Herpes zoster, genital HSV</td><td>Zoster: 500mg TID x7d; HSV recurrence: 1000mg BID x1d</td><td>Prodrug of penciclovir; equivalent to valacyclovir; used in immunocompromised</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Herpes Zoster Treatment</strong>Start antivirals within 72 hours of rash onset (most benefit). Reduces duration, severity, and risk of postherpetic neuralgia (PHN). ALL immunocompromised patients and those with ophthalmic zoster require treatment regardless of timing. Ophthalmic zoster (V1 branch of CN V): refer to ophthalmology urgently.</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Hutchinson's sign: vesicle on tip of nose (nasociliary branch of V1) → predict ocular involvement in herpes zoster. Treat ophthalmic zoster with IV acyclovir if immunocompromised or severe; oral valacyclovir for immunocompetent. Postherpetic neuralgia treatment: gabapentin, pregabalin, TCAs (amitriptyline), lidocaine patch, capsaicin 8% patch (Qutenza).</div>
+<h3>Molluscum Contagiosum &amp; Warts</h3>
+<p>Molluscum: cantharidin (provider-applied vesicant), podophyllotoxin, imiquimod; most self-resolve in immunocompetent. Common warts: salicylic acid (OTC), cryotherapy with liquid nitrogen, cantharidin, laser; HPV warts — see STI section (imiquimod, podofilox, TCA).</p>
+</div>
+
+<div class="card" id="misc">
+<h2>Miscellaneous Dermatologic Agents</h2>
+<h3>Calcineurin Inhibitors (Non-Steroidal Anti-Inflammatory)</h3>
+<p>Tacrolimus ointment (Protopic 0.03%/0.1%) and pimecrolimus cream (Elidel 1%) — T-cell calcineurin inhibitors → block IL-2 production → anti-inflammatory. Use for atopic dermatitis on face/skin folds (where steroids not ideal). Black box: rare theoretical lymphoma/skin cancer risk (use only if standard treatments fail). Second-line for atopic dermatitis.</p>
+<h3>PDE4 Inhibitors</h3>
+<p>Crisaborole (Eucrisa) 2% ointment — topical PDE4 inhibitor → ↑ cAMP → anti-inflammatory. Mild-moderate atopic dermatitis ≥2 years old. Burning/stinging at application site. Alternative to topical steroids. Roflumilast 0.3% cream (Zoryve) — FDA approved for psoriasis (mild-moderate) without systemic risks of oral roflumilast.</p>
+<h3>Methotrexate for Psoriasis</h3>
+<p>Oral MTX: folate antagonist; suppress rapidly dividing keratinocytes and T-cell proliferation. Dose: 7.5–25mg weekly. Monitor: CBC, LFTs, BMP, renal function. Side effects: hepatotoxicity (dose-cumulative — liver biopsy if high cumulative dose), bone marrow suppression, teratogenicity. Supplement with folic acid 1mg daily (taken day AFTER MTX). CI: hepatic disease, active infection, immunodeficiency, renal impairment, pregnancy.</p>
+<div class="box-pearl"><strong>Boards Pearl</strong>MTX + folic acid: give folic acid 1mg daily 6 days/week (NOT on MTX day) to reduce side effects (mucositis, GI upset, hepatotoxicity) without reducing efficacy. If leucovorin rescue needed (toxicity/overdose): leucovorin (folinic acid) binds DHFR receptors and reverses MTX toxicity.</div>
+<h3>Scabies Treatment</h3>
+<table>
+<thead><tr><th>Drug</th><th>Application</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Permethrin 5% cream (Elimite)</td><td>Apply neck-to-toe, leave 8–14h, rinse; repeat in 1 week</td><td>First-line; safe in pregnancy and infants &gt;2mo; treat ALL household contacts simultaneously</td></tr>
+<tr><td>Ivermectin oral</td><td>200mcg/kg x1, repeat in 2 weeks</td><td>Alternative; preferred for crusted (Norwegian) scabies; NOT for children &lt;15kg or pregnant women</td></tr>
+</tbody>
+</table>
+<h3>Lice Treatment</h3>
+<p>Permethrin 1% cream rinse (Nix) — first-line; OTC; apply after shampoo 10 min then rinse; repeat in 9–10 days. Malathion 0.5% lotion — if permethrin-resistant. Ivermectin 0.5% lotion (Sklice) — single application; Rx. Oral ivermectin — for resistant cases.</p>
+</div>
+
+</div>
+</div>
+</body>
+</html>
