@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GU/Reproductive Pharmacology – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);min-height:100vh;color:#222}
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;border-bottom:2px solid #D7D9FB;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.top-nav .brand{font-family:'Barrio',cursive;color:#F25032;font-size:1.4rem;text-decoration:none;margin-right:1rem}
+.top-nav a{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.08em;color:#143D0D;text-decoration:none;padding:1rem 0.5rem;border-bottom:3px solid transparent;transition:all 0.2s}
+.top-nav a:hover{color:#F25032}
+.top-nav a.active{border-bottom:3px solid #F25032;color:#F25032}
+.sub-nav{background:rgba(255,255,255,0.6);padding:0.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid #D7D9FB}
+.sub-nav a{font-size:0.75rem;font-family:'Nunito',sans-serif;font-weight:600;padding:0.3rem 0.75rem;border-radius:20px;background:rgba(255,255,255,0.8);color:#143D0D;text-decoration:none;transition:all 0.2s}
+.sub-nav a:hover{background:#143D0D;color:#fff}
+.sub-nav a.active-sub{background:#143D0D;color:#fff}
+.hero{padding:2.5rem 2rem 1.5rem;text-align:center}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:0.15em;color:#143D0D;margin-bottom:0.5rem}
+.hero h1{font-family:'Barrio',cursive;font-size:3.2rem;color:#F25032;text-shadow:3px 3px 0 #7B68EE,-1px -1px 0 #7B68EE;line-height:1.1}
+.hero p{font-size:1rem;color:#555;margin-top:0.5rem}
+.page-layout{display:grid;grid-template-columns:220px 1fr;gap:2rem;max-width:1200px;margin:0 auto;padding:1.5rem 2rem 3rem}
+.toc{position:sticky;top:80px;align-self:start;background:rgba(255,255,255,0.75);border-radius:16px;padding:1.25rem;box-shadow:0 4px 18px rgba(0,0,0,0.07)}
+.toc h3{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:0.75rem}
+.toc a{display:block;font-size:0.82rem;color:#333;text-decoration:none;padding:0.25rem 0;border-left:3px solid transparent;padding-left:0.5rem;transition:all 0.15s}
+.toc a:hover{color:#F25032;border-left-color:#F25032}
+.content{display:flex;flex-direction:column;gap:1.5rem}
+.card{background:rgba(255,255,255,0.75);border-radius:16px;padding:1.5rem;box-shadow:0 4px 18px rgba(0,0,0,0.07)}
+.card h2{font-family:'Aboreto',cursive;font-size:0.9rem;letter-spacing:0.12em;color:#143D0D;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #D7D9FB}
+.card h3{font-size:0.95rem;font-weight:700;color:#143D0D;margin:0.75rem 0 0.4rem}
+.card p,.card li{font-size:0.9rem;line-height:1.65;color:#333}
+.card ul{padding-left:1.2rem}
+.card li{margin-bottom:0.3rem}
+table{width:100%;border-collapse:collapse;font-size:0.84rem;margin:0.75rem 0}
+thead tr{background:#143D0D;color:#fff}
+th,td{padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid #e0e7d0}
+tbody tr:hover{background:rgba(20,61,13,0.04)}
+tbody tr:nth-child(even){background:rgba(255,255,255,0.5)}
+.box-clinical{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-pearl{background:linear-gradient(135deg,#fff3e0,#fce4ec);border-left:4px solid #F25032;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-mnemonic{background:linear-gradient(135deg,#ede7f6,#fce4ec);border-left:4px solid #7B68EE;border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.6rem 0}
+.box-clinical strong,.box-pearl strong,.box-mnemonic strong{display:block;font-size:0.78rem;letter-spacing:0.1em;font-family:'Aboreto',cursive;margin-bottom:0.3rem}
+.box-clinical strong{color:#2e7d32}
+.box-pearl strong{color:#F25032}
+.box-mnemonic strong{color:#7B68EE}
+@media(max-width:768px){.page-layout{grid-template-columns:1fr}.toc{display:none}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">🌿 FNP Prep</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+  <a href="../pathophysiology/index.html">Pathophysiology</a>
+  <a href="../pharmacology/index.html" class="active">Pharmacology</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../tests/index.html">Tests</a>
+</nav>
+<div class="sub-nav">
+  <a href="liver.html">Liver</a>
+  <a href="gallbladder.html">Gallbladder</a>
+  <a href="pancreas.html">Pancreas</a>
+  <a href="kidney.html">Kidney</a>
+  <a href="heart.html">Heart</a>
+  <a href="lungs.html">Lungs</a>
+  <a href="neuro.html">Neuro</a>
+  <a href="gu.html" class="active-sub">GU/Repro</a>
+  <a href="skin.html">Skin</a>
+</div>
+<div class="hero">
+  <div class="tag">PHARMACOLOGY</div>
+  <h1>GU / Reproductive</h1>
+  <p>Contraceptives · Hormonal Therapies · UTI/STI Antibiotics · OB Medications · BPH Drugs</p>
+</div>
+<div class="page-layout">
+<aside class="toc">
+  <h3>Contents</h3>
+  <a href="#contraceptives">Contraceptives</a>
+  <a href="#emergency">Emergency Contraception</a>
+  <a href="#hormonal">Hormonal Therapies</a>
+  <a href="#gnrh">GnRH Agonists</a>
+  <a href="#uti">UTI Antibiotics</a>
+  <a href="#sti">STI Treatments</a>
+  <a href="#ob">OB Medications</a>
+  <a href="#bph">BPH Drugs</a>
+</aside>
+<div class="content">
+
+<div class="card" id="contraceptives">
+<h2>Combined Oral Contraceptives (COCs)</h2>
+<h3>Mechanism</h3>
+<p>Estrogen + progestin → suppress LH surge → prevent ovulation; thicken cervical mucus; thin endometrium</p>
+<table>
+<thead><tr><th>Component</th><th>Effect</th><th>Side Effects</th></tr></thead>
+<tbody>
+<tr><td>Estrogen (ethinyl estradiol)</td><td>Suppress FSH/LH; stabilize endometrium</td><td>Nausea, breast tenderness, thromboembolic risk</td></tr>
+<tr><td>Progestin</td><td>Suppress LH; cervical mucus thickening</td><td>Mood changes, acne, decreased libido</td></tr>
+</tbody>
+</table>
+<h3>Contraindications (ACHES Mnemonic)</h3>
+<div class="box-mnemonic"><strong>Mnemonic</strong>A – Abdominal pain (thrombosis); C – Chest pain (MI/PE); H – Headache severe (stroke); E – Eye changes (vision loss); S – Severe leg pain (DVT)</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>COCs are CONTRAINDICATED in: smokers ≥35 yo, migraines with aura, personal hx DVT/PE, active liver disease, uncontrolled HTN, ischemic heart disease, breast cancer. Also avoid within 3 weeks postpartum (if not breastfeeding) due to VTE risk.</div>
+<h3>Non-Contraceptive Benefits</h3>
+<ul>
+<li>Reduce ovarian and endometrial cancer risk</li>
+<li>Treat dysmenorrhea, endometriosis, PCOS (acne, irregular cycles)</li>
+<li>Decrease menstrual blood loss (anemia)</li>
+<li>Suppress functional ovarian cysts</li>
+</ul>
+<h3>Progestin-Only Pills (POPs / "Mini-Pill")</h3>
+<p>Norethindrone — primarily thickens cervical mucus; must be taken same time daily (±3 hr window); safe in breastfeeding, smokers ≥35, migraine with aura, HTN</p>
+<div class="box-pearl"><strong>Boards Pearl</strong>Norethindrone POP: no estrogen CI applies. If pill taken &gt;3 hrs late → use backup for 48 hrs. Irregular bleeding is common side effect.</div>
+</div>
+
+<div class="card" id="emergency">
+<h2>Emergency Contraception</h2>
+<table>
+<thead><tr><th>Agent</th><th>Mechanism</th><th>Window</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Levonorgestrel (Plan B)</td><td>Inhibits/delays ovulation</td><td>Within 72 hrs (up to 120 hrs)</td><td>OTC; less effective if BMI &gt;75kg; no effect if already ovulated</td></tr>
+<tr><td>Ulipristal acetate (ella)</td><td>Progesterone receptor modulator; delays/inhibits ovulation</td><td>Within 120 hrs</td><td>Rx required; more effective than LNG near 72–120 hr window; avoid with hormonal contraception</td></tr>
+<tr><td>Copper IUD (Paragard)</td><td>Toxic to sperm; prevents fertilization/implantation</td><td>Within 120 hrs</td><td>Most effective EC (&gt;99%); provides ongoing contraception for 10+ years</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Clinical Note</strong>Copper IUD is preferred EC for women who also want long-term contraception. Ulipristal is superior to levonorgestrel for women &gt;165 lbs. LNG EC is safest OTC option and does NOT cause abortion.</div>
+</div>
+
+<div class="card" id="hormonal">
+<h2>Long-Acting Contraceptives &amp; Hormonal Therapies</h2>
+<h3>LARC Options</h3>
+<table>
+<thead><tr><th>Method</th><th>Drug</th><th>Duration</th><th>Key Points</th></tr></thead>
+<tbody>
+<tr><td>LNG-IUD</td><td>Mirena (52mg), Kyleena (19.5mg)</td><td>5–8 yrs</td><td>Reduces menstrual bleeding; amenorrhea in 20%; treats AUB/endometriosis</td></tr>
+<tr><td>Copper IUD</td><td>Paragard</td><td>10+ yrs</td><td>Non-hormonal; heavier periods; best for hormone-CI patients</td></tr>
+<tr><td>Implant</td><td>Nexplanon (etonogestrel)</td><td>3 yrs</td><td>Subdermal arm implant; irregular bleeding common; most effective reversible method</td></tr>
+<tr><td>Depot shot</td><td>Depo-Provera (DMPA)</td><td>3 months</td><td>Bone density decrease with prolonged use; fertility may delay 12–18 months after stopping</td></tr>
+<tr><td>Patch</td><td>Xulane (EE/norelgestromin)</td><td>Weekly x3</td><td>Higher VTE risk than pills; less effective if &gt;90kg</td></tr>
+<tr><td>Ring</td><td>NuvaRing (EE/etonogestrel)</td><td>3 weeks</td><td>Vaginal insertion; similar CI as COCs</td></tr>
+</tbody>
+</table>
+<h3>Spironolactone for PCOS/Hirsutism</h3>
+<p>Aldosterone antagonist + anti-androgen → blocks androgen receptors → reduces hirsutism, acne in PCOS. Dose: 50–200 mg/day. Monitor K⁺ (hyperkalemia risk). CI in pregnancy (feminizes male fetus). Combine with OCP for contraception.</p>
+<div class="box-pearl"><strong>Boards Pearl</strong>Spironolactone = first-line for hirsutism in PCOS when OCPs insufficient. Also used for female-pattern hair loss. Monitor potassium, especially if on ACE-I/ARB.</div>
+<h3>Menopause Hormone Therapy (MHT/HRT)</h3>
+<table>
+<thead><tr><th>Type</th><th>Use Case</th><th>Risk Consideration</th></tr></thead>
+<tbody>
+<tr><td>Estrogen only</td><td>Post-hysterectomy women</td><td>Reduces VMS, prevents bone loss</td></tr>
+<tr><td>Estrogen + progestin</td><td>Women with uterus</td><td>Progestin protects against endometrial cancer; slight ↑ breast cancer risk with long-term use</td></tr>
+<tr><td>Vaginal estrogen</td><td>GSM (atrophic vaginitis)</td><td>Minimal systemic absorption; safe in most patients</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card" id="gnrh">
+<h2>GnRH Agonists &amp; Antagonists</h2>
+<h3>Leuprolide (Lupron) — GnRH Agonist</h3>
+<p>Continuous administration → downregulates GnRH receptors → ↓ FSH/LH → ↓ estrogen/testosterone ("medical castration")</p>
+<div class="box-clinical"><strong>Indications</strong>
+<ul>
+<li>Endometriosis (reduces lesion size, pain)</li>
+<li>Uterine fibroids (preoperative shrinkage)</li>
+<li>Precocious puberty</li>
+<li>Prostate cancer (androgen deprivation)</li>
+<li>Breast cancer (premenopausal, hormone receptor+)</li>
+<li>Fertility treatment (prevent premature LH surge)</li>
+</ul>
+</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Initial "flare effect" — first 1–2 weeks of leuprolide causes transient ↑ testosterone (can worsen prostate cancer symptoms). Prevent with anti-androgen (bicalutamide) for first 2–4 weeks. Long-term: hot flashes, bone loss, decreased libido.</div>
+<h3>Elagolix (Orilissa) — GnRH Antagonist</h3>
+<p>Immediate suppression (no flare); oral; indicated for endometriosis pain. Lower dose: partial estrogen suppression. Higher dose: full suppression (used ≤6 months due to bone loss).</p>
+<h3>Methotrexate for Ectopic Pregnancy</h3>
+<p>Folate antagonist → inhibits DNA synthesis → kills rapidly dividing trophoblastic cells</p>
+<div class="box-clinical"><strong>Criteria for Medical Mgmt</strong>Hemodynamically stable; unruptured; hCG &lt;5000 (ideally &lt;3000); no cardiac activity on US; no significant free fluid; willing/able to follow-up</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>After MTX for ectopic: avoid NSAIDs (reduce efficacy), folate supplements, alcohol, sunlight. Serial hCG q48h — should decrease ≥15% from day 4→7. If not, repeat dose or surgery. Contraindicated: immunodeficiency, thrombocytopenia, hepatic/renal disease, breastfeeding, intrauterine pregnancy.</div>
+</div>
+
+<div class="card" id="uti">
+<h2>UTI &amp; Pyelonephritis Antibiotics</h2>
+<h3>Uncomplicated Cystitis (Women)</h3>
+<table>
+<thead><tr><th>Drug</th><th>Dose/Duration</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Nitrofurantoin (Macrobid)</td><td>100mg BID x 5 days</td><td>First-line; only urinary tract; CI if eGFR &lt;30; avoid at term pregnancy</td></tr>
+<tr><td>TMP-SMX (Bactrim DS)</td><td>1 tab BID x 3 days</td><td>First-line if local resistance &lt;20%; CI in sulfa allergy, G6PD deficiency, folate deficiency</td></tr>
+<tr><td>Fosfomycin (Monurol)</td><td>3g x 1 dose</td><td>Single dose; excellent for resistant organisms including ESBL; expensive</td></tr>
+<tr><td>Pivmecillinam</td><td>400mg BID x 3–7 days</td><td>Limited US availability; good for E. coli</td></tr>
+<tr><td>Fluoroquinolones (Cipro/Levaquin)</td><td>3–7 days</td><td>Reserve for complicated UTI or pyelonephritis due to resistance; FDA black box: tendinopathy, aortic aneurysm</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>Avoid fluoroquinolones for uncomplicated UTI (preserve for more serious infections). Nitrofurantoin does NOT achieve adequate renal tissue levels — NOT for pyelonephritis.</div>
+<h3>Pyelonephritis</h3>
+<table>
+<thead><tr><th>Setting</th><th>Treatment</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td>Outpatient (mild-mod)</td><td>Ciprofloxacin 500mg BID or TMP-SMX DS BID (if susceptible)</td><td>7–14 days</td></tr>
+<tr><td>Inpatient (moderate)</td><td>IV ceftriaxone or IV ciprofloxacin</td><td>14 days total (IV→PO step-down)</td></tr>
+<tr><td>Severe/septic</td><td>IV pip-tazo or meropenem (if ESBL suspected)</td><td>14 days</td></tr>
+<tr><td>Pregnancy</td><td>IV cephalosporin (ceftriaxone); hospitalize</td><td>14 days</td></tr>
+</tbody>
+</table>
+<h3>Recurrent UTI Prophylaxis</h3>
+<ul>
+<li>Nitrofurantoin 50–100mg QHS (continuous) or post-coital</li>
+<li>TMP-SMX 40/200mg QHS</li>
+<li>Vaginal estrogen in postmenopausal women (reduces recurrence significantly)</li>
+<li>D-mannose (OTC; some evidence for prevention)</li>
+</ul>
+</div>
+
+<div class="card" id="sti">
+<h2>STI Treatments</h2>
+<table>
+<thead><tr><th>STI</th><th>First-Line Treatment</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Gonorrhea (N. gonorrhoeae)</td><td>Ceftriaxone 500mg IM x1 (if &gt;150kg: 1g)</td><td>No longer treat with azithromycin combo; test-of-cure if pharyngeal; treat partners</td></tr>
+<tr><td>Chlamydia (C. trachomatis)</td><td>Doxycycline 100mg BID x 7 days</td><td>Preferred over azithromycin (better cure rates for rectal); PID treat 14 days</td></tr>
+<tr><td>Syphilis (T. pallidum) — Primary/Secondary</td><td>Benzathine penicillin G 2.4 million units IM x1</td><td>PCN allergy: doxycycline 100mg BID x14d; neurosyphilis: IV aqueous PCN G</td></tr>
+<tr><td>Syphilis — Tertiary/Latent (&gt;1yr)</td><td>Benzathine PCN G 2.4M units IM weekly x3</td><td>Cannot use doxy for late latent; desensitize if PCN allergic</td></tr>
+<tr><td>Trichomonas vaginalis</td><td>Metronidazole 2g PO x1 OR 500mg BID x7d</td><td>Treat partners; avoid alcohol during and 48h after; tinidazole 2g x1 alternative</td></tr>
+<tr><td>BV (Gardnerella)</td><td>Metronidazole 500mg BID x7d OR vaginal gel x5d</td><td>Clindamycin 300mg BID x7d if metro-intolerant; recurrence common; treat symptomatic pregnant women</td></tr>
+<tr><td>HSV-2 (genital herpes) — 1st episode</td><td>Acyclovir 400mg TID x7–10d OR valacyclovir 1g BID x7–10d</td><td>Start within 72h; suppressive therapy: valacyclovir 500mg daily reduces outbreaks and transmission</td></tr>
+<tr><td>HSV — Recurrence</td><td>Valacyclovir 500mg BID x3d OR 1g daily x5d</td><td>Start at prodrome; reduces duration/severity</td></tr>
+<tr><td>HPV-related warts</td><td>Patient: imiquimod cream, podofilox; Provider: trichloroacetic acid, cryotherapy, surgical</td><td>Prevention: Gardasil-9 vaccine up to age 45; no treatment clears infection, only lesions</td></tr>
+<tr><td>PID</td><td>Outpt: Ceftriaxone 500mg IM + doxycycline 100mg BID x14d ± metronidazole 500mg BID x14d</td><td>Inpt: IV cefoxitin + doxy OR clindamycin + gentamicin; hospitalize if pregnancy, severe illness, no improvement in 72h, TOA</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Clinical Note</strong>Always screen and treat partners for gonorrhea/chlamydia/trich/syphilis. Report to public health. Test of cure for gonorrhea in throat and rectum. NAAT is gold standard for chlamydia/gonorrhea diagnosis.</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Jarisch-Herxheimer reaction: fever, rigors, myalgias within 24h of penicillin for syphilis treatment (especially 1° and 2° syphilis). Treat with antipyretics; not an allergy. Warn patients, especially pregnant women (can trigger preterm labor).</div>
+</div>
+
+<div class="card" id="ob">
+<h2>OB Medications</h2>
+<h3>Oxytocin (Pitocin)</h3>
+<p>Synthetic oxytocin → uterine smooth muscle contraction via oxytocin receptors; also used for postpartum hemorrhage (PPH) prevention</p>
+<table>
+<thead><tr><th>Indication</th><th>Use</th><th>Key Points</th></tr></thead>
+<tbody>
+<tr><td>Labor induction/augmentation</td><td>IV infusion, titrated</td><td>Risk: uterine hyperstimulation, fetal distress, water retention (antidiuretic effect at high doses)</td></tr>
+<tr><td>Postpartum hemorrhage</td><td>10–40 units IV or IM</td><td>First-line PPH treatment; uterine atony = #1 cause PPH</td></tr>
+<tr><td>Incomplete abortion</td><td>IV infusion</td><td>Promotes uterine contraction to expel retained products</td></tr>
+</tbody>
+</table>
+<h3>Magnesium Sulfate (MgSO₄)</h3>
+<div class="box-clinical"><strong>Indications</strong>
+<ul>
+<li>Eclampsia prevention and treatment (seizes prophylaxis in severe preeclampsia)</li>
+<li>Neuroprotection for premature infant (&lt;32 weeks gestation)</li>
+<li>Tocolysis (short-term, 48 hours — not first-line)</li>
+</ul>
+</div>
+<div class="box-pearl"><strong>Boards Pearl</strong>Mg toxicity progression: Loss of DTRs (9–12 mEq/L) → respiratory depression (12–15 mEq/L) → cardiac arrest (&gt;15 mEq/L). Antidote: Calcium gluconate 1g IV. Monitor UO, DTRs, RR. Therapeutic level for seizure prophylaxis: 4–7 mEq/L.</div>
+<h3>Labetalol &amp; Hydralazine for Acute Severe HTN in Pregnancy</h3>
+<table>
+<thead><tr><th>Drug</th><th>Dose</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Labetalol</td><td>20mg IV bolus q10min (max 300mg total)</td><td>Alpha + beta blocker; safe in pregnancy; avoid if asthma/bradycardia</td></tr>
+<tr><td>Hydralazine</td><td>5–10mg IV q20min (max 30mg)</td><td>Direct vasodilator; reflex tachycardia; neonatal thrombocytopenia risk</td></tr>
+<tr><td>Nifedipine IR</td><td>10mg PO q20min x3</td><td>CCB; oral option; avoid sublingual (rapid drop in BP, fetal distress)</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Treatment Target</strong>SBP &lt;160 mmHg and DBP &lt;110 mmHg within 30–60 minutes in severe-range BP to prevent maternal stroke. Chronic HTN in pregnancy: labetalol, nifedipine (extended-release), or methyldopa (safe but less preferred due to side effects).</div>
+<h3>Tocolytics</h3>
+<table>
+<thead><tr><th>Drug</th><th>Mechanism</th><th>Use</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Nifedipine</td><td>CCB → ↓ myometrial Ca²⁺</td><td>First-line tocolytic</td><td>Safe, oral, effective for 48h (time for steroids)</td></tr>
+<tr><td>Indomethacin</td><td>COX inhibitor → ↓ prostaglandins</td><td>Up to 32 weeks</td><td>Risk: premature closure ductus arteriosus, fetal renal toxicity; short term only</td></tr>
+<tr><td>Magnesium sulfate</td><td>Ca²⁺ antagonist</td><td>&lt;32 weeks (neuroprotection)</td><td>Primary neuroprotective benefit; least effective tocolytic</td></tr>
+</tbody>
+</table>
+<h3>Antenatal Corticosteroids</h3>
+<p>Betamethasone 12mg IM q24h x2 doses (or dexamethasone 6mg IM q12h x4 doses) — for fetal lung maturation when preterm birth anticipated at 24–34 weeks. Reduces RDS, IVH, necrotizing enterocolitis, and neonatal mortality.</p>
+</div>
+
+<div class="card" id="bph">
+<h2>BPH &amp; Prostate Drugs</h2>
+<h3>Alpha-1 Blockers (First-Line)</h3>
+<table>
+<thead><tr><th>Drug</th><th>Selectivity</th><th>Key Notes</th></tr></thead>
+<tbody>
+<tr><td>Tamsulosin (Flomax)</td><td>α1A selective (prostate)</td><td>Least hypotension; take 30 min after meal; intraoperative floppy iris syndrome (IFIS) — tell ophthalmologist</td></tr>
+<tr><td>Silodosin (Rapaflo)</td><td>α1A highly selective</td><td>Retrograde ejaculation common</td></tr>
+<tr><td>Alfuzosin (Uroxatral)</td><td>α1 non-selective</td><td>Less sexual side effects than tamsulosin</td></tr>
+<tr><td>Doxazosin (Cardura)</td><td>α1 non-selective</td><td>Also treats HTN; orthostatic hypotension; titrate slowly</td></tr>
+<tr><td>Terazosin</td><td>α1 non-selective</td><td>Also treats HTN; take at bedtime; first-dose hypotension</td></tr>
+</tbody>
+</table>
+<div class="box-pearl"><strong>Boards Pearl</strong>IFIS (intraoperative floppy iris syndrome) — alpha-1 blockers (especially tamsulosin) cause iris dilator muscle atrophy → iris prolapse during cataract surgery. Patient must tell surgeon BEFORE eye surgery even if drug was stopped.</div>
+<h3>5-Alpha Reductase Inhibitors (5-ARIs)</h3>
+<table>
+<thead><tr><th>Drug</th><th>Isoenzyme</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Finasteride (Proscar/Propecia)</td><td>5-AR type 2 only</td><td>BPH: 5mg; male pattern baldness: 1mg. Decreases PSA by 50% after 6 months — double measured PSA to get true value. 3–6 month onset. Sexual dysfunction: decreased libido, ED, gynecomastia. CI: pregnancy (teratogenic)</td></tr>
+<tr><td>Dutasteride (Avodart)</td><td>5-AR type 1 &amp; 2</td><td>More complete DHT suppression. Same onset/side effects as finasteride. Also decreases PSA by 50%.</td></tr>
+</tbody>
+</table>
+<h3>Combination Therapy &amp; PDE5 Inhibitors</h3>
+<p>Alpha-blocker + 5-ARI (e.g., Jalyn = dutasteride + tamsulosin): most effective for large prostates, reduces risk of acute urinary retention and need for surgery (CombAT trial). <br>
+Tadalafil (Cialis) 5mg daily: PDE5 inhibitor approved for BPH ± erectile dysfunction; relaxes prostate/bladder smooth muscle; do NOT combine with nitrates (risk of severe hypotension).</p>
+<h3>Prostate Cancer Pharmacotherapy</h3>
+<table>
+<thead><tr><th>Drug Class</th><th>Examples</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>GnRH agonists (ADT)</td><td>Leuprolide, goserelin</td><td>Androgen deprivation therapy; metastatic/advanced PCa</td></tr>
+<tr><td>GnRH antagonists</td><td>Degarelix, relugolix</td><td>No flare; immediate testosterone suppression</td></tr>
+<tr><td>Anti-androgens</td><td>Bicalutamide, enzalutamide, apalutamide</td><td>Block androgen receptor; castration-resistant PCa</td></tr>
+<tr><td>CYP17 inhibitors</td><td>Abiraterone (+ prednisone)</td><td>Blocks androgen synthesis; CRPC pre/post-chemo</td></tr>
+</tbody>
+</table>
+<div class="box-clinical"><strong>Clinical Note</strong>PSA screening: USPSTF recommends shared decision-making for men 55–69 yo (Grade C). Not recommended for men ≥70 (Grade D). PSA &gt;4 ng/mL or velocity &gt;0.75 ng/mL/year → urology referral. Normal PSA does not exclude PCa.</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
