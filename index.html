@@ -1,146 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FNP Board Exam Prep</title>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --lavender: #D7D9FB;
-  --cream: #F3F5E7;
-  --forest: #143D0D;
-  --orange: #F25032;
-  --purple: #734E93;
-  --mid-green: #92B079;
-  --white: #FFFFFF;
-  --card-bg: rgba(255,255,255,0.72);
-  --nav-bg: rgba(255,255,255,0.92);
-  --text: #2A2A2A;
-  --text-muted: #5A6A52;
-}
-body {
-  font-family: 'Nunito', sans-serif;
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%);
-  min-height: 100vh;
-  color: var(--text);
-}
-
-/* TOP NAV */
-.top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.12); position: sticky; top: 0; z-index: 100; }
-.top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; }
-.site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; margin-right: 2rem; white-space: nowrap; }
-.subject-tabs { display: flex; align-items: stretch; list-style: none; flex-wrap: wrap; }
-.subject-tabs li a { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); text-decoration: none; padding: 0 0.9rem; height: 56px; display: flex; align-items: center; border-bottom: 3px solid transparent; transition: all 0.2s; text-transform: uppercase; white-space: nowrap; }
-.subject-tabs li a:hover { color: var(--orange); border-bottom-color: var(--orange); }
-.subject-tabs li a.active { color: var(--orange); border-bottom-color: var(--orange); }
-
-/* HERO */
-.hero { text-align: center; padding: 5rem 2rem 3rem; }
-.hero-title { font-family: 'Barrio', fantasy; font-size: clamp(3rem,8vw,6rem); color: var(--orange); text-shadow: 5px 5px 0 rgba(115,78,147,0.35); line-height: 1; margin-bottom: 0.6rem; }
-.hero-sub { font-family: 'Aboreto', sans-serif; font-size: clamp(0.72rem,1.8vw,1rem); color: var(--forest); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.65; margin-bottom: 2rem; }
-.divider { display: flex; align-items: center; justify-content: center; gap: 1rem; color: var(--forest); opacity: 0.3; margin: 0 auto 3rem; max-width: 200px; }
-.divider::before, .divider::after { content: ''; height: 1px; flex: 1; background: var(--forest); }
-
-/* SUBJECT GRID */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
-.section-label { font-family: 'Aboreto', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; color: var(--forest); text-transform: uppercase; text-align: center; opacity: 0.5; margin-bottom: 2rem; }
-.subjects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.3rem; max-width: 900px; margin: 0 auto; }
-.subject-card { background: var(--card-bg); border-radius: 24px; padding: 2rem 1.6rem; text-decoration: none; color: inherit; border: 1.5px solid rgba(255,255,255,0.9); box-shadow: 0 4px 22px rgba(20,61,13,0.07); transition: all 0.25s; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; position: relative; overflow: hidden; }
-.subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0; transition: opacity 0.25s; }
-.subject-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(20,61,13,0.14); }
-.subject-card:hover::before { opacity: 1; }
-.subject-card.anatomy::before { background: linear-gradient(to right, #F25032, #734E93); }
-.subject-card.physiology::before { background: linear-gradient(to right, #3B82F6, #06B6D4); }
-.subject-card.pathophysiology::before { background: linear-gradient(to right, #EF4444, #F97316); }
-.subject-card.pharmacology::before { background: linear-gradient(to right, #8B5CF6, #EC4899); }
-.subject-card.cases::before { background: linear-gradient(to right, #10B981, #3B82F6); }
-.subject-card.tests::before { background: linear-gradient(to right, #F59E0B, #EF4444); }
-.subject-card.coming-soon { opacity: 0.65; cursor: default; }
-.subject-card.coming-soon:hover { transform: none; box-shadow: 0 4px 22px rgba(20,61,13,0.07); }
-.subject-icon { font-size: 2.2rem; line-height: 1; margin-bottom: 0.2rem; }
-.subject-name { font-family: 'Barrio', fantasy; font-size: 1.5rem; color: var(--orange); line-height: 1; }
-.subject-status { font-family: 'Aboreto', sans-serif; font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; }
-.subject-status.live { color: #39641D; }
-.subject-status.soon { color: var(--text-muted); opacity: 0.6; }
-.subject-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.2rem; }
-
-footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(20,61,13,0.08); }
-::-webkit-scrollbar { width: 7px; } ::-webkit-scrollbar-track { background: var(--cream); } ::-webkit-scrollbar-thumb { background: var(--mid-green); border-radius: 4px; }
-</style>
-</head>
-<body>
-
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <a class="site-brand" href="index.html">🌿 FNP Prep</a>
-    <ul class="subject-tabs">
-      <li><a href="anatomy/index.html">Anatomy</a></li>
-      <li><a href="physiology/index.html">Physiology</a></li>
-      <li><a href="pathophysiology/index.html">Pathophysiology</a></li>
-      <li><a href="pharmacology/index.html">Pharmacology</a></li>
-      <li><a href="cases/index.html">Cases</a></li>
-      <li><a href="tests/index.html">Tests</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="hero">
-  <h1 class="hero-title">FNP Board Exam Prep</h1>
-  <p class="hero-sub">Your complete FNP study guide</p>
-  <div class="divider">&#9673;</div>
-</div>
-
-<div class="container">
-  <p class="section-label">Choose a subject to begin</p>
-  <div class="subjects-grid">
-
-    <a class="subject-card anatomy" href="anatomy/index.html">
-      <div class="subject-icon">🫀</div>
-      <div class="subject-name">Anatomy</div>
-      <div class="subject-status live">Live</div>
-      <div class="subject-desc">Gross, microscopic, embryology &amp; clinical correlates — organ by organ</div>
-    </a>
-
-    <a class="subject-card physiology" href="physiology/index.html">
-      <div class="subject-icon">⚡</div>
-      <div class="subject-name">Physiology</div>
-      <div class="subject-status soon">Coming Soon</div>
-      <div class="subject-desc">How the body works — systems-based physiological mechanisms</div>
-    </a>
-
-    <a class="subject-card pathophysiology" href="pathophysiology/index.html">
-      <div class="subject-icon">🔬</div>
-      <div class="subject-name">Pathophys</div>
-      <div class="subject-status soon">Coming Soon</div>
-      <div class="subject-desc">Disease mechanisms, cellular changes &amp; clinical manifestations</div>
-    </a>
-
-    <a class="subject-card pharmacology" href="pharmacology/index.html">
-      <div class="subject-icon">💊</div>
-      <div class="subject-name">Pharm</div>
-      <div class="subject-status soon">Coming Soon</div>
-      <div class="subject-desc">Drug mechanisms, side effects, contraindications &amp; high-yield boards drugs</div>
-    </a>
-
-    <a class="subject-card cases" href="cases/index.html">
-      <div class="subject-icon">📋</div>
-      <div class="subject-name">Cases</div>
-      <div class="subject-status soon">Coming Soon</div>
-      <div class="subject-desc">Clinical vignettes &amp; case-based reasoning for exam practice</div>
-    </a>
-
-    <a class="subject-card tests" href="tests/index.html">
-      <div class="subject-icon">✏️</div>
-      <div class="subject-name">Tests</div>
-      <div class="subject-status soon">Coming Soon</div>
-      <div class="subject-desc">Practice questions, mock exams &amp; spaced repetition quizzes</div>
-    </a>
-
-  </div>
-</div>
-
-<footer><p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Built for NP Students</p></footer>
-</body>
-</html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FNP Board Exam Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+          *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+          :root {
+                  --lavender: #D7D9FB;
+                  --cream: #F3F5E7;
+                  --forest: #143D0D;
+                  --orange: #F25032;
+                  --purple: #734E93;
+                  --mid-green: #92B079;
+                  --white: #FFFFFF;
+                  --card-bg: rgba(255,255,255,0.72);
+                  --nav-bg: rgba(255,255,255,0.92);
+                  --text: #2A2A2A;
+                  --text-muted: #5A6A52;
+          }
+          body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
+          .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.12); position: sticky; top: 0; z-index: 100; }
+          .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; }
+          .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; margin-right: 2rem; white-space: nowrap; }
+          .subject-tabs { display: flex; align-items: stretch; list-style: none; flex-wrap: wrap; }
+          .subject-tabs li a { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); text-decoration: none; padding: 0 0.9rem; height: 56px; display: flex; align-items: center; border-bottom: 3px solid transparent; transition: all 0.2s; text-transform: uppercase; white-space: nowrap; }
+          .subject-tabs li a:hover { color: var(--orange); border-bottom-color: var(--orange); }
+          .subject-tabs li a.active { color: var(--orange); border-bottom-color: var(--orange); }
+          .hero { text-align: center; padding: 5rem 2rem 3rem; }
+          .hero-title { font-family: 'Barrio', fantasy; font-size: clamp(3rem,8vw,6rem); color: var(--orange); text-shadow: 5px 5px 0 rgba(115,78,147,0.35); line-height: 1; margin-bottom: 0.6rem; }
+          .hero-sub { font-family: 'Aboreto', sans-serif; font-size: clamp(0.72rem,1.8vw,1rem); color: var(--forest); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.65; margin-bottom: 2rem; }
+          .divider { display: flex; align-items: center; justify-content: center; gap: 1rem; color: var(--forest); opacity: 0.3; margin: 0 auto 3rem; max-width: 200px; }
+          .divider::before, .divider::after { content: ''; height: 1px; flex: 1; background: var(--forest); }
+          .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
+          .section-label { font-family: 'Aboreto', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; color: var(--forest); text-transform: uppercase; text-align: center; opacity: 0.5; margin-bottom: 2rem; }
+          .subjects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.3rem; max-width: 900px; margin: 0 auto; }
+          .subject-card { background: var(--card-bg); border-radius: 24px; padding: 2rem 1.6rem; text-decoration: none; color: inherit; border: 1.5px solid rgba(255,255,255,0.9); box-shadow: 0 4px 22px rgba(20,61,13,0.07); transition: all 0.25s; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; position: relative; overflow: hidden; }
+          .subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0; transition: opacity 0.25s; }
+          .subject-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(20,61,13,0.14); }
+          .subject-card:hover::before { opacity: 1; }
+          .subject-card.anatomy::before { background: linear-gradient(to right, #F25032, #734E93); }
+          .subject-card.physiology::before { background: linear-gradient(to right, #3B82F6, #06B6D4); }
+          .subject-card.pathophysiology::before { background: linear-gradient(to right, #EF4444, #F97316); }
+          .subject-card.pharmacology::before { background: linear-gradient(to right, #8B5CF6, #EC4899); }
+          .subject-card.cases::before { background: linear-gradient(to right, #10B981, #3B82F6); }
+          .subject-card.tests::before { background: linear-gradient(to right, #F59E0B, #EF4444); }
+          .subject-card.coming-soon { opacity: 0.65; cursor: default; }
+          .subject-card.coming-soon:hover { transform: none; box-shadow: 0 4px 22px rgba(20,61,13,0.07); }
+          .subject-name { font-family: 'Barrio', fantasy; font-size: 1.5rem; color: var(--orange); line-height: 1; }
+          .subject-status { font-family: 'Aboreto', sans-serif; font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; }
+          .subject-status.live { color: #39641D; }
+          .subject-status.soon { color: var(--text-muted); opacity: 0.6; }
+          .subject-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.2rem; }
+          footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(20,61,13,0.08); }
+          ::-webkit-scrollbar { width: 7px; }
+          ::-webkit-scrollbar-track { background: var(--cream); }
+          ::-webkit-scrollbar-thumb { background: var(--mid-green); border-radius: 4px; }
+        </style>
+  </head>
+  <body>
+      <nav class="top-nav">
+            <div class="top-nav-inner">
+                    <a class="site-brand" href="index.html">&#127807; FNP Prep</a>a>
+                    <ul class="subject-tabs">
+                              <li><a href="anatomy/index.html">Anatomy</a>a></li>
+                            <li><a href="physiology/index.html">Physiology</a>a></li>
+                            <li><a href="pathophysiology/index.html">Pathophysiology</a>a></li>
+                            <li><a href="pharmacology/index.html">Pharmacology</a>a></li>
+                            <li><a href="cases/index.html">Cases</a>a></li>
+                            <li><a href="tests/index.html">Tests</a>a></li>
+                    </ul>ul>
+            </div>div>
+      </nav>nav>
+    <div class="hero">
+        <h1 class="hero-title">FNP Board Exam Prep</h1>h1>
+        <p class="hero-sub">Your complete FNP study guide</p>p>
+        <div class="divider">&#9673;</div>div>
+    </div>div>
+    <div class="container">
+        <p class="section-label">Choose a subject to begin</p>p>
+        <div class="subjects-grid">
+              <a class="subject-card anatomy" href="anatomy/index.html">
+                      <div class="subject-name">Anatomy</div>div>
+                      <div class="subject-status live">Live</div>div>
+                      <div class="subject-desc">Gross, microscopic, embryology &amp; clinical correlates — organ by organ</div>div>
+              </a>a>
+              <a class="subject-card physiology coming-soon" href="physiology/index.html">
+                      <div class="subject-name">Physiology</div>div>
+                      <div class="subject-status soon">Coming Soon</div>div>
+                      <div class="subject-desc">How the body works — systems-based physiological mechanisms</div>div>
+              </a>a>
+              <a class="subject-card pathophysiology coming-soon" href="pathophysiology/index.html">
+                      <div class="subject-name">Pathophys</div>div>
+                      <div class="subject-status soon">Coming Soon</div>div>
+                      <div class="subject-desc">Disease mechanisms, cellular changes &amp; clinical manifestations</div>div>
+              </a>a>
+              <a class="subject-card pharmacology coming-soon" href="pharmacology/index.html">
+                      <div class="subject-name">Pharm</div>div>
+                      <div class="subject-status soon">Coming Soon</div>div>
+                      <div class="subject-desc">Drug mechanisms, side effects, contraindications &amp; high-yield boards drugs</div>div>
+              </a>a>
+              <a class="subject-card cases" href="cases/index.html">
+                      <div class="subject-name">Cases</div>div>
+                      <div class="subject-status live">Live</div>div>
+                      <div class="subject-desc">Clinical vignettes &amp; case-based reasoning for exam practice</div>div>
+              </a>a>
+              <a class="subject-card tests coming-soon" href="tests/index.html">
+                      <div class="subject-name">Tests</div>div>
+                      <div class="subject-status soon">Coming Soon</div>div>
+                      <div class="subject-desc">Practice questions, mock exams &amp; spaced repetition quizzes</div>div>
+              </a>a>
+        </div>div>
+    </div>div>
+    <footer><p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Built for NP Students</p></footer>
+  </body>
+</html>html></p></footer></li></li>
+  </body>
+    </style></title>
+  </head>
