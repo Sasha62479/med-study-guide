@@ -4,138 +4,265 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaccines | Quick Guide | FNP Prep</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --green: #10B981; --blue: #3B82F6; --card-bg: rgba(255,255,255,0.78); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
-    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #D4F8EC 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
-    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(16,185,129,0.15); position: sticky; top: 0; z-index: 100; }
-    .top-nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
-    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; }
-    .breadcrumb { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
-    .breadcrumb a { color: var(--text-muted); text-decoration: none; } .breadcrumb a:hover { color: var(--orange); }
-    .page-header { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
-    .page-icon { font-size: 3rem; }
-    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2rem,5vw,3.5rem); color: var(--green); text-shadow: 3px 3px 0 rgba(16,185,129,0.15); }
-    .badge { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 20px; padding: 0.3rem 0.8rem; }
-    .badge-green { background: rgba(16,185,129,0.1); color: #065F46; }
-    .badge-gray { background: rgba(20,61,13,0.07); color: var(--forest); }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; display: flex; flex-direction: column; gap: 1.4rem; }
-    .card { background: var(--card-bg); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 20px rgba(16,185,129,0.07); border: 1.5px solid rgba(255,255,255,0.9); }
-    .card-title { font-family: 'Barrio', fantasy; font-size: 1.3rem; color: var(--forest); margin-bottom: 1rem; }
-    .section-divider { height: 3px; background: linear-gradient(to right, #10B981, #3B82F6); border-radius: 2px; margin-bottom: 0.8rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-    th { background: rgba(16,185,129,0.08); color: var(--forest); font-family: 'Aboreto', sans-serif; font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
-    td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(16,185,129,0.08); vertical-align: top; line-height: 1.5; }
-    tr:last-child td { border-bottom: none; }
-    .age-col { font-weight: 700; color: var(--green); white-space: nowrap; }
-    .pill { display: inline-block; font-size: 0.68rem; padding: 0.12rem 0.5rem; border-radius: 10px; font-weight: 600; margin: 0.1rem; white-space: nowrap; }
-    .pill-green { background: rgba(16,185,129,0.15); color: #065F46; }
-    .pill-blue { background: rgba(59,130,246,0.12); color: #1D4ED8; }
-    .pill-orange { background: rgba(242,80,50,0.12); color: #9A3412; }
-    .pill-yellow { background: rgba(245,158,11,0.12); color: #92400E; }
-    .alert-box { background: rgba(242,80,50,0.07); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 0.9rem 1rem; font-size: 0.82rem; line-height: 1.6; margin-top: 1rem; }
-    .alert-box strong { color: var(--orange); }
-    ul.checklist { list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem; }
-    ul.checklist li::before { content: "\2713  "; color: var(--green); font-weight: 700; }
-    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.58rem; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(16,185,129,0.1); }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.12);
+      --navy: #1E2D4E; --steel: #3A5080; --slate: #4A5568; --muted: #718096;
+      --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    .top-nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 52px; position: sticky; top: 0; z-index: 100; }
+    .top-nav a { text-decoration: none; color: var(--slate); font-size: 0.875rem; font-weight: 500; }
+    .top-nav a:hover { color: var(--accent); }
+    .site-brand { font-size: 1rem; font-weight: 700; color: var(--navy); margin-right: auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--muted); margin: 1rem 2rem 0; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header { max-width: 960px; margin: 1.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--navy); }
+    .page-subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(30,45,78,0.05); }
+    .card h2 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--bg2); text-transform: uppercase; letter-spacing: 0.04em; }
+    .card h3 { font-size: 0.95rem; font-weight: 600; color: var(--steel); margin: 1rem 0 0.5rem; }
+    .card p, .card li { color: var(--slate); font-size: 0.9rem; line-height: 1.65; }
+    ul { list-style: none; padding: 0; }
+    ul li { padding: 0.2rem 0 0.2rem 1.1rem; position: relative; }
+    ul li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .tag { padding: 0.2rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 500; }
+    .tag-red { background: #FDF0EF; color: var(--red); }
+    .tag-green { background: #EEF7F4; color: var(--green); }
+    .tag-amber { background: #FBF6EC; color: var(--amber); }
+    .tag-blue { background: #EEF4F9; color: var(--accent); }
+    .schedule-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.85rem; }
+    .schedule-table th { background: var(--bg2); color: var(--navy); font-weight: 600; padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .schedule-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--slate); vertical-align: top; }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table tr:hover td { background: var(--bg); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .criteria-box { background: var(--bg); border-radius: 8px; padding: 1rem; }
+    .criteria-box h4 { font-size: 0.82rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .footer { text-align: center; font-size: 0.78rem; color: var(--muted); padding: 2.5rem 2rem; border-top: 1px solid var(--border); margin-top: 2rem; line-height: 1.8; }
+    .footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+
 <nav class="top-nav">
-  <div class="top-nav-inner">
-    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
-    <span class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Vaccines</span>
-  </div>
+  <span class="site-brand">FNP Prep Hub</span>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Quick Guides</a>
 </nav>
-<div class="page-header">
-  <div class="page-icon">&#128137;</div>
-  <div>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem;">
-      <span class="badge badge-green">Preventive Care</span>
-      <span class="badge badge-gray">CDC 2024</span>
-    </div>
-    <h1 class="page-title">Immunization Guide</h1>
-  </div>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Vaccines
 </div>
+
+<div class="page-header">
+  <div class="page-title">Vaccine Guidelines</div>
+  <div class="page-subtitle">CDC 2024 &mdash; Adult and Pediatric Immunization Schedules</div>
+</div>
+
 <div class="container">
 
   <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128118; Childhood Immunization Schedule (CDC 2024)</div>
-    <table>
-      <tr><th>Age</th><th>Vaccines Due</th></tr>
-      <tr><td class="age-col">Birth</td><td><span class="pill pill-green">HepB</span> #1</td></tr>
-      <tr><td class="age-col">1-2 months</td><td><span class="pill pill-green">HepB</span> #2</td></tr>
-      <tr><td class="age-col">2 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV15/20</span> <span class="pill pill-blue">RV</span></td></tr>
-      <tr><td class="age-col">4 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-blue">RV</span></td></tr>
-      <tr><td class="age-col">6 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-blue">RV</span> <span class="pill pill-green">HepB</span> #3 <span class="pill pill-orange">Influenza</span> (annually)</td></tr>
-      <tr><td class="age-col">12-15 months</td><td><span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-yellow">MMR</span> #1 <span class="pill pill-yellow">Varicella</span> #1 <span class="pill pill-green">HepA</span> #1</td></tr>
-      <tr><td class="age-col">15-18 months</td><td><span class="pill pill-blue">DTaP</span> #4</td></tr>
-      <tr><td class="age-col">18-23 months</td><td><span class="pill pill-green">HepA</span> #2</td></tr>
-      <tr><td class="age-col">4-6 years</td><td><span class="pill pill-blue">DTaP</span> #5 <span class="pill pill-blue">IPV</span> #4 <span class="pill pill-yellow">MMR</span> #2 <span class="pill pill-yellow">Varicella</span> #2</td></tr>
-      <tr><td class="age-col">11-12 years</td><td><span class="pill pill-orange">Tdap</span> <span class="pill pill-orange">MCV4</span> (MenACWY) <span class="pill pill-orange">HPV</span> series (2 doses if started &lt;15)</td></tr>
-      <tr><td class="age-col">16 years</td><td><span class="pill pill-orange">MCV4</span> booster <span class="pill pill-orange">MenB</span> (if indicated)</td></tr>
-      <tr><td class="age-col">Every year</td><td><span class="pill pill-orange">Influenza</span> (6 months and older)</td></tr>
+    <h2>Childhood Immunization Schedule (Birth to 6 Years)</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Vaccine</th><th>Doses / Schedule</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hepatitis B (HepB)</td><td>3-dose: birth, 1&ndash;2 mo, 6&ndash;18 mo</td><td>1st dose within 24 hrs of birth</td></tr>
+        <tr><td>DTaP</td><td>5-dose: 2, 4, 6, 15&ndash;18 mo, 4&ndash;6 yr</td><td>Diphtheria, tetanus, pertussis</td></tr>
+        <tr><td>IPV (Polio)</td><td>4-dose: 2, 4, 6&ndash;18 mo, 4&ndash;6 yr</td><td>Final dose at age 4 or older</td></tr>
+        <tr><td>Hib</td><td>3&ndash;4 doses: 2, 4, (6 mo), 12&ndash;15 mo</td><td>Haemophilus influenzae type b</td></tr>
+        <tr><td>PCV15 or PCV20</td><td>4-dose: 2, 4, 6, 12&ndash;15 mo</td><td>Pneumococcal conjugate</td></tr>
+        <tr><td>RV</td><td>2&ndash;3 doses: 2, 4, (6 mo)</td><td>Rotavirus; oral; series by 8 mo</td></tr>
+        <tr><td>MMR</td><td>2-dose: 12&ndash;15 mo, 4&ndash;6 yr</td><td>Measles, mumps, rubella. Live vaccine.</td></tr>
+        <tr><td>Varicella (VAR)</td><td>2-dose: 12&ndash;15 mo, 4&ndash;6 yr</td><td>Live vaccine; avoid in immunocompromised</td></tr>
+        <tr><td>Hepatitis A (HepA)</td><td>2-dose: 12&ndash;23 mo</td><td>Separated by 6&ndash;18 months</td></tr>
+        <tr><td>Influenza</td><td>Annually starting at 6 months</td><td>2 doses first year if naive (&lt; 9 yr old)</td></tr>
+        <tr><td>COVID-19</td><td>Per current CDC schedule</td><td>Updated annually</td></tr>
+      </tbody>
     </table>
   </div>
 
   <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#129492; Adult Immunization Schedule (CDC 2024)</div>
-    <table>
-      <tr><th>Vaccine</th><th>Who / When</th></tr>
-      <tr><td><strong>Influenza</strong></td><td>Everyone annually; high-dose for &ge;65</td></tr>
-      <tr><td><strong>COVID-19</strong></td><td>Updated annual dose for all adults; immunocompromised may need extra doses</td></tr>
-      <tr><td><strong>Tdap/Td</strong></td><td>Tdap once (if not given as teen); Td booster every 10 years; Tdap each pregnancy (27-36 wks)</td></tr>
-      <tr><td><strong>MMR</strong></td><td>1-2 doses if born after 1957 and no evidence of immunity; contraindicated in pregnancy</td></tr>
-      <tr><td><strong>Varicella</strong></td><td>2 doses if no immunity; contraindicated in pregnancy</td></tr>
-      <tr><td><strong>Zoster (Shingrix)</strong></td><td>&ge;50 years: 2 doses (0 and 2-6 months); preferred over Zostavax</td></tr>
-      <tr><td><strong>PCV15/20 + PPSV23</strong></td><td>&ge;65; or younger with asplenia, immunocompromise, CKD, DM, heart/lung disease</td></tr>
-      <tr><td><strong>HPV</strong></td><td>Through age 26 routinely; 27-45 shared decision making; 3-dose series</td></tr>
-      <tr><td><strong>HepA</strong></td><td>2 doses if at risk (travel, liver disease, MSM, substance use) or patient requests</td></tr>
-      <tr><td><strong>HepB</strong></td><td>All adults through 59; 60+ if at risk; Heplisav-B (2 doses) or Engerix-B (3 doses)</td></tr>
-      <tr><td><strong>MenACWY</strong></td><td>Asplenia, complement deficiency, HIV, travel to endemic areas, first-year college dorms</td></tr>
-      <tr><td><strong>MenB</strong></td><td>Asplenia, complement deficiency; 16-23 years (shared decision)</td></tr>
-      <tr><td><strong>RSV</strong></td><td>&ge;60 years (shared decision); pregnancy 32-36 wks (maternal RSV vaccine)</td></tr>
+    <h2>School-Age and Adolescent Schedule (7&ndash;18 Years)</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Vaccine</th><th>Timing</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tdap</td><td>11&ndash;12 yr (then Td/Tdap every 10 yr)</td><td>Booster for DTaP; include in every pregnancy</td></tr>
+        <tr><td>HPV</td><td>2-dose: 11&ndash;12 yr (if started before 15); 3-dose if 15+</td><td>Up to age 26 routinely; shared decision 27&ndash;45 yr</td></tr>
+        <tr><td>MenACWY</td><td>11&ndash;12 yr, booster at 16 yr</td><td>Meningococcal; required for college</td></tr>
+        <tr><td>MenB</td><td>16&ndash;23 yr (preferred 16&ndash;18)</td><td>Shared decision; 2-dose series</td></tr>
+        <tr><td>Influenza</td><td>Annually</td><td>IIV or LAIV (healthy non-pregnant)</td></tr>
+        <tr><td>COVID-19</td><td>Per current schedule</td><td>Updated annually</td></tr>
+      </tbody>
     </table>
   </div>
 
   <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128683; Contraindications &amp; Special Populations</div>
-    <ul class="checklist">
-      <li><strong>Live vaccines (MMR, Varicella, LAIV, Zoster live):</strong> Contraindicated in pregnancy and severe immunocompromise</li>
-      <li><strong>Egg allergy:</strong> Flu vaccine can be given to all including egg allergy (use non-egg or egg-based with precautions)</li>
-      <li><strong>Immunocompromised:</strong> Avoid live vaccines; may need extra doses of inactivated vaccines</li>
-      <li><strong>Pregnancy:</strong> Safe: Flu (IIV), Tdap, COVID-19, HepA, HepB, Pneumococcal (if indicated)</li>
-      <li><strong>Asplenia:</strong> PCV, PPSV23, MenACWY, MenB, Hib all indicated</li>
-      <li><strong>HIV:</strong> CD4 &gt;200: MMR and Varicella may be given; avoid if CD4 &lt;200</li>
-    </ul>
-    <div class="alert-box">
-      <strong>Catch-up tip:</strong> Use CDC's Immunization Schedule tool at cdc.gov/vaccines for patient-specific catch-up schedules. The minimum intervals between doses are critical to remember for exams.
+    <h2>Adult Immunization Schedule</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Vaccine</th><th>Recommendation</th><th>Key Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Influenza</td><td>All adults annually</td><td>High-dose or adjuvanted preferred for &ge; 65 yr</td></tr>
+        <tr><td>COVID-19</td><td>All adults; updated annually</td><td>Follow current CDC formulation</td></tr>
+        <tr><td>Tdap/Td</td><td>Tdap x1, then Td every 10 yr</td><td>Tdap in every pregnancy (27&ndash;36 wk)</td></tr>
+        <tr><td>RSV</td><td>Adults &ge; 60 yr (shared decision); pregnancy 32&ndash;36 wk</td><td>Single dose; Abrysvo or mResvia</td></tr>
+        <tr><td>PCV15/PCV20</td><td>All adults &ge; 65 yr; some high-risk younger adults</td><td>If PCV15: follow with PPSV23</td></tr>
+        <tr><td>RZV (Shingrix)</td><td>All adults &ge; 50 yr; 2-dose series 2&ndash;6 mo apart</td><td>Preferred over ZVL; immunocompromised &ge; 19 yr</td></tr>
+        <tr><td>HepB</td><td>All adults &lt; 60 yr unvaccinated; 60+ shared decision</td><td>3-dose or 2-dose Heplisav-B</td></tr>
+        <tr><td>HepA</td><td>Unvaccinated adults at risk</td><td>Travel, liver disease, IVDU, MSM</td></tr>
+        <tr><td>MMR</td><td>Adults born after 1957 without evidence of immunity</td><td>1&ndash;2 doses; live vaccine &mdash; avoid in pregnancy/immunocompromised</td></tr>
+        <tr><td>Varicella</td><td>2 doses if no prior disease or vaccination</td><td>Live vaccine; avoid in pregnancy</td></tr>
+        <tr><td>MenACWY</td><td>High-risk groups, asplenia, travel</td><td>Booster every 5 yr if ongoing risk</td></tr>
+        <tr><td>HPV</td><td>Through age 26 routinely; 27&ndash;45 shared decision</td><td>Up to 3 doses if &ge; 15 yr at series start</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Vaccines in Special Populations</h2>
+    <div class="two-col">
+      <div class="criteria-box">
+        <h4>Pregnancy</h4>
+        <ul>
+          <li>Tdap: every pregnancy, 27&ndash;36 wk</li>
+          <li>Influenza: any trimester</li>
+          <li>COVID-19: recommended, any trimester</li>
+          <li>RSV (Abrysvo): 32&ndash;36 wk</li>
+          <li>Avoid all live vaccines (MMR, VAR, LAIV, ZVL)</li>
+        </ul>
+      </div>
+      <div class="criteria-box">
+        <h4>Immunocompromised</h4>
+        <ul>
+          <li>Avoid all live vaccines</li>
+          <li>May need extra doses of inactivated vaccines</li>
+          <li>Shingrix (RZV) recommended &ge; 19 yr</li>
+          <li>PCV20 or PCV15 + PPSV23 recommended</li>
+          <li>Annual high-dose influenza preferred</li>
+        </ul>
+      </div>
+      <div class="criteria-box">
+        <h4>Asplenia / Functional Asplenia</h4>
+        <ul>
+          <li>PCV20 + PPSV23 (or PCV15 + PPSV23)</li>
+          <li>MenACWY + MenB (2-dose series)</li>
+          <li>Hib vaccine (1 dose if not previously given)</li>
+          <li>Annual influenza</li>
+        </ul>
+      </div>
+      <div class="criteria-box">
+        <h4>Travel</h4>
+        <ul>
+          <li>HepA and HepB for most destinations</li>
+          <li>Typhoid: food/water risk areas</li>
+          <li>Yellow fever: required in endemic regions</li>
+          <li>Meningococcal: sub-Saharan Africa, Hajj</li>
+          <li>Japanese encephalitis, rabies: per itinerary</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#129504; High-Yield Vaccine Mnemonics &amp; Pearls</div>
-    <table>
-      <tr><th>Vaccine</th><th>Key Board Pearl</th></tr>
-      <tr><td><strong>MMR</strong></td><td>2 doses needed for full immunity; live vaccine - 28-day gap before pregnancy</td></tr>
-      <tr><td><strong>Varicella</strong></td><td>Check immunity (titer or hx) before giving; 4-week minimum between doses 1 and 2</td></tr>
-      <tr><td><strong>Shingrix</strong></td><td>Preferred over Zostavax even in those who previously had shingles or Zostavax</td></tr>
-      <tr><td><strong>HPV</strong></td><td>Started &lt;15 = 2 doses; started &ge;15 = 3 doses; does NOT treat existing HPV</td></tr>
-      <tr><td><strong>PCV vs PPSV23</strong></td><td>Give PCV first, then PPSV23 &ge;8 weeks later if both indicated</td></tr>
-      <tr><td><strong>Tdap in pregnancy</strong></td><td>Give EVERY pregnancy, ideally 27-36 weeks - protects newborn before their vaccines</td></tr>
-      <tr><td><strong>HepB</strong></td><td>Give to ALL newborns within 24 hours of birth; if mom is HBsAg+, also give HBIG</td></tr>
-    </table>
+    <h2>Live vs. Inactivated Vaccines</h2>
+    <div class="two-col">
+      <div class="criteria-box">
+        <h4>Live Attenuated (Avoid in Immunocompromised / Pregnancy)</h4>
+        <ul>
+          <li>MMR (measles, mumps, rubella)</li>
+          <li>Varicella (VAR)</li>
+          <li>LAIV (intranasal influenza)</li>
+          <li>Yellow fever</li>
+          <li>Rotavirus (oral, infants)</li>
+          <li>Zoster live (ZVL &mdash; largely replaced by Shingrix)</li>
+        </ul>
+      </div>
+      <div class="criteria-box">
+        <h4>Inactivated / Subunit / mRNA (Generally Safe in All)</h4>
+        <ul>
+          <li>IIV (injected influenza)</li>
+          <li>COVID-19 (mRNA, protein subunit)</li>
+          <li>Tdap, DTaP, IPV, Hib, PCV, HepB, HepA</li>
+          <li>Shingrix (RZV) &mdash; adjuvanted subunit</li>
+          <li>HPV (Gardasil 9)</li>
+          <li>MenACWY, MenB</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Vaccine Contraindications and Precautions</h2>
+    <h3>True Contraindications (do not give)</h3>
+    <ul>
+      <li>Severe allergic reaction (anaphylaxis) to a prior dose or vaccine component</li>
+      <li>Live vaccines in pregnancy or severely immunocompromised patients</li>
+      <li>LAIV in ages &lt; 2 yr, pregnancy, immunocompromised, severe asthma</li>
+      <li>Rotavirus: history of intussusception; SCID</li>
+    </ul>
+    <h3>Precautions (discuss risk/benefit)</h3>
+    <ul>
+      <li>Moderate or severe acute illness &mdash; defer until resolved</li>
+      <li>Recent blood product or IVIG (may reduce live vaccine response)</li>
+      <li>History of Guillain-Barre within 6 wk of influenza vaccine</li>
+    </ul>
+    <h3>NOT Contraindications</h3>
+    <ul>
+      <li>Mild illness with or without low-grade fever</li>
+      <li>Current antibiotic therapy</li>
+      <li>Prematurity (vaccinate at chronological age)</li>
+      <li>Egg allergy (not a contraindication for influenza &mdash; can give in any setting)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Vaccine Storage and Cold Chain</h2>
+    <ul>
+      <li>Most vaccines: refrigerator temperature 2&ndash;8&deg;C (36&ndash;46&deg;F)</li>
+      <li>Frozen vaccines (LAIV, VAR, ZVL): &ndash;15&deg;C to &ndash;50&deg;C (5&deg;F to &ndash;58&deg;F)</li>
+      <li>Vaccines exposed to freezing temperatures (if refrigerated) should not be used</li>
+      <li>Varivax (varicella) and ProQuad (MMRV) must be frozen</li>
+      <li>MMR can be refrigerated or frozen</li>
+      <li>Document temperature logs daily; use continuous monitoring devices</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Key Exam Points</h2>
+    <ul>
+      <li>First HepB dose must be within 24 hours of birth</li>
+      <li>Tdap is given every pregnancy (27&ndash;36 wk), not just the first</li>
+      <li>HPV is most effective when given before sexual debut (age 11&ndash;12)</li>
+      <li>Two live vaccines: give same day OR wait 28 days between them</li>
+      <li>Shingrix (RZV) is preferred over Zostavax for all adults &ge; 50 yr</li>
+      <li>Flu vaccine: 2 doses needed for children &lt; 9 years old in first season</li>
+      <li>PCV20 alone OR PCV15 followed by PPSV23 for adults &ge; 65 yr</li>
+      <li>Meningococcal booster at age 16 if first dose given at 11&ndash;12</li>
+      <li>Egg allergy is not a contraindication to influenza vaccine</li>
+    </ul>
   </div>
 
 </div>
-<footer>
-  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Vaccines Quick Guide &nbsp;&#9673;&nbsp; CDC 2024</p>
-  <p style="margin-top:0.4rem; font-size:0.52rem;">For personal study purposes only. Not for clinical use. Sources: CDC 2024 Immunization Schedule, AAP, ACIP, Amboss, Open Evidence</p>
+
+<footer class="footer">
+  <p>Content compiled for personal study purposes. Not for clinical use.</p>
+  <p>Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence &middot; CDC Immunization Schedule 2024</p>
 </footer>
+
 </body>
 </html>
