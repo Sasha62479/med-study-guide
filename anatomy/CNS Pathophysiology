@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Eye is CNS — Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --text: #1a1a18;
+    --muted: #6b6560;
+    --rust: #c0441f;
+    --teal: #1d6b6e;
+    --gold: #b8852a;
+    --sage: #5a7a5c;
+    --lavender: #6b5c8a;
+    --rust-pale: #f5e8e3;
+    --teal-pale: #e3f0f0;
+    --gold-pale: #f5edde;
+    --sage-pale: #e8f0e8;
+    --lav-pale: #ede8f5;
+    --card-bg: #fff;
+    --border: #e8e2d9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 2rem 1.5rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    border-top: 4px solid var(--teal);
+    padding-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: var(--text);
+  }
+  .page-header h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .header-meta {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+  .pill.hot   { background: var(--rust-pale); color: var(--rust); border-color: var(--rust); }
+  .pill.teal  { background: var(--teal-pale); color: var(--teal); border-color: var(--teal); }
+  .pill.gold  { background: var(--gold-pale); color: var(--gold); border-color: var(--gold); }
+  .pill.sage  { background: var(--sage-pale); color: var(--sage); border-color: var(--sage); }
+  .pill.lav   { background: var(--lav-pale);  color: var(--lavender); border-color: var(--lavender); }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CARD GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+  @media (max-width: 680px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+  .card.rust::before   { background: var(--rust); }
+  .card.teal::before   { background: var(--teal); }
+  .card.gold::before   { background: var(--gold); }
+  .card.sage::before   { background: var(--sage); }
+  .card.lav::before    { background: var(--lavender); }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .card.rust .card-label   { color: var(--rust); }
+  .card.teal .card-label   { color: var(--teal); }
+  .card.gold .card-label   { color: var(--gold); }
+  .card.sage .card-label   { color: var(--sage); }
+  .card.lav  .card-label   { color: var(--lavender); }
+
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+  .card p, .card li {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .card ul { padding-left: 1.1rem; }
+  .card li { margin-bottom: 0.2rem; }
+
+  /* ── KEY FACT BANNER ── */
+  .key-fact {
+    background: var(--teal);
+    color: #fff;
+    border-radius: 6px;
+    padding: 1.1rem 1.5rem;
+    margin: 1.25rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .key-fact .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .key-fact .kf-text { font-size: 0.9rem; line-height: 1.6; }
+  .key-fact strong { font-weight: 600; }
+
+  /* ── COMPARISON TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead tr { background: var(--text); color: #fff; }
+  thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+  tbody tr:nth-child(even) { background: #f7f4ef; }
+  tbody td { padding: 0.65rem 1rem; vertical-align: top; border-bottom: 1px solid var(--border); }
+  tbody tr:last-child td { border-bottom: none; }
+  .check { color: var(--sage); font-weight: 600; }
+  .cross { color: var(--rust); font-weight: 600; }
+
+  /* ── TREATMENT LADDER ── */
+  .ladder { display: flex; flex-direction: column; gap: 0; }
+  .rung {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .rung-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--text);
+    color: #fff;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.6rem 0;
+  }
+  .rung-body {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+    border-left: none;
+  }
+  .rung-body strong { color: var(--teal); font-weight: 600; }
+  .rung-body .why {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* ── ANALOGY WORLD BOX ── */
+  .analogy-box {
+    background: var(--lav-pale);
+    border: 1px solid var(--lavender);
+    border-left: 4px solid var(--lavender);
+    border-radius: 6px;
+    padding: 1.25rem 1.4rem;
+  }
+  .analogy-box .ab-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 0.5rem;
+  }
+  .analogy-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .analogy-box p, .analogy-box li { font-size: 0.87rem; line-height: 1.65; }
+  .analogy-box ul { padding-left: 1.1rem; margin-top: 0.4rem; }
+  .analogy-box li { margin-bottom: 0.3rem; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+  }
+
+  /* ── INLINE HIGHLIGHT ── */
+  .hl { font-weight: 600; }
+  .hl.rust { color: var(--rust); }
+  .hl.teal { color: var(--teal); }
+  .hl.gold { color: var(--gold); }
+  .hl.sage { color: var(--sage); }
+
+  /* ── MONO TAGS ── */
+  code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--teal);
+  }
+
+  /* ── QUIZ TOGGLE ── */
+  .quiz-wrap { margin-top: 1.25rem; }
+  .quiz-q {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    user-select: none;
+  }
+  .quiz-q::before { content: '▸  '; color: var(--gold); }
+  .quiz-a {
+    display: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  .quiz-a.open { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<div class="page-header">
+  <div class="eyebrow">Neurology · CNS Pathophysiology</div>
+  <h1>The Eye is <em>CNS</em></h1>
+  <div class="header-meta">
+    <span class="pill teal">Embryology</span>
+    <span class="pill hot">Clinical Implications</span>
+    <span class="pill gold">ICP Management</span>
+    <span class="pill sage">MS vs GBS</span>
+    <span class="pill lav">Analogy World</span>
+  </div>
+</div>
+
+<!-- ══════════════ THE CORE CONCEPT ══════════════ -->
+<div class="key-fact">
+  <div class="icon">👁️</div>
+  <div class="kf-text">
+    <strong>The Core Claim:</strong> The retina, optic nerve (CN II), and optic tract are all part of the <strong>Central Nervous System</strong> — specifically the <strong>diencephalon</strong>. CN II is the only cranial nerve that is truly CNS tissue, not PNS. This single fact explains optic neuritis in MS, papilledema in ICP, methanol toxicity, and cyclopia.
+  </div>
+</div>
+
+<!-- ══════════════ EMBRYOLOGY ══════════════ -->
+<div class="section-label">Embryology — Where Does CN II Come From?</div>
+
+<div class="grid-2">
+  <div class="card teal">
+    <div class="card-label">Neural Tube → CNS</div>
+    <h3>Central Nervous System</h3>
+    <ul>
+      <li>Brain + spinal cord</li>
+      <li>CN I (telencephalon)</li>
+      <li><strong>CN II (diencephalon) ← the eye</strong></li>
+      <li>Central canal + ventricles (CSF-filled)</li>
+      <li>Axon bundles = <em>tracts</em></li>
+      <li>Soma clusters = <em>nuclei</em></li>
+    </ul>
+  </div>
+  <div class="card rust">
+    <div class="card-label">Neural Crest → PNS</div>
+    <h3>Peripheral Nervous System</h3>
+    <ul>
+      <li>Spinal nerves + all other cranial nerves</li>
+      <li>CN III–XII (except CN II)</li>
+      <li>Axon bundles = <em>nerves</em></li>
+      <li>Soma clusters = <em>ganglia</em></li>
+      <li>Demyelinated by GBS, not MS</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card gold" style="margin-top:1rem;">
+  <div class="card-label">Embryo Journey</div>
+  <h3>Ectoderm → Neural Plate → Neural Tube → Prosencephalon → Diencephalon → Optic Vesicle → Retina + CN II</h3>
+  <p style="margin-top:0.5rem;">The optic vesicle buds directly off the diencephalon. It touches the <strong>lens placode</strong> of the surface ectoderm to form the eye. The connection to the brain is literal — it never left.</p>
+  <p style="margin-top:0.5rem;"><code>CN I</code> = telencephalon &nbsp;|&nbsp; <code>CN II</code> = diencephalon &nbsp;|&nbsp; <code>CN III–IV</code> = midbrain &nbsp;|&nbsp; <code>CN V–VIII</code> = pons &nbsp;|&nbsp; <code>CN IX–XII</code> = medulla</p>
+</div>
+
+<!-- ══════════════ CNS vs PNS COMPARISON ══════════════ -->
+<div class="section-label">CNS vs PNS — CN II Is The Outlier</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>PNS (CN III–XII)</th>
+      <th>CN II (Optic "Nerve")</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Embryological origin</td>
+      <td>Neural crest</td>
+      <td>Neural tube (diencephalon)</td>
+    </tr>
+    <tr>
+      <td>Correct anatomical term</td>
+      <td>Nerve</td>
+      <td>Tract (optic tract, technically)</td>
+    </tr>
+    <tr>
+      <td>Myelinated by</td>
+      <td>Schwann cells</td>
+      <td>Oligodendrocytes (like brain white matter)</td>
+    </tr>
+    <tr>
+      <td>Affected by MS?</td>
+      <td><span class="cross">✗ No</span></td>
+      <td><span class="check">✓ Yes — optic neuritis</span></td>
+    </tr>
+    <tr>
+      <td>Affected by GBS?</td>
+      <td><span class="check">✓ Yes</span></td>
+      <td><span class="cross">✗ No</span></td>
+    </tr>
+    <tr>
+      <td>Connected to CSF/ICP system?</td>
+      <td><span class="cross">✗ No</span></td>
+      <td><span class="check">✓ Yes — papilledema</span></td>
+    </tr>
+    <tr>
+      <td>Has a "tract" before entering the brain?</td>
+      <td><span class="cross">✗ No other CN does this</span></td>
+      <td><span class="check">✓ Unique to CN II</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ══════════════ MS vs GBS ══════════════ -->
+<div class="section-label">MS vs GBS — The Clinical Payoff</div>
+
+<div class="grid-2">
+  <div class="card sage">
+    <div class="card-label">Multiple Sclerosis</div>
+    <h3>CNS Demyelination</h3>
+    <ul>
+      <li>Oligodendrocyte destruction</li>
+      <li>Attacks brain, spinal cord, <strong>optic nerve</strong></li>
+      <li>Optic neuritis / retrobulbar neuritis</li>
+      <li>Visual blurring, pain with eye movement</li>
+      <li>Uhthoff's phenomenon (heat worsens)</li>
+    </ul>
+  </div>
+  <div class="card rust">
+    <div class="card-label">Guillain-Barré Syndrome</div>
+    <h3>PNS Demyelination</h3>
+    <ul>
+      <li>Schwann cell destruction</li>
+      <li>Ascending weakness, areflexia</li>
+      <li><strong>Does NOT affect CN II</strong></li>
+      <li>Albuminocytologic dissociation in CSF</li>
+      <li>Post-infectious (Campylobacter, etc.)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ ICP & THE EYE ══════════════ -->
+<div class="section-label">Increased Intracranial Pressure — The Eye as a Gauge</div>
+
+<div class="key-fact">
+  <div class="icon">🩺</div>
+  <div class="kf-text">
+    Because CN II is CNS tissue, the <strong>subarachnoid space around it is continuous with the brain's CSF space</strong>. Elevated ICP travels down this sheath → compresses the central retinal vein → venous stasis → <strong>papilledema</strong>. The fundoscope becomes an ICP monitor.
+  </div>
+</div>
+
+<div class="card teal" style="margin-bottom:1rem;">
+  <div class="card-label">Cushing Triad + Fundoscopic Findings</div>
+  <h3>Recognize ↑ICP</h3>
+  <ul>
+    <li><strong>Hypertension</strong> (widened pulse pressure)</li>
+    <li><strong>Bradycardia</strong></li>
+    <li><strong>Irregular breathing</strong></li>
+    <li><strong>Papilledema</strong> on fundoscopy — blurred disc margins, disc elevation</li>
+    <li>Projectile vomiting, LOC, abnormal pupils</li>
+    <li>Decorticate posture (cortical lesion)</li>
+  </ul>
+</div>
+
+<div class="section-label">Treatment Ladder — ↑ICP Management</div>
+
+<div class="ladder">
+  <div class="rung">
+    <div class="rung-num">1</div>
+    <div class="rung-body"><strong>Head elevation 30°</strong><div class="why">Gravity pulls CSF/fluid away from brain</div></div>
+  </div>
+  <div class="rung">
+    <div class="rung-num">2</div>
+    <div class="rung-body"><strong>Hyperventilation</strong><div class="why">↓PaCO₂ → cerebral vasoconstriction → ↓cerebral blood volume (temporary bridge)</div></div>
+  </div>
+  <div class="rung">
+    <div class="rung-num">3</div>
+    <div class="rung-body"><strong>Diuretics</strong> (mannitol, hypertonic saline)<div class="why">Osmotic pull of fluid from brain parenchyma</div></div>
+  </div>
+  <div class="rung">
+    <div class="rung-num">4</div>
+    <div class="rung-body"><strong>Dexamethasone</strong><div class="why">Vasogenic edema (tumors, abscess) — reduces BBB permeability</div></div>
+  </div>
+  <div class="rung">
+    <div class="rung-num">5</div>
+    <div class="rung-body"><strong>Ventriculoperitoneal shunt</strong><div class="why">Routes CSF from ventricles → peritoneal cavity for reabsorption</div></div>
+  </div>
+  <div class="rung">
+    <div class="rung-num">6</div>
+    <div class="rung-body"><strong>Optic nerve fenestration</strong><div class="why">Puncture holes in optic nerve sheath → decompresses the CSF sleeve → relieves pressure on brain (only possible because they share the same CSF space)</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ METHANOL ══════════════ -->
+<div class="section-label">Methanol Toxicity — CNS + Optic Nerve Together</div>
+
+<div class="grid-3">
+  <div class="card rust">
+    <div class="card-label">Mechanism</div>
+    <h3>Why It's Toxic</h3>
+    <p>Methanol → formaldehyde → formic acid. Formic acid inhibits cytochrome c oxidase → mitochondrial dysfunction → metabolic acidosis. Optic nerve is highly vulnerable.</p>
+  </div>
+  <div class="card gold">
+    <div class="card-label">Presentation</div>
+    <h3>Symptoms</h3>
+    <ul>
+      <li>CNS toxicity, confusion</li>
+      <li>Optic neuritis/papillitis</li>
+      <li>Snowstorm visual field loss → blindness</li>
+      <li>High anion gap metabolic acidosis</li>
+      <li>↑Osmol gap</li>
+    </ul>
+  </div>
+  <div class="card sage">
+    <div class="card-label">Treatment</div>
+    <h3>Management</h3>
+    <ul>
+      <li><strong>Fomepizole</strong> (alcohol dehydrogenase inhibitor)</li>
+      <li><strong>Ethanol</strong> (competes for ADH — same idea)</li>
+      <li><strong>Dialysis</strong> for severe cases</li>
+      <li>Folate (helps clear formate)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════ CYCLOPIA / EMBRYO TWIN ══════════════ -->
+<div class="section-label">Cyclopia — When the Divide Fails</div>
+
+<div class="card lav">
+  <div class="card-label">Embryological Co-Division</div>
+  <h3>The Brain & Eyes Divide Together</h3>
+  <p>At the same developmental moment the single forebrain divides into <strong>two cerebral hemispheres</strong>, the single optic vesicle divides into <strong>two eyes</strong>, and the spinal cord splits at the midline (→ anterior median fissure, posterior median septum).</p>
+  <p style="margin-top:0.6rem;"><strong>Failure to divide → Holoprosencephaly + Cyclopia.</strong> One giant eye in the midline accompanies one undivided hemisphere. The same logic: if a patient has one kidney → likely one testicle (or vice versa), because their organ pairs divide at the same developmental time.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ ANALOGY WORLD ══════════════ -->
+<div class="section-label">Analogy World — Body as a City Framework</div>
+
+<div class="analogy-box">
+  <div class="ab-label">🏙️ City Analogy Seed — for your Obsidian / Anki framework</div>
+  <h3>The Eye = City Hall's Security Camera Network</h3>
+  <p>In your Body City, the <strong>CNS is City Hall</strong> — the governing infrastructure. The spinal cord is the main highway. The peripheral nerves are the delivery routes that branch off that highway.</p>
+  <ul>
+    <li>Most cranial nerves are like <strong>external contractors</strong> — they report to the city but aren't city employees (PNS = neural crest).</li>
+    <li>CN II is different: <strong>the eyes are City Hall's own CCTV system</strong>, hardwired directly into the building. They run on the same internal power grid (oligodendrocytes), the same plumbing (CSF sheath), and are subject to the same building pressure.</li>
+    <li>When the building floods (↑ICP), the cameras swell and distort — <strong>that's papilledema</strong>.</li>
+    <li>When the building's electrical insulation corrodes (MS = CNS demyelination), the camera feed goes grainy — <strong>that's optic neuritis</strong>.</li>
+    <li>When a contractor's wiring is attacked (GBS = PNS demyelination), the external phone lines fail — but the CCTV is fine, because it's internal wiring.</li>
+    <li>Methanol is like a <strong>chemical spill that specifically corrodes the camera cables</strong> — the CNS security feed goes dark (blindness).</li>
+  </ul>
+  <p style="margin-top:0.6rem; font-style: italic; color: var(--muted);">Hook for Obsidian: tag as #body-city #CNS #eye #CN2 and link to your MS card, ICP card, and embryology timeline.</p>
+</div>
+
+<!-- ══════════════ QUICK QUIZ ══════════════ -->
+<div class="section-label">Quick Recall — Click to Reveal</div>
+
+<div class="quiz-wrap">
+  <div class="quiz-q" onclick="toggle(this)">Why is CN II called the "optic nerve" and not the "optic tract"?</div>
+  <div class="quiz-a">Technically it <em>should</em> be called a tract (CNS axon bundle = tract). But naming it "nerve" keeps it in the cranial nerve exam (CN 1–12) so clinicians remember to test it. Functionally and embryologically it is a tract.</div>
+
+  <div class="quiz-q" onclick="toggle(this)">A patient with MS develops painful vision loss in one eye. What is this called and why does MS cause it?</div>
+  <div class="quiz-a">Optic neuritis (or retrobulbar neuritis). MS demyelinates CNS tissue — and CN II is CNS tissue (oligodendrocyte-myelinated, diencephalon origin). GBS does NOT cause this.</div>
+
+  <div class="quiz-q" onclick="toggle(this)">A patient presents with headache, projectile vomiting, and blurred disc margins on fundoscopy. What do you see and why is the eye affected?</div>
+  <div class="quiz-a">Papilledema from ↑ICP. The subarachnoid space around CN II is continuous with intracranial CSF. Elevated pressure transmits along this sheath, compresses the central retinal vein, causes disc swelling. The eye is affected because it shares the same CSF plumbing as the brain.</div>
+
+  <div class="quiz-q" onclick="toggle(this)">A patient drinks windshield wiper fluid. What visual symptom do they describe, and why is CN II specifically targeted?</div>
+  <div class="quiz-a">"Snowstorm" vision → blindness. Methanol metabolite (formic acid) causes mitochondrial toxicity that preferentially destroys optic nerve tissue. The optic nerve, being CNS, has high metabolic demand and unique vulnerability. Treat with fomepizole ± ethanol ± dialysis.</div>
+
+  <div class="quiz-q" onclick="toggle(this)">A newborn has a single eye in the midline. What condition is this? What CNS malformation accompanies it?</div>
+  <div class="quiz-a">Cyclopia — accompanies holoprosencephaly (failure of forebrain to divide into two hemispheres). The eyes and cerebral hemispheres undergo the same midline division event embryologically; failure affects both simultaneously.</div>
+
+  <div class="quiz-q" onclick="toggle(this)">How does hyperventilation reduce ICP, and why is it only a bridge measure?</div>
+  <div class="quiz-a">Hyperventilation → ↓PaCO₂ → cerebral vasoconstriction → ↓CBF → ↓ICP temporarily. It's a bridge only because prolonged hypocapnia causes ischemia and the effect wanes as vessels adapt (autoregulation).</div>
+</div>
+
+<div class="divider"></div>
+
+<p style="font-family: 'DM Mono', monospace; font-size:0.68rem; color: var(--muted); text-align:center;">NGR · DNP Study Framework · Mitochosis "Eye is CNS" · Derm Design v1</p>
+
+<script>
+  function toggle(el) {
+    const a = el.nextElementSibling;
+    a.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
