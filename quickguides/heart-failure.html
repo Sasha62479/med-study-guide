@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Failure | Quick Guide | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --card-bg: rgba(255,255,255,0.78); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
+    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #EDD9FB 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
+    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(115,78,147,0.15); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
+    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; }
+    .breadcrumb { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; } .breadcrumb a:hover { color: var(--orange); }
+    .page-header { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .page-icon { font-size: 3rem; }
+    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2rem,5vw,3.5rem); color: var(--purple); text-shadow: 3px 3px 0 rgba(115,78,147,0.15); }
+    .badge { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 20px; padding: 0.3rem 0.8rem; }
+    .badge-purple { background: rgba(115,78,147,0.1); color: var(--purple); }
+    .badge-gray { background: rgba(20,61,13,0.07); color: var(--forest); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    @media (max-width: 640px) { .container { grid-template-columns: 1fr; } }
+    .card { background: var(--card-bg); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 20px rgba(115,78,147,0.07); border: 1.5px solid rgba(255,255,255,0.9); }
+    .card.full-width { grid-column: 1 / -1; }
+    .card-title { font-family: 'Barrio', fantasy; font-size: 1.3rem; color: var(--forest); margin-bottom: 1rem; }
+    .section-divider { height: 3px; background: linear-gradient(to right, #F25032, #734E93); border-radius: 2px; margin-bottom: 0.8rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { background: rgba(115,78,147,0.07); color: var(--forest); font-family: 'Aboreto', sans-serif; font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
+    td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(115,78,147,0.07); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr.highlight { background: rgba(115,78,147,0.05); }
+    .pill { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin: 0.1rem; }
+    .pill-purple { background: rgba(115,78,147,0.12); color: #5B21B6; }
+    .pill-blue { background: rgba(59,130,246,0.12); color: #1D4ED8; }
+    .pill-green { background: rgba(16,185,129,0.12); color: #065F46; }
+    .pill-red { background: rgba(239,68,68,0.12); color: #B91C1C; }
+    ul.checklist { list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem; }
+    ul.checklist li::before { content: "\2713  "; color: #10B981; font-weight: 700; }
+    .alert-box { background: rgba(242,80,50,0.07); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 0.9rem 1rem; font-size: 0.82rem; line-height: 1.6; }
+    .alert-box strong { color: var(--orange); }
+    .gdmt-pill { display: inline-block; background: rgba(115,78,147,0.1); color: var(--purple); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 10px; font-family: 'Aboreto', sans-serif; letter-spacing: 0.05em; }
+    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.58rem; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(115,78,147,0.1); }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
+    <span class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Heart Failure</span>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-icon">&#128138;</div>
+  <div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem;">
+      <span class="badge badge-purple">Cardiovascular</span>
+      <span class="badge badge-gray">ACC/AHA 2022</span>
+    </div>
+    <h1 class="page-title">Heart Failure</h1>
+  </div>
+</div>
+<div class="container">
+
+  <div class="card full-width">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128200; HF Classification: HFrEF vs HFpEF vs HFmrEF</div>
+    <table>
+      <tr><th>Type</th><th>EF</th><th>Characteristics</th><th>Treatment</th></tr>
+      <tr><td><strong>HFrEF</strong> (reduced)</td><td><span class="pill pill-red">&le;40%</span></td><td>Dilated ventricle; systolic dysfunction; ischemic or idiopathic</td><td>GDMT: ACE-I/ARB/ARNI + BB + MRA + SGLT-2i</td></tr>
+      <tr><td><strong>HFmrEF</strong> (mildly reduced)</td><td><span class="pill pill-blue">41-49%</span></td><td>Intermediate phenotype; emerging evidence</td><td>Similar to HFrEF; individualize</td></tr>
+      <tr><td><strong>HFpEF</strong> (preserved)</td><td><span class="pill pill-green">&ge;50%</span></td><td>Diastolic dysfunction; stiff ventricle; HTN, DM, obesity</td><td>Treat comorbidities; SGLT-2i (dapagliflozin) shown benefit; diuretics for congestion</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128200; ACC/AHA Staging (A-D)</div>
+    <table>
+      <tr><th>Stage</th><th>Description</th><th>NYHA Class</th></tr>
+      <tr><td><span class="pill pill-green">A</span></td><td>At risk; no symptoms, no structural disease (HTN, DM, CAD)</td><td>None</td></tr>
+      <tr><td><span class="pill pill-blue">B</span></td><td>Structural disease; no symptoms (asymptomatic LV dysfunction)</td><td>I</td></tr>
+      <tr><td><span class="pill pill-purple">C</span></td><td>Structural disease + prior or current HF symptoms</td><td>I-III</td></tr>
+      <tr><td><span class="pill pill-red">D</span></td><td>Refractory HF; advanced therapies needed (VAD, transplant)</td><td>IV</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128683; NYHA Functional Classification</div>
+    <table>
+      <tr><th>Class</th><th>Symptoms</th></tr>
+      <tr><td>I</td><td>No symptoms with ordinary activity</td></tr>
+      <tr><td>II</td><td>Mild symptoms; slight limitation with ordinary activity</td></tr>
+      <tr><td>III</td><td>Marked limitation; comfortable only at rest</td></tr>
+      <tr><td>IV</td><td>Symptoms at rest; unable to carry out any activity</td></tr>
+    </table>
+  </div>
+
+  <div class="card full-width">
+    <div class="section-divider"></div>
+    <div class="card-title">&#127775; GDMT for HFrEF - The 4 Pillars</div>
+    <table>
+      <tr><th>Pillar</th><th>Drug Class</th><th>Examples</th><th>Benefit</th><th>Key Monitoring</th></tr>
+      <tr class="highlight"><td><span class="gdmt-pill">1</span> ACE-I / ARB / ARNI</td><td>RAAS blockade</td><td>Lisinopril, Losartan; <strong>Sacubitril/Valsartan (ARNI - preferred)</strong></td><td>Reduce mortality &amp; hospitalizations</td><td>K+, creatinine, BP; avoid if angioedema</td></tr>
+      <tr><td><span class="gdmt-pill">2</span> Beta-Blocker</td><td>Carvedilol, Metoprolol succinate, Bisoprolol</td><td>(Evidence-based BBs only)</td><td>Reduce mortality; reverse remodeling</td><td>HR, BP; start low - uptitrate slowly</td></tr>
+      <tr class="highlight"><td><span class="gdmt-pill">3</span> MRA</td><td>Mineralocorticoid receptor antagonist</td><td>Spironolactone, Eplerenone</td><td>Reduce mortality if EF &le;35%</td><td>K+ closely; avoid if K+ &gt;5.0 or eGFR &lt;30</td></tr>
+      <tr><td><span class="gdmt-pill">4</span> SGLT-2i</td><td>Sodium-glucose cotransporter-2 inhibitor</td><td>Dapagliflozin, Empagliflozin</td><td>Reduce HF hospitalizations &amp; CV death</td><td>UTI, DKA, volume depletion; hold pre-procedure</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128167; Diuresis &amp; Decongestion</div>
+    <ul class="checklist">
+      <li><strong>Loop diuretics:</strong> Furosemide (first-line), Bumetanide, Torsemide (better bioavailability)</li>
+      <li><strong>Goal:</strong> Euvolemia - assess JVD, peripheral edema, orthopnea, daily weights</li>
+      <li><strong>Restrict fluids:</strong> 1.5-2L/day if severe; sodium &lt;2g/day</li>
+      <li><strong>Daily weight:</strong> Gain of &gt;2 lbs overnight or &gt;5 lbs in week = call provider</li>
+      <li><strong>Thiazides:</strong> Add metolazone for diuretic resistance (powerful combination)</li>
+      <li><strong>Monitor:</strong> BMP for electrolytes and renal function during diuresis</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128680; Acute Decompensated HF (ADHF)</div>
+    <ul class="checklist">
+      <li>IV loop diuretics (furosemide) - 2.5x oral dose IV</li>
+      <li>Supplemental O2; non-invasive ventilation (BiPAP) if needed</li>
+      <li>Vasodilators (nitroglycerin, nesiritide) if adequate BP</li>
+      <li>Avoid hypotension; careful with ACE-I/ARB in acute phase</li>
+      <li>Continue GDMT unless hemodynamically unstable</li>
+      <li>Inotropes (dobutamine, milrinone) for cardiogenic shock</li>
+    </ul>
+    <div style="margin-top:0.8rem;" class="alert-box">
+      <strong>Remember LMNOP:</strong> Lasix (diuresis), Morphine (anxiolysis, vasodilation), Nitrates (preload reduction), Oxygen, Position (upright/Fowler's)
+    </div>
+  </div>
+
+</div>
+<footer>
+  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Heart Failure Quick Guide &nbsp;&#9673;&nbsp; ACC/AHA 2022</p>
+  <p style="margin-top:0.4rem; font-size:0.52rem;">For personal study purposes only. Not for clinical use. Sources: ACC/AHA 2022, Amboss, Open Evidence, Medicosis Perfectionalis</p>
+</footer>
+</body>
+</html>
