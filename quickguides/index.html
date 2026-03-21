@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Guides | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --lavender: #D7D9FB; --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --mid-green: #92B079; --card-bg: rgba(255,255,255,0.75); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
+    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
+    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.12); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
+    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; margin-right: 1rem; }
+    .back-link { font-family: 'Aboreto', sans-serif; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-muted); text-decoration: none; text-transform: uppercase; padding: 0.4rem 0.8rem; border: 1px solid rgba(20,61,13,0.15); border-radius: 20px; transition: all 0.2s; }
+    .back-link:hover { color: var(--orange); border-color: var(--orange); }
+    .page-header { text-align: center; padding: 3.5rem 2rem 2rem; }
+    .page-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2.5rem,6vw,4.5rem); color: var(--orange); text-shadow: 4px 4px 0 rgba(115,78,147,0.3); margin-bottom: 0.5rem; }
+    .page-sub { font-family: 'Aboreto', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--forest); text-transform: uppercase; opacity: 0.6; margin-bottom: 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.4rem; }
+    .guide-card { background: var(--card-bg); border-radius: 20px; padding: 1.8rem 1.6rem; text-decoration: none; color: inherit; border: 1.5px solid rgba(255,255,255,0.9); box-shadow: 0 4px 22px rgba(20,61,13,0.07); transition: all 0.25s; display: flex; flex-direction: column; gap: 0.4rem; position: relative; overflow: hidden; }
+    .guide-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; transition: opacity 0.25s; opacity: 0; }
+    .guide-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(20,61,13,0.13); }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card.diabetes::before { background: linear-gradient(to right, #3B82F6, #06B6D4); }
+    .guide-card.asthma::before { background: linear-gradient(to right, #06B6D4, #10B981); }
+    .guide-card.bp::before { background: linear-gradient(to right, #EF4444, #F25032); }
+    .guide-card.hf::before { background: linear-gradient(to right, #F25032, #734E93); }
+    .guide-card.vaccines::before { background: linear-gradient(to right, #10B981, #3B82F6); }
+    .guide-card.peds::before { background: linear-gradient(to right, #F59E0B, #10B981); }
+    .card-icon { font-size: 2rem; }
+    .card-tag { font-family: 'Aboreto', sans-serif; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); opacity: 0.7; }
+    .card-title { font-family: 'Barrio', fantasy; font-size: 1.5rem; color: var(--orange); line-height: 1.1; }
+    .card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.2rem; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+    .tag { font-family: 'Aboreto', sans-serif; font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(20,61,13,0.06); color: var(--forest); border-radius: 20px; padding: 0.2rem 0.6rem; }
+    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(20,61,13,0.08); }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
+    <a class="back-link" href="../index.html">&#8592; Home</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-icon">&#9889;</div>
+  <h1 class="page-title">Quick Guides</h1>
+  <p class="page-sub">One-page clinical summaries &mdash; evidence-based &amp; board-ready</p>
+</div>
+
+<div class="container">
+  <div class="guides-grid">
+
+    <a class="guide-card diabetes" href="diabetes.html">
+      <div class="card-icon">&#129366;</div>
+      <div class="card-tag">Endocrine</div>
+      <div class="card-title">Diabetes</div>
+      <div class="card-desc">Type 1 &amp; 2 diagnosis, ADA guidelines, glycemic targets, pharmacotherapy &amp; complications</div>
+      <div class="card-tags"><span class="tag">ADA 2024</span><span class="tag">HbA1c</span><span class="tag">Insulin</span><span class="tag">Metformin</span></div>
+    </a>
+
+    <a class="guide-card asthma" href="asthma.html">
+      <div class="card-icon">&#129752;</div>
+      <div class="card-tag">Pulmonary</div>
+      <div class="card-title">Asthma</div>
+      <div class="card-desc">NAEPP stepwise therapy, severity classification, controller vs rescue meds &amp; action plans</div>
+      <div class="card-tags"><span class="tag">NAEPP</span><span class="tag">GINA</span><span class="tag">SABA</span><span class="tag">ICS</span></div>
+    </a>
+
+    <a class="guide-card bp" href="blood-pressure.html">
+      <div class="card-icon">&#10084;&#65039;</div>
+      <div class="card-tag">Cardiovascular</div>
+      <div class="card-title">Blood Pressure</div>
+      <div class="card-desc">AHA 2023 stages, treatment thresholds, lifestyle &amp; pharmacotherapy by patient type</div>
+      <div class="card-tags"><span class="tag">AHA 2023</span><span class="tag">HTN Stages</span><span class="tag">ACE-I</span><span class="tag">Thiazides</span></div>
+    </a>
+
+    <a class="guide-card hf" href="heart-failure.html">
+      <div class="card-icon">&#128138;</div>
+      <div class="card-tag">Cardiovascular</div>
+      <div class="card-title">Heart Failure</div>
+      <div class="card-desc">HFrEF vs HFpEF, ACC/AHA staging, GDMT pillars, diuresis &amp; device therapy</div>
+      <div class="card-tags"><span class="tag">ACC/AHA</span><span class="tag">HFrEF</span><span class="tag">HFpEF</span><span class="tag">GDMT</span></div>
+    </a>
+
+    <a class="guide-card vaccines" href="vaccines.html">
+      <div class="card-icon">&#128137;</div>
+      <div class="card-tag">Preventive Care</div>
+      <div class="card-title">Vaccines</div>
+      <div class="card-desc">CDC immunization schedules for children &amp; adults, catch-up guidance &amp; contraindications</div>
+      <div class="card-tags"><span class="tag">CDC 2024</span><span class="tag">Pediatric</span><span class="tag">Adult</span><span class="tag">Catch-up</span></div>
+    </a>
+
+    <a class="guide-card peds" href="pediatric-milestones.html">
+      <div class="card-icon">&#128118;</div>
+      <div class="card-tag">Pediatrics</div>
+      <div class="card-title">Peds Milestones</div>
+      <div class="card-desc">Developmental milestones by age — gross motor, fine motor, language &amp; social-emotional</div>
+      <div class="card-tags"><span class="tag">AAP</span><span class="tag">Gross Motor</span><span class="tag">Language</span><span class="tag">Social</span></div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Quick Guides</p>
+  <p style="margin-top:0.5rem; font-size:0.55rem; opacity:0.7;">Content compiled for personal study purposes. Sources: Medicosis Perfectionalis (YouTube) &bull; Amboss &bull; Open Evidence &bull; ADA &bull; AHA/ACC &bull; CDC &bull; AAP &bull; NAEPP/GINA</p>
+</footer>
+</body>
+</html>
