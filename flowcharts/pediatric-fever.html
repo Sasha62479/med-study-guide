@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pediatric Fever | Flowchart | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.13);
+      --navy: #1E2D4E; --steel: #3A5080; --slate: #4A5568; --muted: #718096;
+      --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 52px; position: sticky; top: 0; z-index: 100; }
+    .top-nav a { text-decoration: none; color: var(--slate); font-size: 0.875rem; font-weight: 500; }
+    .top-nav a:hover { color: var(--accent); }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); margin-right: auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--muted); margin: 1rem 2rem 0; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .page-header { max-width: 900px; margin: 1.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--navy); }
+    .page-subtitle { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+    /* FLOWCHART NODES */
+    .flow-wrap { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .node { border-radius: 10px; padding: 0.9rem 1.4rem; text-align: center; font-size: 0.88rem; font-weight: 600; min-width: 260px; max-width: 480px; width: 100%; position: relative; }
+    .node-start { background: var(--navy); color: #fff; border-radius: 30px; font-size: 0.95rem; }
+    .node-decision { background: var(--surface); border: 2px solid var(--accent); color: var(--navy); }
+    .node-action { background: #EEF4F9; border: 1px solid var(--border); color: var(--steel); }
+    .node-admit { background: #FDF0EF; border: 1.5px solid rgba(192,57,43,0.3); color: var(--red); }
+    .node-discharge { background: #EEF7F4; border: 1.5px solid rgba(46,125,106,0.3); color: var(--green); }
+    .node-amber { background: #FBF6EC; border: 1.5px solid rgba(183,121,31,0.3); color: var(--amber); }
+    .node-sub { font-size: 0.78rem; font-weight: 400; color: inherit; opacity: 0.85; margin-top: 0.25rem; }
+    .arrow { display: flex; flex-direction: column; align-items: center; margin: 0; }
+    .arrow-line { width: 2px; height: 22px; background: var(--accent2); }
+    .arrow-head { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--accent2); }
+    .arrow-label { font-size: 0.7rem; font-weight: 600; color: var(--accent); background: var(--bg); padding: 0 0.4rem; margin-bottom: -8px; z-index: 1; }
+    .branch-row { display: flex; justify-content: center; gap: 2rem; width: 100%; flex-wrap: wrap; }
+    .branch { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 200px; max-width: 320px; }
+    .branch-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.4rem; }
+    .branch-label.yes { background: #EEF7F4; color: var(--green); }
+    .branch-label.no { background: #FDF0EF; color: var(--red); }
+    .branch-label.age { background: #EEF4F9; color: var(--accent); }
+    .branch-label.neutral { background: var(--bg2); color: var(--slate); }
+    .h-line { width: 100%; height: 2px; background: var(--accent2); max-width: 400px; }
+
+    /* SIDE NOTES */
+    .notes-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 2.5rem; box-shadow: 0 1px 4px rgba(30,45,78,0.05); }
+    .notes-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    ul { list-style: none; padding: 0; }
+    ul li { padding: 0.2rem 0 0.2rem 1rem; position: relative; font-size: 0.85rem; color: var(--slate); }
+    ul li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .mini-box { background: var(--bg); border-radius: 8px; padding: 0.85rem; }
+    .mini-box h4 { font-size: 0.78rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+
+    .footer { text-align: center; font-size: 0.75rem; color: var(--muted); padding: 2.5rem 2rem; border-top: 1px solid var(--border); margin-top: 2rem; line-height: 1.8; }
+    .footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 580px) { .branch-row { flex-direction: column; align-items: center; } .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <span class="site-brand">FNP Prep Hub</span>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Flowcharts</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> &rsaquo; <a href="index.html">Flowcharts</a> &rsaquo; Pediatric Fever
+</div>
+
+<div class="page-header">
+  <div class="page-title">Pediatric Fever Evaluation</div>
+  <div class="page-subtitle">Age-based approach to fever &mdash; AAP / ACEP Guidelines</div>
+</div>
+
+<div class="container">
+
+  <div class="flow-wrap">
+
+    <div class="node node-start">Child with Fever (T &ge; 38.0&deg;C / 100.4&deg;F)</div>
+
+    <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+
+    <div class="node node-decision">How old is the child?</div>
+
+    <div class="arrow"><div class="arrow-line"></div></div>
+    <div class="h-line"></div>
+
+    <div class="branch-row">
+
+      <!-- 0-28 DAYS -->
+      <div class="branch">
+        <div class="branch-label age">0&ndash;28 days</div>
+        <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="node node-admit">Full Sepsis Workup<div class="node-sub">CBC, CMP, UA/culture, blood culture, LP. Admit and start empiric antibiotics. No exceptions.</div></div>
+      </div>
+
+      <!-- 29-60 DAYS -->
+      <div class="branch">
+        <div class="branch-label age">29&ndash;60 days</div>
+        <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="node node-decision">Well-appearing?</div>
+        <div class="arrow"><div class="arrow-line"></div></div>
+        <div class="branch-row">
+          <div class="branch">
+            <div class="branch-label no">No</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-admit">Admit + Full Workup<div class="node-sub">LP, blood/urine cultures, IV antibiotics</div></div>
+          </div>
+          <div class="branch">
+            <div class="branch-label yes">Yes</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-amber">Risk-Stratify<div class="node-sub">CBC, UA, procalcitonin. Low-risk: close follow-up. High-risk: admit.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-36 MONTHS -->
+      <div class="branch">
+        <div class="branch-label age">3&ndash;36 months</div>
+        <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="node node-decision">Vaccinated for Hib &amp; PCV?</div>
+        <div class="arrow"><div class="arrow-line"></div></div>
+        <div class="branch-row">
+          <div class="branch">
+            <div class="branch-label yes">Yes + T &lt; 39&deg;C</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-discharge">Supportive care<div class="node-sub">Antipyretics. Return precautions. F/U if not improved in 48 hrs.</div></div>
+          </div>
+          <div class="branch">
+            <div class="branch-label no">T &ge; 39&deg;C</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-action">UA + urine culture<div class="node-sub">Consider CBC. Treat source if found. No routine blood culture if well-appearing.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arrow" style="margin-top:1.5rem;"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+
+    <div class="node node-decision" style="max-width:520px;">Child &gt; 3 years: Does exam reveal a source?</div>
+
+    <div class="arrow"><div class="arrow-line"></div></div>
+    <div class="h-line" style="max-width:500px;"></div>
+
+    <div class="branch-row">
+      <div class="branch">
+        <div class="branch-label yes">Yes &mdash; source found</div>
+        <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="node node-action">Treat identified source<div class="node-sub">AOM, pharyngitis, UTI, pneumonia, etc. per guidelines</div></div>
+      </div>
+      <div class="branch">
+        <div class="branch-label no">No &mdash; fever without source</div>
+        <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="node node-decision">Toxic-appearing?</div>
+        <div class="arrow"><div class="arrow-line"></div></div>
+        <div class="branch-row">
+          <div class="branch">
+            <div class="branch-label yes">Yes</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-admit">Admit<div class="node-sub">Full sepsis workup + empiric antibiotics</div></div>
+          </div>
+          <div class="branch">
+            <div class="branch-label no">No</div>
+            <div class="arrow"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+            <div class="node node-discharge">Supportive + return precautions<div class="node-sub">Antipyretics. F/U 24&ndash;48 hrs if fever persists &gt; 3 days.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes-card">
+    <h3>Key Clinical Notes</h3>
+    <div class="two-col">
+      <div class="mini-box">
+        <h4>Antipyretics</h4>
+        <ul>
+          <li>Acetaminophen: 15 mg/kg q4&ndash;6h (max 75 mg/kg/day)</li>
+          <li>Ibuprofen: 10 mg/kg q6&ndash;8h (age &ge; 6 months, max 40 mg/kg/day)</li>
+          <li>Do NOT give aspirin to children (Reye syndrome risk)</li>
+          <li>Goal: comfort, not normalization of temp</li>
+        </ul>
+      </div>
+      <div class="mini-box">
+        <h4>Red Flag Signs (Any Age)</h4>
+        <ul>
+          <li>Petechiae or purpura (consider meningococcemia)</li>
+          <li>Stiff neck, bulging fontanelle, photophobia</li>
+          <li>Inconsolable crying, lethargy, poor perfusion</li>
+          <li>Fever &gt; 5 days: consider Kawasaki disease</li>
+          <li>Immunocompromised: lower threshold for workup</li>
+        </ul>
+      </div>
+      <div class="mini-box">
+        <h4>Common Sources to Rule Out</h4>
+        <ul>
+          <li>UTI: most common serious bacterial infection in young children</li>
+          <li>AOM: common in 6 mo&ndash;2 yr</li>
+          <li>Pneumonia: tachypnea, retractions, hypoxia</li>
+          <li>Strep pharyngitis: age &ge; 3 yr, use CENTOR/McIsaac criteria</li>
+        </ul>
+      </div>
+      <div class="mini-box">
+        <h4>Return Precautions to Give Parents</h4>
+        <ul>
+          <li>Return if fever &gt; 5 days</li>
+          <li>Return if new rash, especially petechiae</li>
+          <li>Return if child is inconsolable or increasingly lethargic</li>
+          <li>Return if not drinking or signs of dehydration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Content compiled for personal study purposes. Not for clinical use.</p>
+  <p>Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence &middot; AAP Clinical Guidelines</p>
+</footer>
+
+</body>
+</html>
