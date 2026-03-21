@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccines | Quick Guide | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --green: #10B981; --blue: #3B82F6; --card-bg: rgba(255,255,255,0.78); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
+    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #D4F8EC 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
+    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(16,185,129,0.15); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
+    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; }
+    .breadcrumb { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; } .breadcrumb a:hover { color: var(--orange); }
+    .page-header { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .page-icon { font-size: 3rem; }
+    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2rem,5vw,3.5rem); color: var(--green); text-shadow: 3px 3px 0 rgba(16,185,129,0.15); }
+    .badge { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 20px; padding: 0.3rem 0.8rem; }
+    .badge-green { background: rgba(16,185,129,0.1); color: #065F46; }
+    .badge-gray { background: rgba(20,61,13,0.07); color: var(--forest); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; display: flex; flex-direction: column; gap: 1.4rem; }
+    .card { background: var(--card-bg); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 20px rgba(16,185,129,0.07); border: 1.5px solid rgba(255,255,255,0.9); }
+    .card-title { font-family: 'Barrio', fantasy; font-size: 1.3rem; color: var(--forest); margin-bottom: 1rem; }
+    .section-divider { height: 3px; background: linear-gradient(to right, #10B981, #3B82F6); border-radius: 2px; margin-bottom: 0.8rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { background: rgba(16,185,129,0.08); color: var(--forest); font-family: 'Aboreto', sans-serif; font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
+    td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(16,185,129,0.08); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    .age-col { font-weight: 700; color: var(--green); white-space: nowrap; }
+    .pill { display: inline-block; font-size: 0.68rem; padding: 0.12rem 0.5rem; border-radius: 10px; font-weight: 600; margin: 0.1rem; white-space: nowrap; }
+    .pill-green { background: rgba(16,185,129,0.15); color: #065F46; }
+    .pill-blue { background: rgba(59,130,246,0.12); color: #1D4ED8; }
+    .pill-orange { background: rgba(242,80,50,0.12); color: #9A3412; }
+    .pill-yellow { background: rgba(245,158,11,0.12); color: #92400E; }
+    .alert-box { background: rgba(242,80,50,0.07); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 0.9rem 1rem; font-size: 0.82rem; line-height: 1.6; margin-top: 1rem; }
+    .alert-box strong { color: var(--orange); }
+    ul.checklist { list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem; }
+    ul.checklist li::before { content: "\2713  "; color: var(--green); font-weight: 700; }
+    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.58rem; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(16,185,129,0.1); }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
+    <span class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Vaccines</span>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-icon">&#128137;</div>
+  <div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem;">
+      <span class="badge badge-green">Preventive Care</span>
+      <span class="badge badge-gray">CDC 2024</span>
+    </div>
+    <h1 class="page-title">Immunization Guide</h1>
+  </div>
+</div>
+<div class="container">
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128118; Childhood Immunization Schedule (CDC 2024)</div>
+    <table>
+      <tr><th>Age</th><th>Vaccines Due</th></tr>
+      <tr><td class="age-col">Birth</td><td><span class="pill pill-green">HepB</span> #1</td></tr>
+      <tr><td class="age-col">1-2 months</td><td><span class="pill pill-green">HepB</span> #2</td></tr>
+      <tr><td class="age-col">2 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV15/20</span> <span class="pill pill-blue">RV</span></td></tr>
+      <tr><td class="age-col">4 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-blue">RV</span></td></tr>
+      <tr><td class="age-col">6 months</td><td><span class="pill pill-blue">DTaP</span> <span class="pill pill-blue">IPV</span> <span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-blue">RV</span> <span class="pill pill-green">HepB</span> #3 <span class="pill pill-orange">Influenza</span> (annually)</td></tr>
+      <tr><td class="age-col">12-15 months</td><td><span class="pill pill-blue">Hib</span> <span class="pill pill-blue">PCV</span> <span class="pill pill-yellow">MMR</span> #1 <span class="pill pill-yellow">Varicella</span> #1 <span class="pill pill-green">HepA</span> #1</td></tr>
+      <tr><td class="age-col">15-18 months</td><td><span class="pill pill-blue">DTaP</span> #4</td></tr>
+      <tr><td class="age-col">18-23 months</td><td><span class="pill pill-green">HepA</span> #2</td></tr>
+      <tr><td class="age-col">4-6 years</td><td><span class="pill pill-blue">DTaP</span> #5 <span class="pill pill-blue">IPV</span> #4 <span class="pill pill-yellow">MMR</span> #2 <span class="pill pill-yellow">Varicella</span> #2</td></tr>
+      <tr><td class="age-col">11-12 years</td><td><span class="pill pill-orange">Tdap</span> <span class="pill pill-orange">MCV4</span> (MenACWY) <span class="pill pill-orange">HPV</span> series (2 doses if started &lt;15)</td></tr>
+      <tr><td class="age-col">16 years</td><td><span class="pill pill-orange">MCV4</span> booster <span class="pill pill-orange">MenB</span> (if indicated)</td></tr>
+      <tr><td class="age-col">Every year</td><td><span class="pill pill-orange">Influenza</span> (6 months and older)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#129492; Adult Immunization Schedule (CDC 2024)</div>
+    <table>
+      <tr><th>Vaccine</th><th>Who / When</th></tr>
+      <tr><td><strong>Influenza</strong></td><td>Everyone annually; high-dose for &ge;65</td></tr>
+      <tr><td><strong>COVID-19</strong></td><td>Updated annual dose for all adults; immunocompromised may need extra doses</td></tr>
+      <tr><td><strong>Tdap/Td</strong></td><td>Tdap once (if not given as teen); Td booster every 10 years; Tdap each pregnancy (27-36 wks)</td></tr>
+      <tr><td><strong>MMR</strong></td><td>1-2 doses if born after 1957 and no evidence of immunity; contraindicated in pregnancy</td></tr>
+      <tr><td><strong>Varicella</strong></td><td>2 doses if no immunity; contraindicated in pregnancy</td></tr>
+      <tr><td><strong>Zoster (Shingrix)</strong></td><td>&ge;50 years: 2 doses (0 and 2-6 months); preferred over Zostavax</td></tr>
+      <tr><td><strong>PCV15/20 + PPSV23</strong></td><td>&ge;65; or younger with asplenia, immunocompromise, CKD, DM, heart/lung disease</td></tr>
+      <tr><td><strong>HPV</strong></td><td>Through age 26 routinely; 27-45 shared decision making; 3-dose series</td></tr>
+      <tr><td><strong>HepA</strong></td><td>2 doses if at risk (travel, liver disease, MSM, substance use) or patient requests</td></tr>
+      <tr><td><strong>HepB</strong></td><td>All adults through 59; 60+ if at risk; Heplisav-B (2 doses) or Engerix-B (3 doses)</td></tr>
+      <tr><td><strong>MenACWY</strong></td><td>Asplenia, complement deficiency, HIV, travel to endemic areas, first-year college dorms</td></tr>
+      <tr><td><strong>MenB</strong></td><td>Asplenia, complement deficiency; 16-23 years (shared decision)</td></tr>
+      <tr><td><strong>RSV</strong></td><td>&ge;60 years (shared decision); pregnancy 32-36 wks (maternal RSV vaccine)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128683; Contraindications &amp; Special Populations</div>
+    <ul class="checklist">
+      <li><strong>Live vaccines (MMR, Varicella, LAIV, Zoster live):</strong> Contraindicated in pregnancy and severe immunocompromise</li>
+      <li><strong>Egg allergy:</strong> Flu vaccine can be given to all including egg allergy (use non-egg or egg-based with precautions)</li>
+      <li><strong>Immunocompromised:</strong> Avoid live vaccines; may need extra doses of inactivated vaccines</li>
+      <li><strong>Pregnancy:</strong> Safe: Flu (IIV), Tdap, COVID-19, HepA, HepB, Pneumococcal (if indicated)</li>
+      <li><strong>Asplenia:</strong> PCV, PPSV23, MenACWY, MenB, Hib all indicated</li>
+      <li><strong>HIV:</strong> CD4 &gt;200: MMR and Varicella may be given; avoid if CD4 &lt;200</li>
+    </ul>
+    <div class="alert-box">
+      <strong>Catch-up tip:</strong> Use CDC's Immunization Schedule tool at cdc.gov/vaccines for patient-specific catch-up schedules. The minimum intervals between doses are critical to remember for exams.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#129504; High-Yield Vaccine Mnemonics &amp; Pearls</div>
+    <table>
+      <tr><th>Vaccine</th><th>Key Board Pearl</th></tr>
+      <tr><td><strong>MMR</strong></td><td>2 doses needed for full immunity; live vaccine - 28-day gap before pregnancy</td></tr>
+      <tr><td><strong>Varicella</strong></td><td>Check immunity (titer or hx) before giving; 4-week minimum between doses 1 and 2</td></tr>
+      <tr><td><strong>Shingrix</strong></td><td>Preferred over Zostavax even in those who previously had shingles or Zostavax</td></tr>
+      <tr><td><strong>HPV</strong></td><td>Started &lt;15 = 2 doses; started &ge;15 = 3 doses; does NOT treat existing HPV</td></tr>
+      <tr><td><strong>PCV vs PPSV23</strong></td><td>Give PCV first, then PPSV23 &ge;8 weeks later if both indicated</td></tr>
+      <tr><td><strong>Tdap in pregnancy</strong></td><td>Give EVERY pregnancy, ideally 27-36 weeks - protects newborn before their vaccines</td></tr>
+      <tr><td><strong>HepB</strong></td><td>Give to ALL newborns within 24 hours of birth; if mom is HBsAg+, also give HBIG</td></tr>
+    </table>
+  </div>
+
+</div>
+<footer>
+  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Vaccines Quick Guide &nbsp;&#9673;&nbsp; CDC 2024</p>
+  <p style="margin-top:0.4rem; font-size:0.52rem;">For personal study purposes only. Not for clinical use. Sources: CDC 2024 Immunization Schedule, AAP, ACIP, Amboss, Open Evidence</p>
+</footer>
+</body>
+</html>
