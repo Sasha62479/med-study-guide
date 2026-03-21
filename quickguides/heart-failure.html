@@ -4,145 +4,296 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heart Failure | Quick Guide | FNP Prep</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --card-bg: rgba(255,255,255,0.78); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
-    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, #EDD9FB 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
-    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(115,78,147,0.15); position: sticky; top: 0; z-index: 100; }
-    .top-nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
-    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; }
-    .breadcrumb { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
-    .breadcrumb a { color: var(--text-muted); text-decoration: none; } .breadcrumb a:hover { color: var(--orange); }
-    .page-header { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
-    .page-icon { font-size: 3rem; }
-    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2rem,5vw,3.5rem); color: var(--purple); text-shadow: 3px 3px 0 rgba(115,78,147,0.15); }
-    .badge { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 20px; padding: 0.3rem 0.8rem; }
-    .badge-purple { background: rgba(115,78,147,0.1); color: var(--purple); }
-    .badge-gray { background: rgba(20,61,13,0.07); color: var(--forest); }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    @media (max-width: 640px) { .container { grid-template-columns: 1fr; } }
-    .card { background: var(--card-bg); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 20px rgba(115,78,147,0.07); border: 1.5px solid rgba(255,255,255,0.9); }
-    .card.full-width { grid-column: 1 / -1; }
-    .card-title { font-family: 'Barrio', fantasy; font-size: 1.3rem; color: var(--forest); margin-bottom: 1rem; }
-    .section-divider { height: 3px; background: linear-gradient(to right, #F25032, #734E93); border-radius: 2px; margin-bottom: 0.8rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-    th { background: rgba(115,78,147,0.07); color: var(--forest); font-family: 'Aboreto', sans-serif; font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
-    td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(115,78,147,0.07); vertical-align: top; line-height: 1.5; }
-    tr:last-child td { border-bottom: none; }
-    tr.highlight { background: rgba(115,78,147,0.05); }
-    .pill { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin: 0.1rem; }
-    .pill-purple { background: rgba(115,78,147,0.12); color: #5B21B6; }
-    .pill-blue { background: rgba(59,130,246,0.12); color: #1D4ED8; }
-    .pill-green { background: rgba(16,185,129,0.12); color: #065F46; }
-    .pill-red { background: rgba(239,68,68,0.12); color: #B91C1C; }
-    ul.checklist { list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.45rem; }
-    ul.checklist li::before { content: "\2713  "; color: #10B981; font-weight: 700; }
-    .alert-box { background: rgba(242,80,50,0.07); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 0.9rem 1rem; font-size: 0.82rem; line-height: 1.6; }
-    .alert-box strong { color: var(--orange); }
-    .gdmt-pill { display: inline-block; background: rgba(115,78,147,0.1); color: var(--purple); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 10px; font-family: 'Aboreto', sans-serif; letter-spacing: 0.05em; }
-    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.58rem; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(115,78,147,0.1); }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.12);
+      --navy: #1E2D4E; --steel: #3A5080; --slate: #4A5568; --muted: #718096;
+      --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    .top-nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 52px; position: sticky; top: 0; z-index: 100; }
+    .top-nav a { text-decoration: none; color: var(--slate); font-size: 0.875rem; font-weight: 500; }
+    .top-nav a:hover { color: var(--accent); }
+    .site-brand { font-size: 1rem; font-weight: 700; color: var(--navy); margin-right: auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--muted); margin: 1rem 2rem 0; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header { max-width: 960px; margin: 1.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--navy); }
+    .page-subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(30,45,78,0.05); }
+    .card h2 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--bg2); text-transform: uppercase; letter-spacing: 0.04em; }
+    .card h3 { font-size: 0.95rem; font-weight: 600; color: var(--steel); margin: 1rem 0 0.5rem; }
+    .card p, .card li { color: var(--slate); font-size: 0.9rem; line-height: 1.65; }
+    ul { list-style: none; padding: 0; }
+    ul li { padding: 0.2rem 0 0.2rem 1.1rem; position: relative; }
+    ul li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .tag { padding: 0.2rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 500; }
+    .tag-red { background: #FDF0EF; color: var(--red); }
+    .tag-green { background: #EEF7F4; color: var(--green); }
+    .tag-amber { background: #FBF6EC; color: var(--amber); }
+    .tag-blue { background: #EEF4F9; color: var(--accent); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .criteria-box { background: var(--bg); border-radius: 8px; padding: 1rem; }
+    .criteria-box h4 { font-size: 0.82rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .score-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--slate); padding: 0.2rem 0; border-bottom: 1px solid var(--border); }
+    .score-row:last-child { border-bottom: none; }
+    .footer { text-align: center; font-size: 0.78rem; color: var(--muted); padding: 2.5rem 2rem; border-top: 1px solid var(--border); margin-top: 2rem; line-height: 1.8; }
+    .footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
+
 <nav class="top-nav">
-  <div class="top-nav-inner">
-    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
-    <span class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Heart Failure</span>
-  </div>
+  <span class="site-brand">FNP Prep Hub</span>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Quick Guides</a>
 </nav>
-<div class="page-header">
-  <div class="page-icon">&#128138;</div>
-  <div>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem;">
-      <span class="badge badge-purple">Cardiovascular</span>
-      <span class="badge badge-gray">ACC/AHA 2022</span>
-    </div>
-    <h1 class="page-title">Heart Failure</h1>
-  </div>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Heart Failure
 </div>
+
+<div class="page-header">
+  <div class="page-title">Heart Failure</div>
+  <div class="page-subtitle">ACC/AHA 2022 Guidelines &mdash; Classification, Diagnosis, and Management</div>
+</div>
+
 <div class="container">
 
-  <div class="card full-width">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128200; HF Classification: HFrEF vs HFpEF vs HFmrEF</div>
-    <table>
-      <tr><th>Type</th><th>EF</th><th>Characteristics</th><th>Treatment</th></tr>
-      <tr><td><strong>HFrEF</strong> (reduced)</td><td><span class="pill pill-red">&le;40%</span></td><td>Dilated ventricle; systolic dysfunction; ischemic or idiopathic</td><td>GDMT: ACE-I/ARB/ARNI + BB + MRA + SGLT-2i</td></tr>
-      <tr><td><strong>HFmrEF</strong> (mildly reduced)</td><td><span class="pill pill-blue">41-49%</span></td><td>Intermediate phenotype; emerging evidence</td><td>Similar to HFrEF; individualize</td></tr>
-      <tr><td><strong>HFpEF</strong> (preserved)</td><td><span class="pill pill-green">&ge;50%</span></td><td>Diastolic dysfunction; stiff ventricle; HTN, DM, obesity</td><td>Treat comorbidities; SGLT-2i (dapagliflozin) shown benefit; diuretics for congestion</td></tr>
-    </table>
-  </div>
-
   <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128200; ACC/AHA Staging (A-D)</div>
-    <table>
-      <tr><th>Stage</th><th>Description</th><th>NYHA Class</th></tr>
-      <tr><td><span class="pill pill-green">A</span></td><td>At risk; no symptoms, no structural disease (HTN, DM, CAD)</td><td>None</td></tr>
-      <tr><td><span class="pill pill-blue">B</span></td><td>Structural disease; no symptoms (asymptomatic LV dysfunction)</td><td>I</td></tr>
-      <tr><td><span class="pill pill-purple">C</span></td><td>Structural disease + prior or current HF symptoms</td><td>I-III</td></tr>
-      <tr><td><span class="pill pill-red">D</span></td><td>Refractory HF; advanced therapies needed (VAD, transplant)</td><td>IV</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128683; NYHA Functional Classification</div>
-    <table>
-      <tr><th>Class</th><th>Symptoms</th></tr>
-      <tr><td>I</td><td>No symptoms with ordinary activity</td></tr>
-      <tr><td>II</td><td>Mild symptoms; slight limitation with ordinary activity</td></tr>
-      <tr><td>III</td><td>Marked limitation; comfortable only at rest</td></tr>
-      <tr><td>IV</td><td>Symptoms at rest; unable to carry out any activity</td></tr>
-    </table>
-  </div>
-
-  <div class="card full-width">
-    <div class="section-divider"></div>
-    <div class="card-title">&#127775; GDMT for HFrEF - The 4 Pillars</div>
-    <table>
-      <tr><th>Pillar</th><th>Drug Class</th><th>Examples</th><th>Benefit</th><th>Key Monitoring</th></tr>
-      <tr class="highlight"><td><span class="gdmt-pill">1</span> ACE-I / ARB / ARNI</td><td>RAAS blockade</td><td>Lisinopril, Losartan; <strong>Sacubitril/Valsartan (ARNI - preferred)</strong></td><td>Reduce mortality &amp; hospitalizations</td><td>K+, creatinine, BP; avoid if angioedema</td></tr>
-      <tr><td><span class="gdmt-pill">2</span> Beta-Blocker</td><td>Carvedilol, Metoprolol succinate, Bisoprolol</td><td>(Evidence-based BBs only)</td><td>Reduce mortality; reverse remodeling</td><td>HR, BP; start low - uptitrate slowly</td></tr>
-      <tr class="highlight"><td><span class="gdmt-pill">3</span> MRA</td><td>Mineralocorticoid receptor antagonist</td><td>Spironolactone, Eplerenone</td><td>Reduce mortality if EF &le;35%</td><td>K+ closely; avoid if K+ &gt;5.0 or eGFR &lt;30</td></tr>
-      <tr><td><span class="gdmt-pill">4</span> SGLT-2i</td><td>Sodium-glucose cotransporter-2 inhibitor</td><td>Dapagliflozin, Empagliflozin</td><td>Reduce HF hospitalizations &amp; CV death</td><td>UTI, DKA, volume depletion; hold pre-procedure</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128167; Diuresis &amp; Decongestion</div>
-    <ul class="checklist">
-      <li><strong>Loop diuretics:</strong> Furosemide (first-line), Bumetanide, Torsemide (better bioavailability)</li>
-      <li><strong>Goal:</strong> Euvolemia - assess JVD, peripheral edema, orthopnea, daily weights</li>
-      <li><strong>Restrict fluids:</strong> 1.5-2L/day if severe; sodium &lt;2g/day</li>
-      <li><strong>Daily weight:</strong> Gain of &gt;2 lbs overnight or &gt;5 lbs in week = call provider</li>
-      <li><strong>Thiazides:</strong> Add metolazone for diuretic resistance (powerful combination)</li>
-      <li><strong>Monitor:</strong> BMP for electrolytes and renal function during diuresis</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="section-divider"></div>
-    <div class="card-title">&#128680; Acute Decompensated HF (ADHF)</div>
-    <ul class="checklist">
-      <li>IV loop diuretics (furosemide) - 2.5x oral dose IV</li>
-      <li>Supplemental O2; non-invasive ventilation (BiPAP) if needed</li>
-      <li>Vasodilators (nitroglycerin, nesiritide) if adequate BP</li>
-      <li>Avoid hypotension; careful with ACE-I/ARB in acute phase</li>
-      <li>Continue GDMT unless hemodynamically unstable</li>
-      <li>Inotropes (dobutamine, milrinone) for cardiogenic shock</li>
-    </ul>
-    <div style="margin-top:0.8rem;" class="alert-box">
-      <strong>Remember LMNOP:</strong> Lasix (diuresis), Morphine (anxiolysis, vasodilation), Nitrates (preload reduction), Oxygen, Position (upright/Fowler's)
+    <h2>Definition and Classification</h2>
+    <p>Heart failure (HF) is a clinical syndrome characterized by symptoms and signs caused by a structural or functional cardiac abnormality, resulting in reduced cardiac output or elevated intracardiac pressures.</p>
+    <div class="two-col" style="margin-top:1rem;">
+      <div class="criteria-box">
+        <h4>By EF</h4>
+        <div class="score-row"><span>HFrEF</span><span>EF &lt; 40%</span></div>
+        <div class="score-row"><span>HFmrEF</span><span>EF 41&ndash;49%</span></div>
+        <div class="score-row"><span>HFpEF</span><span>EF &ge; 50%</span></div>
+      </div>
+      <div class="criteria-box">
+        <h4>NYHA Class</h4>
+        <div class="score-row"><span>Class I</span><span>No limitation</span></div>
+        <div class="score-row"><span>Class II</span><span>Slight limitation</span></div>
+        <div class="score-row"><span>Class III</span><span>Marked limitation</span></div>
+        <div class="score-row"><span>Class IV</span><span>Symptoms at rest</span></div>
+      </div>
     </div>
   </div>
 
+  <div class="card">
+    <h2>Stages (ACC/AHA)</h2>
+    <div class="two-col">
+      <div class="criteria-box">
+        <h4>Stage A</h4>
+        <p style="font-size:0.85rem;color:var(--slate);">At risk, no structural disease, no symptoms. DM, HTN, obesity, family Hx.</p>
+      </div>
+      <div class="criteria-box">
+        <h4>Stage B</h4>
+        <p style="font-size:0.85rem;color:var(--slate);">Structural/functional disease, no current or prior symptoms.</p>
+      </div>
+      <div class="criteria-box">
+        <h4>Stage C</h4>
+        <p style="font-size:0.85rem;color:var(--slate);">Structural disease with current or prior HF symptoms.</p>
+      </div>
+      <div class="criteria-box">
+        <h4>Stage D</h4>
+        <p style="font-size:0.85rem;color:var(--slate);">Advanced HF; refractory symptoms despite GDMT. Consider advanced therapies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Common Causes</h2>
+    <h3>HFrEF</h3>
+    <ul>
+      <li>Ischemic cardiomyopathy (most common in US)</li>
+      <li>Dilated cardiomyopathy (idiopathic, viral, toxic)</li>
+      <li>Myocarditis, peripartum cardiomyopathy</li>
+      <li>Prolonged tachycardia, anthracycline toxicity</li>
+    </ul>
+    <h3>HFpEF</h3>
+    <ul>
+      <li>Hypertension (most common cause)</li>
+      <li>Obesity, diabetes, metabolic syndrome</li>
+      <li>Hypertrophic or restrictive cardiomyopathy</li>
+      <li>Atrial fibrillation, aging</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Clinical Presentation</h2>
+    <div class="two-col">
+      <div>
+        <h3>Left-sided HF</h3>
+        <ul>
+          <li>Dyspnea on exertion (earliest)</li>
+          <li>Orthopnea, paroxysmal nocturnal dyspnea</li>
+          <li>Pulmonary crackles (rales)</li>
+          <li>S3 gallop (volume overload)</li>
+          <li>Fatigue, reduced exercise tolerance</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Right-sided HF</h3>
+        <ul>
+          <li>Peripheral pitting edema</li>
+          <li>Jugular venous distension (JVD)</li>
+          <li>Hepatomegaly, ascites</li>
+          <li>Weight gain from fluid retention</li>
+          <li>Often secondary to left HF</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Diagnostic Workup</h2>
+    <h3>Initial Labs</h3>
+    <ul>
+      <li>BNP &gt; 100 pg/mL or NT-proBNP &gt; 300 pg/mL suggests HF</li>
+      <li>CBC, CMP (BUN/Cr), TFTs, lipids, HbA1c</li>
+      <li>Iron studies (iron deficiency common in HF)</li>
+      <li>Urinalysis</li>
+    </ul>
+    <h3>Imaging and Studies</h3>
+    <ul>
+      <li>ECG: assess rhythm, LVH, ischemia, QRS widening</li>
+      <li>Chest X-ray: cardiomegaly, Kerley B lines, cephalization, pleural effusions</li>
+      <li>Echocardiogram: essential to classify EF, assess wall motion, valves</li>
+      <li>Coronary angiography if ischemia suspected</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Pharmacologic Management &mdash; HFrEF (GDMT)</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Goal-directed medical therapy (GDMT) &mdash; all four pillars shown to reduce mortality.</p>
+    <div class="tag-row" style="margin-bottom:1rem;">
+      <span class="tag tag-blue">Class I Recommendations</span>
+    </div>
+    <h3>The Four Pillars</h3>
+    <ul>
+      <li>ACEi/ARB or ARNi (sacubitril-valsartan preferred if tolerated)</li>
+      <li>Beta-blocker: carvedilol, metoprolol succinate, or bisoprolol</li>
+      <li>MRA (mineralocorticoid receptor antagonist): spironolactone or eplerenone</li>
+      <li>SGLT2 inhibitor: dapagliflozin or empagliflozin (proven mortality benefit)</li>
+    </ul>
+    <h3>Additional Agents</h3>
+    <ul>
+      <li>Loop diuretics (furosemide) for symptom relief of congestion &mdash; not mortality benefit</li>
+      <li>Hydralazine + nitrate: if ACEi/ARB/ARNi not tolerated (especially Black patients)</li>
+      <li>Ivabradine: if HR &ge; 70 bpm on max beta-blocker, sinus rhythm, EF &le; 35%</li>
+      <li>Digoxin: consider for persistent symptoms, AF (Class IIa)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Management &mdash; HFpEF</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Fewer mortality-reducing agents proven; focus on symptom control and comorbidities.</p>
+    <ul>
+      <li>SGLT2 inhibitors: now recommended (empagliflozin &mdash; EMPEROR-Preserved trial)</li>
+      <li>Diuretics for congestion relief</li>
+      <li>Aggressive BP control (&lt; 130/80 mmHg)</li>
+      <li>Rate control for AF; anticoagulation if indicated</li>
+      <li>Treat underlying causes: obesity, DM, sleep apnea, HTN</li>
+      <li>ARB (candesartan) or MRA may reduce hospitalizations (Class IIb)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Device Therapy</h2>
+    <ul>
+      <li>ICD: EF &le; 35%, NYHA II-III, on GDMT &ge; 3 months, expected survival &gt; 1 year</li>
+      <li>CRT (cardiac resynchronization): EF &le; 35%, LBBB with QRS &ge; 150 ms, sinus rhythm, NYHA II-IV</li>
+      <li>LVAD: Stage D HF as bridge-to-transplant or destination therapy</li>
+      <li>Heart transplant: Stage D refractory to all therapies</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Acute Decompensated HF (ADHF)</h2>
+    <h3>Presentation</h3>
+    <ul>
+      <li>Rapid worsening dyspnea, hypoxia, severe edema</li>
+      <li>Elevated BNP, chest X-ray with pulmonary congestion</li>
+    </ul>
+    <h3>Management (LMNOP)</h3>
+    <ul>
+      <li>Lasix (IV furosemide) &mdash; aggressive diuresis</li>
+      <li>Morphine (use cautiously) &mdash; reduces preload/anxiety</li>
+      <li>Nitrates &mdash; venodilation, preload reduction</li>
+      <li>Oxygen &mdash; supplemental O2, CPAP/BiPAP if needed</li>
+      <li>Position &mdash; sit upright, legs dependent</li>
+    </ul>
+    <h3>Hemodynamic Profiles</h3>
+    <ul>
+      <li>Wet-warm: congested, adequate perfusion &mdash; diurese</li>
+      <li>Wet-cold: congested, poor perfusion &mdash; inotropes + diuresis</li>
+      <li>Dry-cold: no congestion, poor perfusion &mdash; IV fluids cautiously, inotropes</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Monitoring and Follow-Up</h2>
+    <ul>
+      <li>Daily weights; instruct patient to call if &gt; 2-3 lb gain in 24 hrs or &gt; 5 lb in 1 week</li>
+      <li>Electrolytes and renal function (BMP) within 1&ndash;2 weeks of starting/adjusting diuretics</li>
+      <li>BNP/NT-proBNP to trend disease burden</li>
+      <li>Repeat echo after 3&ndash;6 months of GDMT to reassess EF</li>
+      <li>Fluid restriction (1.5&ndash;2 L/day) in moderate-severe HF</li>
+      <li>Sodium restriction &lt; 2 g/day</li>
+      <li>Cardiac rehab for stable NYHA II&ndash;III</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Red Flags / When to Refer or Admit</h2>
+    <div class="tag-row">
+      <span class="tag tag-red">Admit</span>
+    </div>
+    <ul style="margin-top:0.75rem;">
+      <li>SpO2 &lt; 90%, respiratory distress at rest</li>
+      <li>SBP &lt; 90 mmHg or signs of hypoperfusion (cool, clammy, altered mental status)</li>
+      <li>New arrhythmia or acute ischemia</li>
+      <li>Acute cardiogenic pulmonary edema</li>
+      <li>Failure of outpatient diuresis</li>
+    </ul>
+    <div class="tag-row" style="margin-top:1rem;">
+      <span class="tag tag-blue">Refer to Cardiology</span>
+    </div>
+    <ul style="margin-top:0.75rem;">
+      <li>EF &lt; 40%, newly diagnosed HF</li>
+      <li>Advanced HF stage C/D, considering devices or transplant</li>
+      <li>Unexplained or refractory HF</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Key Teaching Points</h2>
+    <ul>
+      <li>HFrEF (EF &lt; 40%) has proven mortality-reducing GDMT &mdash; start all four pillars when able</li>
+      <li>SGLT2 inhibitors now benefit both HFrEF and HFpEF</li>
+      <li>ARNi (sacubitril/valsartan) is preferred over ACEi in chronic HFrEF if tolerated</li>
+      <li>Diuretics relieve symptoms but do not reduce mortality</li>
+      <li>Daily weight monitoring is a cornerstone of outpatient HF management</li>
+      <li>BNP helps diagnose HF but also guides prognosis and response to therapy</li>
+      <li>HF with preserved EF is increasingly recognized; SGLT2i now first-line</li>
+    </ul>
+  </div>
+
 </div>
-<footer>
-  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Heart Failure Quick Guide &nbsp;&#9673;&nbsp; ACC/AHA 2022</p>
-  <p style="margin-top:0.4rem; font-size:0.52rem;">For personal study purposes only. Not for clinical use. Sources: ACC/AHA 2022, Amboss, Open Evidence, Medicosis Perfectionalis</p>
+
+<footer class="footer">
+  <p>Content compiled for personal study purposes. Not for clinical use.</p>
+  <p>Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence &middot; ACC/AHA 2022 Heart Failure Guidelines</p>
 </footer>
+
 </body>
 </html>
