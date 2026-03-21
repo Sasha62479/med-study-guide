@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes | Quick Guide | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --lavender: #D7D9FB; --cream: #F3F5E7; --forest: #143D0D; --orange: #F25032; --purple: #734E93; --mid-green: #92B079; --blue: #3B82F6; --card-bg: rgba(255,255,255,0.78); --nav-bg: rgba(255,255,255,0.92); --text: #2A2A2A; --text-muted: #5A6A52; }
+    body { font-family: 'Nunito', sans-serif; background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%); min-height: 100vh; color: var(--text); }
+    .top-nav { background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(242,80,50,0.12); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 56px; gap: 1rem; }
+    .site-brand { font-family: 'Barrio', fantasy; font-size: 1.35rem; color: var(--orange); text-decoration: none; }
+    .breadcrumb { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; } .breadcrumb a:hover { color: var(--orange); }
+    .page-header { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .page-icon { font-size: 3rem; }
+    .page-title { font-family: 'Barrio', fantasy; font-size: clamp(2rem,5vw,3.5rem); color: var(--orange); text-shadow: 3px 3px 0 rgba(115,78,147,0.25); }
+    .page-tag { font-family: 'Aboreto', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; background: rgba(59,130,246,0.12); color: var(--blue); border-radius: 20px; padding: 0.3rem 0.8rem; }
+    .guideline-badge { font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(20,61,13,0.08); color: var(--forest); border-radius: 20px; padding: 0.3rem 0.8rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    @media (max-width: 640px) { .container { grid-template-columns: 1fr; } }
+    .card { background: var(--card-bg); border-radius: 18px; padding: 1.6rem; box-shadow: 0 4px 20px rgba(20,61,13,0.07); border: 1.5px solid rgba(255,255,255,0.9); }
+    .card.full-width { grid-column: 1 / -1; }
+    .card-title { font-family: 'Barrio', fantasy; font-size: 1.3rem; color: var(--forest); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { background: rgba(20,61,13,0.07); color: var(--forest); font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
+    td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(20,61,13,0.06); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    .highlight { background: rgba(242,80,50,0.05); }
+    .pill { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin: 0.1rem; }
+    .pill-blue { background: rgba(59,130,246,0.12); color: #1D4ED8; }
+    .pill-green { background: rgba(16,185,129,0.12); color: #065F46; }
+    .pill-orange { background: rgba(242,80,50,0.12); color: #B91C1C; }
+    .pill-purple { background: rgba(115,78,147,0.12); color: #5B21B6; }
+    ul.checklist { list-style: none; font-size: 0.84rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem; }
+    ul.checklist li::before { content: "\2713  "; color: var(--mid-green); font-weight: 700; }
+    .alert-box { background: rgba(242,80,50,0.07); border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; padding: 0.9rem 1rem; font-size: 0.82rem; color: var(--text); line-height: 1.6; }
+    .alert-box strong { color: var(--orange); }
+    .section-divider { height: 3px; background: linear-gradient(to right, #3B82F6, #06B6D4); border-radius: 2px; margin-bottom: 0.8rem; }
+    footer { text-align: center; padding: 2rem; font-family: 'Aboreto', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--forest); opacity: 0.5; border-top: 1px solid rgba(20,61,13,0.08); }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="site-brand" href="../index.html">&#127807; FNP Prep</a>
+    <span class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="index.html">Quick Guides</a> &rsaquo; Diabetes</span>
+  </div>
+</nav>
+<div class="page-header">
+  <div class="page-icon">&#129366;</div>
+  <div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem;">
+      <span class="page-tag">Endocrine</span>
+      <span class="guideline-badge">ADA 2024</span>
+    </div>
+    <h1 class="page-title">Diabetes Mellitus</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="card full-width">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128300; Diagnostic Criteria (ADA 2024)</div>
+    <table>
+      <tr><th>Test</th><th>Diabetes</th><th>Prediabetes</th><th>Normal</th></tr>
+      <tr><td><strong>Fasting Plasma Glucose</strong></td><td class="highlight"><span class="pill pill-orange">&ge;126 mg/dL</span></td><td>100-125 mg/dL</td><td>&lt;100 mg/dL</td></tr>
+      <tr><td><strong>2-hr OGTT (75g)</strong></td><td class="highlight"><span class="pill pill-orange">&ge;200 mg/dL</span></td><td>140-199 mg/dL</td><td>&lt;140 mg/dL</td></tr>
+      <tr><td><strong>HbA1c</strong></td><td class="highlight"><span class="pill pill-orange">&ge;6.5%</span></td><td>5.7-6.4%</td><td>&lt;5.7%</td></tr>
+      <tr><td><strong>Random Glucose + symptoms</strong></td><td class="highlight"><span class="pill pill-orange">&ge;200 mg/dL</span></td><td>-</td><td>-</td></tr>
+    </table>
+    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.8rem;">Confirm with repeat test on different day unless symptomatic hyperglycemia</p>
+  </div>
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128260; Type 1 vs Type 2</div>
+    <table>
+      <tr><th>Feature</th><th>Type 1</th><th>Type 2</th></tr>
+      <tr><td>Pathophysiology</td><td>Autoimmune beta-cell destruction</td><td>Insulin resistance + secretion defect</td></tr>
+      <tr><td>Body habitus</td><td>Usually lean</td><td>Often overweight/obese</td></tr>
+      <tr><td>Ketosis prone</td><td>Yes - DKA</td><td>HHS more common</td></tr>
+      <tr><td>C-peptide</td><td>Low/absent</td><td>Normal or high</td></tr>
+      <tr><td>Autoantibodies</td><td>GAD65, IA-2, ZnT8</td><td>Absent</td></tr>
+      <tr><td>Treatment</td><td>Insulin always required</td><td>Lifestyle, oral agents, insulin</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#127919; Glycemic Targets</div>
+    <table>
+      <tr><th>Parameter</th><th>Target</th></tr>
+      <tr><td>HbA1c (general)</td><td><span class="pill pill-green">&lt;7%</span></td></tr>
+      <tr><td>HbA1c (older/frail)</td><td><span class="pill pill-blue">&lt;8%</span></td></tr>
+      <tr><td>HbA1c (pregnancy)</td><td><span class="pill pill-purple">&lt;6%</span></td></tr>
+      <tr><td>Fasting glucose</td><td>80-130 mg/dL</td></tr>
+      <tr><td>Post-meal (2hr)</td><td>&lt;180 mg/dL</td></tr>
+      <tr><td>BP target</td><td>&lt;130/80 mmHg</td></tr>
+      <tr><td>LDL</td><td>&lt;100 (&lt;70 if ASCVD)</td></tr>
+    </table>
+  </div>
+  <div class="card full-width">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128138; T2DM Pharmacotherapy Stepwise (ADA 2024)</div>
+    <table>
+      <tr><th>Drug Class</th><th>Key Agents</th><th>Key Benefit</th><th>Watch For</th></tr>
+      <tr class="highlight"><td><strong>1st line - Metformin</strong></td><td>Metformin</td><td>Weight neutral, inexpensive, CV benefit</td><td>Hold if eGFR &lt;30; GI side effects</td></tr>
+      <tr><td><strong>ASCVD / HF / CKD - add:</strong></td><td>GLP-1 RA or SGLT-2i</td><td>CV and renal protection</td><td>GLP-1: nausea; SGLT-2: UTI, DKA</td></tr>
+      <tr><td><strong>GLP-1 Agonists</strong></td><td>Semaglutide, Liraglutide, Dulaglutide</td><td>Weight loss, CV events reduction</td><td>Nausea, pancreatitis, MTC (contraindicated)</td></tr>
+      <tr><td><strong>SGLT-2 Inhibitors</strong></td><td>Empagliflozin, Dapagliflozin</td><td>Reduce HF hospitalization, CKD progression</td><td>Genital mycosis, euglycemic DKA</td></tr>
+      <tr><td><strong>DPP-4 Inhibitors</strong></td><td>Sitagliptin, Linagliptin</td><td>Weight neutral, low hypoglycemia risk</td><td>Saxagliptin: increased HF hospitalization</td></tr>
+      <tr><td><strong>Sulfonylureas</strong></td><td>Glipizide, Glimepiride</td><td>Inexpensive, effective</td><td>Hypoglycemia, weight gain</td></tr>
+      <tr><td><strong>Insulin</strong></td><td>Basal glargine/detemir, Basal-bolus</td><td>Most potent glucose lowering</td><td>Hypoglycemia, weight gain</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128204; Complications</div>
+    <ul class="checklist">
+      <li><strong>Nephropathy:</strong> ACE-I/ARB first-line; annual urine albumin/Cr</li>
+      <li><strong>Retinopathy:</strong> Annual dilated eye exam; anti-VEGF if proliferative</li>
+      <li><strong>Neuropathy:</strong> Monofilament exam; duloxetine or gabapentin for pain</li>
+      <li><strong>DKA:</strong> Anion gap acidosis + ketonemia; insulin + NS + K+ replacement</li>
+      <li><strong>HHS:</strong> Glucose &gt;600, no acidosis; aggressive fluids first</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="section-divider"></div>
+    <div class="card-title">&#128203; Monitoring Checklist</div>
+    <ul class="checklist">
+      <li>HbA1c every 3 months if uncontrolled; 6 months if at goal</li>
+      <li>BP every visit; target &lt;130/80</li>
+      <li>Lipids annually; statin if age &ge;40 with DM</li>
+      <li>eGFR + urine albumin annually</li>
+      <li>Annual dilated eye exam</li>
+      <li>Comprehensive foot exam annually; inspect every visit</li>
+      <li>Vaccines: Flu, Pneumococcal, Hep B, COVID, Zoster</li>
+    </ul>
+  </div>
+  <div class="card full-width">
+    <div class="alert-box">
+      <strong>DKA vs HHS:</strong> DKA: glucose 250-500, pH &lt;7.3, bicarb &lt;18, ketones positive, anion gap &gt;12 - treat with insulin drip + NS + K+. HHS: glucose &gt;600, pH normal, minimal ketones, severe dehydration, AMS - aggressive IV fluids first, then insulin.
+    </div>
+  </div>
+</div>
+<footer>
+  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Diabetes Quick Guide</p>
+  <p style="margin-top:0.4rem; font-size:0.52rem;">For personal study purposes only. Not for clinical use. Sources: ADA 2024, Amboss, Open Evidence, Medicosis Perfectionalis</p>
+</footer>
+</body>
+</html>
