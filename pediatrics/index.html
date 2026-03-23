@@ -1,84 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Pediatrics – FNP Prep</title>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);min-height:100vh;color:#222}
-a{text-decoration:none;color:inherit}
-.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;border-bottom:2px solid #D7D9FB;position:sticky;top:0;z-index:100;flex-wrap:wrap}
-.top-nav .brand{font-family:'Barrio',cursive;color:#F25032;font-size:1.4rem;text-decoration:none;margin-right:1rem}
-.top-nav a{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:0.08em;color:#143D0D;text-decoration:none;padding:1rem 0.5rem;border-bottom:3px solid transparent;transition:all 0.2s}
-.top-nav a:hover{color:#F25032}
-.top-nav a.active{border-bottom:3px solid #F25032;color:#F25032}
-.hero{padding:3rem 2rem 2rem;text-align:center}
-.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:0.15em;color:#143D0D;margin-bottom:0.5rem}
-.hero h1{font-family:'Barrio',cursive;font-size:3.5rem;color:#F25032;text-shadow:3px 3px 0 #7B68EE,-1px -1px 0 #7B68EE;line-height:1.1}
-.hero p{font-size:1rem;color:#555;margin-top:0.75rem;max-width:600px;margin-left:auto;margin-right:auto}
-.section-container{max-width:1200px;margin:0 auto;padding:1rem 2rem 4rem}
-.section-title{font-family:'Barrio',cursive;font-size:2rem;color:#F25032;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem}
-.pdf-btn{background:#F25032;color:white;border:none;border-radius:10px;padding:0.6rem 1.4rem;font-family:'Aboreto',cursive;font-size:0.7rem;letter-spacing:0.1em;cursor:pointer;margin-left:auto;transition:background 0.2s}
-.pdf-btn:hover{background:#c73d20}
-/* Study guide card */
-.study-card{background:rgba(255,255,255,0.88);backdrop-filter:blur(10px);border-radius:18px;overflow:hidden;box-shadow:0 4px 22px rgba(20,61,13,0.10);margin-bottom:2rem}
-.study-card-header{padding:0.65rem 1.1rem;font-family:'Aboreto',cursive;font-size:0.68rem;letter-spacing:0.1em;color:white;display:flex;align-items:center;gap:0.5rem;text-transform:uppercase}
-.hdr-blue{background:#2563eb} .hdr-red{background:#dc2626} .hdr-purple{background:#7c3aed} .hdr-green{background:#059669} .hdr-yellow{background:#d97706} .hdr-pink{background:#db2777} .hdr-dark{background:#0f172a}
-.study-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:14px 16px}
-.sg-span2{grid-column:span 2} .sg-span3{grid-column:span 3}
-.sg-card{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;overflow:hidden}
-.sg-card-header{padding:6px 11px;font-weight:700;font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;color:white}
-.sg-card-body{padding:8px 11px;display:flex;gap:9px;align-items:flex-start}
-.sc-hb{background:#2563eb} .sc-hr{background:#dc2626} .sc-hp{background:#7c3aed} .sc-hg{background:#059669} .sc-hy{background:#d97706} .sc-hpk{background:#db2777} .sc-hdk{background:#0f172a}
-.dl{flex:1}
-.ds{margin-bottom:6px} .ds:last-child{margin-bottom:0}
-.dn{font-weight:700;font-size:10px;color:#1e3a5f;margin-bottom:1px}
-.aka{font-weight:400;font-size:8.5px;color:#64748b}
-.dd{font-size:9px;color:#334155;line-height:1.4}
-.pill{display:inline-block;padding:1px 5px;border-radius:8px;font-size:7.5px;font-weight:700;margin:1px 2px 1px 0;white-space:nowrap}
-.pb{background:#dbeafe;color:#1d4ed8} .pr{background:#fee2e2;color:#b91c1c} .pg{background:#d1fae5;color:#047857} .py{background:#fef9c3;color:#a16207} .pp{background:#ede9fe;color:#6d28d9}
-.ip{display:flex;flex-direction:column;gap:4px;min-width:88px;max-width:88px}
-.ip svg{width:100%;border-radius:6px;border:1.5px solid #e2e8f0;height:70px;display:block}
-.ic{font-size:7px;color:#64748b;text-align:center;font-weight:600}
-.sg-table{width:100%;border-collapse:collapse;font-size:8.5px}
-.sg-table th{background:#1e3a5f;color:white;padding:3.5px 6px;text-align:left;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
-.sg-table td{padding:3px 6px;border-bottom:1px solid #e2e8f0;vertical-align:top;line-height:1.3}
-.sg-table tr:nth-child(even) td{background:#f1f5f9}
-.sg-table tr:last-child td{border-bottom:none}
-.mn-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;padding:8px 11px}
-.mn-item{background:white;border:1.5px solid #e2e8f0;border-radius:7px;padding:6px 9px;text-align:center}
-.mn-l{font-size:16px;font-weight:800;color:#2563eb;line-height:1}
-.mn-w{font-size:8.5px;font-weight:700;color:#1e293b;margin:1px 0}
-.mn-d{font-size:7.5px;color:#64748b}
-.dv{border:none;border-top:1.5px dashed #e2e8f0;margin:4px 0}
-.wn{background:#fff7ed;border:1.5px solid #f97316;border-radius:6px;padding:4px 8px;font-size:8px;color:#7c2d12;margin-top:4px}
-/* Coming-soon topics below */
-.topics-section{max-width:700px;margin:1rem auto 3rem;padding:1.5rem 2rem;background:rgba(255,255,255,0.7);border-radius:18px;box-shadow:0 4px 18px rgba(20,61,13,0.07);text-align:center}
-.topics-section h3{font-family:'Barrio',cursive;font-size:1.4rem;color:#7B68EE;margin-bottom:0.75rem}
-.topics-section p{font-size:0.85rem;color:#666;margin-bottom:1rem}
-.topics-list{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center}
-.topic-tag{background:rgba(6,182,212,0.12);color:#0891b2;font-family:'Aboreto',cursive;font-size:0.62rem;letter-spacing:0.1em;padding:0.35rem 0.8rem;border-radius:999px;text-transform:uppercase}
-@media print{
-  .top-nav,.pdf-btn,.topics-section{display:none!important}
-  body{background:white}
-  .study-card{box-shadow:none;border:1px solid #e2e8f0}
-  .section-container{padding:0}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pediatrics – FNP Prep Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --steel: #3A5080;
+      --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    a { text-decoration: none; color: inherit; }
+    /* NAV */
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
+    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
+    .nav-group { display: flex; align-items: stretch; list-style: none; }
+    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
+    .nav-group li a:hover, .nav-group li a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
+    /* PAGE HEADER */
+    .page-header { max-width: 1200px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .page-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
+    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+    /* CONTENT AREA */
+    .section-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem 4rem; }
+    .section-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 2rem 0 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .pdf-btn { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 0.5rem 1.2rem; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; cursor: pointer; margin-left: auto; transition: background 0.2s; }
+    .pdf-btn:hover { background: var(--steel); }
+    /* Study cards */
+    .study-card { background: var(--surface); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(30,45,78,0.07); margin-bottom: 2rem; border: 1px solid var(--border); }
+    .study-card-header { padding: 0.65rem 1.1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; color: white; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; }
+    .hdr-blue { background: #2563eb; } .hdr-red { background: #dc2626; } .hdr-purple { background: #7c3aed; }
+    .hdr-green { background: #059669; } .hdr-yellow { background: #d97706; } .hdr-pink { background: #db2777; } .hdr-dark { background: #0f172a; }
+    .study-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 14px 16px; }
+    .sg-span2 { grid-column: span 2; } .sg-span3 { grid-column: span 3; }
+    .sg-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+    .sg-card-header { padding: 6px 11px; font-weight: 700; font-size: 9.5px; text-transform: uppercase; letter-spacing: .4px; color: white; }
+    .sg-card-body { padding: 8px 11px; display: flex; gap: 9px; align-items: flex-start; }
+    .sc-hb { background: #2563eb; } .sc-hr { background: #dc2626; } .sc-hp { background: #7c3aed; }
+    .sc-hg { background: #059669; } .sc-hy { background: #d97706; } .sc-hpk { background: #db2777; } .sc-hdk { background: #0f172a; }
+    .dl { flex: 1; }
+    .ds { margin-bottom: 6px; } .ds:last-child { margin-bottom: 0; }
+    .dn { font-weight: 700; font-size: 10px; color: #1e3a5f; margin-bottom: 1px; }
+    .aka { font-weight: 400; font-size: 8.5px; color: #64748b; }
+    .dd { font-size: 9px; color: #334155; line-height: 1.4; }
+    .pill { display: inline-block; padding: 1px 5px; border-radius: 8px; font-size: 7.5px; font-weight: 700; margin: 1px 2px 1px 0; white-space: nowrap; }
+    .pb { background: #dbeafe; color: #1d4ed8; } .pr { background: #fee2e2; color: #b91c1c; }
+    .pg { background: #d1fae5; color: #047857; } .py { background: #fef9c3; color: #a16207; }
+    .pp { background: #ede9fe; color: #6d28d9; }
+    .ip { display: flex; flex-direction: column; gap: 4px; min-width: 88px; max-width: 88px; }
+    .ip svg { width: 100%; border-radius: 6px; border: 1.5px solid #e2e8f0; height: 70px; display: block; }
+    .ic { font-size: 7px; color: #64748b; text-align: center; font-weight: 600; }
+    .sg-table { width: 100%; border-collapse: collapse; font-size: 8.5px; }
+    .sg-table th { background: #1e3a5f; color: white; padding: 3.5px 6px; text-align: left; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
+    .sg-table td { padding: 3px 6px; border-bottom: 1px solid #e2e8f0; vertical-align: top; line-height: 1.3; }
+    .sg-table tr:nth-child(even) td { background: #f1f5f9; }
+    .sg-table tr:last-child td { border-bottom: none; }
+    .mn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; padding: 8px 11px; }
+    .mn-item { background: white; border: 1.5px solid #e2e8f0; border-radius: 7px; padding: 6px 9px; text-align: center; }
+    .mn-l { font-size: 16px; font-weight: 800; color: #2563eb; line-height: 1; }
+    .mn-w { font-size: 8.5px; font-weight: 700; color: #1e293b; margin: 1px 0; }
+    .mn-d { font-size: 7.5px; color: #64748b; }
+    .dv { border: none; border-top: 1.5px dashed #e2e8f0; margin: 4px 0; }
+    .wn { background: #fff7ed; border: 1.5px solid #f97316; border-radius: 6px; padding: 4px 8px; font-size: 8px; color: #7c2d12; margin-top: 4px; }
+    /* Coming-soon topics */
+    .topics-section { max-width: 700px; margin: 1rem auto 3rem; padding: 1.5rem 2rem; background: var(--surface); border-radius: 12px; box-shadow: 0 2px 12px rgba(30,45,78,0.06); text-align: center; border: 1px solid var(--border); }
+    .topics-section h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .topics-section p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .topics-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .topic-tag { background: var(--bg2); color: var(--accent); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.35rem 0.8rem; border-radius: 999px; text-transform: uppercase; border: 1px solid var(--border); }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media print {
+      .top-nav, .pdf-btn, .topics-section { display: none !important; }
+      body { background: white; }
+      .study-card { box-shadow: none; border: 1px solid #e2e8f0; }
+      .section-container { padding: 0; }
+    }
+  </style>
 </head>
 <body>
-<nav class="top-nav">
-  <a href="../index.html" class="brand">FNP Prep</a>
-  <a href="../anatomy/index.html">Anatomy</a>
-  <a href="../physiology/index.html">Physiology</a>
-  <a href="../pathophysiology/index.html">Pathophysiology</a>
-  <a href="../pharmacology/index.html">Pharmacology</a>
-  <a href="../cases/index.html">Cases</a>
-  <a href="../tests/index.html">Tests</a>
-  <a href="../pediatrics/index.html" class="active">Pediatrics</a>
-</nav>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a class="site-brand" href="../index.html">FNP Prep Hub</a>
+      <span class="nav-group-label">Learn</span>
+      <ul class="nav-group">
+        <li><a href="../anatomy/index.html">Anatomy</a></li>
+        <li><a href="../physiology/index.html">Physiology</a></li>
+        <li><a href="../pathophysiology/index.html">Pathophys</a></li>
+        <li><a href="../pharmacology/index.html">Pharmacology</a></li>
+        <li><a href="../pediatrics/index.html" class="active">Pediatrics</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Tools</span>
+      <ul class="nav-group">
+        <li><a href="../cases/index.html">Cases</a></li>
+        <li><a href="../flowcharts/index.html">Flowcharts</a></li>
+        <li><a href="../pharmacology/index.html">Drug Ref</a></li>
+        <li><a href="../quickguides/index.html">Quick Guides</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Practice</span>
+      <ul class="nav-group">
+        <li><a href="../tests/index.html">Mock Exams</a></li>
+        <li><a href="../flashcards/index.html">Flashcards</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1 class="page-title">Pediatrics</h1>
+    <p class="page-sub">Growth &amp; development, common pediatric conditions &amp; board-tested topics for FNP exam success</p>
+    <div class="accent-line"></div>
+  </div>
 <div class="hero">
   <div class="tag">PEDIATRICS</div>
   <h1>Peds Board Prep</h1>
@@ -230,9 +271,9 @@ a{text-decoration:none;color:inherit}
     <span class="topic-tag">Congenital Conditions</span>
   </div>
 </div>
-
-<footer style="text-align:center;padding:2rem;font-family:'Aboreto',sans-serif;font-size:0.62rem;letter-spacing:0.1em;color:#143D0D;opacity:0.5;border-top:1px solid rgba(20,61,13,0.08)">
-  <p>FNP Board Exam Prep &nbsp;&#9673;&nbsp; Built for NP Students</p>
-</footer>
+  <footer>
+    <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
+    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
+  </footer>
 </body>
 </html>
