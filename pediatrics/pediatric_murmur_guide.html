@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Murmurs | FNP Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.13);
+      --navy: #1E2D4E; --steel: #3A5080; --slate: #4A5568; --muted: #718096;
+      --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A; --soft: #EEF4F9; --warn: #FFF5F5;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 52px; position: sticky; top: 0; z-index: 100; overflow-x: auto; }
+    .top-nav a { text-decoration: none; color: var(--slate); font-size: 0.875rem; font-weight: 500; white-space: nowrap; }
+    .top-nav a:hover { color: var(--accent); }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); margin-right: auto; white-space: nowrap; }
+    .page-header { max-width: 1100px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.75rem, 3vw, 2.4rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .page-subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 0.35rem; max-width: 760px; line-height: 1.6; }
+    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem; margin-bottom: 1.2rem; }
+    .panel, .tip-box, .table-wrap, .quiz-card, .memory-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(30,45,78,0.05);
+    }
+    .panel { padding: 1.4rem 1.5rem; }
+    .panel h2, .tip-box h3, .table-wrap h3, .section-title, .quiz-card h3, .memory-card h3 {
+      color: var(--navy); font-weight: 800;
+    }
+    .panel h2 { font-size: 1rem; margin-bottom: 0.7rem; }
+    .panel p, .tip-box li, .quiz-card p, .memory-card li { color: var(--slate); line-height: 1.65; font-size: 0.92rem; }
+    .tip-box { padding: 1.25rem 1.5rem; }
+    .tip-box ul, .memory-card ul { list-style: none; padding: 0; }
+    .tip-box li, .memory-card li { padding: 0.22rem 0 0.22rem 1rem; position: relative; }
+    .tip-box li::before, .memory-card li::before { content: ''; position: absolute; left: 0; top: 0.72rem; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .section-label { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 0.75rem; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .murmur-card {
+      background: var(--surface); border-radius: 12px; padding: 1.25rem; border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(30,45,78,0.05); position: relative; overflow: hidden;
+    }
+    .murmur-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent2); }
+    .murmur-card h3 { font-size: 1rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .murmur-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.7rem; }
+    .murmur-card p { font-size: 0.88rem; line-height: 1.6; color: var(--slate); }
+    .analogy { background: var(--soft); border-radius: 10px; padding: 0.7rem 0.8rem; margin: 0.8rem 0 0.7rem; font-weight: 600; color: var(--steel); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
+    .tag { padding: 0.16rem 0.5rem; border-radius: 20px; font-size: 0.68rem; font-weight: 700; background: var(--soft); color: var(--accent); }
+    .table-wrap { padding: 1.2rem 1.2rem 1rem; overflow-x: auto; }
+    .table-wrap h3 { font-size: 1rem; margin-bottom: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td { text-align: left; padding: 0.8rem 0.75rem; border-top: 1px solid var(--border); vertical-align: top; }
+    th { font-size: 0.76rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; border-top: none; }
+    td { font-size: 0.88rem; color: var(--slate); line-height: 1.5; }
+    .callout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .quiz-card, .memory-card { padding: 1.15rem 1.2rem; }
+    .quiz-card h3, .memory-card h3 { font-size: 0.98rem; margin-bottom: 0.6rem; }
+    .answer { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--border); font-weight: 700; color: var(--steel); }
+    .memory-card { background: linear-gradient(180deg, #ffffff 0%, #f9fbfe 100%); }
+    .danger { background: var(--warn); }
+    .footer { text-align: center; font-size: 0.75rem; color: var(--muted); padding: 2.5rem 2rem; border-top: 1px solid var(--border); margin-top: 2rem; line-height: 1.8; }
+    .footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <span class="site-brand">FNP Prep Hub</span>
+    <a href="../index.html">Home</a>
+    <a href="../anatomy/index.html">Anatomy</a>
+    <a href="../physiology/index.html">Physiology</a>
+    <a href="../pathophysiology/index.html">Pathophys</a>
+    <a href="../pharmacology/index.html">Pharmacology</a>
+    <a href="../pediatrics/index.html" style="color:var(--accent);border-bottom:2px solid var(--accent);">Pediatrics</a>
+    <a href="../cases/index.html">Cases</a>
+    <a href="../flowcharts/index.html">Flowcharts</a>
+    <a href="../quickguides/index.html">Quick Guides</a>
+    <a href="../tests/index.html">Mock Exams</a>
+    <a href="../flashcards/index.html">Flashcards</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-title">Pediatric Murmurs</div>
+    <div class="page-subtitle">Story-based analogies, a fast clinical approach, and board-style practice cases to make murmur patterns stick.</div>
+    <div class="accent-line"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div class="panel">
+        <h2>Heart Murmur Master Image</h2>
+        <p>Think of the heart like a house with doors and pipes. Valves are doors. Blood flow is people moving through rooms. Murmurs are traffic problems. Tight doors create pushing sounds. Leaky doors create backflow sounds. Holes create hissing. A machine that never turns off is PDA.</p>
+      </div>
+      <div class="tip-box">
+        <h3>Fast Rules</h3>
+        <ul>
+          <li>Systolic usually means stenosis or regurgitation</li>
+          <li>Diastolic is pathologic until proven otherwise</li>
+          <li>Continuous should make you think PDA first</li>
+          <li>Musical in a healthy child often means innocent murmur</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-label">Analogies</div>
+    <div class="cards-grid">
+      <article class="murmur-card">
+        <h3>Aortic Stenosis</h3>
+        <div class="murmur-meta">Systolic • RUSB • radiates to carotids</div>
+        <div class="analogy">Trying to blow air through a tiny coffee stirrer</div>
+        <p>Blood is forced out through a very tight exit. Think harsh, squeezing, and pressure building before it escapes.</p>
+        <div class="tag-row"><span class="tag">Harsh</span><span class="tag">Crescendo-decrescendo</span><span class="tag">Tight door</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Pulmonic Stenosis</h3>
+        <div class="murmur-meta">Systolic • LUSB</div>
+        <div class="analogy">Kids trying to run out through a narrow playground gate</div>
+        <p>Same traffic jam idea as aortic stenosis, but on the right side of the heart.</p>
+        <div class="tag-row"><span class="tag">LUSB</span><span class="tag">Outflow</span><span class="tag">Stenosis</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Mitral Regurgitation</h3>
+        <div class="murmur-meta">Holosystolic • Apex • radiates to axilla</div>
+        <div class="analogy">A door that will not close, so people leak back into the room</div>
+        <p>During systole, blood should go forward. Instead, some slips backward into the left atrium the whole time.</p>
+        <div class="tag-row"><span class="tag">Blowing</span><span class="tag">Backflow</span><span class="tag">Leaky door</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Ventricular Septal Defect</h3>
+        <div class="murmur-meta">Holosystolic • LLSB</div>
+        <div class="analogy">A small drill hole in the wall between two rooms</div>
+        <p>Pressure shoots through a septal hole and creates a sharp hissing sound. Small VSDs can be surprisingly loud.</p>
+        <div class="tag-row"><span class="tag">Hiss</span><span class="tag">LLSB</span><span class="tag">Small hole louder</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Still's Murmur</h3>
+        <div class="murmur-meta">Innocent • musical • often LLSB</div>
+        <div class="analogy">A soft wind chime in an open window</div>
+        <p>Vibratory and musical, often heard in healthy children. The child otherwise looks well.</p>
+        <div class="tag-row"><span class="tag">Musical</span><span class="tag">Benign</span><span class="tag">Position-sensitive</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Aortic Regurgitation</h3>
+        <div class="murmur-meta">Early diastolic • left sternal border</div>
+        <div class="analogy">A broken faucet dripping back into the ventricle</div>
+        <p>After blood leaves, it returns because the valve does not seal.</p>
+        <div class="tag-row"><span class="tag">Diastolic</span><span class="tag">Bounding pulses</span><span class="tag">Backflow</span></div>
+      </article>
+
+      <article class="murmur-card">
+        <h3>Patent Ductus Arteriosus</h3>
+        <div class="murmur-meta">Continuous • infraclavicular / left upper chest</div>
+        <div class="analogy">A machine that never turns off</div>
+        <p>The sound keeps going in systole and diastole because flow continues through the ductus.</p>
+        <div class="tag-row"><span class="tag">Machinery</span><span class="tag">Continuous</span><span class="tag">Pediatric classic</span></div>
+      </article>
+    </div>
+
+    <div class="section-label">Quick Reference</div>
+    <div class="table-wrap">
+      <h3>Cheat Sheet</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Murmur</th>
+            <th>Timing / Sound</th>
+            <th>Best Location</th>
+            <th>Radiation / Clue</th>
+            <th>Memory Hook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aortic stenosis</td>
+            <td>Harsh crescendo-decrescendo systolic</td>
+            <td>RUSB</td>
+            <td>To carotids</td>
+            <td>Tiny coffee stirrer</td>
+          </tr>
+          <tr>
+            <td>Pulmonic stenosis</td>
+            <td>Crescendo-decrescendo systolic</td>
+            <td>LUSB</td>
+            <td>Right-sided outflow obstruction</td>
+            <td>Narrow playground gate</td>
+          </tr>
+          <tr>
+            <td>Mitral regurgitation</td>
+            <td>Blowing holosystolic</td>
+            <td>Apex</td>
+            <td>To axilla</td>
+            <td>Leaky door</td>
+          </tr>
+          <tr>
+            <td>VSD</td>
+            <td>Harsh holosystolic</td>
+            <td>LLSB</td>
+            <td>Small defect can be louder</td>
+            <td>Hiss through wall hole</td>
+          </tr>
+          <tr>
+            <td>Still's murmur</td>
+            <td>Musical, vibratory systolic</td>
+            <td>LLSB</td>
+            <td>Healthy child, often changes with position</td>
+            <td>Wind chime</td>
+          </tr>
+          <tr>
+            <td>Aortic regurgitation</td>
+            <td>Early diastolic decrescendo</td>
+            <td>LSB</td>
+            <td>Bounding pulses</td>
+            <td>Broken faucet</td>
+          </tr>
+          <tr>
+            <td>Mitral stenosis</td>
+            <td>Low rumble with opening snap</td>
+            <td>Apex</td>
+            <td>Diastolic filling problem</td>
+            <td>Milkshake through tiny straw</td>
+          </tr>
+          <tr>
+            <td>PDA</td>
+            <td>Continuous machinery</td>
+            <td>Left upper chest</td>
+            <td>Classic continuous murmur</td>
+            <td>Machine that never stops</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-label">30-Second Board Approach</div>
+    <div class="callout-grid">
+      <div class="memory-card">
+        <h3>1. Timing</h3>
+        <ul>
+          <li>Systolic: stenosis or regurgitation are most likely</li>
+          <li>Diastolic: stop and treat as pathologic</li>
+          <li>Continuous: think PDA first</li>
+        </ul>
+      </div>
+      <div class="memory-card">
+        <h3>2. Sound</h3>
+        <ul>
+          <li>Harsh crescendo-decrescendo: stenosis</li>
+          <li>Blowing holosystolic: MR or VSD</li>
+          <li>Musical: Still's murmur</li>
+        </ul>
+      </div>
+      <div class="memory-card">
+        <h3>3. Location + Radiation</h3>
+        <ul>
+          <li>RUSB: aortic</li>
+          <li>LUSB: pulmonic</li>
+          <li>LLSB: VSD or Still's</li>
+          <li>Apex to axilla: mitral regurgitation</li>
+        </ul>
+      </div>
+      <div class="memory-card danger">
+        <h3>Red Flags</h3>
+        <ul>
+          <li>Any diastolic murmur</li>
+          <li>Cyanosis or syncope</li>
+          <li>Failure to thrive</li>
+          <li>Weak or unequal pulses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-label">Practice Cases</div>
+    <div class="quiz-grid">
+      <article class="quiz-card">
+        <h3>Case 1</h3>
+        <p>A 6-year-old has a harsh crescendo-decrescendo systolic murmur at the right upper sternal border that radiates to the carotids.</p>
+        <div class="answer">Answer: Aortic stenosis</div>
+      </article>
+      <article class="quiz-card">
+        <h3>Case 2</h3>
+        <p>A toddler has a continuous murmur heard best just under the clavicle.</p>
+        <div class="answer">Answer: PDA</div>
+      </article>
+      <article class="quiz-card">
+        <h3>Case 3</h3>
+        <p>A healthy 4-year-old has a soft musical murmur at the left lower sternal border that becomes quieter when standing.</p>
+        <div class="answer">Answer: Still's murmur</div>
+      </article>
+      <article class="quiz-card">
+        <h3>Case 4</h3>
+        <p>An infant has a loud holosystolic murmur at the left lower sternal border.</p>
+        <div class="answer">Answer: VSD</div>
+      </article>
+      <article class="quiz-card">
+        <h3>Case 5</h3>
+        <p>A blowing holosystolic murmur is heard at the apex and radiates to the axilla.</p>
+        <div class="answer">Answer: Mitral regurgitation</div>
+      </article>
+      <article class="quiz-card">
+        <h3>Case 6</h3>
+        <p>An early diastolic decrescendo murmur is heard with bounding pulses.</p>
+        <div class="answer">Answer: Aortic regurgitation</div>
+      </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>FNP Board Exam Prep — Built for NP Students</p>
+    <p>Educational study content only. Not for clinical decision-making.</p>
+    <p>You can drop this page into your site and adjust nav links as needed.</p>
+  </footer>
+</body>
+</html>
