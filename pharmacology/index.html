@@ -1,58 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Pharmacology – FNP Prep</title>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
-.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.6rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
-.top-nav .brand{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;text-decoration:none;margin-right:auto;}
-.top-nav a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.3rem 0.7rem;border-radius:20px;transition:background 0.2s;}
-.top-nav a:hover{background:rgba(242,80,50,0.1);}
-.top-nav a.active{background:#F25032;color:#fff;}
-.hero{text-align:center;padding:3rem 1rem 2rem;}
-.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;margin-bottom:0.5rem;}
-.hero h1{font-family:'Barrio',cursive;font-size:3.5rem;color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);}
-.hero p{max-width:600px;margin:0.8rem auto 0;font-size:1.05rem;color:#555;}
-.grid-section{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 4rem;}
-.organ-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;}
-.organ-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-radius:16px;padding:1.5rem 1rem;text-align:center;text-decoration:none;color:#2d2d2d;border:1.5px solid rgba(114,78,147,0.15);box-shadow:0 4px 15px rgba(0,0,0,0.07);transition:transform 0.2s,box-shadow 0.2s;}
-.organ-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.13);}
-.organ-card .icon{font-size:2.8rem;margin-bottom:0.6rem;}
-.organ-card h3{font-family:'Aboreto',cursive;font-size:0.85rem;letter-spacing:2px;color:#143D0D;margin-bottom:0.4rem;}
-.organ-card p{font-size:0.8rem;color:#666;line-height:1.4;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacology – FNP Prep Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --steel: #3A5080;
+      --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
+    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
+    .nav-group { display: flex; align-items: stretch; list-style: none; }
+    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
+    .nav-group li a:hover, .nav-group li a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
+    .page-header { max-width: 1200px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .page-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
+    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .subject-card { background: var(--surface); border-radius: 12px; padding: 1.4rem 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(30,45,78,0.05); transition: all 0.22s; display: flex; flex-direction: column; gap: 0.3rem; position: relative; overflow: hidden; }
+    .subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent2); opacity: 0; transition: opacity 0.22s; }
+    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(30,45,78,0.11); border-color: var(--accent2); }
+    .subject-card:hover::before { opacity: 1; }
+    .subject-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .subject-desc { font-size: 0.78rem; color: var(--slate); line-height: 1.5; margin-top: 0.2rem; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
 </head>
 <body>
-<nav class="top-nav">
-  <a href="../index.html" class="brand">🌿 FNP Prep</a>
-  <a href="../anatomy/index.html">Anatomy</a>
-  <a href="../physiology/index.html">Physiology</a>
-  <a href="../pathophysiology/index.html">Pathophysiology</a>
-  <a href="../pharmacology/index.html" class="active">Pharmacology</a>
-  <a href="../cases/index.html">Cases</a>
-  <a href="../tests/index.html">Tests</a>
-</nav>
-<div class="hero">
-  <div class="tag">FNP Board Prep</div>
-  <h1>Pharmacology</h1>
-  <p>Drug classes, mechanisms, side effects, and clinical pearls — organized by body system.</p>
-</div>
-<div class="grid-section">
-  <div class="organ-grid">
-    <a href="liver.html" class="organ-card"><div class="icon">🫀</div><h3>Liver</h3><p>Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol</p></a>
-    <a href="gallbladder.html" class="organ-card"><div class="icon">🟡</div><h3>Gallbladder</h3><p>Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics</p></a>
-    <a href="pancreas.html" class="organ-card"><div class="icon">🧬</div><h3>Pancreas</h3><p>Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes</p></a>
-    <a href="kidney.html" class="organ-card"><div class="icon">🫘</div><h3>Kidney</h3><p>Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer</p></a>
-    <a href="heart.html" class="organ-card"><div class="icon">❤️</div><h3>Heart</h3><p>Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets</p></a>
-    <a href="lungs.html" class="organ-card"><div class="icon">🫁</div><h3>Lungs</h3><p>SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics</p></a>
-    <a href="neuro.html" class="organ-card"><div class="icon">🧠</div><h3>Neuro</h3><p>AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs</p></a>
-    <a href="gu.html" class="organ-card"><div class="icon">🔬</div><h3>GU / Repro</h3><p>OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium</p></a>
-    <a href="skin.html" class="organ-card"><div class="icon">🩹</div><h3>Skin</h3><p>Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals</p></a>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a class="site-brand" href="../index.html">FNP Prep Hub</a>
+      <span class="nav-group-label">Learn</span>
+      <ul class="nav-group">
+        <li><a href="../anatomy/index.html">Anatomy</a></li>
+        <li><a href="../physiology/index.html">Physiology</a></li>
+        <li><a href="../pathophysiology/index.html">Pathophys</a></li>
+        <li><a href="../pharmacology/index.html" class="active">Pharmacology</a></li>
+        <li><a href="../pediatrics/index.html">Pediatrics</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Tools</span>
+      <ul class="nav-group">
+        <li><a href="../cases/index.html">Cases</a></li>
+        <li><a href="../flowcharts/index.html">Flowcharts</a></li>
+        <li><a href="../pharmacology/index.html" class="active">Drug Ref</a></li>
+        <li><a href="../quickguides/index.html">Quick Guides</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Practice</span>
+      <ul class="nav-group">
+        <li><a href="../tests/index.html">Mock Exams</a></li>
+        <li><a href="../flashcards/index.html">Flashcards</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1 class="page-title">Pharmacology</h1>
+    <p class="page-sub">Drug classes, mechanisms, side effects &amp; contraindications — organized by body system</p>
+    <div class="accent-line"></div>
   </div>
-</div>
+
+  <div class="container">
+    <div class="cards-grid">
+      <a class="subject-card" href="liver.html">
+        <div class="subject-name">Liver</div>
+        <div class="subject-desc">Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol.</div>
+      </a>
+      <a class="subject-card" href="gallbladder.html">
+        <div class="subject-name">Gallbladder</div>
+        <div class="subject-desc">Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics.</div>
+      </a>
+      <a class="subject-card" href="pancreas.html">
+        <div class="subject-name">Pancreas</div>
+        <div class="subject-desc">Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes.</div>
+      </a>
+      <a class="subject-card" href="kidney.html">
+        <div class="subject-name">Kidney</div>
+        <div class="subject-desc">Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer.</div>
+      </a>
+      <a class="subject-card" href="heart.html">
+        <div class="subject-name">Heart</div>
+        <div class="subject-desc">Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets.</div>
+      </a>
+      <a class="subject-card" href="lungs.html">
+        <div class="subject-name">Lungs</div>
+        <div class="subject-desc">SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics.</div>
+      </a>
+      <a class="subject-card" href="neuro.html">
+        <div class="subject-name">Neuro</div>
+        <div class="subject-desc">AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs.</div>
+      </a>
+      <a class="subject-card" href="gu.html">
+        <div class="subject-name">GU / Repro</div>
+        <div class="subject-desc">OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium.</div>
+      </a>
+      <a class="subject-card" href="skin.html">
+        <div class="subject-name">Skin</div>
+        <div class="subject-desc">Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals.</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
+    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
+  </footer>
 </body>
 </html>
