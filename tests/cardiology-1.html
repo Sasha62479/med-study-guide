@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiology Set 1 | FNP Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #F0F2F7; --surface: #FFFFFF; --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE; --text: #2D3748; --green: #2E7D6A; --red: #C53030; }
+          body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 52px; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+    .top-nav a { text-decoration: none; color: var(--slate); font-size: 0.875rem; font-weight: 500; }
+    .top-nav a:hover { color: var(--accent); }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); margin-right: auto; }
+    .page-header { max-width: 800px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
+    .back-link { font-size: 0.8rem; color: var(--accent); text-decoration: none; margin-bottom: 1rem; display: inline-block; }
+    .page-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--navy); }
+    .page-subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; }
+    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .question-block { background: var(--surface); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(30,45,78,0.05); }
+    .q-number { font-size: 0.7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+    .q-stem { font-size: 0.97rem; font-weight: 600; color: var(--navy); line-height: 1.6; margin-bottom: 1rem; }
+    .options { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+    .option { padding: 0.65rem 1rem; border-radius: 8px; border: 1.5px solid var(--border); font-size: 0.88rem; color: var(--slate); cursor: pointer; transition: all 0.18s; }
+    .option:hover { border-color: var(--accent2); background: #F0F5FF; }
+    .option.correct { background: #E8F5F0; border-color: var(--green); color: var(--green); font-weight: 600; }
+        .reveal-btn { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 0.5rem 1.2rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
+    .explanation { display: none; margin-top: 1rem; padding: 1rem 1.2rem; background: #F0F5FF; border-radius: 8px; border-left: 3px solid var(--accent); font-size: 0.85rem; color: var(--slate); line-height: 1.7; }
+    .explanation.show { display: block; }
+    .explanation strong { color: var(--navy); }
+        .progress-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+    .progress-label { font-size: 0.8rem; font-weight: 600; color: var(--navy); white-space: nowrap; }
+    .progress-track { flex: 1; height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; }
+    .footer { text-align: center; font-size: 0.75rem; color: var(--muted); padding: 2.5rem 2rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="site-brand">FNP Prep Hub</span>
+  <a href="../index.html">Home</a>
+  <a href="../anatomy/index.html">Anatomy</a>
+  <a href="../physiology/index.html">Physiology</a>
+        <a href="../pathophysiology/index.html">Pathophys</a>
+      <a href="../pharmacology/index.html">Pharmacology</a>
+      <a href="../pediatrics/index.html">Pediatrics</a>
+      <a href="../cases/index.html">Cases</a>
+      <a href="../tests/index.html" style="color:var(--accent);">Mock Exams</a>
+    </nav>
+    <div class="page-header">
+      <a class="back-link" href="index.html">Back to Mock Exams</a>
+      <div class="page-title">Cardiology - Set 1</div>
+      <div class="page-subtitle">10 questions: HTN, Heart Failure, ACS, Arrhythmias, AHA/ACC guidelines</div>
+      <div class="accent-line"></div>
+    </div>
+    <div class="container">
+      <div class="progress-bar">
+        <span class="progress-label" id="prog-label">0 / 10 revealed</span>
+        <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 1</div>
+        <div class="q-stem">A 58-year-old with hypertension AND type 2 diabetes has BP 158/96 on two visits. No antihypertensive yet. What is the MOST appropriate first-line medication?</div>
+        <ul class="options">
+          <li class="option">A. Metoprolol</li>
+          <li class="option correct">B. Lisinopril (ACE inhibitor)</li>
+          <li class="option">C. Amlodipine</li>
+          <li class="option">D. Hydrochlorothiazide</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: B. Lisinopril.</strong> In HTN + DM, ACE inhibitors (or ARBs) are first-line due to renoprotective effects - reduce proteinuria and slow CKD progression. If ACE-I not tolerated (cough), switch to ARB (losartan). JNC 8 and ADA guidelines support this choice.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 2</div>
+        <div class="q-stem">A 70-year-old with HFrEF (EF 35%) has worsening dyspnea, orthopnea, +2 pitting edema. Which medication REDUCES MORTALITY in HFrEF?</div>
+    <ul class="options">
+      <li class="option">A. Furosemide</li>
+      <li class="option">B. Digoxin</li>
+          <li class="option correct">C. Carvedilol (beta-blocker)</li>
+          <li class="option">D. Amlodipine</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Carvedilol.</strong> Mortality-reducing meds in HFrEF: ACE-I/ARB, beta-blockers (carvedilol, metoprolol succinate, bisoprolol), aldosterone antagonists (spironolactone), ARNI (sacubitril/valsartan), SGLT2 inhibitors. Furosemide relieves symptoms only. Digoxin reduces hospitalizations but NOT mortality.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 3</div>
+    <div class="q-stem">A 62-year-old has crushing substernal chest pain radiating to left arm, diaphoresis, nausea x 45 min. ECG shows ST elevation in leads II, III, aVF. Diagnosis?</div>
+        <ul class="options">
+          <li class="option">A. Anterior STEMI</li>
+          <li class="option">B. Unstable angina</li>
+          <li class="option correct">C. Inferior STEMI</li>
+          <li class="option">D. NSTEMI</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Inferior STEMI.</strong> ST elevation in II, III, aVF = inferior wall MI (RCA territory). Anterior STEMI: V1-V4 (LAD). Lateral: I, aVL, V5-V6. Management: activate cath lab, aspirin + P2Y12 inhibitor, heparin, primary PCI within 90 minutes. NSTEMI has NO ST elevation.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 4</div>
+        <div class="q-stem">A 72-year-old woman with HTN has irregularly irregular HR 88. ECG: no P waves, irregular ventricular rhythm. No contraindications to anticoagulation. Best next step?</div>
+    <ul class="options">
+      <li class="option">A. Aspirin only</li>
+      <li class="option">B. Rate control with metoprolol only</li>
+      <li class="option correct">C. Calculate CHA2DS2-VASc score and initiate anticoagulation</li>
+      <li class="option">D. Immediate cardioversion</li>
+    </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. CHA2DS2-VASc then anticoagulation.</strong> This is atrial fibrillation. CHA2DS2-VASc: CHF, HTN, age 65-74, DM, vascular disease, female (1 pt each); age 75+, prior stroke (2 pts). Score 2+ in men or 3+ in women: anticoagulate (DOACs preferred over warfarin). Aspirin alone is no longer recommended for AF stroke prevention.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 5</div>
+        <div class="q-stem">Patient on HCTZ for HTN has K+ 3.1 mEq/L on labs (normal 3.5-5.0). Most appropriate next step?</div>
+    <ul class="options">
+      <li class="option">A. Stop HCTZ and switch antihypertensives</li>
+      <li class="option">B. Add spironolactone immediately</li>
+      <li class="option correct">C. Potassium supplementation + dietary counseling; continue HCTZ</li>
+          <li class="option">D. No action; expected side effect</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C.</strong> Thiazides cause hypokalemia (increase urinary K+ excretion). K+ 3.1 is mildly low. First: oral K+ supplement + dietary counseling (bananas, greens). No need to stop HCTZ for mild hypokalemia. Consider adding ACE-I or spironolactone if severely low. Always recheck after supplementation.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 6</div>
+        <div class="q-stem">A 55-year-old with established CAD (prior MI) has LDL 88 mg/dL on high-intensity statin. What is the ACC/AHA LDL goal for secondary prevention ASCVD?</div>
+    <ul class="options">
+      <li class="option">A. LDL &lt; 130 mg/dL</li>
+          <li class="option">B. LDL &lt; 100 mg/dL</li>
+          <li class="option correct">C. LDL &lt; 70 mg/dL</li>
+          <li class="option">D. LDL &lt; 55 mg/dL</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. LDL &lt;70 mg/dL</strong> for very high-risk ASCVD (established CAD, prior MI, stroke). This patient at 88 is not at goal. Next step: add ezetimibe, then PCSK9 inhibitor if still not at goal. Some guidelines now suggest &lt;55 for very-high-risk patients.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 7</div>
+        <div class="q-stem">A 66-year-old with HTN, DM, HFrEF (EF 30%) develops persistent dry cough on lisinopril. Best alternative?</div>
+        <ul class="options">
+          <li class="option">A. Amlodipine</li>
+          <li class="option">B. Metoprolol succinate</li>
+          <li class="option correct">C. Losartan (ARB)</li>
+          <li class="option">D. Hydrochlorothiazide</li>
+        </ul>
+        <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Losartan (ARB).</strong> ACE-I-induced cough = bradykinin accumulation (~15% of patients). ARBs block angiotensin II receptor; NO bradykinin buildup, no cough. Same mortality benefit in HFrEF and renoprotection in DM. Do NOT combine ACE-I + ARB.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 8</div>
+        <div class="q-stem">A healthy 45-year-old has BP 148/92 on three occasions. Exercises regularly, non-smoker, no DM/CKD/ASCVD. First-line management?</div>
+        <ul class="options">
+          <li class="option">A. Start lisinopril immediately</li>
+      <li class="option">B. Refer to cardiology</li>
+      <li class="option correct">C. Lifestyle modification for 3-6 months before medication</li>
+      <li class="option">D. 24-hour ABPM only</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Lifestyle modification first.</strong> Stage 1 HTN (130-139/80-89) in LOW-RISK patients (no ASCVD, DM, CKD, or 10-year risk &lt;10%): lifestyle modification x 3-6 months before medication. DASH diet, sodium &lt;2.3g/day, exercise 150 min/week, weight loss, alcohol reduction.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 9</div>
+        <div class="q-stem">ECG shows narrow-complex tachycardia 175 bpm, no P waves, BP 110/70, stable. FIRST-LINE acute treatment?</div>
+        <ul class="options">
+          <li class="option">A. Synchronized cardioversion</li>
+          <li class="option">B. IV amiodarone</li>
+          <li class="option correct">C. Vagal maneuvers, then IV adenosine 6mg</li>
+      <li class="option">D. IV metoprolol</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Vagal maneuvers then adenosine.</strong> SVT (likely AVNRT). Stable SVT algorithm: (1) Vagal maneuvers (Valsalva, carotid massage), (2) IV adenosine 6mg rapid push - transiently blocks AV node to break re-entry. If no response: 12mg adenosine. Cardioversion for UNSTABLE SVT only.</div>
+      </div>
+      <div class="question-block">
+        <div class="q-number">Question 10</div>
+        <div class="q-stem">Patient with stable angina on nitrates is prescribed sildenafil by another provider for ED. Primary concern?</div>
+        <ul class="options">
+          <li class="option">A. Increased MI risk</li>
+          <li class="option">B. QT prolongation</li>
+          <li class="option correct">C. Severe life-threatening hypotension</li>
+      <li class="option">D. Hyperkalemia</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+        <div class="explanation"><strong>Correct: C. Severe hypotension.</strong> Nitrates + PDE5 inhibitors (sildenafil, tadalafil, vardenafil) = ABSOLUTE CONTRAINDICATION. Both are vasodilators; combined effect causes life-threatening hypotension. A critical high-yield drug interaction for boards. If patient needs both angina treatment and ED treatment, switch nitrate to beta-blocker or CCB.</div>
+      </div>
+    </div>
+    <footer class="footer">FNP Board Exam Prep - Built for NP Students. Content for personal study only. Not for clinical use.</footer>
+<script>
+  let revealed = 0;
+  function reveal(btn) {
+        const block = btn.closest('.question-block');
+    const exp = block.querySelector('.explanation');
+    if (!exp.classList.contains('show')) { exp.classList.add('show'); btn.textContent = 'Hide'; revealed++; }
+    else { exp.classList.remove('show'); btn.textContent = 'Reveal Answer'; revealed--; }
+    const total = document.querySelectorAll('.question-block').length;
+    document.getElementById('prog-label').textContent = revealed + ' / ' + total + ' revealed';
+    document.getElementById('prog-fill').style.width = (revealed/total*100) + '%';
+  }
+</script>
+  </body>
+  </html>
