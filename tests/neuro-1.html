@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neurology Set 1 | FNP Prep Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1E2D4E;
+    --accent: #4A7FA5;
+    --accent2: #6B8CBE;
+    --bg: #F0F2F7;
+    --green: #2E7D6A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1a1a2e; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy); display: flex; flex-wrap: wrap;
+    gap: 4px; padding: 10px 20px;
+  }
+  nav a {
+    color: #cbd5e1; text-decoration: none; font-size: 0.8rem;
+    padding: 4px 10px; border-radius: 4px; transition: background 0.2s;
+  }
+  nav a:hover { background: var(--accent); color: #fff; }
+  .page-header {
+    background: linear-gradient(135deg, var(--navy), var(--accent));
+    color: #fff; padding: 40px 20px 30px; text-align: center;
+  }
+  .page-header .back-link { color: #a0c4e0; font-size: 0.85rem; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .page-header .back-link:hover { color: #fff; }
+  .page-header h1 { font-size: 2rem; font-weight: 700; }
+  .page-header p { margin-top: 6px; color: #c8dff0; font-size: 0.95rem; }
+  .accent-line { width: 60px; height: 4px; background: var(--accent2); border-radius: 2px; margin: 14px auto 0; }
+  .progress-bar-wrap { max-width: 720px; margin: 24px auto 0; padding: 0 20px; }
+  .prog-label { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
+  .prog-track { background: #dde3ec; border-radius: 8px; height: 10px; overflow: hidden; }
+  .prog-fill { height: 10px; background: var(--green); border-radius: 8px; width: 0%; transition: width 0.4s; }
+  .container { max-width: 720px; margin: 30px auto 60px; padding: 0 20px; }
+  .question-block {
+    background: #fff; border-radius: 12px; padding: 24px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--accent);
+  }
+  .q-number { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .q-stem { font-size: 1rem; line-height: 1.6; margin-bottom: 16px; }
+  .options { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .options li {
+    padding: 10px 14px; background: #f5f7fa; border-radius: 8px;
+    border: 2px solid transparent; font-size: 0.92rem; cursor: default;
+  }
+  .options li.correct {
+    background: #e8f5e9 !important; border-color: var(--green) !important;
+    color: #1b5e20; font-weight: 600;
+  }
+  .reveal-btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 0.88rem;
+    font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .reveal-btn:hover { background: var(--navy); }
+  .explanation {
+    display: none; margin-top: 14px; padding: 14px;
+    background: #f0f6ff; border-radius: 8px;
+    font-size: 0.9rem; line-height: 1.6; color: #333;
+    border-left: 4px solid var(--accent2);
+  }
+  footer {
+    text-align: center; padding: 24px;
+    font-size: 0.8rem; color: #888;
+    border-top: 1px solid #dde3ec;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html">Home</a>
+  <a href="../anatomy/">Anatomy</a>
+  <a href="../physiology/">Physiology</a>
+  <a href="../pathophysiology/">Pathophysiology</a>
+  <a href="../pharmacology/">Pharmacology</a>
+  <a href="../cases/">Cases</a>
+  <a href="../flowcharts/">Flowcharts</a>
+  <a href="../quickguides/">Quick Guides</a>
+  <a href="index.html">Mock Exams</a>
+</nav>
+<div class="page-header">
+  <a href="index.html" class="back-link">&larr; Back to Mock Exams</a>
+  <h1>Neurology &mdash; Set 1</h1>
+  <p>10 board-style FNP questions &bull; AANP / ANCC</p>
+  <div class="accent-line"></div>
+</div>
+<div class="progress-bar-wrap">
+  <div class="prog-label" id="prog-label">0 / 10 revealed</div>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+</div>
+<div class="container">
+  <div class="question-block">
+    <div class="q-number">Question 1</div>
+    <div class="q-stem">A 34-year-old woman presents with a 2-year history of recurrent severe unilateral headaches lasting 6-18 hours, preceded by seeing zigzag lines. She rates pain 9/10, associated with nausea and photophobia. Neurological exam is normal. Which is the MOST appropriate initial pharmacologic treatment for an acute attack?</div>
+    <ul class="options">
+      <li>A. Acetaminophen 1000 mg PO</li>
+      <li class="correct">B. Sumatriptan 100 mg PO at onset</li>
+      <li>C. Propranolol 40 mg PO daily</li>
+      <li>D. Verapamil 80 mg PO TID</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>B is correct.</strong> Triptans are first-line abortive therapy for moderate-to-severe migraine. A (acetaminophen) is for mild migraine. C (propranolol) is a preventive agent. D (verapamil) is for cluster headache prevention, not migraine abortive therapy.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 2</div>
+    <div class="q-stem">A 68-year-old male with hypertension and atrial fibrillation on warfarin presents with sudden-onset left arm weakness and slurred speech that began 90 minutes ago. INR is 1.1. CT head shows no hemorrhage. BP is 168/94. Which is the MOST appropriate NEXT step?</div>
+    <ul class="options">
+      <li>A. Start IV heparin and admit to telemetry</li>
+      <li>B. Increase warfarin dose and recheck INR in 1 week</li>
+      <li class="correct">C. Activate stroke protocol and administer IV alteplase if eligible</li>
+      <li>D. Obtain MRI brain and schedule neurology follow-up</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Acute ischemic stroke within the 4.5-hour tPA window. IV alteplase is standard of care. INR 1.1 does not contraindicate tPA. A: heparin is not used for acute ischemic stroke. B: dangerous delay. D: MRI not required before tPA if CT rules out hemorrhage.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 3</div>
+    <div class="q-stem">A 22-year-old has a witnessed generalized tonic-clonic seizure lasting 2 minutes. No prior history, no family history of epilepsy, takes only oral contraceptives. Now alert but tired. Which is the MOST appropriate initial workup?</div>
+    <ul class="options">
+      <li>A. Start levetiracetam and refer to neurology</li>
+      <li class="correct">B. BMP, CBC, glucose, urine drug screen, and non-contrast CT head</li>
+      <li>C. Lumbar puncture to rule out meningitis</li>
+      <li>D. 24-hour EEG monitoring and admit to hospital</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>B is correct.</strong> First unprovoked seizure requires labs and neuroimaging to identify structural or metabolic cause before starting AEDs. A: premature without etiology. C: LP indicated if meningitis suspected, not here. D: outpatient EEG is appropriate after initial workup, not the first step.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 4</div>
+    <div class="q-stem">A 74-year-old man has progressive memory loss over 2 years, gets lost in familiar areas, forgets family names, stopped managing finances. No focal deficits. MMSE 18/30. Which pharmacologic therapy is MOST appropriate?</div>
+    <ul class="options">
+      <li>A. Memantine 10 mg BID</li>
+      <li class="correct">B. Donepezil 5 mg daily at bedtime</li>
+      <li>C. Lorazepam 0.5 mg TID for agitation</li>
+      <li>D. Haloperidol 1 mg daily</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>B is correct.</strong> Donepezil (AChEI) is first-line for mild-to-moderate Alzheimer's (MMSE 10-26), start 5 mg nightly. A: memantine is for moderate-to-severe (MMSE below 15). C: benzodiazepines worsen cognition and increase fall risk in elderly. D: haloperidol has a black box warning for dementia-related psychosis.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 5</div>
+    <div class="q-stem">A 58-year-old with 15-year type 2 diabetes has bilateral burning foot pain worse at night for 6 months. HbA1c 8.9%. Decreased monofilament sensation bilaterally. Which is the BEST first-line pharmacologic option?</div>
+    <ul class="options">
+      <li>A. Morphine 15 mg ER BID</li>
+      <li>B. Gabapentin 100 mg TID</li>
+      <li class="correct">C. Duloxetine 60 mg daily</li>
+      <li>D. Ibuprofen 600 mg TID</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Duloxetine (SNRI) is FDA-approved first-line for diabetic peripheral neuropathy pain. B: gabapentin used but not FDA-approved for DPN (pregabalin is). A: opioids not first-line for neuropathic pain. D: NSAIDs ineffective for neuropathic pain and nephrotoxic in diabetics.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 6</div>
+    <div class="q-stem">A 45-year-old woman has "the worst headache of my life" that began suddenly while lifting, reaching maximal intensity within seconds. Alert, BP 178/102, neck stiffness present. CT head negative for blood. MOST appropriate NEXT step?</div>
+    <ul class="options">
+      <li>A. Start sumatriptan and discharge with neurology follow-up</li>
+      <li>B. Admit for IV magnesium and pain management</li>
+      <li class="correct">C. Perform lumbar puncture to evaluate for xanthochromia</li>
+      <li>D. MRI brain with gadolinium contrast</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Thunderclap headache with meningismus = SAH until proven otherwise. CT can miss up to 2% of SAH after 6 hours. LP for xanthochromia is essential when CT is negative. A: sumatriptan is for migraine; this has red flags. B: premature before ruling out SAH. D: MRI less sensitive than LP for early SAH in CT-negative cases.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 7</div>
+    <div class="q-stem">A 66-year-old man with HTN and hyperlipidemia had sudden right arm weakness and difficulty speaking for 25 minutes that fully resolved. Neurologically intact. MRI DWI no acute infarct. MOST important NEXT step?</div>
+    <ul class="options">
+      <li>A. Reassure and schedule 3-month follow-up</li>
+      <li>B. Start warfarin for anticoagulation</li>
+      <li class="correct">C. Start aspirin, statin, and urgently evaluate for carotid stenosis and cardiac emboli</li>
+      <li>D. Order outpatient EEG to rule out seizure</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> TIA is a neurological emergency with 10-15% stroke risk within 90 days. Immediate management: aspirin, high-intensity statin, carotid Doppler, cardiac monitoring/echo. A: dangerous reassurance. B: warfarin only if AF or cardioembolic source found. D: EEG not appropriate for focal TIA presentation.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 8</div>
+    <div class="q-stem">A 78-year-old with Parkinson's on carbidopa-levodopa x5 years now has visual hallucinations (seeing people who are not there). He is not distressed. MOST appropriate medication adjustment?</div>
+    <ul class="options">
+      <li>A. Add haloperidol 1 mg at bedtime</li>
+      <li>B. Add risperidone 0.5 mg BID</li>
+      <li class="correct">C. Add low-dose quetiapine or pimavanserin</li>
+      <li>D. Increase carbidopa-levodopa dose</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Quetiapine (low-dose) or pimavanserin (FDA-approved for PD psychosis) have minimal D2 blockade and do not worsen motor symptoms. A: haloperidol is high-potency D2 blocker, contraindicated in PD. B: risperidone also has significant D2 blockade, avoided in PD. D: increasing levodopa worsens hallucinations.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 9</div>
+    <div class="q-stem">A 24-year-old woman with epilepsy on valproic acid is planning a pregnancy. Last seizure 2 years ago. MOST important counseling point?</div>
+    <ul class="options">
+      <li>A. Valproic acid is safe in pregnancy; continue current dose</li>
+      <li class="correct">B. Valproic acid is teratogenic; consider switching to lamotrigine and prescribe folic acid 4 mg daily</li>
+      <li>C. Discontinue all antiepileptics immediately before conception</li>
+      <li>D. Switch to phenytoin, which has the best pregnancy safety profile</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>B is correct.</strong> Valproic acid is a major teratogen (neural tube defects, fetal valproate syndrome). Lamotrigine or levetiracetam are preferred in pregnancy. High-dose folic acid (4 mg/day) recommended preconceptionally. A: false and dangerous. C: abrupt discontinuation risks seizures that harm the fetus. D: phenytoin also teratogenic (fetal hydantoin syndrome).</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 10</div>
+    <div class="q-stem">A 55-year-old woman has severe headache, jaw pain when chewing, new right-eye visual blurring, and right temple tenderness. ESR 98 mm/hr, CRP elevated. MOST critical NEXT step to prevent irreversible blindness?</div>
+    <ul class="options">
+      <li>A. Start naproxen and follow up in 1 week</li>
+      <li>B. Refer to ophthalmology for visual field testing</li>
+      <li class="correct">C. Start high-dose prednisone immediately and arrange urgent temporal artery biopsy</li>
+      <li>D. Order CT angiography of the head to evaluate for aneurysm</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Giant cell arteritis (GCA) — large-vessel vasculitis in patients over 50 with temporal headache, jaw claudication, visual changes, elevated ESR/CRP. High-dose prednisone (40-60 mg/day) must start immediately to prevent anterior ischemic optic neuropathy. Biopsy follows within 1-2 weeks but does NOT delay steroids. A: inadequate and dangerous delay. B: not the urgent first step. D: does not address the inflammatory process.</div>
+  </div>
+</div>
+<footer>FNP Prep Hub &bull; Neurology Set 1 &bull; 10 Questions</footer>
+<script>
+  var revealed = 0;
+  function reveal(btn) {
+    var block = btn.parentElement;
+    var exp = block.querySelector('.explanation');
+    if (exp.style.display === 'block') return;
+    exp.style.display = 'block';
+    btn.textContent = 'Answer Shown';
+    btn.disabled = true;
+    revealed++;
+    document.getElementById('prog-label').textContent = revealed + ' / 10 revealed';
+    document.getElementById('prog-fill').style.width = (revealed * 10) + '%';
+  }
+</script>
+</body>
+</html>
