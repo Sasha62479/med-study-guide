@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gastroenterology Set 1 | FNP Prep Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1E2D4E;
+    --accent: #4A7FA5;
+    --accent2: #6B8CBE;
+    --bg: #F0F2F7;
+    --green: #2E7D6A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1a1a2e; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy); display: flex; flex-wrap: wrap;
+    gap: 4px; padding: 10px 20px;
+  }
+  nav a {
+    color: #cbd5e1; text-decoration: none; font-size: 0.8rem;
+    padding: 4px 10px; border-radius: 4px; transition: background 0.2s;
+  }
+  nav a:hover { background: var(--accent); color: #fff; }
+  .page-header {
+    background: linear-gradient(135deg, var(--navy), var(--accent));
+    color: #fff; padding: 40px 20px 30px; text-align: center;
+  }
+  .page-header .back-link { color: #a0c4e0; font-size: 0.85rem; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+  .page-header .back-link:hover { color: #fff; }
+  .page-header h1 { font-size: 2rem; font-weight: 700; }
+  .page-header p { margin-top: 6px; color: #c8dff0; font-size: 0.95rem; }
+  .accent-line { width: 60px; height: 4px; background: var(--accent2); border-radius: 2px; margin: 14px auto 0; }
+  .progress-bar-wrap { max-width: 720px; margin: 24px auto 0; padding: 0 20px; }
+  .prog-label { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
+  .prog-track { background: #dde3ec; border-radius: 8px; height: 10px; overflow: hidden; }
+  .prog-fill { height: 10px; background: var(--green); border-radius: 8px; width: 0%; transition: width 0.4s; }
+  .container { max-width: 720px; margin: 30px auto 60px; padding: 0 20px; }
+  .question-block {
+    background: #fff; border-radius: 12px; padding: 24px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--accent);
+  }
+  .q-number { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .q-stem { font-size: 1rem; line-height: 1.6; margin-bottom: 16px; }
+  .options { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .options li {
+    padding: 10px 14px; background: #f5f7fa; border-radius: 8px;
+    border: 2px solid transparent; font-size: 0.92rem; cursor: default;
+  }
+  .options li.correct {
+    background: #e8f5e9 !important; border-color: var(--green) !important;
+    color: #1b5e20; font-weight: 600;
+  }
+  .reveal-btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 9px 20px; border-radius: 8px; font-size: 0.88rem;
+    font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .reveal-btn:hover { background: var(--navy); }
+  .explanation {
+    display: none; margin-top: 14px; padding: 14px;
+    background: #f0f6ff; border-radius: 8px;
+    font-size: 0.9rem; line-height: 1.6; color: #333;
+    border-left: 4px solid var(--accent2);
+  }
+  footer {
+    text-align: center; padding: 24px;
+    font-size: 0.8rem; color: #888;
+    border-top: 1px solid #dde3ec;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html">Home</a>
+  <a href="../anatomy/">Anatomy</a>
+  <a href="../physiology/">Physiology</a>
+  <a href="../pathophysiology/">Pathophysiology</a>
+  <a href="../pharmacology/">Pharmacology</a>
+  <a href="../cases/">Cases</a>
+  <a href="../flowcharts/">Flowcharts</a>
+  <a href="../quickguides/">Quick Guides</a>
+  <a href="index.html">Mock Exams</a>
+</nav>
+<div class="page-header">
+  <a href="index.html" class="back-link">&larr; Back to Mock Exams</a>
+  <h1>Gastroenterology &mdash; Set 1</h1>
+  <p>10 board-style FNP questions &bull; AANP / ANCC</p>
+  <div class="accent-line"></div>
+</div>
+<div class="progress-bar-wrap">
+  <div class="prog-label" id="prog-label">0 / 10 revealed</div>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+</div>
+<div class="container">
+  <div class="question-block">
+    <div class="q-number">Question 1</div>
+    <div class="q-stem">A 42-year-old woman presents with a 3-month history of burning epigastric pain that is worse after meals and when lying down, relieved by antacids. She denies dysphagia, weight loss, or GI bleeding. She takes ibuprofen daily for back pain. Which is the MOST appropriate initial management?</div>
+    <ul class="options">
+      <li>A. Upper endoscopy (EGD) immediately</li>
+      <li>B. H2 blocker (ranitidine) PRN</li>
+      <li class="correct">C. Discontinue ibuprofen and start a PPI trial for 8 weeks</li>
+      <li>D. Barium swallow study</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> This is classic GERD with an NSAID trigger. First-line management is to remove the offending agent (ibuprofen) and initiate an 8-week PPI trial (e.g., omeprazole 20 mg daily). A: EGD is indicated if alarm symptoms (dysphagia, weight loss, bleeding, age over 60) are present or symptoms fail to respond to therapy. B: H2 blockers are less effective than PPIs for GERD healing. D: Barium swallow is not first-line for typical GERD without structural concerns.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 2</div>
+    <div class="q-stem">A 29-year-old woman reports 6 months of recurrent crampy abdominal pain relieved by defecation, alternating constipation and diarrhea, and bloating. No blood in stool, no fever, no weight loss. CBC, CMP, TSH, and CRP are all normal. Which is the MOST likely diagnosis and appropriate initial treatment?</div>
+    <ul class="options">
+      <li>A. Crohn's disease; start mesalamine</li>
+      <li>B. Celiac disease; order anti-tTG IgA antibodies</li>
+      <li class="correct">C. Irritable bowel syndrome; low-FODMAP diet and fiber supplementation</li>
+      <li>D. Ulcerative colitis; start prednisone</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> This meets Rome IV criteria for IBS: recurrent abdominal pain at least 1 day/week for 3 months, associated with defecation, change in stool frequency or form. Normal labs rule out organic causes. First-line management is dietary (low-FODMAP, fiber) and lifestyle. A and D: IBD requires evidence of inflammation. B: celiac is possible but requires specific testing and different management; not the first diagnosis here given the pain-defecation pattern.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 3</div>
+    <div class="q-stem">A 35-year-old man presents with bloody diarrhea 8-10 times/day for 3 weeks, urgency, tenesmus, and a 5 lb weight loss. Colonoscopy shows continuous mucosal inflammation from rectum to splenic flexure with no skip lesions. Biopsy shows crypt abscesses. Which is the MOST likely diagnosis and initial pharmacologic treatment?</div>
+    <ul class="options">
+      <li>A. Crohn's disease; azathioprine</li>
+      <li class="correct">B. Ulcerative colitis; mesalamine (5-ASA)</li>
+      <li>C. Infectious colitis; ciprofloxacin and metronidazole</li>
+      <li>D. Ischemic colitis; supportive care and bowel rest</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>B is correct.</strong> Continuous inflammation from the rectum proximally, crypt abscesses, and bloody diarrhea with urgency are classic for ulcerative colitis. Mesalamine (5-ASA) is first-line for mild-to-moderate UC. A: Crohn's disease characteristically has skip lesions, can involve any part of the GI tract, and rarely causes bloody diarrhea as a primary feature. C: infectious colitis is typically acute (days, not weeks) and has a known exposure. D: ischemic colitis occurs in elderly with vascular risk factors.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 4</div>
+    <div class="q-stem">A 46-year-old asymptomatic woman with no family history of colorectal cancer presents for a routine well-woman visit. She has never had colon cancer screening. Which is the MOST appropriate recommendation per current guidelines?</div>
+    <ul class="options">
+      <li>A. Begin colorectal cancer screening at age 50</li>
+      <li>B. No screening needed until age 65</li>
+      <li class="correct">C. Begin colorectal cancer screening now (at age 46)</li>
+      <li>D. Annual stool guaiac testing only until age 50</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> USPSTF 2021 updated guidelines recommend initiating colorectal cancer screening at age 45 for average-risk adults (lowered from 50). Acceptable modalities include colonoscopy every 10 years, annual high-sensitivity fecal occult blood test (FIT), or CT colonography every 5 years. A: age 50 was the old recommendation. B: age 65 is incorrect. D: annual stool guaiac alone is inadequate per current guidelines.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 5</div>
+    <div class="q-stem">A 52-year-old man is found to have H. pylori on urea breath test done for persistent dyspepsia. He has no penicillin allergy. Which is the MOST appropriate treatment regimen?</div>
+    <ul class="options">
+      <li>A. Amoxicillin 500 mg TID for 7 days alone</li>
+      <li>B. PPI + metronidazole + clarithromycin for 7 days</li>
+      <li class="correct">C. PPI + amoxicillin + clarithromycin for 14 days (triple therapy)</li>
+      <li>D. Bismuth subsalicylate alone for 4 weeks</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Standard first-line H. pylori eradication is PPI-based triple therapy: PPI + amoxicillin + clarithromycin for 14 days. Confirm eradication 4 weeks after completing treatment with urea breath test or fecal antigen test (not serology). A: antibiotic monotherapy is ineffective and promotes resistance. B: metronidazole-based regimen is an alternative if penicillin allergy, but amoxicillin is preferred. D: bismuth is used in quadruple therapy, not as monotherapy.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 6</div>
+    <div class="q-stem">A 68-year-old man on daily naproxen for osteoarthritis presents with epigastric pain and a hemoglobin of 9.2 g/dL. EGD reveals a 1.2 cm gastric ulcer. H. pylori testing is negative. Which is the MOST appropriate management?</div>
+    <ul class="options">
+      <li>A. Discontinue naproxen only; no further treatment needed</li>
+      <li>B. Add misoprostol and continue naproxen</li>
+      <li class="correct">C. Discontinue naproxen, start high-dose PPI, and repeat EGD in 8-12 weeks</li>
+      <li>D. Immediately refer for surgical resection of the ulcer</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> NSAID-induced peptic ulcer requires: (1) stopping the NSAID, (2) 8-12 weeks of high-dose PPI therapy to heal the ulcer, and (3) repeat EGD to confirm healing (gastric ulcers require follow-up endoscopy to rule out malignancy). A: stopping NSAID alone is insufficient; active ulcer requires PPI therapy. B: continuing naproxen worsens the ulcer despite misoprostol. D: surgery is reserved for complications (perforation, uncontrolled bleeding).</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 7</div>
+    <div class="q-stem">A 48-year-old obese man with type 2 diabetes and hypertriglyceridemia presents with fatigue and right upper quadrant discomfort. LFTs show AST 62, ALT 78. Ultrasound shows echogenic liver consistent with steatosis. He denies alcohol use. Which is the MOST appropriate initial management?</div>
+    <ul class="options">
+      <li>A. Start ursodeoxycholic acid (UDCA)</li>
+      <li>B. Refer immediately for liver biopsy</li>
+      <li class="correct">C. Weight loss (5-10%), optimize diabetes and lipid control, and recheck LFTs in 3-6 months</li>
+      <li>D. Start methotrexate for hepatic fibrosis prevention</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> NAFLD (non-alcoholic fatty liver disease) management is focused on lifestyle modification: 5-10% weight loss significantly reduces hepatic steatosis and inflammation. Optimizing blood glucose and lipids is also critical. A: UDCA is used for primary biliary cholangitis, not NAFLD. B: liver biopsy is reserved for cases where NASH vs. fibrosis staging is needed — not initial management. D: methotrexate is hepatotoxic and not used for NAFLD.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 8</div>
+    <div class="q-stem">A 71-year-old man presents with a 2-month history of progressive painless jaundice, 15 lb weight loss, new-onset diabetes, and dark urine. Abdominal CT shows a 3 cm mass in the head of the pancreas with dilated bile and pancreatic ducts. CA 19-9 is markedly elevated. Which is the MOST likely diagnosis?</div>
+    <ul class="options">
+      <li>A. Cholangiocarcinoma</li>
+      <li>B. Acute pancreatitis</li>
+      <li class="correct">C. Pancreatic adenocarcinoma</li>
+      <li>D. Choledocholithiasis</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Classic presentation of pancreatic head adenocarcinoma: painless progressive jaundice, weight loss, new-onset diabetes (from destruction of islet cells), dark urine, elevated CA 19-9, and double duct sign on imaging (dilated common bile duct AND pancreatic duct). A: cholangiocarcinoma causes jaundice but typically shows bile duct dilation without pancreatic duct involvement. B: acute pancreatitis presents with acute severe abdominal pain, elevated lipase. D: choledocholithiasis causes colicky RUQ pain with jaundice, not painless progressive jaundice with weight loss.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 9</div>
+    <div class="q-stem">A 28-year-old woman presents with chronic diarrhea, bloating, and a 12 lb weight loss over 6 months. She reports a pruritic, blistering rash on her elbows. Labs show iron deficiency anemia and low vitamin D. Which test is MOST appropriate to confirm the diagnosis?</div>
+    <ul class="options">
+      <li>A. Colonoscopy with random biopsies</li>
+      <li>B. Stool culture and ova and parasite exam</li>
+      <li class="correct">C. Anti-tissue transglutaminase IgA (anti-tTG IgA) antibody with total IgA level</li>
+      <li>D. Hydrogen breath test for lactose intolerance</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Celiac disease: chronic diarrhea, malabsorption (iron deficiency, low vitamin D), weight loss, and dermatitis herpetiformis (pruritic blistering rash on extensor surfaces) are classic. Anti-tTG IgA is the preferred first-line serologic test. Total IgA must also be checked as IgA deficiency (common with celiac) would cause false-negative results. A: colonoscopy evaluates the large bowel; celiac affects the small bowel (duodenum/jejunum) and requires upper endoscopy with biopsies. B: appropriate for infectious diarrhea, not chronic malabsorptive pattern. D: lactose intolerance does not cause weight loss or skin findings.</div>
+  </div>
+  <div class="question-block">
+    <div class="q-number">Question 10</div>
+    <div class="q-stem">A 58-year-old man with alcoholic cirrhosis presents with fever, abdominal pain, and worsening ascites. Paracentesis shows PMN count of 350 cells/mm3 in the ascitic fluid. Blood cultures are pending. Which is the MOST appropriate immediate treatment?</div>
+    <ul class="options">
+      <li>A. Oral ciprofloxacin and discharge with close follow-up</li>
+      <li>B. Therapeutic paracentesis only</li>
+      <li class="correct">C. IV cefotaxime (or ceftriaxone) and IV albumin</li>
+      <li>D. IV vancomycin and piperacillin-tazobactam</li>
+    </ul>
+    <button class="reveal-btn" onclick="reveal(this)">Reveal Answer</button>
+    <div class="explanation"><strong>C is correct.</strong> Spontaneous bacterial peritonitis (SBP) is diagnosed with ascitic PMN count above 250 cells/mm3. Treatment is IV cefotaxime or ceftriaxone (covers gram-negative enteric organisms, the most common cause). IV albumin (1.5 g/kg on day 1, then 1 g/kg on day 3) is given concurrently to prevent hepatorenal syndrome — it significantly reduces mortality. A: oral antibiotics are insufficient for SBP; this is a serious infection requiring IV therapy. B: paracentesis alone does not treat infection. D: broader spectrum coverage is not needed for SBP; cefotaxime has excellent coverage and lower nephrotoxicity.</div>
+  </div>
+</div>
+<footer>FNP Prep Hub &bull; Gastroenterology Set 1 &bull; 10 Questions</footer>
+<script>
+  var revealed = 0;
+  function reveal(btn) {
+    var block = btn.parentElement;
+    var exp = block.querySelector('.explanation');
+    if (exp.style.display === 'block') return;
+    exp.style.display = 'block';
+    btn.textContent = 'Answer Shown';
+    btn.disabled = true;
+    revealed++;
+    document.getElementById('prog-label').textContent = revealed + ' / 10 revealed';
+    document.getElementById('prog-fill').style.width = (revealed * 10) + '%';
+  }
+</script>
+</body>
+</html>
