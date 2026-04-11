@@ -4,137 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FNP Board Exam Prep</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
-      --border: rgba(100,120,160,0.13);
-      --navy: #1E2D4E; --steel: #3A5080; --slate: #4A5568; --muted: #718096;
-      --accent: #4A7FA5; --accent2: #6B8CBE;
-      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: transparent;
+      color: #2d1b69;
+      min-height: 100vh;
     }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    /* NAV */
-    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
-    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
-    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
+    .top-nav {
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(167,139,250,0.4);
+      border-radius: 14px;
+      margin: 12px 16px 8px;
+    }
+    .top-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      min-height: 50px;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+    .nav-group-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #7c3aed;
+      text-transform: uppercase;
+      padding: 0 0.5rem;
+      white-space: nowrap;
+    }
     .nav-group { display: flex; align-items: stretch; list-style: none; }
-    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
-    .nav-group li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
+    .nav-group li a {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: #4a1a8a;
+      text-decoration: none;
+      padding: 0 0.6rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-group li a:hover { color: #7c3aed; border-bottom-color: #7c3aed; }
 
-    /* HERO */
-    .hero { text-align: center; padding: 3.5rem 2rem 2rem; }
-    .hero-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.5rem; }
-    .hero-title span { color: var(--accent); }
-    .hero-sub { font-size: 0.9rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 1.5rem; }
-    .hero-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin: 0 auto 2.5rem; }
+    .hero { text-align: center; padding: 2.5rem 2rem 1.5rem; }
+    .hero-title {
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: #5b21b6;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .hero-title span { color: #7c3aed; }
+    .hero-sub { font-size: 0.85rem; color: #6d28d9; letter-spacing: 0.03em; margin-bottom: 1.2rem; opacity: 0.8; }
+    .hero-divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
+      border-radius: 2px; margin: 0 auto 2rem;
+    }
 
-    /* SECTIONS */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
-    .section-block { margin-bottom: 3.5rem; }
-    .section-heading { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
-    .section-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section-block { margin-bottom: 2.5rem; }
+    .section-heading { font-size: 1.1rem; font-weight: 700; color: #5b21b6; margin-bottom: 0.2rem; }
+    .section-sub { font-size: 0.75rem; color: #6d28d9; margin-bottom: 1.1rem; letter-spacing: 0.02em; opacity: 0.75; }
 
-    /* CARDS */
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    .subject-card { background: var(--surface); border-radius: 12px; padding: 1.4rem 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(30,45,78,0.05); transition: all 0.22s; display: flex; flex-direction: column; gap: 0.3rem; position: relative; overflow: hidden; }
-    .subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent2); opacity: 0; transition: opacity 0.22s; }
-    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(30,45,78,0.11); border-color: var(--accent2); }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .subject-card {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 1.4rem 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid rgba(167,139,250,0.3);
+      box-shadow: 0 4px 16px rgba(91,33,182,0.08);
+      transition: all 0.22s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .subject-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
+      opacity: 0;
+      transition: opacity 0.22s;
+    }
+    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(91,33,182,0.18); border-color: rgba(124,58,237,0.5); }
     .subject-card:hover::before { opacity: 1; }
-    .subject-card.coming-soon { opacity: 0.55; cursor: default; pointer-events: none; }
-    .subject-card.coming-soon:hover { transform: none; box-shadow: 0 2px 8px rgba(30,45,78,0.05); border-color: var(--border); }
-    .subject-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .subject-name { font-size: 1.05rem; font-weight: 700; color: #5b21b6; line-height: 1.2; }
     .subject-status { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-    .subject-status.live { color: var(--green); }
-    .subject-status.soon { color: var(--muted); }
-    .subject-desc { font-size: 0.78rem; color: var(--slate); line-height: 1.5; margin-top: 0.2rem; }
+    .subject-status.live { color: #059669; }
+    .subject-desc { font-size: 0.78rem; color: #4a1a8a; line-height: 1.5; margin-top: 0.2rem; opacity: 0.8; }
 
-    /* FOOTER */
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
-    footer a { color: var(--accent); text-decoration: none; }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.72rem;
+      color: #6d28d9;
+      border-top: 1px solid rgba(167,139,250,0.3);
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+    footer a { color: #7c3aed; text-decoration: none; }
   </style>
 </head>
 <body>
 
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a class="site-brand" href="index.html">FNP Prep Hub</a>
     <span class="nav-group-label">Learn</span>
     <ul class="nav-group">
       <li><a href="anatomy/index.html">Anatomy</a></li>
-      <li><a href="physiology/index.html">Physiology</a></li>
-      <li><a href="pathophysiology/index.html">Pathophys</a></li>
       <li><a href="pharmacology/index.html">Pharmacology</a></li>
-      <li><a href="pediatrics/index.html">Pediatrics</a></li>
-    </ul>
-    <div class="nav-divider"></div>
-    <span class="nav-group-label">Tools</span>
-    <ul class="nav-group">
-      <li><a href="cases/index.html">Cases</a></li>
-      <li><a href="flowcharts/index.html">Flowcharts</a></li>
-      <li><a href="pharmacology/index.html">Drug Ref</a></li>
-      <li><a href="quickguides/index.html">Quick Guides</a></li>
-    </ul>
-    <div class="nav-divider"></div>
-    <span class="nav-group-label">Practice</span>
-    <ul class="nav-group">
-      <li><a href="tests/index.html">Mock Exams</a></li>
-      <li><a href="flashcards/index.html">Flashcards</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="hero">
   <h1 class="hero-title">FNP Board <span>Exam Prep</span></h1>
-  <p class="hero-sub">Your complete study hub &mdash; built for NP students</p>
+  <p class="hero-sub">Your complete study hub — built for NP students</p>
   <div class="hero-divider"></div>
 </div>
 
 <div class="container">
-
-  <!-- LEARN -->
   <div class="section-block">
     <div class="section-heading">Learn</div>
-    <div class="section-sub">Deep-dive subject study &mdash; organ by organ, system by system</div>
+    <div class="section-sub">Deep-dive subject study — organ by organ, system by system</div>
     <div class="cards-grid">
       <a class="subject-card" href="anatomy/index.html">
         <div class="subject-name">Anatomy</div>
         <div class="subject-status live">Live</div>
         <div class="subject-desc">Gross, microscopic, embryology &amp; clinical correlates</div>
       </a>
-      <a class="subject-card coming-soon" href="physiology/index.html">
-        <div class="subject-name">Physiology</div>
-        <div class="subject-status soon">Coming Soon</div>
-        <div class="subject-desc">Systems-based physiological mechanisms</div>
-      </a>
-      <a class="subject-card coming-soon" href="pathophysiology/index.html">
-        <div class="subject-name">Pathophysiology</div>
-        <div class="subject-status soon">Coming Soon</div>
-        <div class="subject-desc">Disease mechanisms &amp; clinical manifestations</div>
-      </a>
       <a class="subject-card" href="pharmacology/index.html">
         <div class="subject-name">Pharmacology</div>
         <div class="subject-status live">Live</div>
         <div class="subject-desc">Drug classes, mechanisms, side effects &amp; contraindications</div>
       </a>
-      <a class="subject-card coming-soon" href="pediatrics/index.html">
-        <div class="subject-name">Pediatrics</div>
-        <div class="subject-status soon">Coming Soon</div>
-        <div class="subject-desc">Growth &amp; development, common pediatric conditions</div>
-      </a>
     </div>
   </div>
 
- 
-
-<footer>
-  <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
-  <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
-</footer>
-
+  <footer>
+    <p>FNP Board Exam Prep — Built for NP Students</p>
+    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> · Amboss · Open Evidence</p>
+  </footer>
+</div>
 </body>
 </html>
