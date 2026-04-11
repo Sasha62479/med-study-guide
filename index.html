@@ -22,153 +22,267 @@
       border-radius: 14px;
       margin: 12px 16px 8px;
     }
-    .top-nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      padding: 0 1.5rem;
-      min-height: 50px;
-      flex-wrap: wrap;
-      gap: 0.2rem;
-    }
-    .nav-group-label {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: #7c3aed;
-      text-transform: uppercase;
-      padding: 0 0.5rem;
-      white-space: nowrap;
-    }
-    .nav-group { display: flex; align-items: stretch; list-style: none; }
-    .nav-group li a {
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: #4a1a8a;
-      text-decoration: none;
-      padding: 0 0.6rem;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .nav-group li a:hover { color: #7c3aed; border-bottom-color: #7c3aed; }
 
-    .hero { text-align: center; padding: 2.5rem 2rem 1.5rem; }
-    .hero-title {
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #5b21b6;
+      margin-right: 12px;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: #7c3aed;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+
+    .nav-link:hover { background: rgba(124,58,237,0.1); }
+    .nav-link.active { font-weight: 700; color: #5b21b6; border-bottom: 2px solid #7c3aed; }
+
+    .hero {
+      text-align: center;
+      padding: 40px 24px 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       font-weight: 800;
       color: #5b21b6;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
-    .hero-title span { color: #7c3aed; }
-    .hero-sub { font-size: 0.85rem; color: #6d28d9; letter-spacing: 0.03em; margin-bottom: 1.2rem; opacity: 0.8; }
-    .hero-divider {
-      width: 40px; height: 3px;
-      background: linear-gradient(90deg, #7c3aed, #db2777);
-      border-radius: 2px; margin: 0 auto 2rem;
+      letter-spacing: -0.02em;
     }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; }
-    .section-block { margin-bottom: 2.5rem; }
-    .section-heading { font-size: 1.1rem; font-weight: 700; color: #5b21b6; margin-bottom: 0.2rem; }
-    .section-sub { font-size: 0.75rem; color: #6d28d9; margin-bottom: 1.1rem; letter-spacing: 0.02em; opacity: 0.75; }
+    .hero h1 span { color: #7c3aed; }
+
+    .hero p {
+      color: #7c3aed;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+
+    .subject-section {
+      margin-bottom: 40px;
+    }
+
+    .subject-header {
+      margin-bottom: 6px;
+    }
+
+    .subject-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #5b21b6;
+    }
+
+    .subject-header p {
+      font-size: 0.85rem;
+      color: #7c3aed;
+      margin-top: 2px;
+    }
+
+    .section-divider {
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #db2777);
+      border-radius: 2px;
+      margin: 6px 0 16px;
+    }
 
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
+      gap: 14px;
     }
-    .subject-card {
+
+    .card {
       background: rgba(255,255,255,0.82);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(167,139,250,0.25);
       border-radius: 16px;
-      padding: 1.4rem 1.25rem;
+      padding: 18px 16px;
       text-decoration: none;
-      color: inherit;
-      border: 1px solid rgba(167,139,250,0.3);
-      box-shadow: 0 4px 16px rgba(91,33,182,0.08);
-      transition: all 0.22s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      position: relative;
-      overflow: hidden;
+      color: #2d1b69;
+      display: block;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      cursor: pointer;
     }
-    .subject-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #7c3aed, #db2777);
-      opacity: 0;
-      transition: opacity 0.22s;
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(124,58,237,0.18);
+      border-color: rgba(124,58,237,0.5);
     }
-    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(91,33,182,0.18); border-color: rgba(124,58,237,0.5); }
-    .subject-card:hover::before { opacity: 1; }
-    .subject-name { font-size: 1.05rem; font-weight: 700; color: #5b21b6; line-height: 1.2; }
-    .subject-status { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-    .subject-status.live { color: #059669; }
-    .subject-desc { font-size: 0.78rem; color: #4a1a8a; line-height: 1.5; margin-top: 0.2rem; opacity: 0.8; }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #5b21b6;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.8rem;
+      color: #4c1d95;
+      line-height: 1.45;
+    }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.72rem;
-      color: #6d28d9;
-      border-top: 1px solid rgba(167,139,250,0.3);
-      line-height: 1.8;
-      opacity: 0.8;
+      padding: 24px 16px;
+      font-size: 0.78rem;
+      color: #7c3aed;
+      border-top: 1px solid rgba(167,139,250,0.2);
     }
-    footer a { color: #7c3aed; text-decoration: none; }
+
+    footer a { color: #6d28d9; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <span class="nav-group-label">Learn</span>
-    <ul class="nav-group">
-      <li><a href="anatomy/index.html">Anatomy</a></li>
-      <li><a href="pharmacology/index.html">Pharmacology</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="hero">
-  <h1 class="hero-title">FNP Board <span>Exam Prep</span></h1>
-  <p class="hero-sub">Your complete study hub — built for NP students</p>
-  <div class="hero-divider"></div>
-</div>
-
-<div class="container">
-  <div class="section-block">
-    <div class="section-heading">Learn</div>
-    <div class="section-sub">Deep-dive subject study — organ by organ, system by system</div>
-    <div class="cards-grid">
-      <a class="subject-card" href="anatomy/index.html">
-        <div class="subject-name">Anatomy</div>
-        <div class="subject-status live">Live</div>
-        <div class="subject-desc">Gross, microscopic, embryology &amp; clinical correlates</div>
-      </a>
-      <a class="subject-card" href="pharmacology/index.html">
-        <div class="subject-name">Pharmacology</div>
-        <div class="subject-status live">Live</div>
-        <div class="subject-desc">Drug classes, mechanisms, side effects &amp; contraindications</div>
-      </a>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" class="nav-brand">FNP Prep Hub</a>
+      <a href="index.html" class="nav-link active">LEARN</a>
+      <a href="anatomy/index.html" class="nav-link">Anatomy</a>
+      <a href="pharmacology/index.html" class="nav-link">Pharmacology</a>
     </div>
+  </nav>
+
+  <div class="hero">
+    <h1>FNP Board <span>Exam Prep</span></h1>
+    <p>Your complete study hub — built for NP students</p>
+    <div class="hero-divider"></div>
+  </div>
+
+  <div class="main-content">
+
+    <!-- ANATOMY SECTION -->
+    <div class="subject-section">
+      <div class="subject-header">
+        <h2>Anatomy</h2>
+        <p>Gross, microscopic, embryology &amp; clinical correlates — organ by organ</p>
+      </div>
+      <div class="section-divider"></div>
+      <div class="cards-grid">
+        <a href="anatomy/liver.html" class="card">
+          <h3>Liver</h3>
+          <p>Hepatic lobules, bile production, portal circulation, and metabolic functions.</p>
+        </a>
+        <a href="anatomy/gallbladder.html" class="card">
+          <h3>Gallbladder</h3>
+          <p>Bile storage and concentration, cystic duct anatomy, and cholelithiasis risk.</p>
+        </a>
+        <a href="anatomy/pancreas.html" class="card">
+          <h3>Pancreas</h3>
+          <p>Exocrine and endocrine anatomy, islets of Langerhans, and ductal system.</p>
+        </a>
+        <a href="anatomy/kidney.html" class="card">
+          <h3>Kidney</h3>
+          <p>Nephron structure, renal cortex/medulla, vascular supply, and JGA.</p>
+        </a>
+        <a href="anatomy/heart.html" class="card">
+          <h3>Heart</h3>
+          <p>Cardiac chambers, valves, conduction system, coronary arteries, and pericardium.</p>
+        </a>
+        <a href="anatomy/lungs.html" class="card">
+          <h3>Lungs</h3>
+          <p>Bronchopulmonary segments, pleura, alveolar structure, and pulmonary vasculature.</p>
+        </a>
+        <a href="anatomy/neuro.html" class="card">
+          <h3>Neurological</h3>
+          <p>Cerebral lobes, brainstem, spinal cord tracts, cranial nerves, and cerebral blood supply.</p>
+        </a>
+        <a href="anatomy/gu.html" class="card">
+          <h3>GU / Reproductive</h3>
+          <p>Urinary tract, male and female reproductive anatomy, hormones, and embryology.</p>
+        </a>
+        <a href="anatomy/skin.html" class="card">
+          <h3>Integumentary</h3>
+          <p>Skin layers, epidermal cells, appendages, sensory receptors, and wound healing.</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHARMACOLOGY SECTION -->
+    <div class="subject-section">
+      <div class="subject-header">
+        <h2>Pharmacology</h2>
+        <p>Drug classes, mechanisms, side effects &amp; contraindications — organized by body system</p>
+      </div>
+      <div class="section-divider"></div>
+      <div class="cards-grid">
+        <a href="pharmacology/liver.html" class="card">
+          <h3>Liver</h3>
+          <p>Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol.</p>
+        </a>
+        <a href="pharmacology/gallbladder.html" class="card">
+          <h3>Gallbladder</h3>
+          <p>Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics.</p>
+        </a>
+        <a href="pharmacology/pancreas.html" class="card">
+          <h3>Pancreas</h3>
+          <p>Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes.</p>
+        </a>
+        <a href="pharmacology/kidney.html" class="card">
+          <h3>Kidney</h3>
+          <p>Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer.</p>
+        </a>
+        <a href="pharmacology/heart.html" class="card">
+          <h3>Heart</h3>
+          <p>Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets.</p>
+        </a>
+        <a href="pharmacology/lungs.html" class="card">
+          <h3>Lungs</h3>
+          <p>SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics.</p>
+        </a>
+        <a href="pharmacology/neuro.html" class="card">
+          <h3>Neuro</h3>
+          <p>AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs.</p>
+        </a>
+        <a href="pharmacology/gu.html" class="card">
+          <h3>GU / Repro</h3>
+          <p>OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium.</p>
+        </a>
+        <a href="pharmacology/skin.html" class="card">
+          <h3>Skin</h3>
+          <p>Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals.</p>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <footer>
     <p>FNP Board Exam Prep — Built for NP Students</p>
-    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> · Amboss · Open Evidence</p>
+    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> · <a href="https://www.amboss.com" target="_blank">Amboss</a> · <a href="https://openevidence.com" target="_blank">Open Evidence</a></p>
   </footer>
-</div>
+
 </body>
 </html>
