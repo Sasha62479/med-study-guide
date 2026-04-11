@@ -26,7 +26,7 @@
     .top-nav-inner {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       padding: 10px 20px;
       flex-wrap: wrap;
     }
@@ -40,12 +40,13 @@
     }
 
     .nav-link {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #7c3aed;
       text-decoration: none;
       padding: 4px 10px;
       border-radius: 6px;
       transition: background 0.15s;
+      white-space: nowrap;
     }
 
     .nav-link:hover { background: rgba(124,58,237,0.1); }
@@ -53,7 +54,7 @@
 
     .hero {
       text-align: center;
-      padding: 40px 24px 28px;
+      padding: 36px 24px 24px;
     }
 
     .hero h1 {
@@ -85,24 +86,26 @@
       padding: 0 24px 40px;
     }
 
-    .subject-section {
-      margin-bottom: 40px;
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9333ea;
+      margin-bottom: 4px;
     }
 
-    .subject-header {
-      margin-bottom: 6px;
-    }
-
-    .subject-header h2 {
-      font-size: 1.25rem;
+    .section-title {
+      font-size: 1.2rem;
       font-weight: 700;
       color: #5b21b6;
+      margin-bottom: 2px;
     }
 
-    .subject-header p {
-      font-size: 0.85rem;
+    .section-subtitle {
+      font-size: 0.82rem;
       color: #7c3aed;
-      margin-top: 2px;
+      margin-bottom: 6px;
     }
 
     .section-divider {
@@ -110,46 +113,144 @@
       height: 2px;
       background: linear-gradient(90deg, #7c3aed, #db2777);
       border-radius: 2px;
-      margin: 6px 0 16px;
+      margin-bottom: 18px;
     }
 
-    .cards-grid {
+    /* ORGAN CARDS */
+    .organs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.82);
+    .organ-card {
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       border: 1px solid rgba(167,139,250,0.25);
       border-radius: 16px;
-      padding: 18px 16px;
-      text-decoration: none;
-      color: #2d1b69;
-      display: block;
-      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-      cursor: pointer;
+      padding: 18px 16px 14px;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(124,58,237,0.18);
-      border-color: rgba(124,58,237,0.5);
-    }
-
-    .card h3 {
+    .organ-card h3 {
       font-size: 1rem;
       font-weight: 700;
       color: #5b21b6;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .card p {
-      font-size: 0.8rem;
+    .topic-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .topic-link {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1.5px solid;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .topic-link.anatomy {
+      color: #5b21b6;
+      border-color: #7c3aed;
+      background: rgba(124,58,237,0.07);
+    }
+    .topic-link.anatomy:hover {
+      background: #7c3aed;
+      color: #fff;
+    }
+
+    .topic-link.physiology {
+      color: #0e7490;
+      border-color: #0ea5e9;
+      background: rgba(14,165,233,0.07);
+    }
+    .topic-link.physiology:hover {
+      background: #0ea5e9;
+      color: #fff;
+    }
+
+    .topic-link.pathophys {
+      color: #be123c;
+      border-color: #f43f5e;
+      background: rgba(244,63,94,0.07);
+    }
+    .topic-link.pathophys:hover {
+      background: #f43f5e;
+      color: #fff;
+    }
+
+    .topic-link.pharmacology {
+      color: #b45309;
+      border-color: #f59e0b;
+      background: rgba(245,158,11,0.07);
+    }
+    .topic-link.pharmacology:hover {
+      background: #f59e0b;
+      color: #fff;
+    }
+
+    /* PEDIATRICS */
+    .peds-section {
+      margin-bottom: 32px;
+    }
+
+    .peds-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 16px;
+      padding: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .peds-card-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #5b21b6;
+      margin-bottom: 4px;
+    }
+
+    .peds-card-info p {
+      font-size: 0.82rem;
       color: #4c1d95;
-      line-height: 1.45;
+      max-width: 500px;
+    }
+
+    .peds-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .peds-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1.5px solid #7c3aed;
+      color: #5b21b6;
+      background: rgba(124,58,237,0.07);
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .peds-link:hover {
+      background: #7c3aed;
+      color: #fff;
     }
 
     footer {
@@ -171,7 +272,10 @@
       <a href="index.html" class="nav-brand">FNP Prep Hub</a>
       <a href="index.html" class="nav-link active">LEARN</a>
       <a href="anatomy/index.html" class="nav-link">Anatomy</a>
+      <a href="physiology/index.html" class="nav-link">Physiology</a>
+      <a href="pathophysiology/index.html" class="nav-link">Pathophysiology</a>
       <a href="pharmacology/index.html" class="nav-link">Pharmacology</a>
+      <a href="pediatrics/index.html" class="nav-link">Pediatrics</a>
     </div>
   </nav>
 
@@ -183,97 +287,122 @@
 
   <div class="main-content">
 
-    <!-- ANATOMY SECTION -->
-    <div class="subject-section">
-      <div class="subject-header">
-        <h2>Anatomy</h2>
-        <p>Gross, microscopic, embryology &amp; clinical correlates — organ by organ</p>
+    <!-- ORGAN / SYSTEM CARDS -->
+    <div class="section-label">By Body System</div>
+    <div class="section-title">Study by Organ</div>
+    <div class="section-subtitle">Select a topic within each system</div>
+    <div class="section-divider"></div>
+
+    <div class="organs-grid">
+
+      <div class="organ-card">
+        <h3>Liver</h3>
+        <div class="topic-links">
+          <a href="anatomy/liver.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/liver.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/liver.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/liver.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
       </div>
-      <div class="section-divider"></div>
-      <div class="cards-grid">
-        <a href="anatomy/liver.html" class="card">
-          <h3>Liver</h3>
-          <p>Hepatic lobules, bile production, portal circulation, and metabolic functions.</p>
-        </a>
-        <a href="anatomy/gallbladder.html" class="card">
-          <h3>Gallbladder</h3>
-          <p>Bile storage and concentration, cystic duct anatomy, and cholelithiasis risk.</p>
-        </a>
-        <a href="anatomy/pancreas.html" class="card">
-          <h3>Pancreas</h3>
-          <p>Exocrine and endocrine anatomy, islets of Langerhans, and ductal system.</p>
-        </a>
-        <a href="anatomy/kidney.html" class="card">
-          <h3>Kidney</h3>
-          <p>Nephron structure, renal cortex/medulla, vascular supply, and JGA.</p>
-        </a>
-        <a href="anatomy/heart.html" class="card">
-          <h3>Heart</h3>
-          <p>Cardiac chambers, valves, conduction system, coronary arteries, and pericardium.</p>
-        </a>
-        <a href="anatomy/lungs.html" class="card">
-          <h3>Lungs</h3>
-          <p>Bronchopulmonary segments, pleura, alveolar structure, and pulmonary vasculature.</p>
-        </a>
-        <a href="anatomy/neuro.html" class="card">
-          <h3>Neurological</h3>
-          <p>Cerebral lobes, brainstem, spinal cord tracts, cranial nerves, and cerebral blood supply.</p>
-        </a>
-        <a href="anatomy/gu.html" class="card">
-          <h3>GU / Reproductive</h3>
-          <p>Urinary tract, male and female reproductive anatomy, hormones, and embryology.</p>
-        </a>
-        <a href="anatomy/skin.html" class="card">
-          <h3>Integumentary</h3>
-          <p>Skin layers, epidermal cells, appendages, sensory receptors, and wound healing.</p>
-        </a>
+
+      <div class="organ-card">
+        <h3>Gallbladder</h3>
+        <div class="topic-links">
+          <a href="anatomy/gallbladder.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/gallbladder.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/gallbladder.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/gallbladder.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
       </div>
+
+      <div class="organ-card">
+        <h3>Pancreas</h3>
+        <div class="topic-links">
+          <a href="anatomy/pancreas.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/pancreas.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/pancreas.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/pancreas.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>Kidney</h3>
+        <div class="topic-links">
+          <a href="anatomy/kidney.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/kidney.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/kidney.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/kidney.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>Heart</h3>
+        <div class="topic-links">
+          <a href="anatomy/heart.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/heart.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/heart.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/heart.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>Lungs</h3>
+        <div class="topic-links">
+          <a href="anatomy/lungs.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/lungs.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/lungs.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/lungs.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>Neurological</h3>
+        <div class="topic-links">
+          <a href="anatomy/neuro.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/neuro.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/neuro.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/neuro.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>GU / Reproductive</h3>
+        <div class="topic-links">
+          <a href="anatomy/gu.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/gu.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/gu.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/gu.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
+      <div class="organ-card">
+        <h3>Integumentary</h3>
+        <div class="topic-links">
+          <a href="anatomy/skin.html" class="topic-link anatomy">Anatomy</a>
+          <a href="physiology/skin.html" class="topic-link physiology">Physiology</a>
+          <a href="pathophysiology/skin.html" class="topic-link pathophys">Pathophys</a>
+          <a href="pharmacology/skin.html" class="topic-link pharmacology">Pharmacology</a>
+        </div>
+      </div>
+
     </div>
 
-    <!-- PHARMACOLOGY SECTION -->
-    <div class="subject-section">
-      <div class="subject-header">
-        <h2>Pharmacology</h2>
-        <p>Drug classes, mechanisms, side effects &amp; contraindications — organized by body system</p>
-      </div>
+    <!-- PEDIATRICS -->
+    <div class="peds-section">
+      <div class="section-label">Special Topics</div>
+      <div class="section-title">Pediatrics</div>
+      <div class="section-subtitle">Growth &amp; development, common pediatric conditions &amp; board-tested topics</div>
       <div class="section-divider"></div>
-      <div class="cards-grid">
-        <a href="pharmacology/liver.html" class="card">
-          <h3>Liver</h3>
-          <p>Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol.</p>
-        </a>
-        <a href="pharmacology/gallbladder.html" class="card">
-          <h3>Gallbladder</h3>
-          <p>Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics.</p>
-        </a>
-        <a href="pharmacology/pancreas.html" class="card">
-          <h3>Pancreas</h3>
-          <p>Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes.</p>
-        </a>
-        <a href="pharmacology/kidney.html" class="card">
-          <h3>Kidney</h3>
-          <p>Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer.</p>
-        </a>
-        <a href="pharmacology/heart.html" class="card">
-          <h3>Heart</h3>
-          <p>Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets.</p>
-        </a>
-        <a href="pharmacology/lungs.html" class="card">
-          <h3>Lungs</h3>
-          <p>SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics.</p>
-        </a>
-        <a href="pharmacology/neuro.html" class="card">
-          <h3>Neuro</h3>
-          <p>AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs.</p>
-        </a>
-        <a href="pharmacology/gu.html" class="card">
-          <h3>GU / Repro</h3>
-          <p>OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium.</p>
-        </a>
-        <a href="pharmacology/skin.html" class="card">
-          <h3>Skin</h3>
-          <p>Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals.</p>
-        </a>
+      <div class="peds-card">
+        <div class="peds-card-info">
+          <h3>Pediatrics</h3>
+          <p>Pediatric dermatology &amp; infectious exanthems, growth &amp; development milestones, board-tested peds conditions for FNP exam success.</p>
+        </div>
+        <div class="peds-links">
+          <a href="pediatrics/index.html" class="peds-link">Study Guide</a>
+          <a href="tests/pediatrics-1.html" class="peds-link">Practice Quiz 1</a>
+          <a href="tests/pediatrics-3.html" class="peds-link">Practice Quiz 2</a>
+        </div>
       </div>
     </div>
 
