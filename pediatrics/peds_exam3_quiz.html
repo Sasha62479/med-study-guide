@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peds FNP Exam III – Practice Questions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',sans-serif;background:linear-gradient(135deg,#ffe066 0%,#ffb347 30%,#ff7eb3 60%,#c084fc 100%);min-height:100vh;color:#1a1a2e}
+.page-header{text-align:center;padding:28px 20px 18px}
+.page-header h1{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#2d1b69;text-shadow:0 2px 8px rgba(255,255,255,.4);margin-bottom:6px}
+.subtitle{color:#4a1d96;font-size:.9rem;font-weight:500;opacity:.85}
+.module-tabs-wrap{background:rgba(255,255,255,.55);backdrop-filter:blur(12px);border-radius:20px;margin:0 16px 18px;padding:16px 14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;box-shadow:0 4px 20px rgba(80,0,120,.12)}
+.mod-btn{border:2.5px solid #7c3aed;background:rgba(255,255,255,.7);color:#5b21b6;border-radius:999px;padding:10px 20px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .22s;white-space:nowrap;font-family:inherit}
+.mod-btn:hover{background:#ede9fe;border-color:#5b21b6;transform:translateY(-1px)}
+.mod-btn.active{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(124,58,237,.4)}
+.mod-btn.comp{border-color:#b91c1c;color:#b91c1c}
+.mod-btn.comp.active{background:linear-gradient(135deg,#ef4444,#b91c1c);border-color:transparent;color:#fff}
+.view-mode-wrap{display:flex;gap:8px;justify-content:center;margin:0 16px 14px;flex-wrap:wrap}
+.view-btn{border:2px solid rgba(255,255,255,.7);background:rgba(255,255,255,.45);color:#2d1b69;border-radius:999px;padding:7px 16px;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.view-btn:hover{background:rgba(255,255,255,.75)}
+.view-btn.active{background:rgba(255,255,255,.92);border-color:#7c3aed;color:#5b21b6}
+.controls-panel{background:rgba(255,255,255,.6);backdrop-filter:blur(10px);border-radius:16px;margin:0 16px 14px;padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.ctrl-group{display:flex;flex-direction:column;gap:4px;min-width:140px;flex:1}
+.ctrl-group label{font-size:.7rem;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.08em}
+.ctrl-group input,.ctrl-group select{border:2px solid rgba(124,58,237,.25);background:rgba(255,255,255,.85);border-radius:10px;padding:7px 10px;font-size:.85rem;color:#1a1a2e;font-family:inherit}
+.ctrl-group input:focus,.ctrl-group select:focus{outline:none;border-color:#7c3aed}
+.ctrl-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.ctrl-actions button{border-radius:10px;padding:7px 13px;font-size:.8rem;font-weight:700;cursor:pointer;border:2px solid transparent;font-family:inherit;transition:all .18s;white-space:nowrap}
+.btn-p{background:#7c3aed;color:#fff}.btn-p:hover{background:#5b21b6}
+.btn-s{background:rgba(255,255,255,.8);color:#5b21b6;border-color:rgba(124,58,237,.3)}.btn-s:hover{background:#ede9fe}
+.btn-d{background:rgba(255,255,255,.8);color:#dc2626;border-color:rgba(220,38,38,.3)}.btn-d:hover{background:#fee2e2}
+.progress-shell{background:rgba(255,255,255,.55);backdrop-filter:blur(8px);border-radius:14px;margin:0 16px 16px;padding:12px 16px}
+.progress-top{display:flex;justify-content:space-between;margin-bottom:8px;font-size:.82rem;color:#4a1d96;font-weight:600;flex-wrap:wrap;gap:4px}
+.prog-bar-bg{height:10px;background:rgba(124,58,237,.15);border-radius:999px;overflow:hidden}
+.prog-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#7c3aed,#4f46e5);border-radius:999px;transition:width .3s ease}
+.question-area{padding:0 16px 30px}
+.question-card{background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:18px;padding:22px 24px;margin-bottom:20px;box-shadow:0 4px 20px rgba(80,0,120,.1);border-left:5px solid #7c3aed}
+.q-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.q-tags{display:flex;gap:5px;flex-wrap:wrap}
+.q-tag{font-size:.67rem;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(124,58,237,.12);color:#5b21b6;text-transform:uppercase;letter-spacing:.06em}
+.q-tag.t{background:rgba(6,182,212,.12);color:#0e7490}
+.q-num{font-size:.72rem;color:#9ca3af;font-weight:600}
+.q-stem{font-size:1rem;font-weight:600;line-height:1.6;color:#1e0a3c;margin-bottom:16px}
+.options{display:grid;gap:8px}
+.opt-lbl{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border-radius:12px;border:2px solid rgba(124,58,237,.2);cursor:pointer;background:rgba(255,255,255,.7);transition:all .18s;font-size:.94rem;line-height:1.5;color:#1e0a3c}
+.opt-lbl:hover{border-color:rgba(124,58,237,.5);background:rgba(237,233,254,.6)}
+.opt-lbl input[type=radio]{margin-top:3px;accent-color:#7c3aed;flex-shrink:0}
+.opt-lbl.correct{background:rgba(16,185,129,.12);border-color:#10b981;color:#065f46}
+.opt-lbl.incorrect{background:rgba(239,68,68,.1);border-color:#ef4444;color:#991b1b}
+.opt-lbl.reveal{background:rgba(16,185,129,.12);border-color:#10b981}
+.q-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn-check{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border:none;border-radius:10px;padding:9px 20px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-check:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(124,58,237,.4)}
+.btn-reset-q{background:rgba(255,255,255,.8);color:#6b7280;border:2px solid rgba(107,114,128,.25);border-radius:10px;padding:9px 14px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit}
+.explanation{display:none;margin-top:14px;background:rgba(254,243,199,.85);border-left:4px solid #f59e0b;border-radius:10px;padding:12px 15px;font-size:.9rem;line-height:1.65;color:#1e0a3c}
+.explanation strong{color:#92400e}
+.explanation.show{display:block}
+.score-box{display:none;background:rgba(255,255,255,.92);border-radius:20px;text-align:center;padding:36px 28px;margin:0 16px 24px;box-shadow:0 8px 32px rgba(80,0,120,.15)}
+.score-box.show{display:block}
+.score-box h2{font-size:2rem;color:#4f46e5;font-weight:800}
+.score-box p{color:#4a5568;margin-top:10px;font-size:1.05rem}
+.btn-retake{background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;border:none;border-radius:12px;padding:12px 32px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:20px;font-family:inherit}
+.flashcard-area{padding:0 16px 30px}
+.fc-score-row{display:flex;gap:12px;justify-content:center;margin-bottom:10px;font-size:.82rem;font-weight:700;color:#4a1d96;flex-wrap:wrap}
+.fc-score-row span{padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.6)}
+.fc-ok{color:#065f46!important;background:rgba(209,250,229,.7)!important}
+.fc-no{color:#991b1b!important;background:rgba(254,226,226,.7)!important}
+.fc-counter{text-align:center;margin-bottom:14px;font-weight:700;color:#4a1d96;font-size:.9rem}
+.flashcard{background:rgba(255,255,255,.9);border-radius:22px;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;box-shadow:0 8px 32px rgba(80,0,120,.18);cursor:pointer;transition:transform .15s;position:relative;margin-bottom:16px}
+.flashcard:hover{transform:translateY(-2px)}
+.flashcard.front{background:linear-gradient(145deg,rgba(237,233,254,.95),rgba(255,255,255,.95))}
+.flashcard.back{background:linear-gradient(145deg,rgba(209,250,229,.95),rgba(255,255,255,.95))}
+.fc-side-label{position:absolute;top:14px;right:18px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af}
+.fc-text{font-size:1.05rem;font-weight:600;color:#1e0a3c;line-height:1.6}
+.fc-text.ans{color:#065f46;font-size:.93rem;font-weight:500}
+.fc-nav{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.fc-nav button{border-radius:999px;padding:10px 18px;font-size:.85rem;font-weight:700;cursor:pointer;border:2px solid;font-family:inherit;transition:all .18s}
+.btn-fc-util{border-color:rgba(124,58,237,.4);color:#5b21b6;background:rgba(255,255,255,.7)}
+.btn-fc-flip{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-color:transparent;padding:10px 24px}
+.btn-fc-ok{border-color:#10b981;color:#065f46;background:rgba(209,250,229,.7)}
+.btn-fc-no{border-color:#ef4444;color:#991b1b;background:rgba(254,226,226,.7)}
+@media(max-width:600px){.controls-panel{padding:12px}.ctrl-group{min-width:100%}.question-card{padding:16px 15px}.mod-btn{padding:8px 14px;font-size:.82rem}}
+</style>
+</head>
+<body>
+<div class="page-header">
+<h1>🩺 Peds FNP Exam III – Practice Questions</h1>
+<p class="subtitle">Modules 8–12 · Comprehensive · Flashcard Mode</p>
+</div>
+<div class="module-tabs-wrap" id="moduleTabs">
+<button class="mod-btn active" data-mod="8">📚 Module 8</button>
+<button class="mod-btn" data-mod="9">📚 Module 9</button>
+<button class="mod-btn" data-mod="10">📚 Module 10</button>
+<button class="mod-btn" data-mod="11">📚 Module 11</button>
+<button class="mod-btn" data-mod="12">📚 Module 12</button>
+<button class="mod-btn comp" data-mod="all">🏆 Comprehensive</button>
+</div>
+<div class="view-mode-wrap">
+<button class="view-btn active" id="btnQuiz">📝 Quiz Mode</button>
+<button class="view-btn" id="btnFlash">🃏 Flashcards</button>
+<button class="view-btn" id="btnExam">🎲 Exam (50 Random)</button>
+</div>
+<div class="controls-panel" id="ctrlPanel">
+<div class="ctrl-group"><label>Search</label><input type="text" id="searchInput" placeholder="Search questions…"></div>
+<div class="ctrl-group"><label>Topic</label><select id="topicFilter"><option value="all">All topics</option></select></div>
+<div class="ctrl-group" style="min-width:auto;flex:0"><label>Actions</label>
+<div class="ctrl-actions">
+<button class="btn-p" id="btnCheckAll">✓ Check answered</button>
+<button class="btn-s" id="btnUnanswered">👁 Unanswered only</button>
+<button class="btn-d" id="btnResetAll">↺ Reset all</button>
+</div></div>
+</div>
+<div class="progress-shell">
+<div class="progress-top">
+<span><strong id="visCount">0</strong> visible · <strong id="ansCount">0</strong> answered · <strong id="corCount">0</strong> correct</span>
+<span id="modeLabel">Module 8 — Quiz Mode</span>
+</div>
+<div class="prog-bar-bg"><div class="prog-bar-fill" id="progFill"></div></div>
+</div>
+<div class="question-area" id="quizArea"></div>
+<div class="flashcard-area" id="flashArea" style="display:none">
+<div class="fc-score-row">
+<span class="fc-ok">✓ <span id="fcOk">0</span> knew it</span>
+<span class="fc-no">✗ <span id="fcNo">0</span> review</span>
+<span>🃏 <span id="fcTot">0</span> total</span>
+</div>
+<div class="fc-counter" id="fcCounter">Card 1 of 1</div>
+<div class="flashcard front" id="flashcard" onclick="flipCard()">
+<div class="fc-side-label" id="fcSideLabel">Question — tap to flip</div>
+<div class="fc-text" id="fcText">Loading…</div>
+</div>
+<div class="fc-nav">
+<button class="btn-fc-util" onclick="fcNav(-1)">◀ Prev</button>
+<button class="btn-fc-flip" onclick="flipCard()">↩ Flip</button>
+<button class="btn-fc-util" onclick="fcNav(1)">Next ▶</button>
+</div>
+<div class="fc-nav">
+<button class="btn-fc-ok" onclick="fcMark(true)">✓ Knew it</button>
+<button class="btn-fc-no" onclick="fcMark(false)">✗ Review again</button>
+<button class="btn-fc-util" onclick="fcShuffle()">🔀 Shuffle</button>
+<button class="btn-fc-util" onclick="fcResetDeck()">↺ Reset deck</button>
+</div>
+</div>
+<div class="score-box" id="scoreBox">
+<h2 id="scoreText"></h2><p id="scoreMsg"></p>
+<button class="btn-retake" onclick="retakeQuiz()">🔄 Retake Quiz</button>
+</div>
+<script>
+const BANKS = {
+8:[
+{id:"8-1",topic:"GI Structural",q:"A 3-week-old male presents with 5 days of forceful, projectile, non-bilious vomiting after every feeding. He appears hungry immediately after vomiting. Exam reveals an olive-shaped mass in the RUQ and visible peristaltic waves. Which metabolic abnormality is MOST expected?",opts:["Hyperchloremic metabolic acidosis","Hypochloremic, hypokalemic metabolic alkalosis","Hyperkalemic metabolic alkalosis","Normal electrolytes; no metabolic disturbance"],ans:1,exp:"<strong>Pyloric stenosis</strong> causes repeated loss of gastric HCl → <strong>hypochloremic, hypokalemic metabolic alkalosis</strong>. Classic triad: projectile non-bilious vomiting, hungry infant, olive-shaped pyloric mass. Ultrasound confirms. Correct electrolytes before surgical pyloromyotomy."},
+{id:"8-2",topic:"GI Structural",q:"A parent brings in a 2-year-old with a soft, reducible, nontender umbilical swelling (defect 1.2 cm) that enlarges with crying. Which management statement is MOST accurate?",opts:["Refer immediately for urgent surgical repair","Apply tape or a coin to hasten closure","Most umbilical hernias resolve spontaneously by age 4–5; refer if persistent past age 5 or defect >1.5 cm","Repair is required by age 1 year to prevent incarceration"],ans:2,exp:"<strong>Umbilical hernias</strong> resolve spontaneously by age 4–5. Do NOT apply tape/coins. Surgical referral if not resolved by school age or if incarceration occurs."},
+{id:"8-3",topic:"GI Structural",q:"A 7-month-old has episodic, sudden-onset inconsolable crying lasting 2–3 minutes followed by periods of calm. He has vomited twice and passed one 'currant jelly' stool. Abdomen is distended. What is the MOST likely diagnosis and preferred therapeutic intervention?",opts:["Hirschsprung disease; rectal biopsy","Intussusception; air or contrast enema","Appendicitis; CT abdomen with contrast","Malrotation with volvulus; upper GI series"],ans:1,exp:"<strong>Intussusception</strong>: episodic colicky pain, vomiting, currant jelly stools. Ultrasound (target sign). <strong>Air or contrast enema</strong> is both diagnostic and therapeutic (~75–90% success)."},
+{id:"8-4",topic:"GI Structural",q:"A 2-day-old neonate fails to pass meconium within 48 hours. Abdominal distension, tight anal sphincter, explosive decompression then re-distension on rectal exam. MOST likely diagnosis and gold-standard test?",opts:["Functional constipation; KUB X-ray only","Meconium ileus from cystic fibrosis; sweat chloride test","Hirschsprung disease; suction rectal biopsy showing absence of ganglion cells","Anal stenosis; anal dilation"],ans:2,exp:"<strong>Hirschsprung disease</strong>: failed neural crest cell migration causing aganglionosis. <strong>Suction rectal biopsy showing absence of ganglion cells</strong> is gold standard. 3–5× more common in trisomy 21."},
+{id:"8-5",topic:"GI Dehydration",q:"A 10-month-old has 2 days of watery diarrhea, low-grade fever, mild vomiting. Dry mucous membranes, decreased skin turgor, mild irritability. Estimated ~5% deficit. MOST appropriate initial management?",opts:["IV normal saline bolus 20 mL/kg immediately","Oral rehydration therapy (ORT): 50 mL/kg of ORS over 3–4 hours","Strict NPO for 24 hours","Loperamide to reduce stool frequency"],ans:1,exp:"<strong>Mild-to-moderate dehydration (3–9%)</strong>: <strong>ORT with 50 mL/kg ORS over 3–4 hours</strong>. Loperamide contraindicated under age 2. IV reserved for severe dehydration or ORT failure."},
+{id:"8-6",topic:"GI Dehydration",q:"A 4-year-old has 48 hours of vomiting and diarrhea. Lethargic, sunken eyes, absent tears, skin tenting >2 seconds, minimal urine output, HR 148. MOST appropriate immediate treatment?",opts:["ORT with 100 mL/kg ORS over 4 hours","IV isotonic saline 20 mL/kg bolus; reassess and repeat","NG tube rehydration at home","Oral Pedialyte only"],ans:1,exp:"<strong>Severe dehydration (≥10%)</strong> with hemodynamic compromise requires <strong>IV isotonic saline 20 mL/kg bolus</strong> over 20–30 min; reassess and repeat."},
+{id:"8-7",topic:"GI Symptoms",q:"A 14-month-old has 8 watery stools/day for 3 days after daycare exposure. Active, drinking well, moist mucous membranes, normal skin turgor. No blood in stool. Stool culture pending. MOST appropriate initial management?",opts:["Oral amoxicillin-clavulanate empirically","Ciprofloxacin for presumed bacterial diarrhea","Continue normal diet and oral fluids; no empiric antibiotics","Metronidazole if culture pending >48 hours"],ans:2,exp:"Well-appearing child, mild diarrhea, no dehydration → normal feeding + generous oral fluids. Most pediatric AGE is viral. <strong>Empiric antibiotics not indicated</strong> without confirmed pathogen."},
+{id:"8-8",topic:"GI Acute",q:"A 10-year-old has 18 hours of periumbilical pain migrating to RLQ, fever (38.4°C), nausea, anorexia. RLQ tenderness at McBurney's point, guarding, positive psoas sign. WBC 14,500. MOST appropriate next step?",opts:["Discharge with ibuprofen","Barium enema to confirm","Surgical consultation plus abdominal ultrasound (CT if US inconclusive)","Observe in ER for 6 hours with repeat WBC only"],ans:2,exp:"<strong>Classic appendicitis</strong>: periumbilical pain → RLQ, fever, anorexia, elevated WBC. <strong>Ultrasound is first-line imaging</strong>; CT used when US non-diagnostic. Immediate surgical consult."},
+{id:"8-9",topic:"GI Acute",q:"A 6-year-old has acute epigastric pain, nausea, vomiting, fever. Lipase 520 U/L (>3× ULN). Pancreatic edema on ultrasound. Recently completed valproic acid. Diagnosis and MOST appropriate initial management?",opts:["Appendicitis; surgical consult","Intussusception; air enema","Acute pancreatitis (valproic acid–induced); IV fluids, pain control, early enteral nutrition when tolerated","Peptic ulcer disease; start PPI"],ans:2,exp:"<strong>Acute pancreatitis</strong>: epigastric pain + lipase ≥3× ULN. Valproic acid is a known cause. Management: IV isotonic fluids → analgesia → <strong>early enteral nutrition within 24–48 hours</strong>."},
+{id:"8-10",topic:"GI Constipation",q:"A 5-year-old has 6 months of infrequent hard stools every 4–5 days with liquid stool soiling her underwear. Palpable LLQ mass. No red flags. MOST appropriate initial management?",opts:["Immediate GI referral for colonoscopy","Rectal biopsy to rule out Hirschsprung disease","Disimpaction with PEG (MiraLax) followed by daily maintenance PEG, dietary modification, and timed toileting","Dietary counseling alone"],ans:2,exp:"<strong>Functional constipation with encopresis</strong>: (1) <strong>Disimpaction</strong>: PEG 1–1.5 g/kg/day × 3–6 days; (2) <strong>Maintenance</strong>: PEG 0.4–0.8 g/kg/day + fiber + fluids + timed toileting after meals."},
+{id:"8-11",topic:"GI Constipation",q:"A 7-year-old has 2 hard stools per week, painful defecation, >10 minutes straining, no soiling, no impaction. What pharmacologic and dietary recommendation is MOST appropriate?",opts:["Bisacodyl stimulant laxative daily","PEG (MiraLax) 0.4–0.8 g/kg/day plus adequate dietary fiber (14 g/1000 kcal) and fluid intake","Prescription lubiprostone","Phosphate enema nightly"],ans:1,exp:"<strong>PEG 3350 (MiraLax)</strong> 0.4–0.8 g/kg/day is first-line maintenance therapy (ESPGHAN/NASPGHAN). Combine with dietary fiber, generous fluid intake, and timed toileting."},
+{id:"8-12",topic:"GERD",q:"A 4-month-old spits up 3–4 times daily after feeds, gains weight at 50th percentile, appears content, no respiratory symptoms. MOST appropriate management?",opts:["Start omeprazole for 8 weeks","Start ranitidine for 4 weeks","Reassure parents; physiologic GER — smaller feedings, thicken formula; no pharmacotherapy needed","Refer to GI for pH probe study"],ans:2,exp:"A <strong>'happy spitter'</strong> growing well = <strong>physiologic GER</strong>. Conservative management: smaller frequent feedings, thicken formula, upright positioning 20–30 min after feeds. Resolves by 12–18 months."},
+{id:"8-13",topic:"GERD",q:"A 10-year-old with obesity presents with 3 months of heartburn, epigastric burning after meals, nighttime regurgitation. Symptoms worsen lying down. No dysphagia or weight loss. MOST appropriate first-line pharmacologic treatment?",opts:["Metoclopramide for 4 weeks","Famotidine (H2 blocker) for 4 weeks","Omeprazole (PPI) for 4–8 weeks plus lifestyle modification","Upper endoscopy before starting any medication"],ans:2,exp:"<strong>PPIs (omeprazole, lansoprazole) for 4–8 weeks</strong> provide superior acid suppression. Lifestyle modifications equally important. Upper endoscopy reserved for alarm features (dysphagia, hematemesis, weight loss, refractory symptoms)."},
+{id:"8-14",topic:"Hepatitis",q:"A 6-year-old has jaundice, dark urine, clay-colored stools, fatigue, RUQ tenderness 2 weeks after international travel. Anti-HAV IgM positive. MOST accurate statement?",opts:["HAV becomes chronic; antiviral therapy required","HAV is transmitted perinatally","HAV spreads via fecal-oral route; treatment is supportive; does NOT cause chronic liver disease","HAV requires immediate liver transplant evaluation"],ans:2,exp:"<strong>HAV</strong>: fecal-oral route (contaminated food/water), incubation 15–50 days. Does NOT cause chronic liver disease. Treatment is <strong>supportive</strong>. 2-dose vaccine is >95% effective."},
+{id:"8-15",topic:"Hepatitis",q:"A 15-year-old has HBsAg+, HBeAg+, elevated ALT. Mother is HBsAg+; he received no neonatal prophylaxis. MOST likely transmission route and neonatal prevention strategy?",opts:["Fecal-oral route from contaminated water","Perinatal (vertical) transmission — prevented by HBV vaccine + HBIG within 12 hours of birth","Airborne transmission","Insect vector transmission"],ans:1,exp:"<strong>Perinatal (vertical) transmission</strong> from HBsAg+ mother is the most common route in children. Without prophylaxis, risk of chronic HBV is ~90%. Prevention: <strong>HBV vaccine + HBIG within 12 hours of birth</strong> (>95% effective)."},
+{id:"8-16",topic:"GI Chronic",q:"A 12-year-old girl has a 4-month history of recurrent periumbilical pain ≥4 times/month. Pain does NOT wake her from sleep. No fever, bloody stools, weight loss. All labs normal. MOST likely diagnosis?",opts:["Inflammatory bowel disease","Appendicitis","Functional abdominal pain (FAP)","Parasitic infection"],ans:2,exp:"<strong>Functional abdominal pain (FAP)</strong> — Rome IV: recurrent pain ≥1×/month for ≥2 months without organic cause. No alarm features. Management: reassurance, biopsychosocial approach, CBT."},
+{id:"8-17",topic:"IBS",q:"A 14-year-old has 6 months of crampy abdominal pain with alternating diarrhea/constipation, bloating, distension. No blood, stable weight, no nocturnal symptoms, all labs normal. MOST appropriate diagnosis and initial management?",opts:["Celiac disease; gluten-free diet immediately","Irritable bowel syndrome (IBS); low-FODMAP dietary modification, stress management, and fiber supplementation","Crohn disease; refer for colonoscopy","Lactose intolerance; lactase enzyme supplementation"],ans:1,exp:"<strong>IBS</strong> — Rome IV: recurrent abdominal pain ≥1 day/week for 3 months associated with change in stool frequency or form. Management: <strong>low-FODMAP diet</strong>, adequate fiber, stress management."},
+{id:"8-18",topic:"IBD",q:"A 16-year-old has 3 months of bloody diarrhea (6–8 stools/day), crampy abdominal pain, fever, 8-lb weight loss. RLQ tenderness. Elevated CRP, ESR, fecal calprotectin. MOST strongly suspected diagnosis and next step?",opts:["IBS; low-FODMAP diet trial","Acute Salmonella gastroenteritis; stool culture and antibiotics","Inflammatory bowel disease (IBD); urgent referral to pediatric GI for colonoscopy and biopsy","Functional abdominal pain; reassurance and CBT"],ans:2,exp:"<strong>IBD</strong>: chronic bloody diarrhea, weight loss, fever, anemia, elevated inflammatory markers. Crohn = any GI segment, skip lesions; UC = colon only, continuous. <strong>Colonoscopy with biopsy</strong> is gold standard."},
+{id:"8-19",topic:"GI Parasites",q:"An 8-year-old has intense perianal itching worse at night, irritability, difficulty sleeping. Scotch tape test reveals oval ova. Organism and recommended treatment?",opts:["Giardia lamblia; metronidazole for 5 days","Enterobius vermicularis (pinworms); mebendazole 100 mg OR albendazole 400 mg single dose, repeated in 2 weeks; treat all household members","Ascaris lumbricoides; mebendazole for 3 days","Toxocara canis; albendazole for 5 days"],ans:1,exp:"<strong>Enterobius vermicularis (pinworms)</strong>: most common helminthic infection in U.S. children. Intense perianal pruritus at night. Scotch tape test. Treatment: <strong>mebendazole 100 mg or albendazole 400 mg single dose, repeated in 2 weeks</strong>. Treat ALL household members simultaneously."},
+{id:"8-20",topic:"GI Chronic",q:"A 13-year-old has watery diarrhea, bloating, and flatulence triggered exclusively by dairy. Hydrogen breath test after lactose ingestion is positive. Diagnosis and management?",opts:["Colonoscopy and biopsy to rule out IBD","Oral metronidazole for presumed Giardia","Lactose intolerance; dietary lactose restriction and/or lactase enzyme supplementation; ensure adequate calcium intake","Celiac disease; gluten-free diet"],ans:2,exp:"<strong>Lactose intolerance</strong>: deficient lactase enzyme. Diagnosis: clinical + <strong>positive hydrogen breath test</strong>. Management: reduce lactose, use lactose-free products or <strong>lactase enzyme drops/tablets</strong> before dairy. Ensure adequate calcium via non-dairy alternatives."},
+{id:"8-21",topic:"GU UTI",q:"A 2-year-old girl has 2 days of fever (39.1°C), irritability, foul-smelling urine, dysuria. UA: positive leukocyte esterase, positive nitrites, 20–30 WBCs/hpf. No drug allergies. MOST appropriate initial antibiotic?",opts:["IV ampicillin for 7 days","Oral TMP-SMX for 10 days, adjusted when culture/sensitivity results return","Oral cephalexin for 3 days only","IV gentamicin only"],ans:1,exp:"Febrile UTI/pyelonephritis: <strong>oral antibiotics for 7–14 days</strong> are appropriate when child can tolerate PO. <strong>TMP-SMX</strong> or oral cephalosporins (cefdinir, cefixime) are common empiric choices. Adjust based on culture results."},
+{id:"8-22",topic:"GU UTI",q:"A 6-month-old febrile male has a positive catheter urine culture (>50,000 CFU/mL E. coli). Renal/bladder ultrasound shows left hydronephrosis. MOST appropriate next diagnostic step?",opts:["Renal CT scan with contrast","Voiding cystourethrogram (VCUG) to evaluate for vesicoureteral reflux","DMSA scan only; no VCUG needed","No further workup if child responds to antibiotics"],ans:1,exp:"Per AAP guidelines, abnormal RBUS after first febrile UTI → <strong>VCUG</strong> to grade VUR severity and guide prophylaxis decisions. Perform VCUG AFTER UTI is treated and urine is sterile."},
+{id:"8-23",topic:"GU UTI",q:"A clean-catch urine from a 4-year-old asymptomatic girl grows 100,000 CFU/mL E. coli. She has no fever, dysuria, frequency, or flank pain. MOST appropriate management?",opts:["Treat with oral nitrofurantoin for 7 days","Start IV ceftriaxone immediately","No treatment; this is asymptomatic bacteriuria (ASB) — antibiotics not indicated","Urgent VCUG to evaluate for VUR"],ans:2,exp:"<strong>Asymptomatic bacteriuria (ASB)</strong> in neurologically intact children does NOT require antibiotic treatment. Treating ASB disrupts protective normal urinary flora and promotes resistant organisms."},
+{id:"8-24",topic:"GU UTI",q:"Which urine collection method has the LOWEST contamination risk and is considered the gold standard for diagnosing UTI in infants and young children?",opts:["Bagged urine specimen taped to the perineum","Suprapubic aspiration (SPA)","Clean-catch midstream urine with parental assistance","Urine dipstick from any collection method"],ans:1,exp:"<strong>Suprapubic aspiration (SPA)</strong> is the gold standard — essentially sterile. <strong>Any bacterial growth on SPA culture is considered positive.</strong> Bagged specimens have up to 85% false-positive contamination rates."},
+{id:"8-25",topic:"GU VUR",q:"A 3-year-old has Grade III VUR on VCUG after a second febrile UTI. No bladder or bowel dysfunction. MOST consistent management approach with current guidelines?",opts:["Immediate surgical ureteral reimplantation","Antibiotic prophylaxis (low-dose TMP-SMX or nitrofurantoin) plus bladder/bowel dysfunction management and surveillance imaging","Watchful waiting with no medications or imaging","Nephrectomy of the affected kidney"],ans:1,exp:"<strong>Low-to-moderate grade VUR (Grades I–III)</strong>: antibiotic prophylaxis (low-dose TMP-SMX at bedtime or nitrofurantoin >2 months). Bladder and bowel dysfunction management equally important. High-grade VUR or breakthrough UTIs may require surgery."}
+,
+{id:"8-26",topic:"GU Enuresis",q:"A 7-year-old boy has never had a dry night since birth. He is a very heavy sleeper with no daytime urinary symptoms. His father wet the bed until age 10. UA normal. MOST likely type and first-line treatment?",opts:["Secondary monosymptomatic nocturnal enuresis; perform VCUG","Primary monosymptomatic nocturnal enuresis (PMNE); bedwetting alarm therapy (most effective long-term) or desmopressin (DDAVP) for short-term use","Neurogenic bladder; urodynamics study","Diabetes insipidus; water deprivation test"],ans:1,exp:"<strong>Primary monosymptomatic nocturnal enuresis (PMNE)</strong>: never consistently dry, no daytime symptoms, strong family history. <strong>Bedwetting alarm therapy</strong> is most effective long-term (70–80% success). <strong>Desmopressin (DDAVP)</strong> 0.2 mg PO at bedtime is second-line for short-term situations."},
+{id:"8-27",topic:"GU Enuresis",q:"A 9-year-old girl presents with new-onset bedwetting after being consistently dry for 2 years. She has daytime urinary frequency and urgency. UA dipstick shows glucosuria. MOST appropriate next step?",opts:["Diagnose as primary enuresis; start bedwetting alarm","Check fasting blood glucose and HbA1c to evaluate for new-onset diabetes mellitus","Start desmopressin immediately","Reassure — secondary enuresis always resolves spontaneously"],ans:1,exp:"<strong>Secondary enuresis</strong> (previously dry ≥6 months) + daytime symptoms + <strong>glucosuria</strong> = strongly suggests new-onset <strong>Type 1 DM</strong>. Always work up secondary enuresis for organic causes: UTI, T1DM, DI, constipation, stress, sleep apnea."},
+{id:"8-28",topic:"GU Inguinal Hernia",q:"A 6-month-old male has a smooth, nontender, reducible right groin swelling visible when he cries. It does not transilluminate. MOST appropriate management?",opts:["Observe until age 2; spontaneous resolution expected","Urgent referral to surgery for elective inguinal herniorrhaphy — high risk of incarceration in infancy","Apply an abdominal binder","Reassure; indirect hernias always resolve spontaneously"],ans:1,exp:"<strong>Indirect inguinal hernias</strong> do NOT resolve spontaneously and carry significant risk of <strong>incarceration</strong>, especially in the first year of life. <strong>Elective surgical repair (herniorrhaphy)</strong> is recommended shortly after diagnosis."},
+{id:"8-29",topic:"GU Female",q:"A 3-year-old girl has difficulty separating the labia during diaper changes. Exam reveals fused labia minora with a thin midline white line. No pain, no drainage, urination is normal. MOST appropriate first-line treatment?",opts:["Surgical separation under general anesthesia","Forceful manual separation in clinic","Topical betamethasone 0.05% cream applied to the fusion line twice daily for 4–6 weeks","Topical estrogen cream applied twice daily for 4–6 weeks"],ans:2,exp:"<strong>Labial adhesions</strong>: common in prepubertal girls (low estrogen). Asymptomatic cases may be observed. When treatment needed: <strong>topical betamethasone 0.05% is now preferred first-line</strong> before estrogen (fewer systemic side effects). Forceful separation and surgery are NOT appropriate."},
+{id:"8-30",topic:"GU Female",q:"A 5-year-old girl presents with 1 week of vulvar itching, redness, and thick white 'cottage-cheese-like' vaginal discharge. She recently completed a course of amoxicillin for AOM. No fever. MOST likely diagnosis and treatment?",opts:["Group A Strep vulvovaginitis; oral amoxicillin","Vulvovaginal candidiasis; topical miconazole or clotrimazole for 3–7 days","Non-specific vulvovaginitis; topical hydrocortisone 0.5%","STI; mandatory STI workup"],ans:1,exp:"<strong>Vulvovaginal candidiasis</strong>: thick white cottage-cheese-like discharge, vulvar erythema, intense pruritus — typically following antibiotic use. Treatment: <strong>topical antifungal (clotrimazole or miconazole) for 3–7 days</strong>."},
+{id:"8-31",topic:"GU Female",q:"A 12-year-old girl presents with cyclic lower abdominal pain every month but has never had a menstrual period. Exam reveals a bluish, bulging, tense membrane at the vaginal introitus. Pelvic ultrasound shows a fluid-filled structure above the vagina. MOST likely diagnosis and treatment?",opts:["Primary ovarian insufficiency; estrogen replacement","Vaginal agenesis (MRKH syndrome); surgical vaginoplasty","Imperforate hymen causing hematocolpos; surgical hymenectomy","PCOS; combined oral contraceptive pills"],ans:2,exp:"<strong>Imperforate hymen</strong>: primary amenorrhea with cyclic monthly pelvic pain, blood accumulating behind hymen (hematocolpos). Classic finding: <strong>bulging, bluish membrane at vaginal introitus</strong>. Treatment: <strong>surgical hymenectomy</strong>."},
+{id:"8-32",topic:"GU Male",q:"A 9-month-old male infant is noted at a well-child visit to have an empty right scrotal sac. The right testis is not palpable. Left testis normally descended. Recommended management timeline?",opts:["Refer to urology only if still undescended at age 2","Immediate orchiopexy at the time of diagnosis","Hormonal therapy with hCG is preferred first-line treatment","Orchiopexy is recommended between 6–18 months of age; refer to urology now"],ans:3,exp:"<strong>Cryptorchidism</strong> should be treated surgically (orchiopexy) between <strong>6–18 months of age</strong> to optimize fertility potential, reduce malignancy risk, and prevent torsion. Hormonal therapy (hCG or GnRH) has poor long-term efficacy and is not first-line in the U.S."},
+{id:"8-33",topic:"GU Male",q:"A 14-year-old uncircumcised male presents with inability to retract the foreskin, thin urinary stream, post-void dribbling, and recurrent balanitis. A white, scarred, phimotic ring is at the preputial orifice. MOST appropriate first-line treatment?",opts:["Topical betamethasone 0.05% cream applied twice daily to the phimotic ring for 4–6 weeks","Forceful retraction in clinic","Topical estrogen cream for 8 weeks","Reassure; all foreskins become retractile by age 17"],ans:0,exp:"<strong>Pathologic phimosis</strong> with obstructive voiding + recurrent balanitis: <strong>topical betamethasone 0.05%</strong> applied to the phimotic ring twice daily for 4–6 weeks. Circumcision for failed medical treatment. <strong>Forceful retraction is absolutely contraindicated</strong>."},
+{id:"8-34",topic:"GU Male",q:"A 5-year-old boy has a painless, smooth, transilluminating scrotal swelling present since birth. It does not change in size with crying or Valsalva. It is nontender. MOST appropriate management?",opts:["Immediate surgical repair; risk of incarceration is high","Communicating hydrocele; refer to urology immediately","Non-communicating (simple) hydrocele; most resolve by 12–18 months; if still present beyond age 2, refer to urology for repair","Start antibiotics for epididymo-orchitis"],ans:2,exp:"<strong>Non-communicating hydrocele</strong>: present at birth, does not change size, transilluminates. Most resolve spontaneously by <strong>12–18 months</strong>. Observe; refer to urology if still present at age 2."},
+{id:"8-35",topic:"GU Male",q:"A 16-year-old male presents with sudden, severe left testicular pain that began 3 hours ago while playing basketball. Pain radiates to left lower abdomen. He vomited twice. Left testis is high-riding, exquisitely tender, horizontally oriented, and cremasteric reflex is absent. MOST appropriate management?",opts:["Administer NSAIDs and reassess in 2 hours","Obtain scrotal ultrasound; schedule elective surgery if torsion confirmed","Emergency surgical scrotal exploration within 4–6 hours — do NOT delay for imaging","Treat as epididymitis with ceftriaxone and doxycycline"],ans:2,exp:"<strong>Testicular torsion is a surgical emergency.</strong> Salvage rate: >90% if surgery within 6 hours, <10% after 24 hours. <strong>When clinical suspicion is high, proceed directly to surgical exploration WITHOUT delay for imaging.</strong>"},
+{id:"8-36",topic:"GU Male",q:"A 12-year-old boy has a urethral meatus located on the ventral surface of the penis, 1 cm below the glans, with a ventral chordee and a dorsal-hooded foreskin. What is the standard treatment?",opts:["No treatment needed; resolves spontaneously at puberty","Circumcision is the treatment of choice","Surgical repair (urethroplasty) at 6–18 months of age; circumcision is CONTRAINDICATED prior to repair","Testosterone cream for 6 months then reassess"],ans:2,exp:"<strong>Hypospadias</strong>: ventral urethral meatus + ventral chordee + dorsal hooded foreskin. Surgical repair (<strong>urethroplasty</strong>) at <strong>6–18 months of age</strong>. <strong>Circumcision is absolutely contraindicated before repair</strong> — prepucial tissue is used in reconstruction."},
+{id:"8-37",topic:"GU Male",q:"A 17-year-old sexually active male presents with 3 days of gradually worsening left scrotal pain and swelling. Left epididymis is tender, cremasteric reflex is intact, and Prehn's sign is positive. Urethral discharge is present. MOST likely diagnosis and treatment?",opts:["Testicular torsion; emergency surgical exploration","Epididymitis from STI; ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID for 10 days","Orchitis from mumps; supportive care only","Non-communicating hydrocele; observation"],ans:1,exp:"<strong>Epididymitis</strong> in a sexually active adolescent male: most commonly Chlamydia or Neisseria gonorrhoeae. Gradual onset, tender epididymis, <strong>intact cremasteric reflex</strong>, <strong>positive Prehn's sign</strong>. CDC 2021 treatment: <strong>ceftriaxone 500 mg IM × 1 + doxycycline 100 mg PO BID × 10 days</strong>."},
+{id:"8-38",topic:"Dysmenorrhea",q:"A 15-year-old presents with severe crampy lower abdominal pain starting 1–2 days before her period and lasting 48–72 hours. Pain radiates to lower back and inner thighs. Menarche was at age 12; cycles are regular. Normal pelvic exam. MOST likely diagnosis and first-line treatment?",opts:["Secondary dysmenorrhea from endometriosis; diagnostic laparoscopy","Primary dysmenorrhea; NSAIDs (ibuprofen 400–800 mg every 4–6 hours) started 1–2 days before expected menses","Mittelschmerz; reassurance only","Pelvic inflammatory disease; ceftriaxone and doxycycline"],ans:1,exp:"<strong>Primary dysmenorrhea</strong>: excessive prostaglandin production causing uterine ischemic pain. Begins within 1–2 years of menarche with regular cycles, normal pelvic exam. <strong>First-line: NSAIDs started 1–2 days BEFORE expected menses onset</strong>, continued for 48–72 hours."},
+{id:"8-39",topic:"Dysmenorrhea",q:"A 16-year-old with dysmenorrhea has used ibuprofen 200 mg once at the onset of menstrual cramps for the past 3 cycles with minimal relief. She reports NSAIDs 'don't work.' What MOST likely explains the poor response?",opts:["She has secondary dysmenorrhea; NSAIDs are never effective for this","She requires opioid analgesics; refer to pain management","Inadequate dosing and timing: effective NSAID therapy requires 400–800 mg started 1–2 days BEFORE menses onset, not 200 mg reactively after pain begins","NSAIDs are contraindicated in adolescents with dysmenorrhea"],ans:2,exp:"NSAIDs are highly effective when used correctly: (1) <strong>adequate dose</strong> — ibuprofen 400–800 mg, NOT 200 mg; (2) <strong>proactive timing</strong> — start 1–2 days before expected menses or at the very first sign of bleeding. Reactive low-dose treatment after pain is established is insufficient."},
+{id:"8-40",topic:"Dysmenorrhea",q:"A 17-year-old with dysmenorrhea has not responded to 3 months of correctly dosed NSAIDs. She is not sexually active. MOST appropriate next step?",opts:["Diagnose as functional pain and refer to psychiatry","Add combined oral contraceptive pills (COCs) to suppress ovulation and reduce prostaglandin production","Begin opioid analgesics for pain management","Refer immediately for diagnostic laparoscopy"],ans:1,exp:"When <strong>NSAIDs alone fail</strong> after 3 months of adequate use, the next step is <strong>combined hormonal contraceptives</strong> (pills, patch, or ring). They reduce prostaglandin production by suppressing ovulation and thinning the endometrium."},
+{id:"8-41",topic:"Dysmenorrhea",q:"Which of the following features would MOST strongly suggest SECONDARY dysmenorrhea rather than primary dysmenorrhea?",opts:["Pain starting with menarche, normal pelvic exam, regular cycles, relieved by NSAIDs","Progressively worsening pain that began years after menarche, associated with dyspareunia, pain present outside of menses, and not controlled with NSAIDs or COCs","Crampy pain with headache, nausea, and bilateral lower abdominal location, lasting 1–2 days","Pain that begins exactly at onset of menstrual flow and resolves within 48 hours"],ans:1,exp:"<strong>Secondary dysmenorrhea</strong> red flags: <strong>onset years after menarche, progressive worsening, pain during entire cycle (not just menses), dyspareunia, abnormal pelvic exam, failure of NSAIDs AND hormonal therapy</strong>. Endometriosis is the most common cause in adolescents with refractory secondary dysmenorrhea."},
+{id:"8-42",topic:"Dysmenorrhea",q:"A 16-year-old asks about non-pharmacologic approaches with evidence-based support for reducing dysmenorrhea pain. Which recommendation has the BEST evidence?",opts:["Complete bed rest and avoidance of all physical activity during menses","Regular aerobic exercise (at least 30 minutes, 3 times/week) and application of local heat (heating pad at 38–39°C)","Herbal teas alone as sole therapy","Dietary changes only, with no other interventions"],ans:1,exp:"Non-pharmacologic management with best evidence: (1) <strong>Local heat application</strong> (38–39°C) — evidence comparable to ibuprofen for mild-moderate dysmenorrhea; (2) <strong>Regular aerobic exercise</strong> reduces prostaglandin production. Bed rest is NOT recommended."},
+{id:"8-43",topic:"Amenorrhea",q:"A 16-year-old has never had a menstrual period. She has Tanner III breast development and sparse pubic/axillary hair. External genitalia appear female but vaginal exam reveals a blind vaginal pouch with no uterus on ultrasound. Karyotype is 46,XY. MOST likely diagnosis?",opts:["Turner syndrome (45,X0)","Complete androgen insensitivity syndrome (CAIS)","Hypothalamic amenorrhea from excessive exercise","Prolactinoma"],ans:1,exp:"<strong>Complete androgen insensitivity syndrome (CAIS)</strong>: phenotypically female, normal breast development, absent/sparse pubic and axillary hair, absent uterus, blind vaginal pouch, <strong>46,XY karyotype</strong>. After puberty, <strong>gonadectomy is recommended</strong> (gonadoblastoma risk)."},
+{id:"8-44",topic:"Amenorrhea",q:"A 13-year-old has no breast development (Tanner I) and has never menstruated. She is short with a webbed neck, shield chest, wide-spaced nipples, and cubitus valgus. MOST likely diagnosis?",opts:["Constitutional delay of puberty","Turner syndrome (45,X0); confirmed by karyotype","PCOS","Hypothalamic amenorrhea from low body weight"],ans:1,exp:"<strong>Turner syndrome (45,X0)</strong>: primary amenorrhea, absent secondary sex characteristics, <strong>short stature, webbed neck, shield chest, wide-spaced nipples, cubitus valgus</strong>. Most common chromosomal cause of primary amenorrhea. Screen for cardiac (bicuspid aortic valve, coarctation) and renal anomalies."},
+{id:"8-45",topic:"Amenorrhea",q:"A 17-year-old competitive gymnast training 5–6 hours daily has had no menstrual periods for 5 months. BMI is 17. She restricts calories. FSH, LH, and estrogen are all low. Pregnancy test is negative. MOST likely diagnosis?",opts:["PCOS with elevated LH","Primary ovarian insufficiency","Hypothalamic amenorrhea due to the female athlete triad (low energy availability + low bone density + menstrual dysfunction)","Prolactinoma"],ans:2,exp:"<strong>Hypothalamic amenorrhea from the female athlete triad</strong>: disordered eating + excessive exercise + low energy availability → suppression of the HPO axis → low GnRH → low FSH, LH, and estrogen. Management: increase caloric intake, reduce training, address eating disorder."},
+{id:"8-46",topic:"Amenorrhea",q:"A 16-year-old presents with secondary amenorrhea for 6 months, acne, hirsutism, and moderate obesity (BMI 32). LH:FSH ratio is elevated (~3:1). Testosterone mildly elevated. Ultrasound shows polycystic-appearing ovaries. Diagnosis and initial management?",opts:["Primary ovarian insufficiency; estrogen replacement","Hypothalamic amenorrhea; nutrition counseling only","Polycystic ovary syndrome (PCOS); lifestyle modification plus combined OCP or metformin","Congenital adrenal hyperplasia; dexamethasone suppression"],ans:2,exp:"<strong>PCOS</strong> — Rotterdam criteria (2 of 3): oligo-ovulation/anovulation, clinical/biochemical hyperandrogenism, polycystic ovaries on ultrasound. <strong>First-line: lifestyle modification</strong> (weight loss 5–10%). <strong>Combined OCPs</strong> treat irregular menses and hyperandrogenism. <strong>Metformin</strong> improves insulin resistance."},
+{id:"8-47",topic:"Amenorrhea",q:"A 17-year-old presents with galactorrhea (milky nipple discharge), headaches, and secondary amenorrhea for 4 months. She takes no medications. Serum prolactin is markedly elevated. MOST likely diagnosis and recommended next diagnostic step?",opts:["PCOS; obtain fasting insulin level","Asherman syndrome; sonohysterogram","Prolactinoma; MRI of the pituitary gland with gadolinium contrast","Thyroid dysfunction; check TSH level only and stop workup"],ans:2,exp:"<strong>Galactorrhea + secondary amenorrhea + elevated prolactin</strong> → suspect a <strong>prolactinoma</strong>. <strong>MRI of the pituitary with gadolinium</strong> is the next step. Check TSH first to exclude hypothyroidism. Treatment: <strong>dopamine agonists</strong> (cabergoline preferred over bromocriptine)."},
+{id:"8-48",topic:"GI Chronic",q:"A 5-year-old has a 6-month history of watery diarrhea with each dairy intake. Hydrogen breath test is positive. Management after confirming lactose intolerance should include which of the following?",opts:["Administer oral metronidazole for 5 days","Refer for lactose tolerance test biopsy","Dietary restriction of lactose and supplemental lactase enzyme; ensure adequate calcium via alternative sources","Prescribe omeprazole for presumed GERD causing symptoms"],ans:2,exp:"<strong>Lactose intolerance</strong>: manage with dietary lactose restriction or lactase enzyme supplementation before dairy. Always ensure adequate calcium intake through fortified non-dairy alternatives."},
+{id:"8-49",topic:"GI Structural",q:"A 3-month-old infant has episodes of bilious vomiting, abdominal distension, and rectal blood. X-ray shows a 'double bubble' sign. This is MOST consistent with which diagnosis?",opts:["Pyloric stenosis","Duodenal atresia","Intussusception","Hirschsprung disease"],ans:1,exp:"A <strong>'double bubble' sign</strong> on X-ray (air in stomach and proximal duodenum) is classic for <strong>duodenal atresia</strong>. Often associated with trisomy 21. It is a surgical emergency requiring duodenoduodenostomy."},
+{id:"8-50",topic:"GU UTI",q:"Which antibiotic is considered SAFE for use as long-term UTI prophylaxis in a child older than 2 months?",opts:["Trimethoprim-sulfamethoxazole (TMP-SMX) at bedtime — a safe and commonly used prophylactic agent","Ciprofloxacin — first choice for prophylaxis in children","Tetracycline — well-tolerated for long-term use in young children","Amoxicillin-clavulanate — preferred for long-term prophylaxis in all ages"],ans:0,exp:"<strong>TMP-SMX</strong> at half the therapeutic dose administered at bedtime is one of the most commonly used agents for antibiotic prophylaxis in children >2 months of age with VUR or recurrent UTIs. Nitrofurantoin (for >2 months) is another option. Ciprofloxacin is generally avoided in children, and tetracycline is contraindicated under age 8."}
+],
+9:[
+{id:"9-1",topic:"MSK",q:"A 3-week-old female presents with persistent head tilt to the right and rotation to the left. A firm, nontender, 2 cm mass is palpable along the right sternocleidomastoid (SCM) muscle. Which statement BEST describes the pathophysiology and first-line treatment?",opts:["Vertebral anomaly causing bony obstruction; surgical correction is first-line","Fibrosis of the SCM from birth trauma or intrauterine positioning; first-line treatment is physical therapy (passive stretching exercises)","Viral myositis of the SCM; oral antivirals for 2 weeks","Atlantoaxial subluxation; rigid cervical collar and surgical stabilization"],ans:1,exp:"<strong>Congenital muscular torticollis (CMT)</strong> is caused by fibrosis of the SCM from birth trauma or intrauterine positioning. The mass is a fibrotic SCM hematoma/pseudotumor. First-line: <strong>physical therapy with passive stretching exercises</strong>, successful in >90% when started early. Surgery reserved for cases unresponsive to PT after 12–18 months."},
+{id:"9-2",topic:"MSK",q:"A 5-year-old boy has a painless limp for 3 months. X-ray shows flattening and fragmentation of the left femoral head. He is afebrile. WBC is normal. What is the MOST likely diagnosis?",opts:["Septic arthritis of the hip","Legg-Calvé-Perthes disease (LCPD)","Transient synovitis","Slipped capital femoral epiphysis (SCFE)"],ans:1,exp:"<strong>Legg-Calvé-Perthes disease (LCPD)</strong>: idiopathic avascular necrosis of the femoral head in children 4–8 years. Painless limp + X-ray showing flattening/fragmentation of femoral head. Afebrile, normal WBC (distinguishes from septic arthritis). Management: activity restriction, orthopedic referral, containment therapy."},
+{id:"9-3",topic:"MSK",q:"A 13-year-old obese male presents with left hip and knee pain and a limp. He walks with his leg externally rotated. X-ray shows the 'ice cream scoop falling off the cone' appearance. What is the diagnosis and management?",opts:["Legg-Calvé-Perthes disease; physical therapy","Slipped capital femoral epiphysis (SCFE); non-weight-bearing and urgent surgical pinning","Septic arthritis; IV antibiotics","Transient synovitis; NSAIDs and rest"],ans:1,exp:"<strong>Slipped capital femoral epiphysis (SCFE)</strong>: obesity, adolescent male, hip/knee pain, external rotation of the leg. X-ray: 'ice cream scoop off cone' (Klein's line). <strong>Urgent surgical in-situ pinning</strong> is required to prevent avascular necrosis. Non-weight-bearing until surgery."},
+{id:"9-4",topic:"MSK",q:"A 3-year-old presents with sudden refusal to use the left arm after her parent pulled her hand. Her arm hangs with slight pronation. No bony tenderness or swelling. X-ray is normal. What is the MOST likely diagnosis and treatment?",opts:["Supracondylar fracture; cast immobilization","Nursemaid's elbow (radial head subluxation); reduction maneuver (hyperpronation or supination-flexion)","Septic elbow; IV antibiotics","Shoulder dislocation; closed reduction under sedation"],ans:1,exp:"<strong>Nursemaid's elbow</strong>: radial head subluxation from axial traction. Classic: sudden arm refusal after pulling, arm hangs with pronation, no bony tenderness, normal X-ray. Treatment: <strong>hyperpronation or supination-flexion reduction maneuver</strong> in clinic — immediate return to function."},
+{id:"9-5",topic:"MSK",q:"An 8-year-old has knee pain below the patella that worsens with running, jumping, and kneeling. There is a painful bony prominence at the tibial tubercle. Symptoms improve with rest. What is the diagnosis?",opts:["Septic arthritis of the knee","Osgood-Schlatter disease","Patellar fracture","Juvenile idiopathic arthritis"],ans:1,exp:"<strong>Osgood-Schlatter disease</strong>: traction apophysitis of the tibial tubercle. Most common in active adolescents during growth spurts. Pain at the tibial tubercle with activity, relieved by rest. Treatment: activity modification, ice, NSAIDs, quadriceps stretching. Resolves when growth plates close."}
+],
+10:[
+{id:"10-1",topic:"Nutrition",q:"A 9-month-old formula-fed infant has not yet started solid foods. Parents ask when and how to introduce complementary foods. Which statement is MOST accurate?",opts:["Introduce solid foods at 4 months to prevent allergies","Introduce solid foods around 6 months; start with single-ingredient purees; continue breast milk or formula","Introduce cow's milk as the first complementary food at 6 months","Delay all allergenic foods until after 1 year"],ans:1,exp:"<strong>Complementary foods</strong> should be introduced around <strong>6 months of age</strong> (not before 4 months). Start with single-ingredient purees (iron-fortified cereals, pureed vegetables, fruits, meats). Continue breast milk or formula. Early introduction of allergenic foods (peanut, egg) is now recommended to reduce allergy risk. Cow's milk as a drink should be avoided until 12 months."},
+{id:"10-2",topic:"Endocrine",q:"A 10-year-old girl presents with polyuria, polydipsia, weight loss of 8 lbs over 3 weeks, fatigue, and abdominal pain. Urine dipstick shows 4+ glucose and 2+ ketones. Serum glucose is 385 mg/dL. What is the MOST likely diagnosis?",opts:["Type 2 diabetes mellitus","Type 1 diabetes mellitus (T1DM); initiate insulin therapy and fluid resuscitation","Diabetes insipidus; water deprivation test","SIADH; fluid restriction"],ans:1,exp:"<strong>Type 1 diabetes mellitus (T1DM)</strong>: autoimmune destruction of beta cells. Classic triad: polyuria, polydipsia, weight loss. Glucosuria + ketonuria + elevated glucose + DKA presentation. Treatment: <strong>insulin therapy (basal-bolus regimen)</strong> + fluid resuscitation if in DKA. Refer to pediatric endocrinology."}
+],
+11:[
+{id:"11-1",topic:"Dermatology",q:"A 7-year-old presents with intensely pruritic vesicles on an erythematous base, starting on the trunk and spreading to the face and extremities, in various stages. He is febrile. He has not been vaccinated against VZV. What is the MOST appropriate management?",opts:["Initiate antiviral therapy with oseltamivir","Supportive care (antihistamines, calamine, cool baths, antipyretics); acetaminophen preferred over aspirin","Initiate IV vancomycin for presumed bacterial superinfection","No treatment needed; varicella always self-resolves without complications"],ans:1,exp:"<strong>Varicella (chickenpox)</strong>: highly pruritic vesicles in various stages on trunk first. Management: <strong>supportive care</strong> (antihistamines, calamine lotion, antipyretics). <strong>Avoid aspirin</strong> (Reye's syndrome). Oral acyclovir may be used within 24–72 hours of rash onset in non-immunocompromised children ≥13 years, or with high-risk features."},
+{id:"11-2",topic:"Hematology",q:"A 4-year-old has acute onset of petechiae and purpura across the body 2 weeks after a viral illness. She is afebrile and playful. CBC shows platelet count of 12,000/μL; all other cell lines are normal. What is the MOST likely diagnosis and first-line treatment?",opts:["Leukemia; bone marrow biopsy","Immune thrombocytopenic purpura (ITP); observation if mild bleeding or IVIG/steroids for significant bleeding","Hemolytic uremic syndrome; plasmapheresis","Meningococcemia; IV antibiotics and steroids"],ans:1,exp:"<strong>Immune thrombocytopenic purpura (ITP)</strong>: acute onset isolated thrombocytopenia following viral illness. Afebrile, otherwise well child. Normal WBC and RBC. Management of mild ITP: <strong>observation</strong>. Significant mucosal/internal bleeding: <strong>IVIG or corticosteroids</strong>. Most children have spontaneous remission."}
+],
+12:[
+{id:"12-1",topic:"Neurology",q:"A 6-year-old has repetitive, non-suppressible, stereotyped movements including eye blinking and throat clearing for >12 months, without remission. No coprolalia. What is the MOST likely diagnosis?",opts:["Tourette syndrome — characterized by at least 2 motor tics and at least 1 vocal tic present for >1 year","Simple transient tic disorder — criteria not met for Tourette","Sydenham chorea — poststreptococcal sequela","OCD — intrusive thoughts with compulsive behaviors"],ans:0,exp:"<strong>Tourette syndrome</strong>: at least 2 motor tics + at least 1 vocal (phonic) tic, present for >1 year without remission ≥3 months, onset before 18 years. Coprolalia (involuntary obscene utterances) is present in only ~10–15% of cases. Management: behavioral therapy (CBIT), clonidine, guanfacine, or antipsychotics for significant impairment."},
+{id:"12-2",topic:"Behavioral",q:"A 7-year-old boy has persistent difficulty sustaining attention, often loses items, is easily distracted, fails to follow instructions, and has had these symptoms in multiple settings for >6 months. These behaviors significantly impair academic performance. What is the MOST likely diagnosis and first-line treatment in school-age children?",opts:["Autism spectrum disorder; applied behavior analysis","ADHD, predominantly inattentive presentation; stimulant medication (methylphenidate or amphetamine salts) plus behavioral therapy","Generalized anxiety disorder; SSRI","Specific learning disability; special education services only"],ans:1,exp:"<strong>ADHD</strong>: inattention, hyperactivity, impulsivity in ≥2 settings for ≥6 months, onset before age 12, causing functional impairment. In school-age children (≥6 years): <strong>stimulant medication (methylphenidate or amphetamine salts) + behavioral therapy</strong>. Stimulants are first-line and most evidence-based pharmacotherapy."}
+]
+};
+
+// ── ENGINE ──────────────────────────────────────────────
+const state = {};
+Object.values(BANKS).flat().forEach(q => state[q.id] = {sel:null,checked:false,correct:false});
+
+let activeMod = '8';
+let viewMode = 'quiz'; // quiz | flash | exam
+let unansweredOnly = false;
+let examIds = [];
+let fcDeck = [];
+let fcIdx = 0;
+let fcFlipped = false;
+let fcOkCnt = 0;
+let fcNoCnt = 0;
+const fcMarked = new Set();
+
+function getBaseQuestions() {
+  if (activeMod === 'all') return Object.values(BANKS).flat();
+  if (activeMod === 'exam') {
+    if (!examIds.length) generateExamSet();
+    return Object.values(BANKS).flat().filter(q => examIds.includes(q.id));
+  }
+  return BANKS[parseInt(activeMod)] || [];
+}
+
+function shuffle(arr) {
+  const c = [...arr];
+  for (let i = c.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [c[i], c[j]] = [c[j], c[i]];
+  }
+  return c;
+}
+
+function generateExamSet() {
+  const all = Object.values(BANKS).flat();
+  examIds = shuffle(all).slice(0, 50).map(q => q.id);
+}
+
+function getFilteredQuestions() {
+  const base = getBaseQuestions();
+  const search = document.getElementById('searchInput').value.trim().toLowerCase();
+  const topic = document.getElementById('topicFilter').value;
+  return base.filter(q => {
+    if (topic !== 'all' && q.topic !== topic) return false;
+    if (unansweredOnly && state[q.id].checked) return false;
+    if (search) {
+      const hay = (q.q + ' ' + q.opts.join(' ') + ' ' + q.topic).toLowerCase();
+      if (!hay.includes(search)) return false;
+    }
+    return true;
+  });
+}
+
+function refreshTopicFilter() {
+  const base = getBaseQuestions();
+  const topics = [...new Set(base.map(q => q.topic))].sort();
+  const sel = document.getElementById('topicFilter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="all">All topics</option>' + topics.map(t => '<option value="' + t + '">' + t + '</option>').join('');
+  if (topics.includes(cur)) sel.value = cur;
+}
+
+function render() {
+  if (viewMode === 'flash') {
+    document.getElementById('quizArea').style.display = 'none';
+    document.getElementById('flashArea').style.display = 'block';
+    document.getElementById('scoreBox').className = 'score-box';
+    document.getElementById('ctrlPanel').style.display = 'none';
+    renderFlashcards();
+    return;
+  }
+  document.getElementById('quizArea').style.display = 'block';
+  document.getElementById('flashArea').style.display = 'none';
+  document.getElementById('ctrlPanel').style.display = 'flex';
+  refreshTopicFilter();
+  const filtered = getFilteredQuestions();
+  const container = document.getElementById('quizArea');
+  container.innerHTML = filtered.length === 0 
+    ? '<div style="text-align:center;padding:40px;color:rgba(74,29,150,.6);font-weight:600;">No questions match your filters.</div>'
+    : filtered.map((q, i) => {
+      const st = state[q.id];
+      const optHTML = q.opts.map((o, j) => {
+        let cls = 'opt-lbl';
+        if (st.checked && j === q.ans) cls += ' correct';
+        if (st.checked && st.sel === j && j !== q.ans) cls += ' incorrect';
+        if (st.checked && j === q.ans && st.sel !== q.ans) cls += ' reveal';
+        return '<label class="' + cls + '"><input type="radio" name="q' + q.id + '" value="' + j + '" ' + (st.sel === j ? 'checked' : '') + ' ' + (st.checked ? 'disabled' : '') + '><span><strong>' + String.fromCharCode(65+j) + '.</strong> ' + o + '</span></label>';
+      }).join('');
+      return '<div class="question-card"><div class="q-meta"><div class="q-tags"><span class="q-tag">Mod ' + q.id.split('-')[0] + '</span><span class="q-tag t">' + q.topic + '</span></div><span class="q-num">Q' + q.id + ' · ' + (i+1) + '/' + filtered.length + '</span></div><div class="q-stem">' + q.q + '</div><div class="options">' + optHTML + '</div><div class="q-actions"><button class="btn-check" onclick="checkOne('' + q.id + '')">Check Answer</button><button class="btn-reset-q" onclick="resetOne('' + q.id + '')">Reset</button></div><div class="explanation ' + (st.checked ? 'show' : '') + '">💡 <strong>Explanation:</strong> ' + q.exp + '</div></div>';
+    }).join('');
+  bindRadios();
+  updateProgress(filtered);
+  updateModeLabel();
+}
+
+function bindRadios() {
+  document.querySelectorAll('.options input[type=radio]').forEach(el => {
+    el.addEventListener('change', e => {
+      const id = e.target.name.replace('q', '');
+      state[id].sel = parseInt(e.target.value);
+    });
+  });
+}
+
+function updateProgress(filtered) {
+  const base = getBaseQuestions();
+  const ans = base.filter(q => state[q.id].checked).length;
+  const cor = base.filter(q => state[q.id].correct).length;
+  document.getElementById('visCount').textContent = filtered ? filtered.length : 0;
+  document.getElementById('ansCount').textContent = ans;
+  document.getElementById('corCount').textContent = cor;
+  document.getElementById('progFill').style.width = base.length ? (ans / base.length * 100) + '%' : '0%';
+}
+
+function updateModeLabel() {
+  const labels = {8:'Module 8',9:'Module 9',10:'Module 10',11:'Module 11',12:'Module 12',all:'Comprehensive',exam:'Exam Mode'};
+  const vLabels = {quiz:'Quiz Mode',flash:'Flashcards',exam:'Exam (50 Random)'};
+  document.getElementById('modeLabel').textContent = (labels[activeMod] || 'Module ' + activeMod) + ' — ' + (vLabels[viewMode] || 'Quiz Mode');
+}
+
+window.checkOne = function(id) {
+  const q = Object.values(BANKS).flat().find(x => x.id === id);
+  const st = state[id];
+  if (st.sel === null) return;
+  st.checked = true;
+  st.correct = st.sel === q.ans;
+  render();
+  const base = getBaseQuestions();
+  if (base.filter(x => x.id).every(x => state[x.id].checked)) {
+    const tot = base.length;
+    const cor = base.filter(x => state[x.id].correct).length;
+    const pct = Math.round(cor / tot * 100);
+    document.getElementById('scoreText').textContent = 'Score: ' + cor + ' / ' + tot + ' (' + pct + '%)';
+    document.getElementById('scoreMsg').textContent = pct >= 85 ? '🎉 Excellent! You are well-prepared.' : pct >= 70 ? '📚 Good effort! Review incorrect answers.' : '🔁 Keep studying — revisit the modules and retry.';
+    document.getElementById('scoreBox').className = 'score-box show';
+    document.getElementById('scoreBox').scrollIntoView({behavior:'smooth'});
+  }
+}
+
+window.resetOne = function(id) {
+  state[id] = {sel:null,checked:false,correct:false};
+  render();
+}
+
+window.retakeQuiz = function() {
+  getBaseQuestions().forEach(q => { state[q.id] = {sel:null,checked:false,correct:false}; });
+  document.getElementById('scoreBox').className = 'score-box';
+  render();
+}
+
+// ── FLASHCARD ENGINE ──
+function renderFlashcards() {
+  fcDeck = getBaseQuestions();
+  if (!fcDeck.length) {
+    document.getElementById('flashcard').querySelector('.fc-text').textContent = 'No cards for this module.';
+    return;
+  }
+  document.getElementById('fcTot').textContent = fcDeck.length;
+  document.getElementById('fcOk').textContent = fcOkCnt;
+  document.getElementById('fcNo').textContent = fcNoCnt;
+  showFCCard();
+}
+
+function showFCCard() {
+  if (!fcDeck.length) return;
+  if (fcIdx >= fcDeck.length) fcIdx = 0;
+  if (fcIdx < 0) fcIdx = fcDeck.length - 1;
+  fcFlipped = false;
+  const card = fcDeck[fcIdx];
+  document.getElementById('fcCounter').textContent = 'Card ' + (fcIdx + 1) + ' of ' + fcDeck.length;
+  const fc = document.getElementById('flashcard');
+  fc.className = 'flashcard front';
+  document.getElementById('fcSideLabel').textContent = 'Question — tap to flip';
+  const ft = document.getElementById('fcText');
+  ft.className = 'fc-text';
+  ft.textContent = card.q;
+}
+
+window.flipCard = function() {
+  const card = fcDeck[fcIdx];
+  if (!card) return;
+  fcFlipped = !fcFlipped;
+  const fc = document.getElementById('flashcard');
+  const ft = document.getElementById('fcText');
+  if (fcFlipped) {
+    fc.className = 'flashcard back';
+    document.getElementById('fcSideLabel').textContent = 'Answer — tap to flip back';
+    ft.className = 'fc-text ans';
+    ft.innerHTML = '<strong>' + String.fromCharCode(65 + card.ans) + '.</strong> ' + card.opts[card.ans] + '<br><br><small>' + card.exp + '</small>';
+  } else {
+    fc.className = 'flashcard front';
+    document.getElementById('fcSideLabel').textContent = 'Question — tap to flip';
+    ft.className = 'fc-text';
+    ft.textContent = card.q;
+  }
+}
+
+window.fcNav = function(dir) {
+  fcIdx += dir;
+  if (fcIdx < 0) fcIdx = fcDeck.length - 1;
+  if (fcIdx >= fcDeck.length) fcIdx = 0;
+  showFCCard();
+}
+
+window.fcMark = function(knew) {
+  const card = fcDeck[fcIdx];
+  if (!card || fcMarked.has(card.id)) {
+    fcNav(1);
+    return;
+  }
+  fcMarked.add(card.id);
+  if (knew) fcOkCnt++; else fcNoCnt++;
+  document.getElementById('fcOk').textContent = fcOkCnt;
+  document.getElementById('fcNo').textContent = fcNoCnt;
+  fcNav(1);
+}
+
+window.fcShuffle = function() {
+  fcDeck = shuffle(getBaseQuestions());
+  fcIdx = 0;
+  fcOkCnt = 0;
+  fcNoCnt = 0;
+  fcMarked.clear();
+  document.getElementById('fcOk').textContent = 0;
+  document.getElementById('fcNo').textContent = 0;
+  showFCCard();
+}
+
+window.fcResetDeck = function() {
+  fcDeck = getBaseQuestions();
+  fcIdx = 0;
+  fcOkCnt = 0;
+  fcNoCnt = 0;
+  fcMarked.clear();
+  document.getElementById('fcOk').textContent = 0;
+  document.getElementById('fcNo').textContent = 0;
+  showFCCard();
+}
+
+// ── BINDINGS ──
+document.querySelectorAll('.mod-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mod-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeMod = btn.dataset.mod;
+    fcIdx = 0; fcOkCnt = 0; fcNoCnt = 0; fcMarked.clear();
+    render();
+  });
+});
+
+document.getElementById('btnQuiz').addEventListener('click', () => {
+  viewMode = 'quiz';
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btnQuiz').classList.add('active');
+  render();
+});
+
+document.getElementById('btnFlash').addEventListener('click', () => {
+  viewMode = 'flash';
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btnFlash').classList.add('active');
+  fcIdx = 0; fcOkCnt = 0; fcNoCnt = 0; fcMarked.clear();
+  render();
+});
+
+document.getElementById('btnExam').addEventListener('click', () => {
+  viewMode = 'quiz';
+  activeMod = 'exam';
+  generateExamSet();
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btnExam').classList.add('active');
+  document.querySelectorAll('.mod-btn').forEach(b => b.classList.remove('active'));
+  render();
+});
+
+document.getElementById('btnCheckAll').addEventListener('click', () => {
+  getFilteredQuestions().forEach(q => {
+    if (state[q.id].sel !== null) {
+      state[q.id].checked = true;
+      state[q.id].correct = state[q.id].sel === q.ans;
+    }
+  });
+  render();
+});
+
+document.getElementById('btnUnanswered').addEventListener('click', () => {
+  unansweredOnly = !unansweredOnly;
+  document.getElementById('btnUnanswered').textContent = unansweredOnly ? '👁 Show all' : '👁 Unanswered only';
+  render();
+});
+
+document.getElementById('btnResetAll').addEventListener('click', () => {
+  getFilteredQuestions().forEach(q => { state[q.id] = {sel:null,checked:false,correct:false}; });
+  unansweredOnly = false;
+  document.getElementById('btnUnanswered').textContent = '👁 Unanswered only';
+  render();
+});
+
+document.getElementById('searchInput').addEventListener('input', render);
+document.getElementById('topicFilter').addEventListener('change', render);
+
+// Initial render
+render();
+</script>
+</body>
+</html>
