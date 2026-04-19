@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neurochemistry — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--orange:#F25032;--green:#143D0D;--purple:#734E93;--lav:#D7D9FB;--cream:#F3F5E7;--ink:#1a1a1a;--mute:#5c5c5c;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%,var(--cream) 100%);min-height:100vh;}
+  a{color:var(--green);text-decoration:none}
+  a:hover{color:var(--orange)}
+  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
+  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
+  .brand .leaf{color:var(--green);margin-right:4px}
+  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
+  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
+  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
+  .sub-nav a.active{background:var(--green);color:#fff}
+  .hero{padding:50px 40px 30px;text-align:center}
+  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
+  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
+  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
+  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
+  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
+  .toc ul{list-style:none;padding:0;margin:0}
+  .toc li{margin:6px 0}
+  .toc a{font-size:14px;color:var(--ink);font-weight:600}
+  .toc a:hover{color:var(--orange)}
+  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
+  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
+  .content section{margin-bottom:44px;scroll-margin-top:20px}
+  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
+  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
+  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
+  .content p,.content li{font-size:15.5px;line-height:1.65}
+  .content strong{color:var(--green)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
+  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
+  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
+  tr:nth-child(even) td{background:#fafafa}
+  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
+  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
+  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
+  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
+  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .box-clinical .label{color:var(--green)}
+  .box-pearl .label{color:var(--orange)}
+  .box-mnemonic .label{color:var(--purple)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
+  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
+  .disorder-card>h3:first-child{margin-top:0}
+  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
+</style>
+</head><body>
+<nav class="top-nav">
+  <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
+  <a href="../index.html" class="active">Learn</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../quickguides/index.html">Quick Guides</a>
+  <a href="../tests/index.html">Tests</a>
+  <a href="../pediatrics/index.html" >Pediatrics</a>
+</nav>
+<nav class="sub-nav">
+  <a href="../liver.html">Liver</a>
+  <a href="../gallbladder.html">Gallbladder</a>
+  <a href="../pancreas.html">Pancreas</a>
+  <a href="../kidney.html">Kidney</a>
+  <a href="../heart.html">Heart</a>
+  <a href="../lungs.html">Lungs</a>
+  <a href="#" class="active">Psychiatry</a>
+</nav>
+<header class="hero">
+  <div class="tag">Nervous System · Physiology</div>
+  <h1>Neurochem</h1>
+  <p>Serotonin, norepinephrine, dopamine, GABA, glutamate & the monoamine story behind every psych medication.</p>
+</header>
+<div class="layout">
+  <aside class="toc"><h3>Contents</h3><ul>
+<li><a href="#overview">Synaptic Basics</a></li>
+<li><a href="#serotonin">Serotonin (5-HT)</a></li>
+<li><a href="#norepi">Norepinephrine</a></li>
+<li><a href="#dopamine">Dopamine</a></li>
+<li><a href="#gaba">GABA</a></li>
+<li><a href="#glutamate">Glutamate</a></li>
+<li><a href="#ach">Acetylcholine</a></li>
+<li><a href="#histamine">Histamine</a></li>
+<li><a href="#neuropeptides">Neuropeptides</a></li>
+<li><a href="#sleep">Sleep Architecture</a></li>
+</ul></aside>
+  <main class="content">
+<section id="overview">
+<h2>Synaptic Basics</h2>
+<p>Neurotransmitters are released at synapses, bind postsynaptic receptors, and are cleared by <strong>reuptake</strong>, <strong>enzymatic degradation</strong>, or <strong>diffusion</strong>. Psychiatric medications target these steps — they rarely "fix chemistry"; they modulate it.</p>
+<table>
+<tr><th>Class</th><th>Examples</th><th>Signaling</th></tr>
+<tr><td>Monoamines</td><td>Serotonin, NE, DA, histamine</td><td>Slow, modulatory (G-protein coupled)</td></tr>
+<tr><td>Amino acids</td><td>Glutamate (excitatory), GABA & glycine (inhibitory)</td><td>Fast (ligand-gated ion channels) + slow metabotropic</td></tr>
+<tr><td>Acetylcholine</td><td>ACh</td><td>Fast (nicotinic) + slow (muscarinic)</td></tr>
+<tr><td>Neuropeptides</td><td>Endorphins, substance P, CRH, oxytocin</td><td>Slow, modulatory</td></tr>
+</table>
+</section>
+
+<section id="serotonin">
+<h2>Serotonin (5-HT)</h2>
+<p>Produced by the <strong>raphe nuclei</strong> in the brainstem; projects diffusely throughout the brain. Synthesized from <strong>tryptophan</strong>. ~90% of body's serotonin is actually in the gut (enterochromaffin cells).</p>
+<h4>Functions</h4>
+<ul>
+<li>Mood regulation, well-being</li>
+<li>Sleep (precursor to melatonin)</li>
+<li>Appetite / satiety</li>
+<li>Sexual function</li>
+<li>GI motility, platelet aggregation</li>
+</ul>
+<h4>Receptors Relevant to Psychiatry</h4>
+<table>
+<tr><th>Receptor</th><th>Effect</th><th>Clinical Relevance</th></tr>
+<tr><td>5-HT1A</td><td>Inhibitory autoreceptor; postsynaptic anxiolytic</td><td>Buspirone (partial agonist) — anxiolytic without sedation or dependence</td></tr>
+<tr><td>5-HT2A</td><td>Excitatory; mediates hallucinations</td><td>Blocked by atypical antipsychotics; target of psychedelics (psilocybin, LSD)</td></tr>
+<tr><td>5-HT2C</td><td>Satiety, mood</td><td>Blocked by mirtazapine → appetite ↑</td></tr>
+<tr><td>5-HT3</td><td>Ligand-gated ion channel; nausea</td><td>Blocked by ondansetron; SSRI activation causes N/V early</td></tr>
+</table>
+<h4>Clinical Correlations</h4>
+<ul>
+<li>↓ in depression, anxiety, OCD, PTSD, bulimia, premenstrual dysphoria</li>
+<li>SSRIs block SERT (reuptake transporter) → ↑ synaptic 5-HT</li>
+<li>Serotonin syndrome: hyperthermia, clonus, hyperreflexia, agitation (combining SSRIs + MAOIs, tramadol, linezolid, triptans, St. John's wort, etc.)</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Serotonin Syndrome Triad</span><strong>Autonomic instability</strong> (hyperthermia, tachycardia, diaphoresis) + <strong>neuromuscular excitability</strong> (clonus, hyperreflexia, rigidity — worse in lower extremities) + <strong>altered mental status</strong> (agitation, confusion). Tx: stop offending agents, supportive care, cyproheptadine in severe cases.</div>
+</section>
+
+<section id="norepi">
+<h2>Norepinephrine (NE)</h2>
+<p>Produced by the <strong>locus coeruleus</strong> (pons). Mediates arousal, attention, and fight-or-flight.</p>
+<h4>Functions</h4>
+<ul>
+<li>Arousal, vigilance, alertness</li>
+<li>Stress response (panic attacks = locus coeruleus firing)</li>
+<li>Attention and working memory</li>
+<li>Mood</li>
+</ul>
+<h4>Receptors</h4>
+<ul>
+<li><strong>α1</strong> — vasoconstriction (prazosin for PTSD nightmares, antipsychotic orthostasis)</li>
+<li><strong>α2</strong> — presynaptic autoreceptor (clonidine, guanfacine → ↓ NE; used for ADHD, anxiety, withdrawal)</li>
+<li><strong>β</strong> — HR/BP, anxiety tremor (propranolol for performance anxiety)</li>
+</ul>
+<h4>Clinical Correlations</h4>
+<ul>
+<li>↑ in anxiety, panic, PTSD, mania</li>
+<li>↓ in depression, ADHD</li>
+<li>SNRIs (venlafaxine, duloxetine) block NET + SERT</li>
+<li>Atomoxetine (ADHD) is a selective NE reuptake inhibitor</li>
+</ul>
+</section>
+
+<section id="dopamine">
+<h2>Dopamine (DA)</h2>
+<p>Synthesized from tyrosine. Four major pathways (see Neuroanatomy page). The rate-limiting enzyme is <strong>tyrosine hydroxylase</strong>.</p>
+<h4>Receptors</h4>
+<ul>
+<li><strong>D1-like (D1, D5)</strong> — excitatory (Gs)</li>
+<li><strong>D2-like (D2, D3, D4)</strong> — inhibitory (Gi). <strong>Antipsychotics act here.</strong></li>
+</ul>
+<h4>Clinical Correlations</h4>
+<table>
+<tr><th>State</th><th>Dopamine</th><th>Clinical</th></tr>
+<tr><td>↑ mesolimbic</td><td>High</td><td>Positive psychotic sx (delusions, hallucinations), addiction, mania</td></tr>
+<tr><td>↓ mesocortical</td><td>Low</td><td>Negative sx (flat affect, avolition), cognitive deficits</td></tr>
+<tr><td>↓ nigrostriatal</td><td>Low</td><td>Parkinsonism — either disease or drug-induced (EPS)</td></tr>
+<tr><td>↓ tuberoinfundibular</td><td>Low</td><td>Prolactin ↑ → galactorrhea, amenorrhea, gynecomastia</td></tr>
+</table>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>The "dopamine hypothesis" of schizophrenia: <strong>too much</strong> DA in mesolimbic pathway → positive symptoms; <strong>too little</strong> in mesocortical pathway → negative symptoms. That's why typical D2 blockers help positive sx but can worsen negative sx, while atypicals (with 5-HT2A blockade) address both.</div>
+</section>
+
+<section id="gaba">
+<h2>GABA — The Inhibitor</h2>
+<p>The <strong>main inhibitory neurotransmitter</strong> in the CNS. Synthesized from glutamate by <strong>glutamic acid decarboxylase (GAD)</strong>, a B6-dependent enzyme.</p>
+<h4>Receptors</h4>
+<ul>
+<li><strong>GABA-A</strong> — ligand-gated Cl⁻ channel. Modulated by <strong>benzodiazepines, barbiturates, alcohol, z-drugs, propofol</strong>. Benzos ↑ frequency of channel opening; barbs ↑ duration.</li>
+<li><strong>GABA-B</strong> — GPCR (K⁺ efflux). Target of baclofen.</li>
+</ul>
+<h4>Clinical Correlations</h4>
+<ul>
+<li>↓ GABA → anxiety, seizures, insomnia, alcohol withdrawal</li>
+<li>Benzodiazepine withdrawal → seizures, delirium (like alcohol withdrawal)</li>
+<li>Vitamin B6 deficiency → ↓ GAD → seizures (classic: INH toxicity)</li>
+</ul>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"Barbs duration, Benzos frequency"</strong> — Barbiturates increase duration of GABA-A Cl⁻ channel opening; Benzodiazepines increase frequency. That's why barbs are more dangerous (they can open the channel without GABA bound); benzos cannot.</div>
+</section>
+
+<section id="glutamate">
+<h2>Glutamate — The Excitator</h2>
+<p>The <strong>main excitatory neurotransmitter</strong>. Essential for learning, memory, and synaptic plasticity (LTP).</p>
+<h4>Receptors</h4>
+<ul>
+<li><strong>AMPA</strong> — fast Na⁺ influx</li>
+<li><strong>NMDA</strong> — Ca²⁺ influx, requires glycine co-agonist + membrane depolarization; central to LTP</li>
+<li><strong>Kainate</strong> — Na⁺ influx</li>
+<li><strong>mGluR</strong> — metabotropic</li>
+</ul>
+<h4>Clinical Correlations</h4>
+<ul>
+<li><strong>Excitotoxicity</strong> — excess glutamate → Ca²⁺ influx → neuronal death (stroke, TBI, ALS)</li>
+<li><strong>NMDA hypofunction</strong> hypothesis of schizophrenia (PCP and ketamine — NMDA antagonists — produce schizophrenia-like symptoms)</li>
+<li><strong>Ketamine / esketamine</strong> (NMDA antagonist) — rapid antidepressant for treatment-resistant depression (within hours vs. weeks for SSRIs)</li>
+<li><strong>Memantine</strong> — NMDA antagonist for Alzheimer's</li>
+</ul>
+</section>
+
+<section id="ach">
+<h2>Acetylcholine (ACh)</h2>
+<p>Two main CNS sources: <strong>basal nucleus of Meynert</strong> (cortex, memory) and <strong>pedunculopontine nucleus</strong> (arousal, REM sleep).</p>
+<ul>
+<li>↓ in Alzheimer's → cholinesterase inhibitors (donepezil, rivastigmine, galantamine)</li>
+<li>Anticholinergic toxicity: "Hot as a hare, dry as a bone, red as a beet, blind as a bat, mad as a hatter" — elderly especially sensitive</li>
+<li>Many psych meds have anticholinergic side effects: TCAs, low-potency antipsychotics, diphenhydramine, benztropine (used to treat EPS)</li>
+</ul>
+</section>
+
+<section id="histamine">
+<h2>Histamine</h2>
+<p>Hypothalamic nuclei project widely. H1 receptor → wakefulness. H1 blockade = sedation + weight gain.</p>
+<ul>
+<li>Many psych meds are potent H1 antagonists → sedation + weight gain: mirtazapine, quetiapine, olanzapine, low-potency typicals</li>
+<li>Used therapeutically: hydroxyzine for anxiety, diphenhydramine for insomnia</li>
+</ul>
+</section>
+
+<section id="neuropeptides">
+<h2>Neuropeptides</h2>
+<table>
+<tr><th>Peptide</th><th>Psych Relevance</th></tr>
+<tr><td>CRH</td><td>Drives HPA axis; ↑ in depression, PTSD</td></tr>
+<tr><td>Oxytocin</td><td>Social bonding, trust; studied in autism & social anxiety</td></tr>
+<tr><td>Endogenous opioids</td><td>Pleasure, analgesia; naltrexone blocks to reduce alcohol/opioid cravings</td></tr>
+<tr><td>Substance P</td><td>Pain, mood; NK1 antagonists studied for depression</td></tr>
+<tr><td>Orexin / hypocretin</td><td>Wakefulness; deficient in narcolepsy; suvorexant (dual orexin antagonist) for insomnia</td></tr>
+</table>
+</section>
+
+<section id="sleep">
+<h2>Sleep Architecture</h2>
+<p>Sleep disturbance is both a symptom and a driver of psychiatric illness.</p>
+<h4>Stages (per 90-min cycle)</h4>
+<ul>
+<li><strong>N1</strong> (~5%) — light sleep, theta waves</li>
+<li><strong>N2</strong> (~45%) — sleep spindles & K-complexes</li>
+<li><strong>N3</strong> (~25%) — slow-wave / delta; restorative, parasomnias occur here (sleepwalking, night terrors, bedwetting)</li>
+<li><strong>REM</strong> (~25%) — dreams, muscle atonia, ↑ sympathetic, ↑ ACh. Erections/vaginal engorgement. Nightmares occur here.</li>
+</ul>
+<h4>Psychiatric Sleep Findings</h4>
+<ul>
+<li><strong>Depression</strong>: ↓ REM latency, ↑ REM density, early morning awakening, ↓ N3</li>
+<li><strong>Mania</strong>: ↓ total sleep need without fatigue</li>
+<li><strong>PTSD</strong>: nightmares (REM) — prazosin reduces them</li>
+<li><strong>Narcolepsy</strong>: sleep-onset REM, cataplexy (loss of atonia regulation)</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>REM sleep behavior disorder (RBD) — loss of REM atonia, patient acts out dreams — is a strong <strong>prodrome of Parkinson's / Lewy body dementia</strong>. Refer to neurology; screen for synucleinopathy.</div>
+</section>
+</main>
+</div>
+<footer>© 2035 FNP Prep · Educational use only · Not a substitute for clinical judgment</footer>
+</body>
+</html>
