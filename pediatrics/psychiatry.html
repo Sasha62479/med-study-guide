@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pediatric Psychiatry — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F25032;
+    --green:#143D0D;
+    --purple:#734E93;
+    --lav:#D7D9FB;
+    --cream:#F3F5E7;
+    --ink:#1a1a1a;
+    --mute:#5c5c5c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%, var(--cream) 100%);min-height:100vh;}
+  a{color:var(--green);text-decoration:none}
+  a:hover{color:var(--orange)}
+  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
+  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
+  .brand .leaf{color:var(--green);margin-right:4px}
+  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
+  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
+  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
+  .sub-nav a.active{background:var(--green);color:#fff}
+  .hero{padding:50px 40px 30px;text-align:center}
+  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
+  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
+  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
+  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
+  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
+  .toc ul{list-style:none;padding:0;margin:0}
+  .toc li{margin:6px 0}
+  .toc a{font-size:14px;color:var(--ink);font-weight:600}
+  .toc a:hover{color:var(--orange)}
+  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
+  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
+  .content section{margin-bottom:44px;scroll-margin-top:20px}
+  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
+  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
+  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
+  .content p, .content li{font-size:15.5px;line-height:1.65}
+  .content strong{color:var(--green)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
+  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
+  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
+  tr:nth-child(even) td{background:#fafafa}
+  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
+  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
+  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
+  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
+  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .box-clinical .label{color:var(--green)}
+  .box-pearl .label{color:var(--orange)}
+  .box-mnemonic .label{color:var(--purple)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
+  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
+  .disorder-card > h3:first-child{margin-top:0}
+  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
+  <a href="../index.html">Learn</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../quickguides/index.html">Quick Guides</a>
+  <a href="../tests/index.html">Tests</a>
+  <a href="../pediatrics/index.html" class="active">Pediatrics</a>
+</nav>
+<nav class="sub-nav">
+  <a href="../liver.html">Liver</a>
+  <a href="../gallbladder.html">Gallbladder</a>
+  <a href="../pancreas.html">Pancreas</a>
+  <a href="../kidney.html">Kidney</a>
+  <a href="../heart.html">Heart</a>
+  <a href="../lungs.html">Lungs</a>
+  <a href="../anatomy/neurology.html">Neuro</a>
+  <a href="#" class="active">Psychiatry</a>
+</nav>
+
+<header class="hero">
+  <div class="tag">Pediatrics · Mental Health</div>
+  <h1>Pediatric Psych</h1>
+  <p>Neurodevelopmental disorders, eating disorders, anxiety, mood, behavioral, maltreatment & substance use — DSM-5 criteria summaries, red flags, and evidence-based management for the primary-care NP.</p>
+</header>
+
+<div class="layout">
+  <aside class="toc">
+    <h3>Contents</h3>
+    <ul>
+      <li><a href="#neurodev">Neurodevelopmental</a>
+        <ul>
+          <li class="sub"><a href="#id">Intellectual Disability</a></li>
+          <li class="sub"><a href="#ld">Learning Disorder</a></li>
+          <li class="sub"><a href="#fasd">FASD</a></li>
+          <li class="sub"><a href="#adhd">ADHD</a></li>
+          <li class="sub"><a href="#asd">Autism (ASD)</a></li>
+        </ul>
+      </li>
+      <li><a href="#eating">Eating Disorders</a></li>
+      <li><a href="#anxiety">Anxiety & OCD</a></li>
+      <li><a href="#mood">Mood Disorders</a></li>
+      <li><a href="#behavioral">Behavioral (CD/ODD)</a></li>
+      <li><a href="#maltreatment">Child Maltreatment</a></li>
+      <li><a href="#sud">Substance Use</a></li>
+      <li><a href="#screening">Screening Tools</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+
+<section id="neurodev">
+  <h2>Neurodevelopmental Disorders</h2>
+  <p>Onset in the developmental period (before school age or early childhood). Deficits produce impairments in personal, social, academic, or occupational functioning.</p>
+
+  <div class="disorder-card" id="id">
+    <h3>Intellectual Disability (ID)</h3>
+    <span class="pill">DSM-5</span><span class="pill">Prevalence ~1%</span>
+    <h4>Definition</h4>
+    <p>Deficits in <strong>intellectual functioning</strong> (reasoning, problem-solving, abstract thinking) <strong>AND</strong> <strong>adaptive functioning</strong> (conceptual, social, practical domains), onset during developmental period.</p>
+    <h4>Severity Levels (based on adaptive functioning)</h4>
+    <table>
+      <tr><th>Level</th><th>IQ range (approx)</th><th>Features</th></tr>
+      <tr><td>Mild</td><td>55–70</td><td>Can live semi-independently; academic delay, concrete thinking</td></tr>
+      <tr><td>Moderate</td><td>40–55</td><td>Needs support for ADLs; limited academic achievement</td></tr>
+      <tr><td>Severe</td><td>25–40</td><td>Requires supervision; limited verbal communication</td></tr>
+      <tr><td>Profound</td><td>&lt;25</td><td>Dependent for all care; often medical comorbidities</td></tr>
+    </table>
+    <h4>Etiology</h4>
+    <ul>
+      <li>Genetic: Down syndrome, Fragile X, Prader-Willi, Angelman</li>
+      <li>Prenatal: FASD, TORCH infections, maternal malnutrition</li>
+      <li>Perinatal: hypoxic-ischemic injury, prematurity, kernicterus</li>
+      <li>Postnatal: meningitis, TBI, lead exposure</li>
+    </ul>
+    <h4>Evaluation</h4>
+    <ul>
+      <li>Standardized IQ testing (WISC, Stanford-Binet) + adaptive assessment (Vineland)</li>
+      <li>Chromosomal microarray + Fragile X testing</li>
+      <li>Hearing & vision screen, TSH, lead level</li>
+    </ul>
+    <div class="box box-pearl"><span class="label">🎯 Board Pearl</span>IQ alone is no longer sufficient — DSM-5 requires both intellectual <em>and</em> adaptive deficits. Severity is now determined by adaptive functioning, not IQ.</div>
+  </div>
+
+  <div class="disorder-card" id="ld">
+    <h3>Specific Learning Disorder</h3>
+    <span class="pill">DSM-5</span>
+    <p>Persistent difficulty (≥6 months despite intervention) in <strong>reading (dyslexia)</strong>, <strong>written expression (dysgraphia)</strong>, or <strong>mathematics (dyscalculia)</strong>, substantially below age expectation, not explained by ID, sensory deficits, or lack of schooling.</p>
+    <h4>Management</h4>
+    <ul>
+      <li>Educational accommodations via <strong>IEP or 504 plan</strong></li>
+      <li>Multidisciplinary assessment (psychoeducational testing)</li>
+      <li>Rule out hearing/vision deficits, ADHD, anxiety</li>
+    </ul>
+  </div>
+
+  <div class="disorder-card" id="fasd">
+    <h3>Fetal Alcohol Spectrum Disorder (FASD)</h3>
+    <span class="pill">Preventable</span><span class="pill">Leading cause of preventable ID</span>
+    <h4>Classic Triad (Fetal Alcohol Syndrome)</h4>
+    <ol>
+      <li><strong>Growth deficiency</strong> (prenatal + postnatal)</li>
+      <li><strong>Facial dysmorphism</strong>: short palpebral fissures, smooth philtrum, thin upper vermilion</li>
+      <li><strong>CNS abnormalities</strong>: microcephaly, ID, behavioral/cognitive deficits</li>
+    </ol>
+    <h4>Management</h4>
+    <ul>
+      <li>No safe amount of alcohol in pregnancy — prevention is key</li>
+      <li>Early intervention, special education, behavioral therapy</li>
+      <li>Screen for comorbid ADHD (very common)</li>
+    </ul>
+    <div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"SMOOTH PHILTRUM"</strong> — Short palpebral fissures, Microcephaly, Organ defects (heart), Optic issues, Thin upper lip, Hyperactivity, Philtrum smooth, Hearing loss, IQ low, Learning problems, Tremor (neonatal withdrawal), Retardation of growth, Underdeveloped midface, Malformations.</div>
+  </div>
+
+  <div class="disorder-card" id="adhd">
+    <h3>Attention-Deficit/Hyperactivity Disorder (ADHD)</h3>
+    <span class="pill">Prevalence 5–11%</span><span class="pill">M > F</span>
+    <h4>DSM-5 Criteria (summary)</h4>
+    <ul>
+      <li>≥6 symptoms of <strong>inattention</strong> and/or <strong>hyperactivity-impulsivity</strong> (≥5 if age ≥17)</li>
+      <li>Present <strong>&lt;12 years old</strong>, in ≥2 settings (home + school), ≥6 months</li>
+      <li>Functional impairment; not better explained by another disorder</li>
+    </ul>
+    <h4>Presentations</h4>
+    <table>
+      <tr><th>Type</th><th>Hallmark</th></tr>
+      <tr><td>Predominantly Inattentive</td><td>Careless errors, forgetful, disorganized, distractible (often missed in girls)</td></tr>
+      <tr><td>Predominantly Hyperactive/Impulsive</td><td>Fidgets, can't stay seated, interrupts, blurts out</td></tr>
+      <tr><td>Combined</td><td>Both — most common in school-age boys</td></tr>
+    </table>
+    <h4>Workup</h4>
+    <ul>
+      <li>Vanderbilt or Conners rating scales (parent + teacher)</li>
+      <li>Rule out: hearing/vision issue, OSA, thyroid, lead, anxiety, learning disorder</li>
+      <li>Baseline vitals, growth chart, cardiac history (before stimulants)</li>
+    </ul>
+    <h4>Management</h4>
+    <table>
+      <tr><th>Age</th><th>First-line</th></tr>
+      <tr><td>Preschool (4–5 yr)</td><td>Behavioral therapy (parent training) FIRST; methylphenidate if severe</td></tr>
+      <tr><td>School-age (6–11)</td><td>FDA-approved medication + behavioral therapy</td></tr>
+      <tr><td>Adolescent (12–18)</td><td>Medication ± CBT, with assent</td></tr>
+    </table>
+    <h4>Medications</h4>
+    <ul>
+      <li><strong>Stimulants</strong> (first-line): methylphenidate, amphetamine salts. SE: ↓appetite, insomnia, ↑HR/BP, growth slowing, tics, mood lability.</li>
+      <li><strong>Non-stimulants</strong>: atomoxetine (SNRI — check LFTs, black-box suicidality), guanfacine/clonidine ER (α2 agonists — sedation, ↓BP).</li>
+    </ul>
+    <div class="box box-clinical"><span class="label">🏥 Clinical Action</span>Monitor height, weight, BP, HR at each visit. Drug holidays are optional on weekends for growth. Stop and reassess if chest pain, syncope, or new cardiac symptoms.</div>
+  </div>
+
+  <div class="disorder-card" id="asd">
+    <h3>Autism Spectrum Disorder (ASD)</h3>
+    <span class="pill">Prevalence ~1 in 36</span><span class="pill">M:F ≈ 4:1</span>
+    <h4>DSM-5 Core Features (both required)</h4>
+    <ol>
+      <li><strong>Persistent deficits in social communication & interaction</strong>: social-emotional reciprocity, nonverbal communication, relationships</li>
+      <li><strong>Restricted, repetitive patterns of behavior</strong>: stereotypies, insistence on sameness, restricted interests, sensory sensitivities</li>
+    </ol>
+    <p>Onset in early developmental period. Severity graded by level of support needed (Level 1–3).</p>
+    <h4>Red Flags (Bright Futures / AAP)</h4>
+    <ul>
+      <li>No babbling or gesturing by 12 months</li>
+      <li>No single words by 16 months</li>
+      <li>No 2-word phrases by 24 months</li>
+      <li>ANY loss of language or social skills at any age</li>
+      <li>Lack of eye contact, poor response to name by 12 months</li>
+    </ul>
+    <h4>Screening</h4>
+    <ul>
+      <li><strong>M-CHAT-R/F</strong> at 18 and 24 months (AAP)</li>
+      <li>Developmental surveillance at every well-child visit</li>
+      <li>Refer for comprehensive evaluation if positive</li>
+    </ul>
+    <h4>Management</h4>
+    <ul>
+      <li><strong>Early, intensive behavioral intervention</strong> (ABA) — best evidence for improving outcomes</li>
+      <li>Speech, occupational, and physical therapy</li>
+      <li>Individualized Education Program (IEP)</li>
+      <li>Meds target comorbidities: risperidone/aripiprazole (FDA-approved for irritability), SSRIs (anxiety), stimulants (ADHD)</li>
+    </ul>
+    <div class="box box-pearl"><span class="label">🎯 Board Pearl</span>ASD is a clinical diagnosis — no lab test. Early diagnosis matters: intervention before age 3 has the greatest impact on long-term outcomes.</div>
+  </div>
+</section>
+
+<section id="eating">
+  <h2>Eating Disorders</h2>
+  <p>Most common in adolescent girls; now rising in boys. High mortality (especially AN). Early detection in primary care is essential.</p>
+  <table>
+    <tr><th>Disorder</th><th>Core Feature</th><th>Weight</th><th>Compensatory Behavior</th></tr>
+    <tr><td><strong>Anorexia Nervosa (AN)</strong></td><td>Restriction + intense fear of weight gain + disturbed body image</td><td>Low (BMI &lt; expected)</td><td>Restricting OR binge/purge subtype</td></tr>
+    <tr><td><strong>Bulimia Nervosa (BN)</strong></td><td>Recurrent binge eating + compensatory behaviors ≥1x/wk × 3 mo</td><td>Normal or overweight</td><td>Vomiting, laxatives, fasting, exercise</td></tr>
+    <tr><td><strong>Binge Eating Disorder (BED)</strong></td><td>Binges ≥1x/wk × 3 mo without compensation; marked distress</td><td>Often overweight/obese</td><td>None</td></tr>
+    <tr><td><strong>ARFID</strong></td><td>Avoidance/restriction based on sensory, fear of consequences, or low interest — NOT body image</td><td>Low or faltering growth</td><td>None</td></tr>
+  </table>
+
+  <h4>Medical Complications of Eating Disorders</h4>
+  <ul>
+    <li><strong>Cardiac</strong>: bradycardia, orthostatic hypotension, prolonged QTc, arrhythmia (leading cause of death in AN)</li>
+    <li><strong>Electrolytes</strong>: hypokalemia, hypophosphatemia, hypomagnesemia; metabolic alkalosis (vomiting) or acidosis (laxatives)</li>
+    <li><strong>Endocrine</strong>: amenorrhea, osteoporosis, euthyroid sick syndrome, low estrogen/testosterone</li>
+    <li><strong>GI</strong>: delayed gastric emptying, constipation, Mallory-Weiss tears, parotid hypertrophy (BN), dental erosion</li>
+    <li><strong>Derm</strong>: lanugo, cold intolerance, Russell's sign (knuckle calluses from self-induced vomiting)</li>
+  </ul>
+
+  <div class="box box-clinical"><span class="label">🏥 Admit Criteria (AN)</span>HR &lt; 50 (day) or &lt; 45 (night), BP &lt; 80/50, orthostatic Δ HR &gt; 20 or BP &gt; 10, temperature &lt; 96°F, &lt; 75% median BMI, electrolyte abnormality, arrhythmia, syncope, or acute food refusal.</div>
+
+  <h4>Refeeding Syndrome</h4>
+  <p>Life-threatening shift of phosphate, potassium, and magnesium <em>intracellularly</em> when carbs are reintroduced in a malnourished patient. Can cause cardiac failure, seizures, death.</p>
+  <ul>
+    <li>Start low (~20 kcal/kg/day or less), advance slowly</li>
+    <li>Check & replete <strong>phosphate, K, Mg</strong> before and during refeeding</li>
+    <li>Thiamine supplementation before carbs</li>
+  </ul>
+
+  <h4>Treatment</h4>
+  <ul>
+    <li><strong>AN (adolescent)</strong>: <strong>Family-Based Treatment (Maudsley method)</strong> is first-line. Nutritional rehab. Meds are adjunctive only (olanzapine may help weight gain; SSRIs ineffective until weight restored).</li>
+    <li><strong>BN</strong>: CBT-E + <strong>fluoxetine 60 mg</strong> (only FDA-approved med for BN). Avoid bupropion (↓seizure threshold).</li>
+    <li><strong>BED</strong>: CBT, IPT; lisdexamfetamine (FDA-approved), SSRIs, topiramate.</li>
+    <li><strong>ARFID</strong>: CBT-AR, feeding therapy, OT for sensory issues.</li>
+  </ul>
+  <div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"FBT for AN, Fluoxetine for BN"</strong> — and <strong>bupropion is BANNED</strong> in bulimia.</div>
+</section>
+
+<section id="anxiety">
+  <h2>Anxiety & OCD Spectrum</h2>
+  <p>Anxiety disorders are the most common mental health disorders in children. Developmentally normal fears (strangers ~8 mo, separation ~12–18 mo, dark/monsters ~3–5 yr) become disorders when excessive, persistent, and impairing.</p>
+
+  <div class="disorder-card">
+    <h3>Separation Anxiety Disorder</h3>
+    <p>Developmentally inappropriate, excessive fear of separation from attachment figure, ≥4 wks in children. Somatic complaints (HA, stomach ache) on school mornings, nightmares about separation, refusal to sleep alone, school refusal.</p>
+    <p><strong>Tx:</strong> CBT first-line; SSRI (fluoxetine, sertraline) if moderate-severe or CBT insufficient.</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Generalized Anxiety Disorder (GAD)</h3>
+    <p>Excessive worry about multiple events, ≥6 months, with ≥1 physical symptom in children (restlessness, fatigue, poor concentration, irritability, muscle tension, sleep disturbance).</p>
+    <p><strong>Tx:</strong> CBT + SSRI (sertraline, fluoxetine, escitalopram) for moderate-severe.</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Social Anxiety Disorder</h3>
+    <p>Marked fear of social or performance situations; avoidance of speaking, eating, writing in front of others. In children, anxiety must occur with peers (not only adults).</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Obsessive-Compulsive Disorder (OCD)</h3>
+    <p>Recurrent <strong>obsessions</strong> (intrusive thoughts) and/or <strong>compulsions</strong> (repetitive behaviors to reduce anxiety), ≥1 hr/day or causing impairment.</p>
+    <p><strong>Tx:</strong> <strong>CBT with Exposure & Response Prevention (ERP)</strong> is first-line. SSRIs (fluoxetine, sertraline, fluvoxamine — FDA-approved in peds) often need higher doses than for depression. Clomipramine is second-line.</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>PANDAS / PANS</h3>
+    <span class="pill">Post-infectious</span>
+    <p><strong>Pediatric Autoimmune Neuropsychiatric Disorder Associated with Streptococcal infection</strong>: abrupt (overnight) onset of OCD and/or tics in a prepubertal child following GAS infection. <strong>PANS</strong> is the broader syndrome (any trigger: Mycoplasma, viral, non-infectious).</p>
+    <h4>Diagnostic Criteria (PANDAS)</h4>
+    <ul>
+      <li>OCD and/or tic disorder</li>
+      <li>Prepubertal onset</li>
+      <li>Episodic course (abrupt onset/relapses)</li>
+      <li>Temporal association with GAS infection (↑ASO, anti-DNase B)</li>
+      <li>Neurologic signs (choreiform movements)</li>
+    </ul>
+    <p><strong>Tx:</strong> Treat active strep with penicillin/amoxicillin; CBT-ERP + SSRI for OCD; refer to specialist for IVIG/steroids in severe cases.</p>
+  </div>
+
+  <div class="box box-pearl"><span class="label">🎯 Board Pearl</span>First-line for all pediatric anxiety + OCD = <strong>CBT</strong>. Add SSRI (fluoxetine, sertraline, escitalopram) for moderate-severe. <strong>Start low, go slow</strong> — watch for behavioral activation and the FDA black-box suicidality warning (monitor weekly × 4 wk, then monthly).</div>
+</section>
+
+<section id="mood">
+  <h2>Mood Disorders</h2>
+
+  <div class="disorder-card">
+    <h3>Major Depressive Disorder (MDD)</h3>
+    <span class="pill">USPSTF screen age 12+</span>
+    <h4>DSM-5 (children/adolescents)</h4>
+    <p>≥5 symptoms for ≥2 weeks, including depressed/<strong>irritable mood</strong> OR anhedonia:</p>
+    <p><strong>SIG-E-CAPS</strong>: Sleep change, Interest loss, Guilt, Energy loss, Concentration, Appetite change, Psychomotor change, Suicidality.</p>
+    <h4>Screening</h4>
+    <ul>
+      <li><strong>PHQ-9 Modified for Teens</strong> (score ≥10 = moderate; ≥15 = moderately severe)</li>
+      <li><strong>Columbia Suicide Severity Rating Scale (C-SSRS)</strong> for all positive screens</li>
+    </ul>
+    <h4>Treatment</h4>
+    <table>
+      <tr><th>Severity</th><th>First-line</th></tr>
+      <tr><td>Mild</td><td>Active support, CBT or IPT-A</td></tr>
+      <tr><td>Moderate-Severe</td><td>CBT/IPT <strong>+ SSRI</strong></td></tr>
+    </table>
+    <p><strong>FDA-approved peds SSRIs:</strong></p>
+    <ul>
+      <li><strong>Fluoxetine</strong> — age ≥8 for MDD</li>
+      <li><strong>Escitalopram</strong> — age ≥12 for MDD</li>
+    </ul>
+    <div class="box box-clinical"><span class="label">🏥 Black Box Warning</span>SSRIs carry an FDA black-box warning for <strong>increased suicidal ideation</strong> in patients &lt; 25. Monitor weekly × 4 weeks, then biweekly × 4, then monthly. Discuss openly with family. Benefits outweigh risks when used with monitoring.</div>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Disruptive Mood Dysregulation Disorder (DMDD)</h3>
+    <p>DSM-5 category created to reduce over-diagnosis of pediatric bipolar. Onset age 6–10, diagnosed ages 6–18.</p>
+    <h4>Criteria</h4>
+    <ul>
+      <li>Severe, recurrent temper outbursts grossly out of proportion, ≥3x/week, ≥12 months</li>
+      <li>Persistently <strong>irritable or angry mood between outbursts</strong></li>
+      <li>Present in ≥2 settings</li>
+    </ul>
+    <p><strong>Tx:</strong> Parent management training, CBT; SSRI or stimulant if comorbid; atypical antipsychotics reserved for severe.</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Bipolar Disorder</h3>
+    <p>True pediatric bipolar is uncommon; classic <strong>mania</strong> requires distinct episodes of elevated/irritable mood + increased energy <strong>≥1 week</strong> (Bipolar I) or <strong>≥4 days</strong> hypomania (Bipolar II).</p>
+    <p><strong>DIG FAST</strong>: Distractibility, Impulsivity/Indiscretion, Grandiosity, Flight of ideas, Activity ↑, Sleep ↓, Talkativeness.</p>
+    <p><strong>Tx:</strong> Mood stabilizers (lithium — FDA ≥12; valproate — avoid in girls of reproductive age, teratogenic + PCOS; atypicals: risperidone, aripiprazole, quetiapine, olanzapine FDA-approved in peds).</p>
+    <div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Do NOT give an SSRI alone to a patient with undiagnosed bipolar — it can precipitate a manic switch. Always screen for past hypomanic/manic episodes before starting an antidepressant in a teen with depression.</div>
+  </div>
+</section>
+
+<section id="behavioral">
+  <h2>Disruptive Behavior Disorders</h2>
+
+  <div class="disorder-card">
+    <h3>Oppositional Defiant Disorder (ODD)</h3>
+    <p>Pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness lasting ≥6 months, with ≥4 symptoms. Directed at authority figures; rights of others generally NOT violated.</p>
+    <p><strong>Tx:</strong> <strong>Parent Management Training</strong> (PMT) is first-line; Parent-Child Interaction Therapy (PCIT) for younger children; CBT for older children. Treat comorbid ADHD/anxiety.</p>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Conduct Disorder (CD)</h3>
+    <p>Repetitive, persistent pattern violating the <strong>basic rights of others</strong> or major age-appropriate societal norms. 4 categories: aggression to people/animals, destruction of property, deceitfulness/theft, serious rule violations. Childhood-onset (&lt;10 yr) worse prognosis than adolescent-onset.</p>
+    <p><strong>Tx:</strong> Multisystemic therapy (MST), functional family therapy, PMT; no FDA-approved medication — treat comorbidities.</p>
+    <div class="box box-clinical"><span class="label">🏥 Red Flag</span>CD with callous-unemotional traits ("limited prosocial emotions" specifier) — lack of remorse, shallow affect, lack of empathy — carries highest risk of adult antisocial personality disorder. Aggressive early intervention warranted.</div>
+  </div>
+
+  <div class="disorder-card">
+    <h3>Intermittent Explosive Disorder (IED)</h3>
+    <p>Recurrent, impulsive aggressive outbursts out of proportion to provocation. Minimum age 6. Not better explained by another disorder. Treat with CBT + SSRI.</p>
+  </div>
+</section>
+
+<section id="maltreatment">
+  <h2>Child Maltreatment</h2>
+  <p>NPs are <strong>mandated reporters</strong>. Reasonable suspicion — not proof — triggers a report to Child Protective Services (CPS) in all 50 states.</p>
+
+  <h4>Types</h4>
+  <table>
+    <tr><th>Type</th><th>Findings</th></tr>
+    <tr><td>Physical abuse</td><td>Bruises in non-ambulatory infant (<strong>"those who don't cruise rarely bruise"</strong>), patterned injuries, burns with sharp margins, retinal hemorrhages (AHT), metaphyseal/rib fractures</td></tr>
+    <tr><td>Sexual abuse</td><td>Most exams are NORMAL. STI in prepubertal child, pregnancy, disclosure, behavioral regression</td></tr>
+    <tr><td>Emotional abuse</td><td>Failure to thrive (non-organic), developmental delay, extreme behaviors</td></tr>
+    <tr><td>Neglect</td><td>Poor hygiene, untreated medical problems, missed immunizations, school absenteeism</td></tr>
+    <tr><td>Medical child abuse (formerly MSBP)</td><td>Caregiver fabricates/induces illness; pattern of doctor-shopping and unexplained findings</td></tr>
+  </table>
+
+  <h4>Red Flags (Sentinel Injuries)</h4>
+  <ul>
+    <li>Bruises in a pre-cruising infant (&lt;4–6 mo)</li>
+    <li>Bruises on ears, neck, torso (<strong>TEN-4 rule</strong>: Torso, Ears, Neck in a child &lt;4 yr, or ANY bruising &lt;4 mo)</li>
+    <li>Inconsistent or changing history</li>
+    <li>Delayed presentation</li>
+    <li>Injury inconsistent with developmental stage</li>
+    <li>Classic metaphyseal lesions, posterior rib fractures, spiral femur fractures in non-ambulatory child</li>
+  </ul>
+
+  <h4>Workup for Suspected Physical Abuse</h4>
+  <ul>
+    <li>Skeletal survey in children &lt;2 yr</li>
+    <li>Head CT/MRI if AHT suspected (+ dilated fundus exam for retinal hemorrhages)</li>
+    <li>CBC, coags, LFTs, amylase/lipase, UA (for occult injury)</li>
+    <li>Photograph injuries</li>
+    <li>Consult child abuse pediatrician; admit for safety if needed; report to CPS</li>
+  </ul>
+
+  <div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>TEN-4-FACESp</strong> — Torso, Ear, Neck bruises in &lt; 4 yr (or any bruise &lt; 4 mo), or Frenulum/Angle of jaw/Cheek/Eyelid/Subconjunctival/Patterned bruises = HIGHLY concerning for abuse.</div>
+</section>
+
+<section id="sud">
+  <h2>Substance Use in Adolescents</h2>
+  <p>Adolescence is the highest-risk period for initiation. Earlier onset = higher lifetime SUD risk. Universal screening recommended by AAP starting at age 11.</p>
+
+  <h4>Screening Tools</h4>
+  <ul>
+    <li><strong>CRAFFT 2.1</strong> (ages 12–21): Car, Relax, Alone, Forget, Family/Friends, Trouble. ≥2 = positive, needs brief intervention.</li>
+    <li><strong>S2BI</strong> (Screening to Brief Intervention): frequency-based, quick.</li>
+    <li><strong>BSTAD</strong> (Brief Screener for Tobacco, Alcohol, and other Drugs).</li>
+  </ul>
+
+  <h4>Substances</h4>
+  <table>
+    <tr><th>Substance</th><th>Key Points</th></tr>
+    <tr><td><strong>Alcohol</strong></td><td>Most-used. Binge drinking = 4+ (F) or 5+ (M) drinks in 2 hr. Screen with CRAFFT; FDA-approved peds tx none — naltrexone off-label.</td></tr>
+    <tr><td><strong>Tobacco / Vaping</strong></td><td>E-cigs (JUUL, disposables) now dominate. Nicotine exposure during adolescence impairs prefrontal cortex development. EVALI: lipoid pneumonia from vitamin E acetate. Varenicline/NRT off-label &lt; 18.</td></tr>
+    <tr><td><strong>Cannabis</strong></td><td>Edibles ↑ ED visits; high-potency concentrates ↑ cannabis-induced psychosis and cannabinoid hyperemesis. Associated with ↓ IQ and ↑ schizophrenia risk if heavy use in adolescence.</td></tr>
+    <tr><td><strong>Opioids</strong></td><td>Rx misuse often precedes heroin/fentanyl. <strong>Naloxone for every household</strong> with risk. Buprenorphine FDA-approved ≥16 yr; methadone via OTP.</td></tr>
+    <tr><td><strong>Stimulants</strong></td><td>Cocaine, methamphetamine, prescription stimulant misuse. No FDA-approved pharmacotherapy; CBT/contingency management.</td></tr>
+    <tr><td><strong>Other</strong></td><td>Inhalants (young adolescents), hallucinogens, MDMA, benzos, GHB (DFSA).</td></tr>
+  </table>
+
+  <h4>SBIRT Framework</h4>
+  <ul>
+    <li><strong>S</strong>creening: validated tool at every well visit</li>
+    <li><strong>B</strong>rief <strong>I</strong>ntervention: motivational interviewing</li>
+    <li><strong>R</strong>eferral to <strong>T</strong>reatment: outpatient, IOP, residential per severity</li>
+  </ul>
+  <div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Confidentiality for adolescent substance-use discussions is protected in most states — but <strong>break confidentiality</strong> for imminent danger (overdose risk, suicidality, driving intoxicated, pregnancy-related concerns per state law).</div>
+</section>
+
+<section id="screening">
+  <h2>Pediatric Mental Health Screening — Quick Reference</h2>
+  <table>
+    <tr><th>Tool</th><th>Purpose</th><th>Age</th></tr>
+    <tr><td>ASQ / PEDS</td><td>General development</td><td>0–5 yr (well-visits)</td></tr>
+    <tr><td>M-CHAT-R/F</td><td>Autism screen</td><td>18 & 24 mo</td></tr>
+    <tr><td>Vanderbilt / Conners</td><td>ADHD</td><td>6–18 yr</td></tr>
+    <tr><td>PHQ-A / PHQ-9 Modified</td><td>Depression</td><td>≥12 yr (USPSTF)</td></tr>
+    <tr><td>SCARED</td><td>Anxiety</td><td>8–18 yr</td></tr>
+    <tr><td>C-SSRS</td><td>Suicidality</td><td>All with positive PHQ or concern</td></tr>
+    <tr><td>CRAFFT 2.1</td><td>Substance use</td><td>12–21 yr</td></tr>
+    <tr><td>SDQ / PSC-17</td><td>General behavioral/emotional</td><td>4–17 yr</td></tr>
+  </table>
+
+  <div class="box box-clinical"><span class="label">🏥 When to Refer</span>Psychiatrist: complex med management, bipolar, psychosis, treatment-resistant depression, severe OCD, eating disorder requiring specialty team. Emergency: active SI with plan, homicidal ideation, psychosis with safety concern, severe eating disorder meeting admission criteria.</div>
+</section>
+
+  </main>
+</div>
+<footer>© 2035 FNP Prep · Educational use only · Not a substitute for clinical judgment</footer>
+</body>
+</html>
