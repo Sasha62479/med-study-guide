@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neuroanatomy — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--orange:#F25032;--green:#143D0D;--purple:#734E93;--lav:#D7D9FB;--cream:#F3F5E7;--ink:#1a1a1a;--mute:#5c5c5c;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%,var(--cream) 100%);min-height:100vh;}
+  a{color:var(--green);text-decoration:none}
+  a:hover{color:var(--orange)}
+  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
+  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
+  .brand .leaf{color:var(--green);margin-right:4px}
+  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
+  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
+  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
+  .sub-nav a.active{background:var(--green);color:#fff}
+  .hero{padding:50px 40px 30px;text-align:center}
+  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
+  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
+  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
+  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
+  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
+  .toc ul{list-style:none;padding:0;margin:0}
+  .toc li{margin:6px 0}
+  .toc a{font-size:14px;color:var(--ink);font-weight:600}
+  .toc a:hover{color:var(--orange)}
+  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
+  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
+  .content section{margin-bottom:44px;scroll-margin-top:20px}
+  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
+  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
+  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
+  .content p,.content li{font-size:15.5px;line-height:1.65}
+  .content strong{color:var(--green)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
+  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
+  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
+  tr:nth-child(even) td{background:#fafafa}
+  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
+  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
+  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
+  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
+  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .box-clinical .label{color:var(--green)}
+  .box-pearl .label{color:var(--orange)}
+  .box-mnemonic .label{color:var(--purple)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
+  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
+  .disorder-card>h3:first-child{margin-top:0}
+  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
+</style>
+</head><body>
+<nav class="top-nav">
+  <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
+  <a href="../index.html" class="active">Learn</a>
+  <a href="../cases/index.html" >Cases</a>
+  <a href="../quickguides/index.html" >Quick Guides</a>
+  <a href="../tests/index.html" >Tests</a>
+  <a href="../pediatrics/index.html" >Pediatrics</a>
+</nav>
+<nav class="sub-nav">
+  <a href="../liver.html">Liver</a>
+  <a href="../gallbladder.html">Gallbladder</a>
+  <a href="../pancreas.html">Pancreas</a>
+  <a href="../kidney.html">Kidney</a>
+  <a href="../heart.html">Heart</a>
+  <a href="../lungs.html">Lungs</a>
+  <a href="#" class="active">Psychiatry</a>
+</nav>
+<header class="hero">
+  <div class="tag">Nervous System · Anatomy</div>
+  <h1>Neuroanatomy</h1>
+  <p>Brain regions that matter for psychiatry — prefrontal cortex, limbic system, basal ganglia, HPA axis & monoaminergic pathways.</p>
+</header>
+<div class="layout">
+  <aside class="toc"><h3>Contents</h3><ul>
+<li><a href="#overview">Brain Overview</a></li>
+<li><a href="#cortex">Prefrontal Cortex</a></li>
+<li><a href="#limbic">Limbic System</a>
+  <ul>
+    <li class="sub"><a href="#amygdala">Amygdala</a></li>
+    <li class="sub"><a href="#hippocampus">Hippocampus</a></li>
+    <li class="sub"><a href="#cingulate">Cingulate</a></li>
+  </ul>
+</li>
+<li><a href="#basal">Basal Ganglia</a></li>
+<li><a href="#thalamus">Thalamus & Hypothalamus</a></li>
+<li><a href="#hpa">HPA Axis</a></li>
+<li><a href="#reward">Reward Circuitry</a></li>
+<li><a href="#dmn">Default Mode Network</a></li>
+<li><a href="#clinical">Clinical Correlations</a></li>
+</ul></aside>
+  <main class="content">
+<section id="overview">
+<h2>Brain Overview</h2>
+<p>The brain regions most relevant to psychiatric illness are the <strong>prefrontal cortex</strong> (executive function, impulse control), the <strong>limbic system</strong> (emotion, memory, fear), the <strong>basal ganglia</strong> (habit, reward, movement), the <strong>hypothalamus & brainstem</strong> (autonomic, stress, sleep), and the <strong>monoaminergic nuclei</strong> of the brainstem (locus coeruleus, raphe, VTA, substantia nigra) that project widely.</p>
+<table>
+<tr><th>Region</th><th>Primary Psych Role</th></tr>
+<tr><td>Prefrontal cortex (PFC)</td><td>Executive function, decision-making, inhibition of limbic drive</td></tr>
+<tr><td>Amygdala</td><td>Fear, threat detection, emotional salience</td></tr>
+<tr><td>Hippocampus</td><td>Declarative memory; atrophies in chronic stress/depression</td></tr>
+<tr><td>Anterior cingulate</td><td>Error monitoring, emotional regulation, attention</td></tr>
+<tr><td>Nucleus accumbens</td><td>Reward, motivation — hijacked in addiction</td></tr>
+<tr><td>Hypothalamus</td><td>HPA axis, sleep, appetite, temperature</td></tr>
+<tr><td>Locus coeruleus</td><td>Source of norepinephrine — arousal, panic</td></tr>
+<tr><td>Raphe nuclei</td><td>Source of serotonin — mood, sleep, appetite</td></tr>
+<tr><td>VTA / substantia nigra</td><td>Source of dopamine — reward, movement</td></tr>
+</table>
+</section>
+
+<section id="cortex">
+<h2>Prefrontal Cortex (PFC)</h2>
+<p>The PFC is the brain's executive — it plans, inhibits impulses, and regulates emotion by top-down control of the limbic system. It's the <strong>last brain region to mature</strong> (not fully myelinated until ~25 years old), which is why adolescents are biologically primed for risk-taking.</p>
+<h4>Subdivisions</h4>
+<ul>
+<li><strong>Dorsolateral PFC (DLPFC)</strong> — working memory, cognitive control. Hypoactive in depression and schizophrenia (negative symptoms).</li>
+<li><strong>Ventromedial PFC (vmPFC)</strong> — emotional decision-making, value. Damaged in classic case of Phineas Gage → disinhibition.</li>
+<li><strong>Orbitofrontal cortex (OFC)</strong> — reward evaluation, social behavior. Dysfunction → OCD, impulse disorders.</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>PFC maturation lag explains why adolescents make impulsive decisions despite knowing risks — the limbic "gas pedal" (amygdala/VTA) develops years before the cortical "brake" (PFC). Clinical implication: adolescent substance use has outsized neurotoxic effects on the still-developing PFC.</div>
+</section>
+
+<section id="limbic">
+<h2>Limbic System</h2>
+<p>The limbic system is a ring of structures around the brainstem that processes emotion, memory, and motivation. Papez circuit: hippocampus → fornix → mammillary bodies → anterior thalamus → cingulate → back to hippocampus.</p>
+
+<div class="disorder-card" id="amygdala">
+<h3>Amygdala</h3>
+<p>Almond-shaped cluster in the anterior temporal lobe. The brain's <strong>threat detector</strong> — tags stimuli with emotional significance, especially fear.</p>
+<h4>Key Functions</h4>
+<ul>
+<li>Fear conditioning (Pavlovian)</li>
+<li>Fight-or-flight initiation (projects to hypothalamus → sympathetic activation)</li>
+<li>Consolidation of emotional memory (with hippocampus)</li>
+</ul>
+<h4>Clinical Correlations</h4>
+<ul>
+<li><strong>Hyperactive</strong> in anxiety, PTSD, panic disorder</li>
+<li><strong>Hypoactive / lesioned</strong> → Klüver-Bucy syndrome (hyperorality, hypersexuality, docility, visual agnosia)</li>
+<li>SSRIs and benzodiazepines reduce amygdala reactivity</li>
+</ul>
+</div>
+
+<div class="disorder-card" id="hippocampus">
+<h3>Hippocampus</h3>
+<p>Seahorse-shaped structure in the medial temporal lobe. Essential for <strong>declarative (explicit) memory</strong> formation and spatial navigation.</p>
+<h4>Clinical Correlations</h4>
+<ul>
+<li><strong>Bilateral damage</strong> → anterograde amnesia (classic: patient H.M.)</li>
+<li><strong>Atrophy</strong> in chronic depression, PTSD, Cushing's, Alzheimer's</li>
+<li>One of two regions with adult neurogenesis — SSRIs promote hippocampal neurogenesis (hypothesized mechanism of delayed antidepressant response)</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Clinical Action</span>The ~2–4 week delay before SSRIs work may reflect the time needed for hippocampal neurogenesis and synaptic remodeling. Counsel patients: "The medication may not feel like it's working for 2–4 weeks. Don't stop early."</div>
+</div>
+
+<div class="disorder-card" id="cingulate">
+<h3>Anterior Cingulate Cortex (ACC)</h3>
+<p>Wraps around the corpus callosum. Bridges cognition and emotion. Two functional subdivisions:</p>
+<ul>
+<li><strong>Dorsal ACC</strong> — cognitive control, error monitoring, attention (active during Stroop task)</li>
+<li><strong>Subgenual ACC (Area 25)</strong> — affective regulation. <strong>Hyperactive in depression</strong>; target of deep brain stimulation for treatment-resistant MDD.</li>
+</ul>
+</div>
+</section>
+
+<section id="basal">
+<h2>Basal Ganglia</h2>
+<p>Cluster of subcortical nuclei (caudate, putamen, globus pallidus, subthalamic nucleus, substantia nigra) involved in movement, habit, and reward.</p>
+<table>
+<tr><th>Structure</th><th>Psych Relevance</th></tr>
+<tr><td>Caudate</td><td>Hyperactive in OCD (cortico-striatal-thalamic loop); atrophies in Huntington's</td></tr>
+<tr><td>Putamen</td><td>Habit learning; involved in tics/Tourette's</td></tr>
+<tr><td>Nucleus accumbens (ventral striatum)</td><td>Reward and addiction hub — terminal of mesolimbic dopamine</td></tr>
+<tr><td>Substantia nigra pars compacta</td><td>Source of nigrostriatal dopamine → movement. Degenerates in Parkinson's. Blocked by antipsychotics → EPS.</td></tr>
+</table>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"OCD loops the caudate"</strong> — the cortico-striatal-thalamo-cortical (CSTC) circuit is hyperactive in OCD. SSRIs and CBT-ERP both normalize this loop on fMRI.</div>
+</section>
+
+<section id="thalamus">
+<h2>Thalamus & Hypothalamus</h2>
+<h4>Thalamus</h4>
+<p>Relay station for nearly all sensory info to cortex (except smell). "Gating" dysfunction is implicated in schizophrenia (sensory-gating deficits explain overwhelming stimulation).</p>
+<h4>Hypothalamus</h4>
+<p>Master regulator of homeostasis: temperature, appetite, thirst, circadian rhythm, autonomic tone, and the HPA axis.</p>
+<table>
+<tr><th>Nucleus</th><th>Function</th></tr>
+<tr><td>Suprachiasmatic</td><td>Circadian pacemaker — disturbed in depression, bipolar, shift-work disorder</td></tr>
+<tr><td>Ventromedial (VMH)</td><td>Satiety — "VentroMedial = Very Much Full"</td></tr>
+<tr><td>Lateral (LH)</td><td>Hunger — "Lateral = Lean" (lesion causes anorexia)</td></tr>
+<tr><td>Paraventricular (PVN)</td><td>Releases CRH → drives HPA axis</td></tr>
+<tr><td>Arcuate</td><td>Leptin/ghrelin sensing; disrupted in eating disorders</td></tr>
+</table>
+</section>
+
+<section id="hpa">
+<h2>HPA Axis — The Stress Highway</h2>
+<p>The central stress-response system, dysregulated in depression, PTSD, anxiety, and chronic illness.</p>
+<h4>Pathway</h4>
+<ol>
+<li>Stress perceived → hypothalamic <strong>PVN</strong> releases <strong>CRH</strong></li>
+<li>CRH → anterior pituitary → <strong>ACTH</strong></li>
+<li>ACTH → adrenal cortex → <strong>cortisol</strong></li>
+<li>Cortisol negative-feedback at hypothalamus & pituitary</li>
+</ol>
+<h4>Pathologic States</h4>
+<ul>
+<li><strong>Depression</strong> — HPA hyperactivity, flattened diurnal cortisol curve, blunted dexamethasone suppression</li>
+<li><strong>PTSD</strong> — paradoxically LOW cortisol with enhanced negative feedback</li>
+<li><strong>Chronic stress</strong> — hippocampal atrophy (cortisol neurotoxicity), amygdala hypertrophy</li>
+<li><strong>Cushing's</strong> — psych symptoms in ~50% (depression, mania, psychosis, cognitive decline)</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Always screen for Cushing's in atypical or treatment-resistant depression — especially with central obesity, easy bruising, proximal weakness, or hypertension/hyperglycemia. Check 24-hr urine cortisol or late-night salivary cortisol.</div>
+</section>
+
+<section id="reward">
+<h2>Reward Circuitry — The Mesolimbic System</h2>
+<p>Dopaminergic pathway from <strong>VTA</strong> (ventral tegmental area) → <strong>nucleus accumbens</strong> → prefrontal cortex. This circuit encodes "wanting" and motivation, and is hijacked by every addictive drug.</p>
+<h4>Four Dopamine Pathways</h4>
+<table>
+<tr><th>Pathway</th><th>From → To</th><th>Function</th><th>Dysfunction</th></tr>
+<tr><td>Mesolimbic</td><td>VTA → NAcc</td><td>Reward, motivation</td><td>↑ = positive sx of schizophrenia, addiction</td></tr>
+<tr><td>Mesocortical</td><td>VTA → PFC</td><td>Executive, cognition</td><td>↓ = negative sx of schizophrenia</td></tr>
+<tr><td>Nigrostriatal</td><td>SNc → striatum</td><td>Movement</td><td>↓ = Parkinson's, EPS from D2 blockers</td></tr>
+<tr><td>Tuberoinfundibular</td><td>Hypothalamus → pituitary</td><td>Inhibits prolactin</td><td>Blocked by antipsychotics → hyperprolactinemia</td></tr>
+</table>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"4 M's of dopamine"</strong>: <strong>M</strong>esolimbic (Motivation), <strong>M</strong>esocortical (Mind/cognition), <strong>M</strong>ovement (nigrostriatal), <strong>M</strong>ilk-inhibiting (tuberoinfundibular).</div>
+</section>
+
+<section id="dmn">
+<h2>Default Mode Network (DMN)</h2>
+<p>A set of regions active when the mind is at rest and self-referential — medial PFC, posterior cingulate, precuneus, angular gyrus. Involved in rumination, self-reflection, and mind-wandering.</p>
+<ul>
+<li><strong>Hyperactive DMN</strong> — depression (rumination), anxiety (worry)</li>
+<li><strong>Disrupted connectivity</strong> — schizophrenia, autism</li>
+<li>Mindfulness-based therapies and psychedelics (ketamine, psilocybin) quiet DMN overactivity</li>
+</ul>
+</section>
+
+<section id="clinical">
+<h2>Clinical Correlations — One-Liner Summary</h2>
+<table>
+<tr><th>Disorder</th><th>Key Neuroanatomical Finding</th></tr>
+<tr><td>Depression</td><td>↓ hippocampal volume, ↑ subgenual ACC, HPA hyperactivity, ↓ DLPFC</td></tr>
+<tr><td>Anxiety / PTSD</td><td>Amygdala hyperactivity, ↓ vmPFC top-down control</td></tr>
+<tr><td>OCD</td><td>Caudate / OFC / ACC hyperactivity (CSTC loop)</td></tr>
+<tr><td>Schizophrenia</td><td>↓ brain volume, enlarged ventricles, ↓ DLPFC, aberrant mesolimbic DA</td></tr>
+<tr><td>Addiction</td><td>NAcc sensitization, PFC hypoactivity</td></tr>
+<tr><td>ADHD</td><td>↓ PFC + striatum volumes, delayed cortical maturation</td></tr>
+<tr><td>Autism</td><td>Altered connectivity, ↓ mirror-neuron / social-brain activation</td></tr>
+<tr><td>Alzheimer's</td><td>Hippocampal & entorhinal atrophy first</td></tr>
+</table>
+</section>
+</main>
+</div>
+<footer>© 2035 FNP Prep · Educational use only · Not a substitute for clinical judgment</footer>
+</body>
+</html>
