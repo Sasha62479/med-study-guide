@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Adult Psychiatric Disorders — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--orange:#F25032;--green:#143D0D;--purple:#734E93;--lav:#D7D9FB;--cream:#F3F5E7;--ink:#1a1a1a;--mute:#5c5c5c;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%,var(--cream) 100%);min-height:100vh;}
+  a{color:var(--green);text-decoration:none}
+  a:hover{color:var(--orange)}
+  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
+  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
+  .brand .leaf{color:var(--green);margin-right:4px}
+  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
+  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
+  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
+  .sub-nav a.active{background:var(--green);color:#fff}
+  .hero{padding:50px 40px 30px;text-align:center}
+  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
+  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
+  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
+  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
+  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
+  .toc ul{list-style:none;padding:0;margin:0}
+  .toc li{margin:6px 0}
+  .toc a{font-size:14px;color:var(--ink);font-weight:600}
+  .toc a:hover{color:var(--orange)}
+  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
+  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
+  .content section{margin-bottom:44px;scroll-margin-top:20px}
+  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
+  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
+  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
+  .content p,.content li{font-size:15.5px;line-height:1.65}
+  .content strong{color:var(--green)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
+  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
+  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
+  tr:nth-child(even) td{background:#fafafa}
+  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
+  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
+  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
+  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
+  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .box-clinical .label{color:var(--green)}
+  .box-pearl .label{color:var(--orange)}
+  .box-mnemonic .label{color:var(--purple)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
+  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
+  .disorder-card>h3:first-child{margin-top:0}
+  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
+</style>
+</head><body>
+<nav class="top-nav">
+  <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
+  <a href="../index.html">Learn</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../quickguides/index.html">Quick Guides</a>
+  <a href="../tests/index.html">Tests</a>
+  <a href="../pediatrics/index.html">Pediatrics</a>
+</nav>
+<nav class="sub-nav">
+  <a href="../liver.html">Liver</a>
+  <a href="../gallbladder.html">Gallbladder</a>
+  <a href="../pancreas.html">Pancreas</a>
+  <a href="../kidney.html">Kidney</a>
+  <a href="../heart.html">Heart</a>
+  <a href="../lungs.html">Lungs</a>
+  <a href="#" class="active">Psychiatry</a>
+</nav>
+<header class="hero">
+  <div class="tag">Pathophysiology · Psychiatry</div>
+  <h1>Psych Disorders</h1>
+  <p>DSM-5 adult psychiatric disorders — mood, anxiety, OCD, trauma, psychotic, personality, somatic, dissociative, substance use & psychiatric emergencies.</p>
+</header>
+<div class="layout">
+  <aside class="toc"><h3>Contents</h3><ul>
+<li><a href="#mood">Mood Disorders</a>
+  <ul><li class="sub"><a href="#mdd">MDD</a></li>
+  <li class="sub"><a href="#bipolar">Bipolar I/II</a></li>
+  <li class="sub"><a href="#persistent">Persistent Depressive</a></li></ul>
+</li>
+<li><a href="#anxiety">Anxiety Disorders</a>
+  <ul><li class="sub"><a href="#gad">GAD</a></li>
+  <li class="sub"><a href="#panic">Panic</a></li>
+  <li class="sub"><a href="#social">Social Anxiety</a></li>
+  <li class="sub"><a href="#phobia">Specific Phobia</a></li></ul>
+</li>
+<li><a href="#ocd">OCD & Related</a></li>
+<li><a href="#trauma">Trauma / PTSD</a></li>
+<li><a href="#psychotic">Psychotic Disorders</a></li>
+<li><a href="#personality">Personality Disorders</a></li>
+<li><a href="#somatic">Somatic Symptom</a></li>
+<li><a href="#dissociative">Dissociative</a></li>
+<li><a href="#sud">Substance Use</a></li>
+<li><a href="#emergencies">Psych Emergencies</a></li>
+</ul></aside>
+  <main class="content">
+<section id="mood">
+<h2>Mood Disorders</h2>
+
+<div class="disorder-card" id="mdd">
+<h3>Major Depressive Disorder (MDD)</h3>
+<span class="pill">Prevalence ~8% adults</span><span class="pill">F > M 2:1</span>
+<h4>DSM-5 Criteria</h4>
+<p>≥5 symptoms for ≥2 weeks, one of which is depressed mood OR anhedonia. Remember <strong>SIG-E-CAPS</strong>:</p>
+<ul>
+<li><strong>S</strong>leep disturbance (insomnia or hypersomnia)</li>
+<li><strong>I</strong>nterest / pleasure loss (anhedonia)</li>
+<li><strong>G</strong>uilt / worthlessness</li>
+<li><strong>E</strong>nergy loss / fatigue</li>
+<li><strong>C</strong>oncentration impaired</li>
+<li><strong>A</strong>ppetite / weight change</li>
+<li><strong>P</strong>sychomotor agitation or retardation</li>
+<li><strong>S</strong>uicidal ideation</li>
+</ul>
+<h4>Specifiers</h4>
+<ul>
+<li><strong>With melancholic features</strong> — severe anhedonia, diurnal variation (worse AM), early awakening, psychomotor changes, weight loss, guilt</li>
+<li><strong>With atypical features</strong> — mood reactivity, hypersomnia, hyperphagia, leaden paralysis, rejection sensitivity (responds best to MAOIs historically)</li>
+<li><strong>With psychotic features</strong> — mood-congruent delusions (guilt, poverty, nihilism); needs antipsychotic + antidepressant or ECT</li>
+<li><strong>With peripartum onset</strong> — during pregnancy or within 4 weeks postpartum</li>
+<li><strong>With seasonal pattern</strong> — light therapy 10,000 lux first-line</li>
+</ul>
+<h4>Workup (rule out medical causes)</h4>
+<ul>
+<li>CBC, CMP, TSH, B12/folate, vitamin D</li>
+<li>Urine drug screen, RPR if risk factors</li>
+<li>PHQ-9 (≥10 moderate, ≥15 severe, ≥20 very severe)</li>
+<li>Always screen suicidality (C-SSRS)</li>
+</ul>
+</div>
+
+<div class="disorder-card" id="bipolar">
+<h3>Bipolar Disorder</h3>
+<h4>Type I vs II</h4>
+<table>
+<tr><th>Type</th><th>Mania</th><th>Hypomania</th><th>Depression</th></tr>
+<tr><td>Bipolar I</td><td>≥1 manic episode (≥7 days or hospitalized)</td><td>—</td><td>Usually present, not required</td></tr>
+<tr><td>Bipolar II</td><td>Never</td><td>≥1 hypomanic (≥4 days)</td><td>≥1 major depressive episode required</td></tr>
+<tr><td>Cyclothymic</td><td>Subthreshold up & down for ≥2 yr</td><td>—</td><td>—</td></tr>
+</table>
+<h4>Mania Criteria — DIG FAST</h4>
+<ul>
+<li><strong>D</strong>istractibility</li>
+<li><strong>I</strong>mpulsivity / Indiscretion</li>
+<li><strong>G</strong>randiosity</li>
+<li><strong>F</strong>light of ideas</li>
+<li><strong>A</strong>ctivity increased (goal-directed)</li>
+<li><strong>S</strong>leep ↓ (without fatigue)</li>
+<li><strong>T</strong>alkativeness / pressured speech</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Clinical Action</span>NEVER start an antidepressant alone in bipolar — risk of precipitating mania ("switch"). Always pair with mood stabilizer. Screen every depressed patient for past manic/hypomanic episodes with MDQ before prescribing SSRI.</div>
+</div>
+
+<div class="disorder-card" id="persistent">
+<h3>Persistent Depressive Disorder (Dysthymia)</h3>
+<p>Depressed mood most days for ≥2 years (≥1 yr in children), with ≥2 other symptoms. Chronic, lower-grade — but high comorbidity with MDD ("double depression").</p>
+</div>
+</section>
+
+<section id="anxiety">
+<h2>Anxiety Disorders</h2>
+
+<div class="disorder-card" id="gad">
+<h3>Generalized Anxiety Disorder (GAD)</h3>
+<p>Excessive worry about multiple events, difficult to control, ≥6 months, with ≥3 somatic symptoms (in adults): restlessness, fatigue, ↓ concentration, irritability, muscle tension, sleep disturbance.</p>
+<p><strong>Tx:</strong> CBT + SSRI or SNRI (duloxetine, venlafaxine). Buspirone is adjunct. Benzos short-term only.</p>
+</div>
+
+<div class="disorder-card" id="panic">
+<h3>Panic Disorder</h3>
+<p>Recurrent <strong>unexpected</strong> panic attacks + ≥1 month of worry about future attacks or behavioral change (avoidance).</p>
+<h4>Panic Attack Criteria</h4>
+<p>Abrupt surge of intense fear peaking within minutes, with ≥4 of: palpitations, sweating, trembling, SOB, choking sensation, chest pain, nausea, dizziness, chills/heat, paresthesias, derealization, fear of losing control, fear of dying.</p>
+<p><strong>Tx:</strong> CBT (panic-focused) + SSRI/SNRI. Benzo bridge during SSRI titration for severe.</p>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>First panic attack — rule out MI, PE, hyperthyroidism, pheochromocytoma, substance use (cocaine, caffeine), withdrawal. ECG + basic labs + TSH at minimum.</div>
+</div>
+
+<div class="disorder-card" id="social">
+<h3>Social Anxiety Disorder</h3>
+<p>Marked fear of social/performance situations, exposure provokes anxiety, avoidance, ≥6 months. <strong>Tx:</strong> CBT + SSRI; β-blocker (propranolol 10–40 mg) for performance-only subtype.</p>
+</div>
+
+<div class="disorder-card" id="phobia">
+<h3>Specific Phobia</h3>
+<p>Marked fear of a specific object/situation (animals, heights, blood-injection-injury, situational). Exposure therapy is definitive treatment.</p>
+</div>
+</section>
+
+<section id="ocd">
+<h2>OCD & Related Disorders</h2>
+<table>
+<tr><th>Disorder</th><th>Hallmark</th></tr>
+<tr><td>OCD</td><td>Obsessions + compulsions, ≥1 hr/day</td></tr>
+<tr><td>Body Dysmorphic Disorder</td><td>Preoccupation with perceived physical defect</td></tr>
+<tr><td>Hoarding Disorder</td><td>Persistent difficulty discarding possessions</td></tr>
+<tr><td>Trichotillomania</td><td>Recurrent hair-pulling</td></tr>
+<tr><td>Excoriation</td><td>Skin-picking disorder</td></tr>
+</table>
+<p><strong>Tx:</strong> CBT with Exposure & Response Prevention (ERP) is first-line. SSRIs (often high-dose — fluoxetine 60–80 mg, sertraline 200 mg) or clomipramine second-line. N-acetylcysteine has evidence for trichotillomania.</p>
+</section>
+
+<section id="trauma">
+<h2>Trauma- and Stressor-Related Disorders</h2>
+<h4>PTSD Criteria (DSM-5, ≥1 month)</h4>
+<ol>
+<li><strong>Exposure</strong> to actual/threatened death, serious injury, or sexual violence</li>
+<li><strong>Intrusion</strong> — flashbacks, nightmares, intrusive memories</li>
+<li><strong>Avoidance</strong> — of trauma-related stimuli</li>
+<li><strong>Negative cognition / mood</strong> — shame, estrangement, anhedonia</li>
+<li><strong>Hyperarousal</strong> — hypervigilance, startle, irritability, sleep disturbance</li>
+</ol>
+<table>
+<tr><th>Duration</th><th>Diagnosis</th></tr>
+<tr><td>&lt; 3 days</td><td>Acute stress reaction (normal)</td></tr>
+<tr><td>3 days – 1 month</td><td>Acute Stress Disorder</td></tr>
+<tr><td>&gt; 1 month</td><td>PTSD</td></tr>
+<tr><td>After stressor, &lt; 3 months onset, doesn't meet full criteria</td><td>Adjustment Disorder</td></tr>
+</table>
+<h4>Treatment</h4>
+<ul>
+<li><strong>First-line psychotherapy</strong>: Trauma-focused CBT, Prolonged Exposure, EMDR, CPT</li>
+<li><strong>First-line meds</strong>: SSRIs (sertraline and paroxetine are FDA-approved), venlafaxine</li>
+<li><strong>Prazosin</strong> for nightmares (α1 antagonist)</li>
+<li><strong>Avoid</strong>: benzodiazepines (worsen long-term outcome, ↑ dependence risk)</li>
+</ul>
+</section>
+
+<section id="psychotic">
+<h2>Psychotic Disorders</h2>
+<h4>Duration-Based Classification</h4>
+<table>
+<tr><th>Duration</th><th>Diagnosis</th></tr>
+<tr><td>&lt; 1 month</td><td>Brief Psychotic Disorder</td></tr>
+<tr><td>1–6 months</td><td>Schizophreniform</td></tr>
+<tr><td>&gt; 6 months</td><td>Schizophrenia</td></tr>
+<tr><td>Psychotic + mood episodes; psychotic sx for ≥2 wk WITHOUT mood sx</td><td>Schizoaffective</td></tr>
+<tr><td>Nonbizarre delusions, ≥1 month, function preserved</td><td>Delusional Disorder</td></tr>
+</table>
+<h4>Schizophrenia — Symptom Domains</h4>
+<ul>
+<li><strong>Positive</strong>: hallucinations (auditory most common), delusions, disorganized speech/behavior</li>
+<li><strong>Negative</strong>: affective flattening, alogia, avolition, anhedonia, asociality (<strong>5 A's</strong>)</li>
+<li><strong>Cognitive</strong>: working memory, executive deficits</li>
+<li><strong>Mood</strong>: depression, suicidality (lifetime suicide risk ~5%)</li>
+</ul>
+<h4>Key Epidemiology</h4>
+<ul>
+<li>Onset: late teens to mid-20s (M); 20s–30s (F)</li>
+<li>M = F incidence; worse prognosis in M</li>
+<li>Genetic: ~50% concordance in monozygotic twins; ~10% if one first-degree relative</li>
+</ul>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>5 A's of negative symptoms</strong>: Affective flattening, Alogia (poverty of speech), Avolition (lack of motivation), Anhedonia, Asociality. Negative sx tend to respond poorly to typical antipsychotics — atypicals do better.</div>
+</section>
+
+<section id="personality">
+<h2>Personality Disorders</h2>
+<p>Enduring pattern of inner experience and behavior deviating from cultural expectation, pervasive, inflexible, onset in adolescence/early adulthood, causing distress/impairment.</p>
+<table>
+<tr><th>Cluster</th><th>Theme</th><th>Disorders</th></tr>
+<tr><td>A — "Weird"</td><td>Odd, eccentric</td><td>Paranoid, Schizoid, Schizotypal</td></tr>
+<tr><td>B — "Wild"</td><td>Dramatic, erratic</td><td>Antisocial, Borderline, Histrionic, Narcissistic</td></tr>
+<tr><td>C — "Worried"</td><td>Anxious, fearful</td><td>Avoidant, Dependent, Obsessive-Compulsive PD</td></tr>
+</table>
+<h4>Highest-Yield Features</h4>
+<ul>
+<li><strong>Borderline</strong>: splitting, identity disturbance, fear of abandonment, self-harm, chronic emptiness. Tx: DBT (dialectical behavior therapy) — gold standard.</li>
+<li><strong>Antisocial</strong>: ≥18 yr, hx of conduct disorder before 15; disregard for others' rights</li>
+<li><strong>Narcissistic</strong>: grandiosity, need for admiration, lack of empathy</li>
+<li><strong>OCPD</strong> (different from OCD): perfectionism, rigidity, control — <strong>ego-syntonic</strong> (patient doesn't mind); OCD is ego-dystonic</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Borderline = "splitting" (all-good vs. all-bad views) + fear of abandonment + self-harm. DBT is first-line — medications treat comorbid symptoms (mood instability, impulsivity) but aren't curative.</div>
+</section>
+
+<section id="somatic">
+<h2>Somatic Symptom & Related Disorders</h2>
+<table>
+<tr><th>Disorder</th><th>Feature</th></tr>
+<tr><td>Somatic Symptom Disorder</td><td>Excessive thoughts/feelings about somatic symptoms ≥6 mo</td></tr>
+<tr><td>Illness Anxiety Disorder</td><td>Preoccupation with having illness despite few/no symptoms</td></tr>
+<tr><td>Functional Neurologic (Conversion)</td><td>Neuro sx incompatible with disease; often after stressor</td></tr>
+<tr><td>Factitious Disorder</td><td>Intentional fabrication/induction for <strong>sick role</strong> (no external gain)</td></tr>
+<tr><td>Malingering</td><td>Intentional fabrication for <strong>external gain</strong> (not a psych disorder)</td></tr>
+</table>
+</section>
+
+<section id="dissociative">
+<h2>Dissociative Disorders</h2>
+<ul>
+<li><strong>Dissociative Amnesia</strong> — inability to recall autobiographical info, usually trauma-related</li>
+<li><strong>Dissociative Identity Disorder (DID)</strong> — ≥2 distinct personality states; usually severe childhood trauma</li>
+<li><strong>Depersonalization / Derealization</strong> — persistent sense of detachment from self or surroundings</li>
+</ul>
+</section>
+
+<section id="sud">
+<h2>Substance Use Disorders</h2>
+<p>DSM-5 uses 11 criteria across 4 groups (impaired control, social impairment, risky use, pharmacologic — tolerance/withdrawal). Severity: mild 2–3, moderate 4–5, severe ≥6 criteria in 12 months.</p>
+<table>
+<tr><th>Substance</th><th>Intoxication</th><th>Withdrawal</th><th>Tx</th></tr>
+<tr><td>Alcohol</td><td>Disinhibition, slurred speech, ataxia</td><td>Tremor → seizure (24–48 h) → DTs (48–96 h, ~15% mortality untreated)</td><td>Benzos (taper), thiamine BEFORE glucose; naltrexone, acamprosate, disulfiram</td></tr>
+<tr><td>Opioids</td><td>Pinpoint pupils, respiratory depression, euphoria</td><td>Piloerection, rhinorrhea, myalgia, diarrhea — uncomfortable NOT dangerous</td><td>Naloxone (acute); buprenorphine, methadone, naltrexone for MOUD</td></tr>
+<tr><td>Stimulants (cocaine, meth)</td><td>Mydriasis, HTN, agitation, hyperthermia, psychosis</td><td>Dysphoria, hypersomnia, hyperphagia, craving</td><td>Supportive; benzos for agitation</td></tr>
+<tr><td>Cannabis</td><td>Red eyes, dry mouth, ↑ appetite, impaired memory</td><td>Irritability, insomnia, dysphoria</td><td>CBT, motivational interviewing</td></tr>
+<tr><td>Benzodiazepines</td><td>Sedation, ataxia, resp depression (esp w/ alcohol/opioids)</td><td>Like alcohol: tremor, seizure, death possible</td><td>Slow taper; flumazenil (risky — can cause seizure)</td></tr>
+<tr><td>Hallucinogens (LSD, psilocybin)</td><td>Perceptual changes, mydriasis, ↑ HR/BP</td><td>None significant</td><td>Supportive, "talk down," benzo for agitation</td></tr>
+<tr><td>PCP</td><td>Vertical/horizontal nystagmus, violence, analgesia</td><td>None significant</td><td>Benzos, antipsychotics, safety</td></tr>
+</table>
+<div class="box box-clinical"><span class="label">🏥 Wernicke-Korsakoff</span>Alcohol use disorder → thiamine deficiency → <strong>Wernicke's</strong> (acute, reversible): confusion, ataxia, ophthalmoplegia. Untreated → <strong>Korsakoff's</strong> (chronic, irreversible): anterograde amnesia + confabulation. <strong>Give IV thiamine BEFORE glucose</strong> to prevent precipitating Wernicke's.</div>
+</section>
+
+<section id="emergencies">
+<h2>Psychiatric Emergencies</h2>
+
+<h4>Suicide Risk Factors — "SAD PERSONS"</h4>
+<ul>
+<li><strong>S</strong>ex (male)</li>
+<li><strong>A</strong>ge (&lt;19 or &gt;45)</li>
+<li><strong>D</strong>epression</li>
+<li><strong>P</strong>revious attempt</li>
+<li><strong>E</strong>thanol/substance use</li>
+<li><strong>R</strong>ational thinking loss (psychosis)</li>
+<li><strong>S</strong>ocial support lacking</li>
+<li><strong>O</strong>rganized plan</li>
+<li><strong>N</strong>o spouse / single</li>
+<li><strong>S</strong>ickness (chronic illness)</li>
+</ul>
+<p>Most completed suicides: men, older adults, firearms. Always ask directly — asking does NOT increase risk.</p>
+
+<h4>Neuroleptic Malignant Syndrome (NMS)</h4>
+<p>Idiosyncratic reaction to D2 blockade. Tetrad: <strong>"FEVER"</strong> — Fever (hyperthermia), Encephalopathy, Vitals unstable, Enzyme ↑ (CK), Rigidity ("lead pipe").</p>
+<p><strong>Tx:</strong> Stop antipsychotic, aggressive cooling & IVF, dantrolene, bromocriptine; ICU.</p>
+
+<h4>Serotonin Syndrome vs NMS</h4>
+<table>
+<tr><th>Feature</th><th>Serotonin Syndrome</th><th>NMS</th></tr>
+<tr><td>Onset</td><td>Hours</td><td>Days–weeks</td></tr>
+<tr><td>Reflexes</td><td>Hyperreflexia, clonus</td><td>Bradyreflexia, rigidity (lead-pipe)</td></tr>
+<tr><td>Pupils</td><td>Mydriasis</td><td>Normal</td></tr>
+<tr><td>Trigger</td><td>Serotonergic drug</td><td>D2 antagonist (or rapid levodopa withdrawal)</td></tr>
+<tr><td>Tx</td><td>Cyproheptadine, supportive</td><td>Dantrolene, bromocriptine, supportive</td></tr>
+</table>
+
+<h4>Lithium Toxicity</h4>
+<p>Narrow therapeutic index (0.6–1.2 mEq/L). Toxicity: coarse tremor, ataxia, confusion, seizures, nephrogenic DI. Triggers: dehydration, NSAIDs, ACEIs, thiazides. <strong>Hemodialysis</strong> if level &gt; 4.0 or severe symptoms.</p>
+
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>NMS = "FEVER + LEAD PIPE"</strong>. <strong>Serotonin syndrome = "SHIVERS"</strong> — Shivering, Hyperreflexia, Increased temperature, Vital signs unstable, Encephalopathy, Restlessness, Sweating.</div>
+</section>
+</main>
+</div>
+<footer>© 2035 FNP Prep · Educational use only · Not a substitute for clinical judgment</footer>
+</body>
+</html>
