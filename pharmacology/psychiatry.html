@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Psych Pharmacology — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--orange:#F25032;--green:#143D0D;--purple:#734E93;--lav:#D7D9FB;--cream:#F3F5E7;--ink:#1a1a1a;--mute:#5c5c5c;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%,var(--cream) 100%);min-height:100vh;}
+  a{color:var(--green);text-decoration:none}
+  a:hover{color:var(--orange)}
+  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
+  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
+  .brand .leaf{color:var(--green);margin-right:4px}
+  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
+  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
+  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
+  .sub-nav a.active{background:var(--green);color:#fff}
+  .hero{padding:50px 40px 30px;text-align:center}
+  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
+  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
+  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
+  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
+  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
+  .toc ul{list-style:none;padding:0;margin:0}
+  .toc li{margin:6px 0}
+  .toc a{font-size:14px;color:var(--ink);font-weight:600}
+  .toc a:hover{color:var(--orange)}
+  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
+  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
+  .content section{margin-bottom:44px;scroll-margin-top:20px}
+  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
+  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
+  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
+  .content p,.content li{font-size:15.5px;line-height:1.65}
+  .content strong{color:var(--green)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
+  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
+  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
+  tr:nth-child(even) td{background:#fafafa}
+  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
+  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
+  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
+  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
+  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+  .box-clinical .label{color:var(--green)}
+  .box-pearl .label{color:var(--orange)}
+  .box-mnemonic .label{color:var(--purple)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
+  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
+  .disorder-card>h3:first-child{margin-top:0}
+  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
+</style>
+</head><body>
+<nav class="top-nav">
+  <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
+  <a href="../index.html">Learn</a>
+  <a href="../cases/index.html">Cases</a>
+  <a href="../quickguides/index.html">Quick Guides</a>
+  <a href="../tests/index.html">Tests</a>
+  <a href="../pediatrics/index.html">Pediatrics</a>
+</nav>
+<nav class="sub-nav">
+  <a href="../liver.html">Liver</a>
+  <a href="../gallbladder.html">Gallbladder</a>
+  <a href="../pancreas.html">Pancreas</a>
+  <a href="../kidney.html">Kidney</a>
+  <a href="../heart.html">Heart</a>
+  <a href="../lungs.html">Lungs</a>
+  <a href="#" class="active">Psychiatry</a>
+</nav>
+<header class="hero">
+  <div class="tag">Pharmacology · Psychiatry</div>
+  <h1>Psych Drugs</h1>
+  <p>SSRIs, SNRIs, mood stabilizers, antipsychotics, benzos, stimulants & MAT — indications, side effects, monitoring & clinical pearls.</p>
+</header>
+<div class="layout">
+  <aside class="toc"><h3>Contents</h3><ul>
+<li><a href="#ssri">SSRIs</a></li>
+<li><a href="#snri">SNRIs</a></li>
+<li><a href="#atypical">Atypical Antidepressants</a></li>
+<li><a href="#tca">TCAs</a></li>
+<li><a href="#maoi">MAOIs</a></li>
+<li><a href="#mood-stab">Mood Stabilizers</a></li>
+<li><a href="#anti-typ">Typical Antipsychotics</a></li>
+<li><a href="#anti-atyp">Atypical Antipsychotics</a></li>
+<li><a href="#benzo">Benzodiazepines</a></li>
+<li><a href="#other-anx">Other Anxiolytics</a></li>
+<li><a href="#stim">Stimulants (ADHD)</a></li>
+<li><a href="#mat">MAT / SUD Meds</a></li>
+<li><a href="#sleep">Sleep Meds</a></li>
+<li><a href="#peds">Peds Considerations</a></li>
+<li><a href="#preg">Pregnancy & Lactation</a></li>
+</ul></aside>
+  <main class="content">
+<section id="ssri">
+<h2>Selective Serotonin Reuptake Inhibitors (SSRIs)</h2>
+<p>First-line for depression, GAD, panic, social anxiety, OCD, PTSD, PMDD, bulimia. Block SERT → ↑ synaptic 5-HT. Safer than older antidepressants; all equally effective — choose based on side-effect profile, interactions, and half-life.</p>
+<table>
+<tr><th>Drug</th><th>Unique Features</th></tr>
+<tr><td>Fluoxetine (Prozac)</td><td>Longest half-life (2–4 d; active metabolite norfluoxetine 7–14 d). Activating. FDA peds ≥8 MDD, ≥7 OCD. Good for poor adherence.</td></tr>
+<tr><td>Sertraline (Zoloft)</td><td>Most-prescribed. Few interactions. FDA for PTSD, OCD peds ≥6. Best in pregnancy/lactation evidence.</td></tr>
+<tr><td>Escitalopram (Lexapro)</td><td>Cleanest side-effect profile. Peds ≥12.</td></tr>
+<tr><td>Citalopram (Celexa)</td><td>QTc prolongation — max 40 mg (20 mg if &gt;60 yr or CYP2C19 poor metabolizer).</td></tr>
+<tr><td>Paroxetine (Paxil)</td><td>Most anticholinergic, most sedating, most weight gain. Short half-life → worst discontinuation syndrome. <strong>Category D</strong> in pregnancy (cardiac defects).</td></tr>
+<tr><td>Fluvoxamine (Luvox)</td><td>FDA only for OCD. Many CYP interactions.</td></tr>
+</table>
+
+<h4>Side Effects (Common to Class)</h4>
+<ul>
+<li><strong>GI</strong>: nausea, diarrhea (worst first 1–2 weeks — improves)</li>
+<li><strong>Sexual dysfunction</strong>: ↓ libido, delayed orgasm (~30–70%) — often persistent. Bupropion augmentation can help.</li>
+<li><strong>Insomnia or somnolence</strong></li>
+<li><strong>Weight gain</strong> (paroxetine &gt; others; fluoxetine most weight-neutral)</li>
+<li><strong>Hyponatremia (SIADH)</strong> — especially elderly</li>
+<li><strong>Bleeding risk</strong> — ↓ platelet aggregation; caution with NSAIDs, anticoagulants</li>
+<li><strong>Sweating, bruxism</strong></li>
+<li><strong>Discontinuation syndrome</strong> — "FINISH": Flu-like, Insomnia, Nausea, Imbalance, Sensory (electric shocks), Hyperarousal. Taper over 2–4 wk (except fluoxetine — can stop).</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Black Box</span>SSRIs have a black-box warning for <strong>increased suicidal ideation</strong> in patients &lt; 25 yr. The <strong>absolute</strong> increase is small, and untreated depression is MORE dangerous. Monitor closely for the first 4–6 weeks.</div>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Onset of effect: physical symptoms (sleep, appetite, energy) improve in 1–2 weeks; mood typically improves by 4–6 weeks. Full trial = 6–8 weeks at therapeutic dose before declaring non-response.</div>
+</section>
+
+<section id="snri">
+<h2>SNRIs — Serotonin-Norepinephrine Reuptake Inhibitors</h2>
+<p>Block SERT + NET. Useful when SSRIs fail, or when neuropathic pain coexists.</p>
+<table>
+<tr><th>Drug</th><th>Indications</th><th>Notes</th></tr>
+<tr><td>Venlafaxine (Effexor)</td><td>MDD, GAD, panic, social anxiety</td><td>NE effect dose-dependent (&gt;150 mg). Short half-life → bad discontinuation. Can ↑ BP.</td></tr>
+<tr><td>Desvenlafaxine</td><td>MDD</td><td>Active metabolite of venlafaxine; fewer CYP interactions</td></tr>
+<tr><td>Duloxetine (Cymbalta)</td><td>MDD, GAD, diabetic neuropathy, fibromyalgia, chronic MSK pain</td><td>Hepatotoxicity risk — avoid in heavy alcohol use / liver disease</td></tr>
+<tr><td>Levomilnacipran</td><td>MDD</td><td>More NE-selective</td></tr>
+</table>
+</section>
+
+<section id="atypical">
+<h2>Atypical Antidepressants</h2>
+<table>
+<tr><th>Drug</th><th>Mechanism</th><th>Notes</th></tr>
+<tr><td>Bupropion (Wellbutrin)</td><td>NDRI (dopamine & NE reuptake inhibitor)</td><td>No sexual SE, no weight gain, activating. <strong>Contraindicated in seizure d/o, bulimia, anorexia</strong> (lowers threshold). FDA: MDD, SAD, smoking cessation.</td></tr>
+<tr><td>Mirtazapine (Remeron)</td><td>α2 antagonist + 5-HT2/3 antagonist + H1</td><td><strong>↑ appetite, ↑ sleep</strong> — great for cachectic, insomnia-prone elderly. Minimal sexual SE.</td></tr>
+<tr><td>Trazodone</td><td>5-HT2 antagonist + weak SRI</td><td>Used off-label for insomnia at low dose (25–100 mg). Rare priapism.</td></tr>
+<tr><td>Vilazodone / Vortioxetine</td><td>Serotonin modulators (SPARI / multimodal)</td><td>Fewer sexual SE. Vortioxetine has pro-cognitive effects.</td></tr>
+<tr><td>Esketamine (Spravato)</td><td>NMDA antagonist (intranasal)</td><td>REMS program only. Treatment-resistant depression + acute suicidality. Rapid onset.</td></tr>
+</table>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"Mirtazapine = Munchies + Melatonin"</strong> — appetite and sleep both go UP. Perfect for the underweight, anxious, insomniac older adult.</div>
+</section>
+
+<section id="tca">
+<h2>Tricyclic Antidepressants (TCAs)</h2>
+<p>Block SERT + NET but also α1, H1, muscarinic → side-effect heavy. <strong>Lethal in overdose</strong> (cardiac arrhythmia — widened QRS from Na channel block). Rarely first-line for depression; still used for neuropathic pain, migraine prophylaxis, enuresis.</p>
+<table>
+<tr><th>Drug</th><th>Pearl</th></tr>
+<tr><td>Amitriptyline</td><td>Most anticholinergic; migraine, neuropathy</td></tr>
+<tr><td>Nortriptyline</td><td>Best tolerated tertiary's metabolite; neuropathy</td></tr>
+<tr><td>Imipramine</td><td>Enuresis</td></tr>
+<tr><td>Clomipramine</td><td>OCD</td></tr>
+<tr><td>Desipramine</td><td>Least sedating</td></tr>
+</table>
+<h4>TCA Toxicity — "3 C's"</h4>
+<ul>
+<li><strong>C</strong>onvulsions (seizures)</li>
+<li><strong>C</strong>oma</li>
+<li><strong>C</strong>ardiotoxicity (widened QRS, arrhythmia) → <strong>sodium bicarbonate</strong> is antidote</li>
+</ul>
+</section>
+
+<section id="maoi">
+<h2>Monoamine Oxidase Inhibitors (MAOIs)</h2>
+<p>Block MAO-A (serotonin, NE) and MAO-B (dopamine). Rarely used — reserved for treatment-resistant or atypical depression. Require <strong>tyramine-free diet</strong> to avoid hypertensive crisis.</p>
+<ul>
+<li><strong>Irreversible</strong>: phenelzine, tranylcypromine, isocarboxazid</li>
+<li><strong>Selective MAO-B</strong> (low dose): selegiline (transdermal patch bypasses GI MAO) — fewer diet restrictions at 6 mg/24h patch</li>
+</ul>
+<h4>Hypertensive Crisis</h4>
+<p>Tyramine-rich foods (aged cheese, cured meats, fermented foods, wine, soy sauce) → unchecked NE release → severe HTN, stroke. Symptoms: severe HA, ↑ BP, sweating. Tx: phentolamine.</p>
+<h4>Washout Periods</h4>
+<ul>
+<li>2 weeks between MAOI and most serotonergic drugs</li>
+<li><strong>5 weeks</strong> from fluoxetine (long half-life) to MAOI</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Do NOT Combine</span>MAOIs + any serotonergic drug (SSRI, SNRI, TCA, tramadol, meperidine, triptans, linezolid, St. John's wort) = serotonin syndrome. Separate by washout period.</div>
+</section>
+
+<section id="mood-stab">
+<h2>Mood Stabilizers</h2>
+
+<h3>Lithium</h3>
+<p>Gold-standard for bipolar I. Only drug with demonstrated <strong>anti-suicide</strong> effect.</p>
+<h4>Monitoring</h4>
+<ul>
+<li>Narrow therapeutic index: <strong>0.6–1.2 mEq/L</strong> (acute mania up to 1.2; maintenance 0.6–0.8)</li>
+<li>Check trough level (12 hr post-dose) weekly until stable, then q 3–6 mo</li>
+<li>Baseline + periodic: TSH, BUN/Cr, pregnancy test, ECG if &gt;40 yr</li>
+</ul>
+<h4>Side Effects</h4>
+<ul>
+<li><strong>Thyroid</strong>: hypothyroidism (20%)</li>
+<li><strong>Renal</strong>: nephrogenic DI (polyuria, polydipsia); chronic interstitial nephritis</li>
+<li><strong>Neuro</strong>: fine tremor (normal), coarse tremor (toxicity)</li>
+<li><strong>Derm</strong>: acne, psoriasis</li>
+<li><strong>Teratogen</strong>: Ebstein anomaly (Category D)</li>
+<li><strong>Weight gain, GI upset, leukocytosis</strong></li>
+</ul>
+<h4>Toxicity Triggers</h4>
+<ul>
+<li>Dehydration (GI loss, heat)</li>
+<li>NSAIDs, ACEIs, ARBs, thiazide diuretics (↓ renal clearance)</li>
+<li>Low sodium diet</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Lithium level &gt;1.5 = mild toxicity (tremor, GI); &gt;2.5 = moderate (ataxia, confusion, clonus); &gt;3.5 = severe (seizures, coma). Hemodialysis if &gt;4.0 or severe symptoms regardless of level.</div>
+
+<h3>Valproate (Depakote)</h3>
+<p>Mania, mixed episodes, rapid cyclers. Also: seizures, migraine prophylaxis.</p>
+<ul>
+<li>Monitor: level (50–125 µg/mL), LFTs, CBC, ammonia if altered mental status</li>
+<li>SE: weight gain, hair loss, tremor, thrombocytopenia, pancreatitis, hyperammonemia, <strong>hepatotoxicity</strong></li>
+<li><strong>Teratogen</strong>: neural tube defects, PCOS — AVOID in women of reproductive age unless no alternative</li>
+</ul>
+
+<h3>Lamotrigine (Lamictal)</h3>
+<p>Bipolar <strong>depression / maintenance</strong> (not acute mania). Requires <strong>slow titration</strong> to avoid <strong>Stevens-Johnson syndrome</strong> / TEN.</p>
+<ul>
+<li>Rash: benign in ~10%, SJS in ~0.1% — stop if any rash appears</li>
+<li>Pregnancy: relatively safe; preferred mood stabilizer when feasible</li>
+</ul>
+
+<h3>Carbamazepine (Tegretol)</h3>
+<p>Mania (less preferred). Autoinduces own metabolism. SE: aplastic anemia, agranulocytosis, SIADH, SJS (HLA-B*1502 screen in Asian descent), <strong>teratogen</strong> (neural tube).</p>
+</section>
+
+<section id="anti-typ">
+<h2>Typical (First-Generation) Antipsychotics</h2>
+<p>D2 antagonists. Effective for <strong>positive</strong> symptoms; poor effect on negative/cognitive. Higher EPS risk than atypicals.</p>
+<table>
+<tr><th>Potency</th><th>Examples</th><th>Side-Effect Pattern</th></tr>
+<tr><td>High-potency</td><td>Haloperidol, fluphenazine, trifluoperazine</td><td>↑ EPS, ↑ NMS; ↓ anticholinergic, ↓ sedation, ↓ orthostasis</td></tr>
+<tr><td>Low-potency</td><td>Chlorpromazine, thioridazine</td><td>↓ EPS; ↑ anticholinergic, ↑ sedation, ↑ orthostasis, ↑ QTc</td></tr>
+</table>
+<h4>EPS — Timeline</h4>
+<ol>
+<li><strong>Acute dystonia</strong> (hours–days): oculogyric crisis, torticollis. Tx: IM diphenhydramine or benztropine</li>
+<li><strong>Akathisia</strong> (days–weeks): inner restlessness — NOT anxiety. Tx: β-blocker (propranolol), reduce dose, benzo</li>
+<li><strong>Parkinsonism</strong> (weeks–months): bradykinesia, tremor, rigidity. Tx: benztropine, amantadine, reduce dose</li>
+<li><strong>Tardive dyskinesia</strong> (months–years): orofacial involuntary movements; can be <strong>irreversible</strong>. Tx: switch to atypical; VMAT2 inhibitors (valbenazine, deutetrabenazine)</li>
+</ol>
+<div class="box box-mnemonic"><span class="label">🧠 Mnemonic</span><strong>"ADAPT"</strong> EPS timeline: <strong>A</strong>cute dystonia (hours) → <strong>A</strong>kathisia (days-weeks) → <strong>P</strong>arkinsonism (weeks-months) → <strong>T</strong>ardive dyskinesia (months-years).</div>
+</section>
+
+<section id="anti-atyp">
+<h2>Atypical (Second-Generation) Antipsychotics</h2>
+<p>D2 + 5-HT2A antagonism → better negative symptom coverage, less EPS. Main downside: <strong>metabolic syndrome</strong> (weight, glucose, lipids).</p>
+<table>
+<tr><th>Drug</th><th>Clinical Use / Notes</th></tr>
+<tr><td>Risperidone</td><td>Schizophrenia, bipolar, autism irritability. <strong>Most likely to cause prolactin ↑</strong> (gynecomastia, amenorrhea).</td></tr>
+<tr><td>Olanzapine</td><td>Most potent — but <strong>worst metabolic profile</strong>. Also in IM form for acute agitation (not with parenteral benzos — respiratory depression).</td></tr>
+<tr><td>Quetiapine</td><td>Schizophrenia, bipolar I & II (depression). Very sedating at low dose (often misused as sleep aid). Least EPS.</td></tr>
+<tr><td>Aripiprazole</td><td>Partial D2 agonist — "dopamine stabilizer." Activating, less sedation/weight gain. Adjunct for MDD, Tourette's, autism irritability.</td></tr>
+<tr><td>Ziprasidone</td><td>Weight-neutral but <strong>QTc prolongation</strong>; take with food for absorption</td></tr>
+<tr><td>Lurasidone</td><td>Bipolar depression, schizophrenia. Take with food (≥350 kcal). Relatively weight-neutral.</td></tr>
+<tr><td>Paliperidone</td><td>Active metabolite of risperidone. Long-acting injectable (LAI) options available.</td></tr>
+<tr><td>Clozapine</td><td><strong>GOLD STANDARD for treatment-resistant schizophrenia</strong> and <strong>suicide reduction</strong> in schizophrenia. But: <strong>agranulocytosis</strong> (REMS, weekly CBC × 6 mo, then less), myocarditis, seizures, ileus, metabolic. Never first-line.</td></tr>
+</table>
+<h4>Metabolic Monitoring (all atypicals)</h4>
+<ul>
+<li>Baseline + q 3 mo × 1 yr, then annually: weight/BMI, waist, BP, fasting glucose, lipids, HbA1c</li>
+<li>Worst offenders: olanzapine &gt; clozapine &gt; quetiapine</li>
+<li>Most weight-neutral: ziprasidone, lurasidone, aripiprazole</li>
+</ul>
+<div class="box box-clinical"><span class="label">🏥 Clozapine Safety</span>If ANC drops during clozapine therapy, STOP drug and consult hematology. Never restart without specialist. Also screen for myocarditis in first month (check troponin, CRP, ESR if symptoms).</div>
+</section>
+
+<section id="benzo">
+<h2>Benzodiazepines</h2>
+<p>GABA-A positive allosteric modulators — ↑ frequency of Cl⁻ channel opening. Anxiolytic, sedative, muscle relaxant, anticonvulsant.</p>
+<table>
+<tr><th>Duration</th><th>Examples</th><th>Notes</th></tr>
+<tr><td>Short</td><td>Midazolam, triazolam</td><td>Procedural sedation, sleep onset</td></tr>
+<tr><td>Intermediate</td><td>Alprazolam, lorazepam, oxazepam, temazepam</td><td>Alprazolam = highest abuse potential. <strong>LOT</strong> (Lorazepam, Oxazepam, Temazepam) — only <strong>glucuronidation</strong> (no Phase I) → safer in liver disease and elderly</td></tr>
+<tr><td>Long</td><td>Diazepam, clonazepam, chlordiazepoxide</td><td>Alcohol withdrawal (CIWA), seizure</td></tr>
+</table>
+<h4>Risks</h4>
+<ul>
+<li><strong>Dependence & withdrawal</strong> (seizure risk — can kill like alcohol withdrawal)</li>
+<li><strong>Respiratory depression</strong> with opioids / alcohol</li>
+<li><strong>Falls, cognition</strong> in elderly — AVOID per Beers criteria</li>
+<li><strong>Paradoxical disinhibition</strong>, especially in elderly and developmentally disabled</li>
+<li>Reversal: <strong>flumazenil</strong> (can precipitate seizure in chronic users)</li>
+</ul>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>For alcohol withdrawal use a long-acting benzo (chlordiazepoxide, diazepam) — BUT switch to lorazepam in severe liver disease (no Phase I metabolism required).</div>
+</section>
+
+<section id="other-anx">
+<h2>Other Anxiolytics</h2>
+<ul>
+<li><strong>Buspirone</strong> — 5-HT1A partial agonist. Non-sedating, non-addictive, no respiratory depression. Takes 2–4 weeks to work. Good for GAD. Not effective for PRN use.</li>
+<li><strong>Hydroxyzine</strong> — H1 antagonist. Sedating but non-addictive. Useful PRN or in SUD patients.</li>
+<li><strong>Propranolol</strong> — β-blocker. Performance anxiety (pre-situational, 10–40 mg); PTSD hyperarousal.</li>
+<li><strong>Gabapentin / Pregabalin</strong> — α2δ calcium channel modulation. Off-label anxiety, PTSD, alcohol use. Pregabalin has abuse potential.</li>
+</ul>
+</section>
+
+<section id="stim">
+<h2>Stimulants & ADHD Medications</h2>
+<table>
+<tr><th>Class</th><th>Examples</th></tr>
+<tr><td>Methylphenidate</td><td>Ritalin, Concerta, Focalin, Daytrana patch</td></tr>
+<tr><td>Amphetamines</td><td>Adderall (mixed salts), Vyvanse (lisdexamfetamine — prodrug, less abuse potential)</td></tr>
+<tr><td>Non-stimulant SNRI</td><td>Atomoxetine (Strattera) — black-box suicidality, LFT monitoring</td></tr>
+<tr><td>α2 agonists</td><td>Guanfacine ER (Intuniv), clonidine ER (Kapvay) — sedation, ↓ BP</td></tr>
+</table>
+<h4>Safety</h4>
+<ul>
+<li>Baseline: growth, BP, HR, cardiac history, family history of sudden death</li>
+<li>Monitor: growth, BP, HR at every visit; watch for tics, appetite suppression, insomnia</li>
+<li>Abuse potential: Schedule II — assess diversion risk in adolescents / college students</li>
+</ul>
+</section>
+
+<section id="mat">
+<h2>Medications for Addiction Treatment (MAT)</h2>
+<h4>Alcohol Use Disorder</h4>
+<ul>
+<li><strong>Naltrexone</strong> (PO daily or monthly IM Vivitrol) — ↓ craving, ↓ reward. Avoid with opioid use (precipitates withdrawal).</li>
+<li><strong>Acamprosate</strong> — stabilizes glutamate. Renal dosing. Good choice with liver disease.</li>
+<li><strong>Disulfiram</strong> — aversive (blocks aldehyde DH → flushing, N/V, ↓ BP with alcohol). Requires motivated patient.</li>
+<li><strong>Gabapentin, topiramate</strong> — off-label, emerging evidence</li>
+</ul>
+<h4>Opioid Use Disorder</h4>
+<ul>
+<li><strong>Buprenorphine</strong> (partial µ agonist) ± naloxone (Suboxone) — office-based; ceiling effect ↓ overdose</li>
+<li><strong>Methadone</strong> (full µ agonist) — via federally regulated OTP only</li>
+<li><strong>Naltrexone</strong> (µ antagonist, monthly IM) — requires 7–10 days opioid-free first</li>
+<li><strong>Naloxone</strong> (µ antagonist) — overdose reversal. Distribute to all at-risk patients.</li>
+</ul>
+<h4>Tobacco Use Disorder</h4>
+<ul>
+<li><strong>Varenicline</strong> (Chantix) — partial α4β2 nicotinic agonist. Most effective.</li>
+<li><strong>Bupropion</strong> SR — ↓ craving</li>
+<li><strong>Nicotine replacement</strong> — patch + PRN gum/lozenge combo</li>
+</ul>
+</section>
+
+<section id="sleep">
+<h2>Sleep Medications</h2>
+<table>
+<tr><th>Drug</th><th>Class / Notes</th></tr>
+<tr><td>Z-drugs (zolpidem, zaleplon, eszopiclone)</td><td>GABA-A at BZ1. Less dependence than benzos but still risk. Parasomnias (sleep-eating, sleep-driving) — FDA black box.</td></tr>
+<tr><td>Melatonin / ramelteon</td><td>MT1/MT2 agonists. Non-addictive. Best for circadian disruption.</td></tr>
+<tr><td>Suvorexant / lemborexant</td><td>Dual orexin receptor antagonists. Non-addictive option for insomnia.</td></tr>
+<tr><td>Trazodone (low dose)</td><td>Off-label, widely used; minimal dependence</td></tr>
+<tr><td>Doxepin (3–6 mg)</td><td>H1 antagonist at low dose; FDA-approved for sleep maintenance</td></tr>
+<tr><td>Mirtazapine</td><td>If comorbid depression + insomnia + low appetite</td></tr>
+</table>
+<p><strong>First-line</strong> for chronic insomnia = <strong>CBT-I</strong> (not meds). Sleep hygiene, stimulus control, sleep restriction.</p>
+</section>
+
+<section id="peds">
+<h2>Pediatric Prescribing Considerations</h2>
+<ul>
+<li>Only a few psych meds are FDA-approved in pediatrics; most use is off-label but evidence-based</li>
+<li><strong>Fluoxetine</strong>: MDD ≥8, OCD ≥7</li>
+<li><strong>Escitalopram</strong>: MDD ≥12, GAD ≥7</li>
+<li><strong>Sertraline</strong>: OCD ≥6</li>
+<li><strong>Fluvoxamine</strong>: OCD ≥8</li>
+<li><strong>Risperidone / aripiprazole</strong>: autism-associated irritability</li>
+<li><strong>Stimulants</strong>: ADHD typically ≥6 yr (methylphenidate ≥4 in some formulations)</li>
+<li>All pediatric SSRI use: black-box suicidality, weekly monitoring × 4 wks, biweekly × 4, then monthly</li>
+<li>"Start low, go slow" — pediatric doses are typically half adult starting doses</li>
+</ul>
+</section>
+
+<section id="preg">
+<h2>Pregnancy & Lactation Quick Table</h2>
+<table>
+<tr><th>Class</th><th>Pregnancy</th><th>Lactation</th></tr>
+<tr><td>SSRIs</td><td>Generally compatible. <strong>Sertraline</strong> has most data; <strong>avoid paroxetine</strong> (cardiac defects). Late pregnancy use → neonatal adaptation syndrome, rare PPHN.</td><td>Compatible — sertraline lowest infant exposure</td></tr>
+<tr><td>SNRIs</td><td>Duloxetine/venlafaxine — limited data; neonatal adaptation possible</td><td>Small amounts in milk</td></tr>
+<tr><td>Bupropion</td><td>Compatible; also for smoking cessation in pregnancy</td><td>Compatible</td></tr>
+<tr><td>Lithium</td><td>Ebstein anomaly (Category D) — weigh risk/benefit; highest risk 1st trimester. Level monitoring through pregnancy.</td><td>Not recommended — crosses into milk, infant toxicity possible</td></tr>
+<tr><td>Valproate</td><td><strong>AVOID</strong> — high teratogenicity (neural tube, cognitive/autism). Never first-line in reproductive-age women.</td><td>Compatible with milk but avoid in pregnancy</td></tr>
+<tr><td>Lamotrigine</td><td>Preferred mood stabilizer in pregnancy (low teratogenicity)</td><td>Compatible</td></tr>
+<tr><td>Benzos</td><td>Avoid if possible; neonatal withdrawal, floppy baby</td><td>Use lowest dose, monitor infant sedation</td></tr>
+<tr><td>Antipsychotics</td><td>Olanzapine & quetiapine have the most data. Maternal metabolic screening.</td><td>Variable; monitor infant sedation/EPS</td></tr>
+</table>
+<div class="box box-pearl"><span class="label">🎯 Board Pearl</span>Untreated perinatal depression carries real fetal risks (preterm birth, low birth weight, impaired bonding, postpartum depression/suicide). Shared decision-making: weigh medication risks against risks of untreated illness — don't reflexively stop meds.</div>
+</section>
+</main>
+</div>
+<footer>© 2035 FNP Prep · Educational use only · Not a substitute for clinical judgment</footer>
+</body>
+</html>
