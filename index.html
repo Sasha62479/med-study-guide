@@ -1,428 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FNP Board Exam Prep</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FNP Prep – Learn Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: transparent;
-      color: #2d1b69;
-      min-height: 100vh;
-    }
+/* TOP NAV — single, clean, AMBOSS-style */
+.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.7rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
+.top-nav .brand{font-family:'Barrio',cursive;font-size:1.5rem;color:#F25032;text-decoration:none;margin-right:auto;}
+.top-nav a.nav-item{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.35rem 0.8rem;border-radius:20px;transition:background 0.2s;}
+.top-nav a.nav-item:hover{background:rgba(242,80,50,0.1);}
+.top-nav a.nav-item.active{background:#F25032;color:#fff;}
 
-    .top-nav {
-      background: rgba(255,255,255,0.3);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(167,139,250,0.4);
-      border-radius: 14px;
-      margin: 12px 16px 8px;
-    }
+/* HERO */
+.hero{text-align:center;padding:3rem 1rem 1.5rem;}
+.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
+.hero h1{font-family:'Barrio',cursive;font-size:clamp(2.5rem,6vw,4rem);color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-top:0.3rem;}
+.hero p{max-width:640px;margin:0.8rem auto 0;font-size:1.05rem;color:#555;}
 
-    .top-nav-inner {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      flex-wrap: wrap;
-    }
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:1.5rem 1.5rem 3rem;}
 
-    .nav-brand {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #5b21b6;
-      margin-right: 12px;
-      text-decoration: none;
-    }
+/* SECTION HEADERS */
+.section-head{margin:2rem 0 1rem;}
+.section-head .label{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2.5px;color:#143D0D;text-transform:uppercase;}
+.section-head .title{font-family:'Barrio',cursive;font-size:1.8rem;color:#F25032;margin-top:0.2rem;}
+.section-head .sub{font-size:0.9rem;color:#666;margin-top:0.2rem;}
+.section-head .divider{width:50px;height:3px;background:linear-gradient(90deg,#F25032,#734E93);border-radius:2px;margin-top:0.6rem;}
 
-    .nav-link {
-      font-size: 0.82rem;
-      color: #7c3aed;
-      text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: background 0.15s;
-      white-space: nowrap;
-    }
+/* SYSTEM GRID — AMBOSS style cards */
+.systems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:2rem;}
+.system-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);border:1px solid rgba(114,78,147,0.18);border-radius:16px;padding:1.1rem 1rem;transition:transform 0.15s,box-shadow 0.15s;}
+.system-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(115,78,147,0.12);}
+.system-card .system-name{font-family:'Barrio',cursive;font-size:1.3rem;color:#143D0D;margin-bottom:0.7rem;display:flex;align-items:center;gap:0.4rem;}
+.system-card .system-name .icon{font-size:1.1rem;}
+.pill-row{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.pill{font-family:'Nunito',sans-serif;font-size:0.74rem;font-weight:700;text-decoration:none;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid;transition:all 0.18s;white-space:nowrap;}
+.pill.anatomy{color:#734E93;border-color:#734E93;background:rgba(115,78,147,0.06);}
+.pill.anatomy:hover{background:#734E93;color:#fff;}
+.pill.physiology{color:#0e7490;border-color:#0ea5e9;background:rgba(14,165,233,0.06);}
+.pill.physiology:hover{background:#0ea5e9;color:#fff;}
+.pill.pathophys{color:#be123c;border-color:#f43f5e;background:rgba(244,63,94,0.06);}
+.pill.pathophys:hover{background:#f43f5e;color:#fff;}
+.pill.pharmacology{color:#b45309;border-color:#F25032;background:rgba(242,80,50,0.06);}
+.pill.pharmacology:hover{background:#F25032;color:#fff;}
+.pill.cases{color:#143D0D;border-color:#143D0D;background:rgba(20,61,13,0.06);}
+.pill.cases:hover{background:#143D0D;color:#fff;}
+.pill.peds{color:#734E93;border-color:#734E93;background:rgba(115,78,147,0.06);}
+.pill.peds:hover{background:#734E93;color:#fff;}
 
-    .nav-link:hover { background: rgba(124,58,237,0.1); }
-    .nav-link.active { font-weight: 700; color: #5b21b6; border-bottom: 2px solid #7c3aed; }
+/* SPECIAL TOPICS */
+.special-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;}
+.special-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);border:1px solid rgba(114,78,147,0.18);border-radius:16px;padding:1.2rem 1.2rem;}
+.special-card h3{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;margin-bottom:0.4rem;}
+.special-card p{font-size:0.85rem;color:#555;margin-bottom:0.8rem;line-height:1.5;}
 
-    .hero {
-      text-align: center;
-      padding: 36px 24px 24px;
-    }
+/* FOOTER */
+footer{text-align:center;padding:2rem 1rem 1.5rem;font-size:0.78rem;color:#143D0D;border-top:1px solid rgba(114,78,147,0.18);background:rgba(255,255,255,0.4);margin-top:2rem;}
+footer a{color:#F25032;text-decoration:none;font-weight:700;}
+footer a:hover{text-decoration:underline;}
 
-    .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 800;
-      color: #5b21b6;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 span { color: #7c3aed; }
-
-    .hero p {
-      color: #7c3aed;
-      font-size: 1rem;
-      margin-top: 8px;
-    }
-
-    .hero-divider {
-      width: 48px;
-      height: 3px;
-      background: linear-gradient(90deg, #7c3aed, #db2777);
-      border-radius: 2px;
-      margin: 14px auto 0;
-    }
-
-    .main-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px 40px;
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #9333ea;
-      margin-bottom: 4px;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #5b21b6;
-      margin-bottom: 2px;
-    }
-
-    .section-subtitle {
-      font-size: 0.82rem;
-      color: #7c3aed;
-      margin-bottom: 6px;
-    }
-
-    .section-divider {
-      width: 36px;
-      height: 2px;
-      background: linear-gradient(90deg, #7c3aed, #db2777);
-      border-radius: 2px;
-      margin-bottom: 18px;
-    }
-
-    /* ORGAN CARDS */
-    .organs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-
-    .organ-card {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(167,139,250,0.25);
-      border-radius: 16px;
-      padding: 18px 16px 14px;
-    }
-
-    .organ-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #5b21b6;
-      margin-bottom: 12px;
-    }
-
-    .topic-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .topic-link {
-      font-size: 0.74rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1.5px solid;
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-
-    .topic-link.anatomy {
-      color: #5b21b6;
-      border-color: #7c3aed;
-      background: rgba(124,58,237,0.07);
-    }
-    .topic-link.anatomy:hover {
-      background: #7c3aed;
-      color: #fff;
-    }
-
-    .topic-link.physiology {
-      color: #0e7490;
-      border-color: #0ea5e9;
-      background: rgba(14,165,233,0.07);
-    }
-    .topic-link.physiology:hover {
-      background: #0ea5e9;
-      color: #fff;
-    }
-
-    .topic-link.pathophys {
-      color: #be123c;
-      border-color: #f43f5e;
-      background: rgba(244,63,94,0.07);
-    }
-    .topic-link.pathophys:hover {
-      background: #f43f5e;
-      color: #fff;
-    }
-
-    .topic-link.pharmacology {
-      color: #b45309;
-      border-color: #f59e0b;
-      background: rgba(245,158,11,0.07);
-    }
-    .topic-link.pharmacology:hover {
-      background: #f59e0b;
-      color: #fff;
-    }
-
-    /* PEDIATRICS */
-    .peds-section {
-      margin-bottom: 32px;
-    }
-
-    .peds-card {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(167,139,250,0.25);
-      border-radius: 16px;
-      padding: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .peds-card-info h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #5b21b6;
-      margin-bottom: 4px;
-    }
-
-    .peds-card-info p {
-      font-size: 0.82rem;
-      color: #4c1d95;
-      max-width: 500px;
-    }
-
-    .peds-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .peds-link {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 6px 16px;
-      border-radius: 20px;
-      border: 1.5px solid #7c3aed;
-      color: #5b21b6;
-      background: rgba(124,58,237,0.07);
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-
-    .peds-link:hover {
-      background: #7c3aed;
-      color: #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px 16px;
-      font-size: 0.78rem;
-      color: #7c3aed;
-      border-top: 1px solid rgba(167,139,250,0.2);
-    }
-
-    footer a { color: #6d28d9; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-  </style>
+@media(max-width:640px){
+  .hero{padding:2rem 1rem 1rem;}
+  .top-nav{padding:0.5rem 0.8rem;}
+  .top-nav .brand{font-size:1.2rem;}
+}
+</style>
 </head>
 <body>
 
-  <nav class="top-nav">
-    <div class="top-nav-inner">
-      <a href="index.html" class="nav-brand">FNP Prep Hub</a>
-      <a href="index.html" class="nav-link active">LEARN</a>
-      <a href="anatomy/index.html" class="nav-link">Anatomy</a>
-      <a href="physiology/index.html" class="nav-link">Physiology</a>
-      <a href="pathophysiology/index.html" class="nav-link">Pathophysiology</a>
-      <a href="pharmacology/index.html" class="nav-link">Pharmacology</a>
-      <a href="pediatrics/index.html" class="nav-link">Pediatrics</a>
-    </div>
-  </nav>
+<nav class="top-nav">
+  <a href="index.html" class="brand">🌿 FNP Prep</a>
+  <a href="index.html" class="nav-item active">Learn</a>
+  <a href="cases/index.html" class="nav-item">Cases</a>
+  <a href="quickguides/index.html" class="nav-item">Quick Guides</a>
+  <a href="tests/index.html" class="nav-item">Tests</a>
+  <a href="pediatrics/index.html" class="nav-item">Pediatrics</a>
+</nav>
 
-  <div class="hero">
-    <h1>FNP Board <span>Exam Prep</span></h1>
-    <p>Your complete study hub — built for NP students</p>
-    <div class="hero-divider"></div>
+<div class="hero">
+  <div class="tag">FNP Board Exam Prep</div>
+  <h1>Learn Hub</h1>
+  <p>Pick a body system. Choose a topic. Study like AMBOSS — built for NP students.</p>
+</div>
+
+<div class="main">
+
+  <div class="section-head">
+    <div class="label">By Body System</div>
+    <div class="title">Clinical Care</div>
+    <div class="sub">Each system links directly to Anatomy, Physiology, Pathophysiology &amp; Pharmacology.</div>
+    <div class="divider"></div>
   </div>
 
-  <div class="main-content">
+  <div class="systems-grid">
 
-    <!-- ORGAN / SYSTEM CARDS -->
-    <div class="section-label">By Body System</div>
-    <div class="section-title">Study by Organ</div>
-    <div class="section-subtitle">Select a topic within each system</div>
-    <div class="section-divider"></div>
-
-    <div class="organs-grid">
-
-      <div class="organ-card">
-        <h3>Liver</h3>
-        <div class="topic-links">
-          <a href="anatomy/liver.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/liver.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/liver.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/liver.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🫘</span> Renal &amp; Urology</div>
+      <div class="pill-row">
+        <a href="anatomy/kidney.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/kidney.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/kidney.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/kidney.html" class="pill pharmacology">Pharmacology</a>
+        <a href="cases/kidney.html" class="pill cases">Cases</a>
       </div>
-
-      <div class="organ-card">
-        <h3>Gallbladder</h3>
-        <div class="topic-links">
-          <a href="anatomy/gallbladder.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/gallbladder.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/gallbladder.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/gallbladder.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Pancreas</h3>
-        <div class="topic-links">
-          <a href="anatomy/pancreas.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/pancreas.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/pancreas.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/pancreas.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Kidney</h3>
-        <div class="topic-links">
-          <a href="anatomy/kidney.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/kidney.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/kidney.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/kidney.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Heart</h3>
-        <div class="topic-links">
-          <a href="anatomy/heart.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/heart.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/heart.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/heart.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Lungs</h3>
-        <div class="topic-links">
-          <a href="anatomy/lungs.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/lungs.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/lungs.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/lungs.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Neurological</h3>
-        <div class="topic-links">
-          <a href="anatomy/neuro.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/neuro.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/neuro.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/neuro.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>GU / Reproductive</h3>
-        <div class="topic-links">
-          <a href="anatomy/gu.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/gu.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/gu.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/gu.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Integumentary</h3>
-        <div class="topic-links">
-          <a href="anatomy/skin.html" class="topic-link anatomy">Anatomy</a>
-          <a href="physiology/skin.html" class="topic-link physiology">Physiology</a>
-          <a href="pathophysiology/skin.html" class="topic-link pathophys">Pathophys</a>
-          <a href="pharmacology/skin.html" class="topic-link pharmacology">Pharmacology</a>
-        </div>
-      </div>
-
-      <div class="organ-card">
-        <h3>Genetics / DSD</h3>
-        <div class="topic-links">
-          <a href="pathophysiology/gu.html#down" class="topic-link pathophys">Down</a>
-          <a href="pathophysiology/gu.html#fragile-x" class="topic-link pathophys">Fragile X</a>
-          <a href="pathophysiology/gu.html#turner" class="topic-link pathophys">Turner</a>
-          <a href="pathophysiology/gu.html#klinefelter" class="topic-link pathophys">Klinefelter</a>
-          <a href="pathophysiology/gu.html#dsd" class="topic-link pathophys">Overview</a>
-        </div>
-      </div>
-
     </div>
 
-    <!-- PEDIATRICS -->
-    <div class="peds-section">
-      <div class="section-label">Special Topics</div>
-      <div class="section-title">Pediatrics</div>
-      <div class="section-subtitle">Growth &amp; development, common pediatric conditions &amp; board-tested topics</div>
-      <div class="section-divider"></div>
-      <div class="peds-card">
-        <div class="peds-card-info">
-          <h3>Pediatrics</h3>
-          <p>Pediatric dermatology &amp; infectious exanthems, growth &amp; development milestones, board-tested peds conditions for FNP exam success.</p>
-        </div>
-        <div class="peds-links">
-          <a href="pediatrics/index.html" class="peds-link">Study Guide</a>
-          <a href="tests/pediatrics-1.html" class="peds-link">Practice Quiz 1</a>
-          <a href="tests/pediatrics-3.html" class="peds-link">Practice Quiz 2</a>
-        </div>
+    <div class="system-card">
+      <div class="system-name"><span class="icon">❤️</span> Cardiovascular</div>
+      <div class="pill-row">
+        <a href="anatomy/heart.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/heart.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/heart.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/heart.html" class="pill pharmacology">Pharmacology</a>
+        <a href="cases/heart.html" class="pill cases">Cases</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🫁</span> Pulmonology</div>
+      <div class="pill-row">
+        <a href="anatomy/lungs.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/lungs.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/lungs.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/lungs.html" class="pill pharmacology">Pharmacology</a>
+        <a href="cases/lungs.html" class="pill cases">Cases</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🍽️</span> GI &amp; Hepatobiliary</div>
+      <div class="pill-row">
+        <a href="anatomy/liver.html" class="pill anatomy">Liver</a>
+        <a href="anatomy/gallbladder.html" class="pill anatomy">Gallbladder</a>
+        <a href="anatomy/pancreas.html" class="pill anatomy">Pancreas</a>
+        <a href="pathophysiology/liver.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/liver.html" class="pill pharmacology">Pharmacology</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🧠</span> Neurology</div>
+      <div class="pill-row">
+        <a href="anatomy/neuro.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/neuro.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/neuro.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/neuro.html" class="pill pharmacology">Pharmacology</a>
+        <a href="cases/neuro.html" class="pill cases">Cases</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">⚕️</span> GU / Reproductive</div>
+      <div class="pill-row">
+        <a href="anatomy/gu.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/gu.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/gu.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/gu.html" class="pill pharmacology">Pharmacology</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🧴</span> Dermatology</div>
+      <div class="pill-row">
+        <a href="anatomy/skin.html" class="pill anatomy">Anatomy</a>
+        <a href="physiology/skin.html" class="pill physiology">Physiology</a>
+        <a href="pathophysiology/skin.html" class="pill pathophys">Pathophys</a>
+        <a href="pharmacology/skin.html" class="pill pharmacology">Pharmacology</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🧩</span> Psychiatry</div>
+      <div class="pill-row">
+        <a href="anatomy/psychiatry.html" class="pill anatomy">Neuroanatomy</a>
+        <a href="physiology/psychiatry.html" class="pill physiology">Neurochem</a>
+        <a href="pathophysiology/psychiatry.html" class="pill pathophys">Disorders</a>
+        <a href="pharmacology/psychiatry.html" class="pill pharmacology">Psych Drugs</a>
+        <a href="pediatrics/psychiatry.html" class="pill peds">Pediatric Psych</a>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="system-name"><span class="icon">🧬</span> Genetics / DSD</div>
+      <div class="pill-row">
+        <a href="pathophysiology/gu.html#down" class="pill pathophys">Down</a>
+        <a href="pathophysiology/gu.html#fragile-x" class="pill pathophys">Fragile X</a>
+        <a href="pathophysiology/gu.html#turner" class="pill pathophys">Turner</a>
+        <a href="pathophysiology/gu.html#klinefelter" class="pill pathophys">Klinefelter</a>
+        <a href="pathophysiology/gu.html#dsd" class="pill pathophys">Overview</a>
       </div>
     </div>
 
   </div>
 
-  <footer>
-    <p>FNP Board Exam Prep — Built for NP Students</p>
-    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> · <a href="https://www.amboss.com" target="_blank">Amboss</a> · <a href="https://openevidence.com" target="_blank">Open Evidence</a></p>
-  </footer>
+  <div class="section-head">
+    <div class="label">Special Topics</div>
+    <div class="title">Pediatrics &amp; More</div>
+    <div class="sub">Growth &amp; development, peds modules, exanthems, and board-tested topics.</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="special-grid">
+    <div class="special-card">
+      <h3>Pediatrics Hub</h3>
+      <p>Pediatric dermatology &amp; infectious exanthems, growth &amp; development milestones, and board-tested peds conditions.</p>
+      <div class="pill-row">
+        <a href="pediatrics/index.html" class="pill peds">Study Guide</a>
+        <a href="pediatrics/psychiatry.html" class="pill peds">Pediatric Psych</a>
+      </div>
+    </div>
+    <div class="special-card">
+      <h3>Practice Tests</h3>
+      <p>Quizzes by system and pediatric module — practice with board-style questions.</p>
+      <div class="pill-row">
+        <a href="tests/index.html" class="pill cases">All Tests</a>
+        <a href="tests/pediatrics-1.html" class="pill cases">Peds Quiz 1</a>
+        <a href="tests/pediatrics-3.html" class="pill cases">Peds Quiz 2</a>
+      </div>
+    </div>
+    <div class="special-card">
+      <h3>Quick Guides</h3>
+      <p>One-page AMBOSS-style summaries for fast review before exam day.</p>
+      <div class="pill-row">
+        <a href="quickguides/index.html" class="pill anatomy">Browse Guides</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>FNP Board Exam Prep</strong> — Built for NP Students</p>
+  <p>Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> · <a href="https://www.amboss.com" target="_blank">AMBOSS</a> · <a href="https://openevidence.com" target="_blank">Open Evidence</a></p>
+</footer>
 
 </body>
 </html>
