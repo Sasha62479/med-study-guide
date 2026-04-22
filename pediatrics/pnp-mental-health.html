@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Mental Health · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--lavender); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .subsection-label.rust { color: var(--rust); }
+    .subsection-label.teal { color: var(--teal); }
+    .subsection-label.gold { color: var(--gold); }
+    .subsection-label.sage { color: var(--sage); }
+    .subsection-label.lav  { color: var(--lavender); }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-lav  { background: #ede9f4; border-left: 3px solid var(--lavender); color: #2a1a3a; }
+    .callout-sage { background: #e6ede6; border-left: 3px solid var(--sage); color: #1a2a1a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--lavender); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.teal { background: var(--teal); }
+    .step-num.gold { background: var(--gold); }
+    .step-num.sage { background: var(--sage); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--lavender); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.teal { background: var(--teal); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#eating">Eating Disorders</a>
+  <a href="#anxiety">Anxiety Disorders</a>
+  <a href="#mood">Mood Disorders</a>
+  <a href="#behavioral">Behavioral Disorders</a>
+  <a href="#abuse">Child Maltreatment</a>
+  <a href="#substance">Substance Use</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · MENTAL HEALTH · EXAM III · CH 40</div>
+  <h1>Pediatric Mental Health Disorders</h1>
+  <p class="subtitle">Eating disorders · Anxiety · Mood · Behavioral · Maltreatment · Substance use — the whole child, not just the body.</p>
+  <div class="pill-row">
+    <span class="pill pill-lav">🧠 6 Categories</span>
+    <span class="pill pill-rust">⚡ Suicide Screening</span>
+    <span class="pill pill-teal">💊 SSRI First-Line</span>
+    <span class="pill pill-gold">📋 DSM-5 Criteria</span>
+    <span class="pill pill-sage">🛡️ Mandatory Reporting</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- EATING DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="eating">
+  <div class="section-label">Eating Disorders · Adolescent</div>
+  <div class="section-title">Eating Disorders</div>
+  <div class="section-sub">Anorexia · Bulimia · Binge-Eating · ARFID — each with distinct physiology and different risks.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Eating disorders are not about food — they're about <strong>control, emotion regulation, and distorted perception</strong>. Think of anorexia as a brain that has hijacked the reward system: starvation feels like control and success, not deprivation. The body sounds alarm after alarm — fatigue, cold intolerance, hair loss — but the cognitive distortion mutes those signals. Bulimia is different — it's a cycle of emotional flooding followed by purging as a pressure valve. The food is almost incidental; it's the emotional storm underneath that drives everything.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Disorder</th><th>Core Feature</th><th>Physical Signs</th><th>Labs</th><th>Treatment</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Anorexia Nervosa</strong></td>
+        <td>Restriction of energy intake → significantly low weight. Intense fear of weight gain. Distorted body image.</td>
+        <td>Bradycardia, hypotension, hypothermia, lanugo, amenorrhea, dry skin, hair loss, muscle wasting, edema (refeeding)</td>
+        <td>↓ K, ↓ Na, ↓ Mg, ↓ Phos, ↓ glucose, ↑ BUN (dehydration), ↑ LFTs, leukopenia, anemia, ↓ T3 (sick euthyroid)</td>
+        <td>Nutritional rehabilitation ⭐; FBT (family-based treatment) for adolescents; medical stabilization if unstable vitals; SSRI limited evidence for core AN; olanzapine for severe weight gain resistance</td>
+      </tr>
+      <tr>
+        <td><strong>Bulimia Nervosa</strong></td>
+        <td>Recurrent binge-purge cycles ≥1×/week × 3 months. Weight typically normal.</td>
+        <td>Russell's sign (calluses on dorsal hand knuckles ⭐), parotid gland hypertrophy, dental enamel erosion, perioral excoriations</td>
+        <td>↓ K (hypokalemia ⭐ — most dangerous), ↓ Cl, metabolic alkalosis (from purging), ↑ amylase (salivary)</td>
+        <td>CBT ⭐ (most evidence-based); fluoxetine (Prozac) FDA approved for bulimia ⭐; nutritional counseling</td>
+      </tr>
+      <tr>
+        <td><strong>Binge-Eating Disorder (BED)</strong></td>
+        <td>Recurrent binge episodes without compensatory purging. Associated with shame/distress.</td>
+        <td>Often overweight/obese; metabolic complications</td>
+        <td>Metabolic syndrome labs if obese</td>
+        <td>CBT ⭐; lisdexamfetamine (Vyvanse) — FDA approved for BED in adults; SSRIs for mood comorbidities</td>
+      </tr>
+      <tr>
+        <td><strong>ARFID</strong> (Avoidant/Restrictive Food Intake Disorder)</td>
+        <td>Restriction not driven by body image — sensory aversion, fear of choking/vomiting, low appetite. Often younger children + ASD.</td>
+        <td>FTT, nutritional deficiencies, growth impairment</td>
+        <td>Nutritional deficiencies based on restricted foods</td>
+        <td>Exposure-based CBT; OT for sensory feeding; feeding therapy; no fear of weight gain distinguishes from AN</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-warn" style="margin-top:8px;">
+    <div class="callout-label">🚨 Anorexia — Medical Admission Criteria</div>
+    HR &lt;50 bpm · Systolic BP &lt;90 mmHg · Orthostatic hypotension · Temp &lt;96°F · Glucose &lt;60 mg/dL · K &lt;3.0 mEq/L · Rapid weight loss · Syncope → admit for medical stabilization and supervised refeeding.
+  </div>
+
+  <div class="callout callout-rust" style="margin-top:8px; background:#fbeae4; border-left:3px solid var(--rust); border-radius:10px; padding:12px 16px; font-size:0.86rem; color:#3a1a10;">
+    <div class="callout-label" style="font-family:'DM Mono',monospace; font-size:0.63rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px; font-weight:500;">⚠️ Refeeding Syndrome</div>
+    Dangerous ↓ phosphorus when severely malnourished patient is re-fed too quickly. Hypophosphatemia → cardiac arrhythmias, heart failure, seizures, death. Start nutrition slowly and monitor electrolytes closely.
+  </div>
+
+  <div class="callout callout-note" style="margin-top:8px;">
+    <div class="callout-label">💡 Highest Mortality</div>
+    Anorexia nervosa has the <strong>highest mortality rate of any psychiatric disorder</strong> — primarily from cardiac arrhythmias (bradycardia, QT prolongation) and suicide. Russell's sign = bulimia. Parotid enlargement + dental erosion = purging behavior.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ANXIETY DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="anxiety">
+  <div class="section-label">Anxiety · Most Common Pediatric MH</div>
+  <div class="section-title">Anxiety Disorders</div>
+  <div class="section-sub">Separation anxiety · GAD · OCD — anxiety is the most common mental health condition in children.</div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Separation Anxiety Disorder</div>
+      <ul>
+        <li>Developmentally excessive fear of separation from attachment figures</li>
+        <li>Normal separation anxiety peaks 8–18 months — disorder = beyond what's expected</li>
+        <li>School refusal, physical complaints (stomachache, headache) on school days</li>
+        <li>Nightmares about separation; refusal to sleep alone</li>
+        <li>Duration: ≥4 weeks (children) / ≥6 months (adults)</li>
+        <li>Most common anxiety disorder in children under 12</li>
+        <li>Treatment: CBT ⭐ + school re-engagement; SSRI if moderate-severe</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Generalized Anxiety Disorder (GAD)</div>
+      <ul>
+        <li>Excessive, uncontrollable worry about multiple topics (school, health, family, world events)</li>
+        <li>Duration: ≥6 months</li>
+        <li>≥1 physical symptom in children (adults need ≥3): restlessness, fatigue, difficulty concentrating, irritability, muscle tension, sleep disturbance</li>
+        <li>"What if" thinking; perfectionism; reassurance-seeking</li>
+        <li>Children often worry about catastrophic events, performance, punctuality</li>
+        <li>Treatment: CBT ⭐ first-line; SSRI (sertraline, fluoxetine) if CBT insufficient</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">OCD — Obsessive-Compulsive Disorder</div>
+      <ul>
+        <li><strong>Obsessions:</strong> recurrent, intrusive, unwanted thoughts/images/urges that cause distress</li>
+        <li><strong>Compulsions:</strong> repetitive behaviors or mental acts performed to reduce distress from obsessions</li>
+        <li>Time-consuming (&gt;1h/day) OR causes significant impairment</li>
+        <li>Common themes: contamination (handwashing), harm, symmetry/ordering, religious scrupulosity</li>
+        <li>Child may recognize obsessions as excessive — or may not (especially young children)</li>
+        <li>Associated: tic disorders, ADHD, anxiety disorders, PANDAS</li>
+        <li>Treatment: <strong>ERP (Exposure and Response Prevention) CBT ⭐</strong> — first-line; SSRI (fluvoxamine, sertraline) — first-line pharmacotherapy; combined most effective</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">PANDAS — Board Special Topic</div>
+      <ul>
+        <li><strong>P</strong>ediatric <strong>A</strong>utoimmune <strong>N</strong>europsychiatric <strong>D</strong>isorders <strong>A</strong>ssociated with <strong>S</strong>treptococcal infections</li>
+        <li>Sudden, dramatic onset or exacerbation of OCD or tic symptoms following Group A Strep infection</li>
+        <li>Hallmark: <strong>abrupt onset</strong> of symptoms (overnight) following strep throat ⭐</li>
+        <li>Also: choreiform movements, emotional lability, separation anxiety, enuresis</li>
+        <li>Workup: throat culture, strep serology (ASO titer, anti-DNase B)</li>
+        <li>Treatment: treat strep infection (penicillin/amoxicillin); OCD/tic treatment as usual; IVIG for severe refractory cases (controversial)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Anxiety Treatment Hierarchy</div>
+    <strong>CBT (Cognitive Behavioral Therapy)</strong> = first-line for all pediatric anxiety disorders. SSRI = first-line pharmacotherapy when medication indicated. Combined CBT + SSRI = most effective for moderate-severe anxiety and OCD. Benzodiazepines: avoid in children — risk of dependence, cognitive blunting, rebound anxiety.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- MOOD DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="mood">
+  <div class="section-label">Mood Disorders · Depression & Bipolar</div>
+  <div class="section-title">Mood Disorders</div>
+  <div class="section-sub">MDD · DMDD · Bipolar — mood disorders in children look different than in adults. Know the pediatric presentations.</div>
+
+  <div class="subsection-label rust">Major Depressive Disorder (MDD)</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card rust">
+      <div class="card-title">DSM-5 Criteria — MDD</div>
+      <ul>
+        <li>≥5 symptoms for ≥2 weeks, including <strong>at least one of:</strong>
+          <ul>
+            <li>Depressed mood (or <strong>irritable mood in children</strong> ⭐)</li>
+            <li>Loss of interest or pleasure (anhedonia)</li>
+          </ul>
+        </li>
+        <li>Plus ≥4 of: sleep changes, appetite/weight change, psychomotor changes, fatigue, guilt/worthlessness, difficulty concentrating, suicidal ideation</li>
+        <li>Causes clinically significant impairment</li>
+        <li><strong>Key pediatric difference:</strong> irritability is a core feature (not just sadness) ⭐</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Pediatric MDD — Unique Features</div>
+      <ul>
+        <li>Irritability often predominates over sadness in children</li>
+        <li>Somatic complaints: headaches, stomachaches, fatigue</li>
+        <li>School refusal, declining grades</li>
+        <li>Social withdrawal, loss of interest in activities</li>
+        <li>Adolescents: may present with increased sleep, increased appetite, anhedonia</li>
+        <li>Always screen for suicidal ideation — PHQ-A (adolescent version) starting age 12</li>
+        <li>Screen for bipolar before starting antidepressants (risk of manic switch)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">MDD Treatment</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num teal">1</div><div><div class="step-title">Psychotherapy — CBT or IPT</div><div class="step-body">CBT (Cognitive Behavioral Therapy) or IPT (Interpersonal Therapy) — first-line for mild-moderate. CBT most evidence-based for pediatric depression.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">2</div><div><div class="step-title">SSRI — First-line medication ⭐</div><div class="step-body">Fluoxetine (Prozac) — FDA approved for MDD age ≥8 ⭐. Escitalopram — FDA approved age ≥12. Black box warning: antidepressants may ↑ suicidal ideation in children/adolescents — monitor closely in first weeks.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">3</div><div><div class="step-title">Combined CBT + SSRI</div><div class="step-body">Most effective for moderate-severe MDD — TADS study confirmed superiority of combination over either alone.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">4</div><div><div class="step-title">Psychiatric referral</div><div class="step-body">If: severe, psychotic features, suicidal ideation with plan/intent, refractory, bipolar suspected.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Suicide Risk Assessment</div>
+      <ul>
+        <li>Universal screening: PHQ-A or Columbia Suicide Severity Rating Scale (C-SSRS) at every adolescent visit</li>
+        <li>Ask directly: "Are you having thoughts of hurting yourself?"</li>
+        <li>Risk factors: prior attempts, family history, substance use, LGBTQ+ identity (discrimination exposure), access to firearms, recent losses, history of abuse</li>
+        <li>Protective factors: family support, connectedness, reasons for living, mental health treatment</li>
+        <li>Means restriction counseling: <strong>firearm removal/safe storage ⭐</strong> — most impactful modifiable risk factor</li>
+        <li>Safety planning + crisis resources with every at-risk patient</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-label teal">Disruptive Mood Dysregulation Disorder (DMDD)</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card teal">
+      <div class="card-title">DMDD — Key Facts</div>
+      <ul>
+        <li>Severe, recurrent temper outbursts (verbal or behavioral) grossly out of proportion to the situation</li>
+        <li>Outbursts ≥3×/week; persistently irritable/angry mood between outbursts</li>
+        <li>Duration: ≥12 months; onset before age 10; diagnosed ages 6–18</li>
+        <li>Outbursts occur in ≥2 settings (home, school, peers)</li>
+        <li><strong>Key distinction:</strong> DMDD = persistent irritability + outbursts, but NO discrete episodes of elevated/expansive mood (distinguishes from bipolar) ⭐</li>
+        <li>Treatment: CBT, parent management training, SSRI for depressive features; stimulants if comorbid ADHD</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-label lav">Bipolar Disorder</div>
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Pediatric Bipolar — Overview</div>
+      <ul>
+        <li>Characterized by distinct episodes of mania or hypomania alternating with depression</li>
+        <li><strong>Manic episode (≥7 days or any duration if hospitalized):</strong>
+          <ul>
+            <li>Elevated, expansive, or irritable mood + ↑ goal-directed activity</li>
+            <li>Grandiosity, ↓ need for sleep (not insomnia — feels rested on 2–3h), pressured speech, racing thoughts, distractibility, impulsivity, high-risk behavior</li>
+          </ul>
+        </li>
+        <li>Pediatric mania often looks different: mixed states common, rapid cycling, irritability predominates</li>
+        <li>Often misdiagnosed as ADHD, ODD, or DMDD</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">DMDD vs. Bipolar — Critical Distinction</div>
+      <ul>
+        <li><strong>DMDD:</strong> chronic persistent irritability + outbursts; NO discrete manic episodes; continuous mood problem</li>
+        <li><strong>Bipolar:</strong> discrete episodic changes in mood and function; periods of elevated/euphoric mood; grandiosity; ↓ need for sleep</li>
+        <li>Key question: "Are there distinct episodes where the child is clearly different from baseline?"</li>
+        <li>Bipolar = episodic. DMDD = chronic baseline irritability.</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Bipolar Treatment</div>
+      <ul>
+        <li><strong>Mood stabilizers:</strong> lithium ⭐ (FDA approved ≥12 for bipolar), valproate, lamotrigine</li>
+        <li><strong>Atypical antipsychotics:</strong> aripiprazole, quetiapine, risperidone — FDA approved for pediatric bipolar mania</li>
+        <li><strong>Avoid antidepressants alone</strong> — can precipitate manic switch ⭐</li>
+        <li>Psychoeducation + family therapy + mood tracking</li>
+        <li>Lithium monitoring: levels, TSH, BMP, renal function; therapeutic range 0.6–1.2 mEq/L</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- BEHAVIORAL DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="behavioral">
+  <div class="section-label">Behavioral · Disruptive</div>
+  <div class="section-title">Oppositional Defiant Disorder · Conduct Disorder</div>
+  <div class="section-sub">ODD and conduct disorder exist on a continuum — ODD is defiant, conduct disorder crosses into violation of others' rights.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">ODD — Oppositional Defiant Disorder</div>
+      <ul>
+        <li>Pattern of angry/irritable mood + argumentative/defiant behavior + vindictiveness</li>
+        <li>≥4 symptoms × ≥6 months, present with ≥1 person outside sibling</li>
+        <li>Three categories: angry-irritable mood, argumentative-defiant behavior, vindictiveness</li>
+        <li>Directed at authority figures (parents, teachers)</li>
+        <li>Does NOT involve aggression toward others or violation of rights</li>
+        <li>Most common behavioral disorder; often precedes conduct disorder</li>
+        <li>Strong association with ADHD (~40% comorbidity)</li>
+        <li>Treatment: <strong>parent management training ⭐</strong> (PMT); CBT; treat comorbid ADHD</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Conduct Disorder (CD)</div>
+      <ul>
+        <li>Repetitive and persistent pattern of behavior violating others' basic rights or major social rules</li>
+        <li>≥3 criteria in past 12 months (≥1 in past 6 months) across 4 categories:</li>
+        <li>🔴 <strong>Aggression to people/animals</strong> — bullying, fighting, use of weapons, cruelty</li>
+        <li>🔴 <strong>Destruction of property</strong> — arson, vandalism</li>
+        <li>🔴 <strong>Deceitfulness/theft</strong> — breaking/entering, shoplifting, lying</li>
+        <li>🔴 <strong>Serious rule violations</strong> — truancy, running away</li>
+        <li>Childhood-onset (&lt;10 years) has worse prognosis than adolescent-onset</li>
+        <li>Strong predictor of antisocial personality disorder in adulthood</li>
+        <li>Callous-unemotional traits (lack of empathy, guilt) = specifier; worst prognosis</li>
+        <li>Treatment: Multisystemic Therapy (MST) ⭐, functional family therapy, treat comorbidities</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">ODD vs. CD vs. DMDD</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Feature</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">ODD</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">CD</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">DMDD</th></tr>
+        <tr><td style="padding:3px 4px; border:none;">Core</td><td style="padding:3px 4px; border:none;">Defiance + irritability toward authority</td><td style="padding:3px 4px; border:none;">Violates rights of others</td><td style="padding:3px 4px; border:none;">Chronic irritability + outbursts</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Aggression</td><td style="padding:3px 4px; border:none;">Verbal; no physical harm</td><td style="padding:3px 4px; border:none;">Physical; weapons; cruelty</td><td style="padding:3px 4px; border:none;">Outbursts; not predatory</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Rights violated</td><td style="padding:3px 4px; border:none;">No</td><td style="padding:3px 4px; border:none;">Yes ⭐</td><td style="padding:3px 4px; border:none;">No</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Mood</td><td style="padding:3px 4px; border:none;">Irritable/angry</td><td style="padding:3px 4px; border:none;">Often callous</td><td style="padding:3px 4px; border:none;">Persistently irritable</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Treatment</td><td style="padding:3px 4px; border:none;">PMT, CBT</td><td style="padding:3px 4px; border:none;">MST, family therapy</td><td style="padding:3px 4px; border:none;">CBT, PMT, SSRI</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- CHILD MALTREATMENT -->
+<!-- ══════════════════════════════════════ -->
+<section id="abuse">
+  <div class="section-label">Child Maltreatment · Mandatory Reporting</div>
+  <div class="section-title">Child Maltreatment</div>
+  <div class="section-sub">Physical abuse · Sexual abuse · Neglect · Medical child abuse — you are a mandatory reporter. Suspicion is enough.</div>
+
+  <div class="callout callout-warn" style="margin-bottom:20px;">
+    <div class="callout-label">🚨 Mandatory Reporting</div>
+    Healthcare providers are mandatory reporters in all US states. You are required to report <strong>reasonable suspicion</strong> of child abuse or neglect to child protective services (CPS) — you do NOT need proof. Failure to report is a legal violation. Never confront the parent/caregiver before reporting.
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Physical Abuse — Red Flags</div>
+      <ul>
+        <li>Injury inconsistent with stated mechanism or developmental stage</li>
+        <li>Delay in seeking medical care</li>
+        <li>Changing or inconsistent story between caregivers</li>
+        <li>Bruising in non-mobile infants (bruises on babies who don't cruise = NAT ⭐)</li>
+        <li>Bruising in unusual locations: ears, neck, trunk, buttocks, genitalia (vs. shins/forehead = normal)</li>
+        <li>Burns: cigarette burns (circular, punched-out), immersion burns (stocking/glove pattern, no splash marks)</li>
+        <li>Fractures suspicious for abuse (see MSK module): posterior rib, classic metaphyseal, multiple ages</li>
+        <li>TBI: subdural hematoma + retinal hemorrhages in infant = <strong>abusive head trauma (shaken baby)</strong> ⭐</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Abusive Head Trauma (AHT)</div>
+      <ul>
+        <li>Formerly "shaken baby syndrome"</li>
+        <li>Triad: subdural hematoma + retinal hemorrhages + encephalopathy ⭐</li>
+        <li>Infant with altered mental status, seizures, vomiting — no clear mechanism</li>
+        <li>Bulging fontanelle, hypotonia, apnea</li>
+        <li>Workup: head CT/MRI, ophthalmology (retinal hemorrhages), skeletal survey</li>
+        <li>Subdural in multiple compartments at different ages = repeated trauma</li>
+        <li>High morbidity and mortality</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Sexual Abuse</div>
+      <ul>
+        <li>Often no physical findings — normal exam does NOT rule out abuse ⭐</li>
+        <li>Behavioral signs: age-inappropriate sexual knowledge or behavior, regression, fear of specific person, nightmares</li>
+        <li>Physical signs (when present): hymenal tears, bruising of genitalia, anal lacerations, STI in prepubertal child</li>
+        <li>Any STI in prepubertal child = sexual abuse until proven otherwise ⭐</li>
+        <li>Referral to SANE (Sexual Assault Nurse Examiner) or child advocacy center (CAC)</li>
+        <li>Forensic interview — trained interviewer; do NOT interview child yourself repeatedly</li>
+        <li>Prophylaxis: HIV PEP if indicated, STI prophylaxis, emergency contraception if postpubertal</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Neglect & Medical Child Abuse</div>
+      <ul>
+        <li><strong>Neglect:</strong> most common form of maltreatment; failure to provide basic needs (food, shelter, supervision, medical care, education)</li>
+        <li>Signs: FTT, poor hygiene, untreated medical conditions, school truancy, inappropriate dress for weather</li>
+        <li><strong>Medical child abuse</strong> (formerly Munchausen by proxy): caregiver fabricates or induces illness in a child to gain medical attention</li>
+        <li>Child repeatedly hospitalized with unexplained symptoms that resolve when caregiver is absent</li>
+        <li>Caregiver appears overly attentive and knowledgeable; welcomes hospitalizations</li>
+        <li>Management: covert video surveillance (hospital), multidisciplinary team, CPS, separate child from caregiver</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Workup for Suspected Physical Abuse</div>
+    Skeletal survey (all children &lt;2 years with suspected NAT) · Head CT or MRI · Ophthalmology for retinal hemorrhages · CBC, coagulation studies (rule out bleeding disorder) · LFTs, lipase, urinalysis (abdominal trauma) · Photographs of injuries · CPS report.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- SUBSTANCE USE -->
+<!-- ══════════════════════════════════════ -->
+<section id="substance">
+  <div class="section-label">Substance Use Disorders · Adolescent</div>
+  <div class="section-title">Substance Use Disorders</div>
+  <div class="section-sub">Alcohol · Tobacco · Cannabis · Opioids — screen at every adolescent visit, use motivational interviewing.</div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Screening — CRAFFT Tool ⭐</div>
+      <ul>
+        <li>Validated screening tool for adolescent substance use</li>
+        <li><strong>C</strong> — Car: ridden in a car driven by someone (including self) who was high/drunk?</li>
+        <li><strong>R</strong> — Relax: use substances to relax, feel better, or fit in?</li>
+        <li><strong>A</strong> — Alone: use substances while alone?</li>
+        <li><strong>F</strong> — Forget: use substances and forget things you did?</li>
+        <li><strong>F</strong> — Friends/Family: told you to cut down?</li>
+        <li><strong>T</strong> — Trouble: gotten into trouble while using?</li>
+        <li>Score ≥2 = positive screen → further assessment</li>
+        <li>Screen annually starting at age 12</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Alcohol Use Disorder</div>
+      <ul>
+        <li>Most widely used substance in adolescents</li>
+        <li>Binge drinking: ≥4 drinks (female) or ≥5 drinks (male) within 2 hours</li>
+        <li>Alcohol use disorder: DSM-5 criteria — 2+ symptoms in 12 months (craving, tolerance, withdrawal, impaired control, continued use despite problems)</li>
+        <li>Wernicke's encephalopathy: thiamine deficiency from chronic alcohol — confusion, ataxia, ophthalmoplegia → give thiamine before glucose</li>
+        <li>Withdrawal: seizures, DTs (delirium tremens) — life-threatening; treat with benzodiazepines</li>
+        <li>Treatment: MI, CBT, naltrexone (adults; limited pediatric data), family therapy</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Cannabis (Marijuana) Use Disorder</div>
+      <ul>
+        <li>Most commonly used illicit substance in adolescents</li>
+        <li>THC significantly more potent than decades ago</li>
+        <li>Adolescent brain particularly vulnerable — use before age 18 associated with ↑ risk of psychosis, depression, anxiety, cognitive impairment</li>
+        <li>Cannabinoid hyperemesis syndrome: cyclic vomiting relieved by hot showers — pathognomonic ⭐</li>
+        <li>Cannabis use disorder: tolerance, withdrawal (irritability, insomnia, ↓ appetite), continued use despite problems</li>
+        <li>Treatment: MI, CBT; no FDA-approved pharmacotherapy</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Opioid Use Disorder</div>
+      <ul>
+        <li>Heroin, prescription opioids (oxycodone, hydrocodone), fentanyl</li>
+        <li>Fentanyl now contaminates most illicit drug supply — ↑ overdose risk dramatically</li>
+        <li>Overdose triad: <strong>miosis + respiratory depression + altered mental status</strong> ⭐</li>
+        <li>Treatment of overdose: <strong>naloxone (Narcan)</strong> — opioid antagonist; repeat doses may be needed for fentanyl ⭐</li>
+        <li><strong>MOUD (Medications for Opioid Use Disorder):</strong>
+          <ul>
+            <li>Buprenorphine/naloxone (Suboxone) — first-line for adolescents with OUD; FDA approved ≥16 years</li>
+            <li>Methadone — maintenance for adults; rarely in adolescents</li>
+            <li>Naltrexone (Vivitrol) — extended-release IM; requires full detox first</li>
+          </ul>
+        </li>
+        <li>Naloxone should be prescribed to all patients at risk and their families</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Tobacco/Nicotine — Vaping</div>
+    E-cigarettes (vaping) now most common tobacco product used by adolescents. Nicotine highly addictive; adolescent brain particularly vulnerable. EVALI (e-cigarette or vaping product use-associated lung injury) — bilateral pulmonary infiltrates, hypoxia; associated with Vitamin E acetate in THC vapes. Screening + cessation counseling at every visit. NRT, varenicline, bupropion for cessation (adolescent data limited).
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- QUICK QUIZ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Mental Health Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Teen with anorexia nervosa, HR 46, BP 82/50, K 2.8. What do you do?</div>
+        <div class="flip-back rust">Admit for medical stabilization. Criteria met: HR <50, BP <90, K <3.0. Start supervised nutritional rehabilitation slowly — watch for refeeding syndrome (↓ phosphorus).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Russell's sign, parotid enlargement, dental erosion, and hypokalemia in an adolescent with normal BMI. Diagnosis?</div>
+        <div class="flip-back">Bulimia nervosa. Russell's sign = calluses on dorsal knuckles from self-induced vomiting. Hypokalemia = most dangerous complication. First-line: CBT + fluoxetine (FDA approved).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Which eating disorder has the highest mortality rate of any psychiatric disorder?</div>
+        <div class="flip-back rust">Anorexia nervosa — primarily from cardiac arrhythmias (bradycardia, QT prolongation) and suicide. Family-based treatment (FBT) is first-line for adolescents.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child develops sudden-onset OCD symptoms overnight after a strep throat infection. Diagnosis?</div>
+        <div class="flip-back teal">PANDAS — Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal infections. Key: abrupt onset following GAS infection. Treat strep + manage OCD symptoms.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Which SSRI is FDA approved for MDD in children age ≥8? Which for bulimia?</div>
+        <div class="flip-back gold">MDD age ≥8: Fluoxetine (Prozac) ⭐. MDD age ≥12: Escitalopram. Bulimia: Fluoxetine (Prozac) — same drug, FDA approved for both. Black box: monitor for suicidal ideation.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">How does pediatric depression present differently than adult depression?</div>
+        <div class="flip-back">Children often present with irritability rather than sadness as the core feature. Also: somatic complaints (stomachaches, headaches), school refusal, social withdrawal — not classic "sad mood" adults show.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">DMDD vs. Bipolar — what is the single most important distinguishing feature?</div>
+        <div class="flip-back teal">DMDD = chronic, persistent irritability without discrete manic episodes. Bipolar = episodic — discrete periods of elevated/euphoric mood, grandiosity, ↓ need for sleep. Bipolar is episodic. DMDD is continuous.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">You suspect a child is being abused. What is required before you file a CPS report?</div>
+        <div class="flip-back rust">Nothing — only reasonable suspicion is required. You do NOT need proof. Mandatory reporting applies to suspicion alone. Never confront parents before reporting. Failure to report is a legal violation.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Infant with altered mental status, seizures, bulging fontanelle. CT shows bilateral subdural hematomas. What exam is mandatory next?</div>
+        <div class="flip-back">Ophthalmology for retinal hemorrhages — completes the triad of abusive head trauma (AHT). Also: skeletal survey, coagulation studies, CPS report. Do NOT let the caregiver remain alone with child.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Adolescent presents with cyclic vomiting that is relieved by hot showers. Diagnosis?</div>
+        <div class="flip-back gold">Cannabinoid hyperemesis syndrome — pathognomonic pattern. Hot showers relieve symptoms temporarily. Occurs with heavy, chronic cannabis use. Treatment: stop cannabis use.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Opioid overdose — what is the triad and what do you give?</div>
+        <div class="flip-back rust">Triad: miosis + respiratory depression + altered mental status. Treatment: Naloxone (Narcan) IM or IN — repeat as needed (fentanyl may require multiple doses). Prescribe naloxone to all at-risk patients and families.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">CRAFFT score — what score is positive and triggers further assessment?</div>
+        <div class="flip-back sage">Score ≥2 is a positive screen → further assessment for substance use disorder. CRAFFT = Cars, Relax, Alone, Forget, Friends/Family, Trouble. Screen annually starting age 12.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

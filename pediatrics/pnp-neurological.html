@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Neurology · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--teal); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .subsection-label.rust { color: var(--rust); }
+    .subsection-label.teal { color: var(--teal); }
+    .subsection-label.gold { color: var(--gold); }
+    .subsection-label.sage { color: var(--sage); }
+    .subsection-label.lav  { color: var(--lavender); }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-sage { background: #e6ede6; border-left: 3px solid var(--sage); color: #1a2a1a; }
+    .callout-lav  { background: #ede9f4; border-left: 3px solid var(--lavender); color: #2a1a3a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--teal); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.gold { background: var(--gold); }
+    .step-num.sage { background: var(--sage); }
+    .step-num.lav  { background: var(--lavender); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .finish-banner { background: linear-gradient(135deg, #1d6b6e 0%, #6b5c8a 100%); border-radius: 16px; padding: 32px 36px; margin-bottom: 48px; color: white; text-align: center; }
+    .finish-banner h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 8px; }
+    .finish-banner p { font-size: 0.9rem; opacity: 0.88; line-height: 1.7; }
+    .finish-banner .modules { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+    .finish-banner .mod { font-family: 'DM Mono', monospace; font-size: 0.68rem; background: rgba(255,255,255,0.18); padding: 4px 12px; border-radius: 999px; }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--teal); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-back.lav  { background: var(--lavender); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#headache">Headaches</a>
+  <a href="#breath">Breath Holding</a>
+  <a href="#tics">Tic Disorders</a>
+  <a href="#meningitis">Meningitis</a>
+  <a href="#encephalitis">Encephalitis</a>
+  <a href="#seizures">Seizures</a>
+  <a href="#epilepsy">Epilepsy</a>
+  <a href="#tbi">TBI & mTBI</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · NEUROLOGY · EXAM III · CH 36</div>
+  <h1>Pediatric Neurological Disorders</h1>
+  <p class="subtitle">Headaches · Breath holding · Tics · Meningitis · Encephalitis · Seizures · Epilepsy · TBI — the final chapter.</p>
+  <div class="pill-row">
+    <span class="pill pill-teal">🧠 9 Topics</span>
+    <span class="pill pill-rust">🚨 Meningitis = Emergency</span>
+    <span class="pill pill-gold">⚡ Seizure Protocols</span>
+    <span class="pill pill-sage">📋 Status Epilepticus</span>
+    <span class="pill pill-lav">🏁 Final Module!</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- HEADACHES -->
+<!-- ══════════════════════════════════════ -->
+<section id="headache">
+  <div class="section-label">Noninfectious · Common</div>
+  <div class="section-title">Headaches</div>
+  <div class="section-sub">Migraine vs. tension vs. red flags — the approach is in knowing what to rule out first.</div>
+
+  <div class="callout callout-warn" style="margin-bottom:20px;">
+    <div class="callout-label">🚨 Red Flag Headaches — "SNOOP4"</div>
+    <strong>S</strong>ystemic symptoms/signs (fever, weight loss, immunocompromised) · <strong>N</strong>eurologic signs (focal deficits, altered MS, papilledema) · <strong>O</strong>nset sudden/severe ("thunderclap") · <strong>O</strong>lder age (new pattern) · <strong>P</strong>ostural component (worse lying flat) · <strong>P</strong>rogressive worsening · <strong>P</strong>rior headache history change · <strong>P</strong>recipitated by Valsalva → neuroimaging required.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Type</th><th>Character</th><th>Location</th><th>Associated Sx</th><th>Duration</th><th>Treatment</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Migraine</strong></td>
+        <td>Moderate-severe, throbbing/pulsating, worsened by activity</td>
+        <td>Unilateral (bilateral more common in children than adults)</td>
+        <td>Nausea/vomiting, photophobia, phonophobia; may have aura (visual, sensory, speech)</td>
+        <td>2–72h (4–72h adults; 1–72h pediatric — shorter)</td>
+        <td>Acute: NSAIDs (ibuprofen ⭐), triptans (age ≥6–12); Preventive: amitriptyline, topiramate, propranolol, cyproheptadine (young children)</td>
+      </tr>
+      <tr>
+        <td><strong>Tension-type</strong></td>
+        <td>Mild-moderate, pressure/tightening, NOT throbbing; NOT worsened by activity</td>
+        <td>Bilateral; "band-like" around head</td>
+        <td>No nausea/vomiting; mild photo/phonophobia (not both)</td>
+        <td>30min–7 days</td>
+        <td>NSAIDs, acetaminophen; stress reduction, sleep hygiene; amitriptyline for prevention</td>
+      </tr>
+      <tr>
+        <td><strong>Cluster</strong></td>
+        <td>Severe, stabbing, unilateral periorbital</td>
+        <td>Strictly unilateral, periorbital/temporal</td>
+        <td>Autonomic: lacrimation, rhinorrhea, ptosis, miosis, conjunctival injection; restless/agitated (not still like migraine)</td>
+        <td>15–180 min; clusters over weeks-months</td>
+        <td>Acute: high-flow O₂ (100%) ⭐, sumatriptan; Prevention: verapamil</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card teal">
+      <div class="card-title">Migraine — Pediatric Pearls</div>
+      <ul>
+        <li>Most common primary headache requiring treatment in children</li>
+        <li>Bilateral in 60–70% of children (unlike adults who are unilateral)</li>
+        <li>Duration shorter in children — can be as brief as 1 hour</li>
+        <li>Abdominal migraine: recurrent periumbilical pain without headache — migraine equivalent in young children</li>
+        <li>Cyclic vomiting syndrome — also a migraine equivalent</li>
+        <li>Aura: typically visual (scotoma, zigzag lines), precedes headache by 20–60 min</li>
+        <li>Triggers: sleep changes, stress, skipping meals, dehydration, hormonal changes, strong odors</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Acute Migraine Treatment</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num gold">1</div><div><div class="step-title">NSAIDs — first-line ⭐</div><div class="step-body">Ibuprofen 10 mg/kg at onset. Naproxen sodium also effective. Take early — most effective if given before headache peaks.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">2</div><div><div class="step-title">Triptans</div><div class="step-body">Sumatriptan/naratriptan nasal spray (age ≥12); rizatriptan (age ≥6). For moderate-severe or NSAID failure. Vasoconstrict → avoid in hemiplegic migraine or basilar migraine.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">3</div><div><div class="step-title">Anti-emetics</div><div class="step-body">Ondansetron, prochlorperazine — for nausea; prochlorperazine + diphenhydramine in ED setting.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">4</div><div><div class="step-title">Rest in dark quiet room</div><div class="step-body">Supportive — reduce sensory stimulation.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Migraine Prevention</div>
+      <ul>
+        <li>Indicated if: ≥4 migraines/month, significant disability, acute meds overused</li>
+        <li><strong>Amitriptyline</strong> — most commonly used in pediatrics; also helps sleep + mood</li>
+        <li><strong>Topiramate</strong> — effective; SE: cognitive dulling ("dopamax"), kidney stones, teratogenic</li>
+        <li><strong>Propranolol</strong> — avoid in asthma, depression</li>
+        <li><strong>Cyproheptadine</strong> — preferred in young children; antihistamine with antiserotonin properties</li>
+        <li>CGRP monoclonal antibodies (erenumab) — emerging in adolescents</li>
+        <li>Lifestyle: regular sleep, meals, hydration, stress management</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- BREATH HOLDING SPELLS -->
+<!-- ══════════════════════════════════════ -->
+<section id="breath">
+  <div class="section-label">Noninfectious · Infant–Toddler</div>
+  <div class="section-title">Breath Holding Spells</div>
+  <div class="section-sub">Terrifying to watch — but benign, self-limited, and never require treatment.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Breath holding spells are like a <strong>brief circuit breaker trip in the brainstem</strong>. The child cries, exhales, and then — triggered by the vagal response to emotional upset or pain — the body briefly pauses breathing. The brain detects hypoxia and reboots with a brief loss of consciousness or seizure-like movement. The circuit resets in seconds, the child recovers completely, and nothing is damaged. The hardest part isn't the spell itself — it's convincing terrified parents that it's benign.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card teal">
+      <div class="card-title">Cyanotic vs. Pallid</div>
+      <ul>
+        <li><strong>Cyanotic (most common):</strong>
+          <ul>
+            <li>Triggered by frustration, anger, or upset</li>
+            <li>Child cries, exhales fully, turns blue, loses consciousness briefly</li>
+            <li>May have brief tonic posturing or jerking (looks like seizure)</li>
+            <li>Mechanism: vagal → apnea → hypoxia → brief LOC</li>
+          </ul>
+        </li>
+        <li><strong>Pallid:</strong>
+          <ul>
+            <li>Triggered by pain or sudden fright (even mild)</li>
+            <li>Child cries little/not at all, turns pale/white, loses tone and consciousness</li>
+            <li>Mechanism: vagal → cardiac pause → ↓ cerebral perfusion → LOC</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Key Clinical Features</div>
+      <ul>
+        <li>Age: 6 months – 6 years (peak 1–2 years)</li>
+        <li>Always triggered by stimulus (crying, pain, fright) ⭐</li>
+        <li>Full recovery within seconds to minutes</li>
+        <li>Child returns to normal behavior immediately after</li>
+        <li>NO postictal state (distinguishes from epileptic seizure) ⭐</li>
+        <li>EEG normal between and during spells</li>
+        <li>Resolve spontaneously by age 5–6 in most cases</li>
+        <li>Associated: iron deficiency anemia (increases frequency) — check CBC</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Reassure parents</strong> — most important intervention</li>
+        <li>No treatment needed for typical spells</li>
+        <li>During spell: place child on side (recovery position), do not restrain</li>
+        <li>Check CBC — treat iron deficiency if present (reduces spell frequency)</li>
+        <li>Avoid reinforcing behavior — calm, consistent response</li>
+        <li>EEG NOT routinely indicated unless atypical features</li>
+        <li>Neuroimaging NOT needed for typical presentation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Board Pearl — Seizure vs. BHS</div>
+    Breath holding spell: <strong>always triggered</strong> → cyanosis/pallor → LOC → rapid recovery, <strong>NO postictal state</strong>. Epileptic seizure: may be unprovoked, postictal state (drowsy/confused after), EEG abnormal. BHS does not require anticonvulsants.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- TIC DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="tics">
+  <div class="section-label">Noninfectious · Childhood</div>
+  <div class="section-title">Tic Disorders</div>
+  <div class="section-sub">Simple tics · Tourette syndrome — repetitive, involuntary movements or sounds the child often can't suppress.</div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Definitions & Types</div>
+      <ul>
+        <li><strong>Tic:</strong> sudden, rapid, recurrent, nonrhythmic motor movement or vocalization</li>
+        <li><strong>Simple motor tics:</strong> eye blinking, nose twitching, shoulder shrugging, head jerking ⭐</li>
+        <li><strong>Complex motor tics:</strong> facial grimacing, touching, jumping, obscene gestures (copropraxia)</li>
+        <li><strong>Simple vocal tics:</strong> throat clearing, sniffing, grunting ⭐ — most common!</li>
+        <li><strong>Complex vocal tics:</strong> echolalia (repeating others), palilalia (repeating self), coprolalia (obscene words — rare, in minority of Tourette's)</li>
+        <li>Premonitory urge: uncomfortable sensation before tic that is relieved by performing it</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Tourette Syndrome — DSM-5 Criteria</div>
+      <ul>
+        <li>≥2 motor tics AND ≥1 vocal tic (not necessarily simultaneously)</li>
+        <li>Present for &gt;1 year</li>
+        <li>Onset before age 18</li>
+        <li>NOT due to substance or other medical condition</li>
+        <li>Peak severity around age 10–12; often improves in adolescence/adulthood</li>
+        <li>Male > Female (3–4:1)</li>
+        <li>Coprolalia (obscene words) present in only ~10% — NOT required for diagnosis</li>
+        <li>Comorbidities: ADHD (~50%), OCD (~40%), anxiety, learning disabilities</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>Education and reassurance — many tics mild and not requiring treatment</li>
+        <li><strong>CBIT (Comprehensive Behavioral Intervention for Tics)</strong> — first-line behavioral therapy ⭐; habit reversal training</li>
+        <li><strong>Alpha-2 agonists (guanfacine, clonidine)</strong> — first-line pharmacotherapy; also treat comorbid ADHD</li>
+        <li>Antipsychotics (fluphenazine, haloperidol, aripiprazole, risperidone) — for severe/refractory tics</li>
+        <li>Topiramate — moderate evidence for tic reduction</li>
+        <li>Treat comorbid ADHD and OCD</li>
+        <li>Tics worsen with stress, excitement, fatigue, illness — wax and wane</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- MENINGITIS -->
+<!-- ══════════════════════════════════════ -->
+<section id="meningitis">
+  <div class="section-label">Infectious · Emergency</div>
+  <div class="section-title">Meningitis</div>
+  <div class="section-sub">Inflammation of the meninges — bacterial is a true emergency, viral is usually self-limited.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The meninges are the brain's <strong>three-layer protective wrapping</strong> — dura, arachnoid, and pia mater — with the CSF flowing in between like shock-absorbing fluid. When bacteria or viruses invade this space, the immune response generates massive inflammation inside a closed, rigid compartment. Pressure builds (↑ ICP), blood supply to the brain gets compromised, and the classic triad of fever + headache + stiff neck appears. In bacterial meningitis, this inflammation can progress within hours to herniation, hearing loss, and death — which is why this is a don't-wait-for-labs diagnosis.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Bacterial Meningitis — By Age</div>
+      <ul>
+        <li><strong>Neonates (0–28 days):</strong> GBS (Group B Strep) ⭐, E. coli, Listeria monocytogenes</li>
+        <li><strong>1–3 months:</strong> GBS, E. coli, S. pneumoniae, N. meningitidis</li>
+        <li><strong>3 months–18 years:</strong> <strong>S. pneumoniae ⭐</strong> (most common overall), N. meningitidis</li>
+        <li><strong>Adolescents (esp. college):</strong> N. meningitidis — vaccine-preventable!</li>
+        <li>H. influenzae type b — now rare due to Hib vaccine</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Clinical Presentation</div>
+      <ul>
+        <li><strong>Classic triad:</strong> fever + headache + neck stiffness (nuchal rigidity) ⭐</li>
+        <li>Photophobia, phonophobia</li>
+        <li>Altered mental status, irritability</li>
+        <li><strong>Kernig's sign:</strong> hip flexed 90° → painful resistance to knee extension</li>
+        <li><strong>Brudzinski's sign:</strong> passive neck flexion → involuntary hip/knee flexion</li>
+        <li>Bulging fontanelle in infants (classic sign in neonates)</li>
+        <li><strong>Petechial/purpuric rash</strong> → N. meningitidis ⭐ — meningococcemia → septic emboli</li>
+        <li>Neonates: nonspecific — fever, poor feeding, irritability, bulging fontanelle, high-pitched cry</li>
+        <li>Waterhouse-Friderichsen syndrome: bilateral adrenal hemorrhage → septic shock from meningococcemia</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis — CSF Analysis ⭐</div>
+      <table style="margin:0; border:none; font-size:0.75rem;">
+        <tr><th style="background:transparent; padding:3px 5px; font-size:0.58rem;">Finding</th><th style="background:transparent; padding:3px 5px; font-size:0.58rem;">Normal</th><th style="background:transparent; padding:3px 5px; font-size:0.58rem;">Bacterial</th><th style="background:transparent; padding:3px 5px; font-size:0.58rem;">Viral</th><th style="background:transparent; padding:3px 5px; font-size:0.58rem;">TB/Fungal</th></tr>
+        <tr><td style="padding:3px 4px; border:none;">Appearance</td><td style="padding:3px 4px; border:none;">Clear</td><td style="padding:3px 4px; border:none;">Cloudy/turbid</td><td style="padding:3px 4px; border:none;">Clear</td><td style="padding:3px 4px; border:none;">Clear/xanthochromic</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">WBC</td><td style="padding:3px 4px; border:none;">&lt;5</td><td style="padding:3px 4px; border:none;">↑↑↑ PMNs</td><td style="padding:3px 4px; border:none;">↑ lymphocytes</td><td style="padding:3px 4px; border:none;">↑ lymphocytes</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Protein</td><td style="padding:3px 4px; border:none;">15–45</td><td style="padding:3px 4px; border:none;">↑↑↑</td><td style="padding:3px 4px; border:none;">Normal/↑</td><td style="padding:3px 4px; border:none;">↑↑</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Glucose</td><td style="padding:3px 4px; border:none;">&gt;60% serum</td><td style="padding:3px 4px; border:none;">↓↓ (&lt;40)</td><td style="padding:3px 4px; border:none;">Normal</td><td style="padding:3px 4px; border:none;">↓</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Gram stain</td><td style="padding:3px 4px; border:none;">Negative</td><td style="padding:3px 4px; border:none;">+ (60–90%)</td><td style="padding:3px 4px; border:none;">Negative</td><td style="padding:3px 4px; border:none;">Negative</td></tr>
+      </table>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num rust">1</div><div><div class="step-title">Blood cultures + LP → empiric antibiotics STAT</div><div class="step-body">Do NOT delay antibiotics for imaging if LP is safe. If LP must wait → draw blood cultures then give antibiotics immediately.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">2</div><div><div class="step-title">Empiric antibiotics by age</div><div class="step-body">Neonates: ampicillin + gentamicin (or cefotaxime). 1–3 months: ampicillin + cefotaxime/ceftriaxone. ≥3 months: vancomycin + ceftriaxone (covers resistant pneumococcus).</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">3</div><div><div class="step-title">Dexamethasone (≥6 weeks, before or with first abx dose)</div><div class="step-body">Reduces inflammation → ↓ hearing loss risk. Give BEFORE or with first antibiotic dose — not after. Benefit primarily for H. influenzae and S. pneumoniae.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">4</div><div><div class="step-title">Supportive care + ICP management</div><div class="step-body">Seizure management, fluid balance, ↑ ICP treatment if herniation risk.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Contraindications to LP Before CT</div>
+    Get CT first if: papilledema, focal neurologic deficits, altered consciousness, immunocompromised, seizure within 1 week. But do NOT delay antibiotics — draw blood cultures and give antibiotics while waiting for CT.
+  </div>
+
+  <div class="callout callout-note" style="margin-top:8px;">
+    <div class="callout-label">💡 Viral (Aseptic) Meningitis</div>
+    Most common cause: enteroviruses (especially in summer/fall). Also: HSV (treat empirically with acyclovir until ruled out), mumps, HIV. CSF: lymphocytic pleocytosis, normal glucose, mildly ↑ protein. Treatment: supportive (unless HSV → acyclovir). Generally self-limited.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ENCEPHALITIS -->
+<!-- ══════════════════════════════════════ -->
+<section id="encephalitis">
+  <div class="section-label">Infectious · Brain Parenchyma</div>
+  <div class="section-title">Encephalitis</div>
+  <div class="section-sub">Inflammation of the brain itself — altered mental status is the key distinguishing feature from meningitis.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Encephalitis vs. Meningitis</div>
+      <ul>
+        <li><strong>Meningitis:</strong> inflammation of the meninges → meningeal signs (stiff neck, Kernig's, Brudzinski's); normal mental status in early/mild cases</li>
+        <li><strong>Encephalitis:</strong> inflammation of brain parenchyma → <strong>altered mental status/behavior ⭐</strong> — confusion, personality change, psychosis, focal deficits, seizures</li>
+        <li><strong>Meningoencephalitis:</strong> both meningeal + brain signs — most common presentation</li>
+        <li>Key distinction: <strong>altered mental status</strong> = encephalitis until proven otherwise</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Etiology & Presentation</div>
+      <ul>
+        <li>Most common: <strong>HSV-1</strong> (herpes simplex) — most important treatable cause ⭐</li>
+        <li>Also: enteroviruses, arboviruses (West Nile, La Crosse, Eastern equine), CMV, EBV, VZV, rabies</li>
+        <li>Autoimmune: anti-NMDA receptor encephalitis (young women, ovarian teratoma) — psychiatric prodrome + seizures + movement disorder</li>
+        <li>Fever + headache + altered mental status + seizures + focal deficits</li>
+        <li>HSV encephalitis: temporal lobe predilection → personality changes, memory deficits, olfactory hallucinations</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis & Management</div>
+      <ul>
+        <li>MRI brain (with contrast) — more sensitive than CT; temporal lobe changes = HSV ⭐</li>
+        <li>LP: CSF — lymphocytic pleocytosis, ↑ protein, normal/↓ glucose; PCR for HSV, enteroviruses</li>
+        <li>EEG — PLEDS (periodic lateralizing epileptiform discharges) in temporal lobe = HSV pattern</li>
+        <li><strong>Empiric acyclovir immediately</strong> — do NOT wait for PCR results if HSV encephalitis suspected ⭐</li>
+        <li>Anti-NMDA: immunotherapy (IVIG, steroids, plasmapheresis) + remove teratoma</li>
+        <li>Supportive: seizure management, ICP management, airway protection</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- SEIZURES -->
+<!-- ══════════════════════════════════════ -->
+<section id="seizures">
+  <div class="section-label">Seizures · Febrile & Afebrile</div>
+  <div class="section-title">Febrile Seizures</div>
+  <div class="section-sub">The most common seizure type in children — and usually the most benign.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Think of the developing brain as an <strong>electrical system still being insulated</strong>. In young children, the insulation (myelin) isn't complete, and the temperature regulation circuits are still immature. When fever spikes rapidly, it's like a power surge hitting poorly insulated wiring — the circuit trips briefly, causing a seizure. The brain isn't damaged; the wiring just isn't ready for that much heat yet. As the child grows and the insulation completes, febrile seizures stop occurring — the system becomes more resilient to surges.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card teal">
+      <div class="card-title">Simple vs. Complex Febrile Seizure</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Feature</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Simple</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Complex</th></tr>
+        <tr><td style="padding:3px 4px; border:none;">Duration</td><td style="padding:3px 4px; border:none;">&lt;15 minutes ⭐</td><td style="padding:3px 4px; border:none;">≥15 minutes</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Recurrence</td><td style="padding:3px 4px; border:none;">None in 24h</td><td style="padding:3px 4px; border:none;">Recurs in 24h</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Focality</td><td style="padding:3px 4px; border:none;">Generalized</td><td style="padding:3px 4px; border:none;">Focal component</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Age</td><td style="padding:3px 4px; border:none;">6 months–5 years</td><td style="padding:3px 4px; border:none;">Any febrile age</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">LP needed?</td><td style="padding:3px 4px; border:none;">Only if meningitis suspected</td><td style="padding:3px 4px; border:none;">Consider strongly</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">EEG needed?</td><td style="padding:3px 4px; border:none;">No ⭐</td><td style="padding:3px 4px; border:none;">Consider</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Epilepsy risk</td><td style="padding:3px 4px; border:none;">1–2% (same as general pop)</td><td style="padding:3px 4px; border:none;">↑↑ (up to 10%)</td></tr>
+        <tr><td style="padding:3px 4px; border:none;">Treatment</td><td style="padding:3px 4px; border:none;">Reassure; no prophylaxis</td><td style="padding:3px 4px; border:none;">Workup + consider prophylaxis</td></tr>
+      </table>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Febrile Seizure — Key Pearls</div>
+      <ul>
+        <li>Most common seizure type in children — 2–5% of children age 6 months–5 years</li>
+        <li>Peak age: 18 months</li>
+        <li>Simple febrile seizure: <strong>NO routine LP, EEG, neuroimaging, or antiepileptics</strong> ⭐</li>
+        <li>LP if: child &lt;12 months, signs of meningism, complex seizure, immunocompromised</li>
+        <li>Recurrence risk: ~30% overall; higher if first seizure at young age, low fever at onset, family history</li>
+        <li>Antipyretics do NOT prevent febrile seizures</li>
+        <li>Rectal diazepam or intranasal midazolam for prolonged seizures at home</li>
+        <li>Parent reassurance is the most important intervention</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Status Epilepticus</div>
+      <ul>
+        <li>Seizure lasting ≥5 minutes OR ≥2 seizures without recovery between</li>
+        <li><strong>Step 1 (0–5 min):</strong> ABCs, O₂, IV/IO access, glucose check</li>
+        <li><strong>Step 2 (5–20 min):</strong> Benzodiazepine ⭐ — lorazepam IV (first-line); diazepam rectal/IV; midazolam IM/IN if no IV access</li>
+        <li><strong>Step 3 (20–40 min):</strong> 2nd-line antiepileptic — fosphenytoin, levetiracetam, or valproate IV</li>
+        <li><strong>Step 4 (>40 min — refractory):</strong> phenobarbital, propofol, or midazolam infusion; ICU intubation</li>
+        <li>Check: glucose, electrolytes, Ca, Mg, toxic screen, antiepileptic levels</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- EPILEPSY -->
+<!-- ══════════════════════════════════════ -->
+<section id="epilepsy">
+  <div class="section-label">Epilepsy · Seizure Classification</div>
+  <div class="section-title">Epilepsy</div>
+  <div class="section-sub">Two or more unprovoked seizures — know your seizure types, syndromes, and drugs.</div>
+
+  <table>
+    <thead>
+      <tr><th>Seizure Type</th><th>Onset</th><th>Clinical Features</th><th>EEG</th><th>Drug of Choice</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Absence (Petit Mal)</strong></td>
+        <td>Generalized</td>
+        <td>Brief (5–30 sec) staring spells, eye blinking; abrupt onset/offset; NO postictal state; multiple per day; precipitated by hyperventilation ⭐</td>
+        <td>3 Hz spike-and-wave ⭐</td>
+        <td>Ethosuximide ⭐ (pure absence); valproate (absence + other); lamotrigine. Avoid carbamazepine — worsens absence!</td>
+      </tr>
+      <tr>
+        <td><strong>Tonic-Clonic (Grand Mal)</strong></td>
+        <td>Generalized</td>
+        <td>Tonic (stiffening) → clonic (rhythmic jerking) → postictal confusion/sleep ⭐</td>
+        <td>Generalized spike-wave during; diffuse slowing postictal</td>
+        <td>Valproate, levetiracetam, lamotrigine, carbamazepine (if focal onset)</td>
+      </tr>
+      <tr>
+        <td><strong>Infantile Spasms</strong> (West Syndrome)</td>
+        <td>Generalized</td>
+        <td>Clusters of sudden flexion/extension spasms; onset 3–12 months ⭐; developmental regression</td>
+        <td>Hypsarrhythmia ⭐ (chaotic high-amplitude pattern)</td>
+        <td>ACTH ⭐ or vigabatrin (especially TSC); ketogenic diet</td>
+      </tr>
+      <tr>
+        <td><strong>Focal (Partial) — Aware</strong></td>
+        <td>Focal</td>
+        <td>Motor, sensory, autonomic, or psychic symptoms WITHOUT loss of consciousness; aura</td>
+        <td>Focal sharp waves</td>
+        <td>Carbamazepine ⭐, oxcarbazepine, levetiracetam, lamotrigine</td>
+      </tr>
+      <tr>
+        <td><strong>Focal — Impaired Awareness</strong></td>
+        <td>Focal</td>
+        <td>Loss of awareness; automatisms (lip smacking, hand movements); postictal confusion</td>
+        <td>Focal theta/sharp waves, temporal</td>
+        <td>Carbamazepine, oxcarbazepine, levetiracetam</td>
+      </tr>
+      <tr>
+        <td><strong>Lennox-Gastaut Syndrome</strong></td>
+        <td>Generalized</td>
+        <td>Multiple seizure types (tonic, atonic "drop attacks," absence); onset 2–8 years; severe ID; refractory</td>
+        <td>Slow spike-wave (&lt;2.5 Hz) ⭐</td>
+        <td>Valproate, lamotrigine, rufinamide, clobazam; VNS; corpus callosotomy for drop attacks</td>
+      </tr>
+      <tr>
+        <td><strong>BECTS</strong> (Benign Rolandic Epilepsy)</td>
+        <td>Focal</td>
+        <td>Nocturnal facial/tongue tingling + twitching; drooling; speech arrest; normal development ⭐</td>
+        <td>Centrotemporal spikes ⭐</td>
+        <td>Often no treatment needed — outgrows by adolescence ⭐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card teal">
+      <div class="card-title">Antiepileptic Drug Pearls ⭐</div>
+      <ul>
+        <li><strong>Ethosuximide</strong> — ONLY for absence seizures; worsens tonic-clonic</li>
+        <li><strong>Valproate</strong> — broad spectrum; avoid in young women (teratogenic — neural tube defects, PCOS); monitor LFTs</li>
+        <li><strong>Carbamazepine</strong> — focal seizures; worsens absence + myoclonic; SIADH; SJS risk in HLA-B*1502</li>
+        <li><strong>Levetiracetam (Keppra)</strong> — broad spectrum; SE: behavioral/mood changes ("Keppra rage")</li>
+        <li><strong>Lamotrigine</strong> — broad spectrum; slow titration (SJS risk if titrated too fast); safe in pregnancy</li>
+        <li><strong>Phenobarbital</strong> — neonatal seizures first-line; SE: sedation, cognitive effects</li>
+        <li><strong>ACTH</strong> — infantile spasms; SE: hypertension, immunosuppression, Cushingoid</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Neonatal Seizures</div>
+      <ul>
+        <li>Most common in first 1–3 days of life</li>
+        <li>Causes: HIE ⭐ (most common), hypoglycemia, hypocalcemia, hyponatremia, meningitis, IVH, metabolic (pyridoxine deficiency)</li>
+        <li>Presentations: subtle (apnea, eye deviation, lip smacking), clonic, tonic, myoclonic</li>
+        <li>Treatment: <strong>phenobarbital</strong> first-line; fosphenytoin second; levetiracetam; treat underlying cause</li>
+        <li>Check glucose immediately in any neonate with seizures</li>
+        <li>Pyridoxine-dependent seizures: refractory neonatal seizures → trial of IV pyridoxine (B6)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- TBI -->
+<!-- ══════════════════════════════════════ -->
+<section id="tbi">
+  <div class="section-label">Neurologic Injury</div>
+  <div class="section-title">Closed Head Injury · Mild TBI (Concussion)</div>
+  <div class="section-sub">Concussion is a functional injury, not structural — symptoms are real, imaging is usually normal.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Concussion (mTBI) — Definition</div>
+      <ul>
+        <li>Traumatic brain injury caused by biomechanical force → transient neurologic dysfunction</li>
+        <li>Structural imaging (CT/MRI) typically <strong>normal</strong> ⭐ — functional injury</li>
+        <li>Symptoms develop within minutes to hours of injury:
+          <ul>
+            <li><strong>Physical:</strong> headache, dizziness, nausea, vomiting, visual changes, fatigue, light/noise sensitivity</li>
+            <li><strong>Cognitive:</strong> feeling foggy, slowed processing, difficulty concentrating, memory problems</li>
+            <li><strong>Emotional:</strong> irritability, sadness, anxiety, emotional lability</li>
+            <li><strong>Sleep:</strong> insomnia or hypersomnia</li>
+          </ul>
+        </li>
+        <li>LOC is NOT required for concussion diagnosis</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">CT Head — When to Image</div>
+      <ul>
+        <li><strong>PECARN rules</strong> (Pediatric Emergency Care Applied Research Network) — validated tool</li>
+        <li><strong>High risk (CT recommended):</strong>
+          <ul>
+            <li>GCS &lt;15 at 2 hours post-injury</li>
+            <li>Suspected skull fracture (bulging fontanelle, step-off, Battle's sign, raccoon eyes)</li>
+            <li>Altered mental status (agitation, repetitive questioning, slowed response)</li>
+            <li>LOC &gt;5 seconds (&lt;2 years) or any (≥2 years)</li>
+          </ul>
+        </li>
+        <li><strong>Intermediate:</strong> observation vs. CT based on physician judgment</li>
+        <li>CT NOT indicated for routine concussion with normal neuro exam</li>
+        <li>Avoid unnecessary radiation — use clinical decision rules</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Concussion Management</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num gold">1</div><div><div class="step-title">Physical + cognitive rest (48h)</div><div class="step-body">Immediate: remove from play, no school if symptomatic. Brief rest (not prolonged isolation) — then gradual return to activity.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">2</div><div><div class="step-title">Gradual return to learn (RTL)</div><div class="step-body">Step-wise school reintegration: rest → school partial day → full day with accommodations → full day.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">3</div><div><div class="step-title">Gradual return to play (RTP)</div><div class="step-body">6-step protocol: rest → light aerobic → sport-specific → non-contact drills → full contact → return to play. Each step min 24h. Asymptomatic at each step required before advancing.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">4</div><div><div class="step-title">Symptom management</div><div class="step-body">Acetaminophen for headache (avoid NSAIDs acutely — bleeding risk). Sleep hygiene. Amitriptyline for persistent headache. Vision therapy if visual symptoms persist.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Second Impact Syndrome & Red Flags</div>
+      <ul>
+        <li><strong>Second impact syndrome:</strong> second concussion before full recovery from first → catastrophic cerebral edema → death or severe disability. VERY rare but catastrophic. Prevention = strict RTP protocol.</li>
+        <li><strong>Post-concussion syndrome:</strong> symptoms persist &gt;4 weeks — headache, cognitive fog, mood changes, sleep disturbance; risk factors: female, prior concussion, anxiety/depression</li>
+        <li><strong>Red flags requiring emergent CT:</strong>
+          <ul>
+            <li>Worsening headache</li>
+            <li>Repeated vomiting (&gt;2 episodes)</li>
+            <li>Seizure</li>
+            <li>Focal neurologic deficits</li>
+            <li>Deteriorating mental status</li>
+            <li>Signs of skull fracture</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- FINISH BANNER -->
+<section>
+  <div class="finish-banner">
+    <h2>🎉 Exam III Study Guide — Complete!</h2>
+    <p>Every chapter. Every topic. Every flip card. All 9 modules built in Derm Design, ready for your site and Obsidian vault. You did this, Sasha.</p>
+    <div class="modules">
+      <span class="mod">✅ GI</span>
+      <span class="mod">✅ GU</span>
+      <span class="mod">✅ MSK</span>
+      <span class="mod">✅ SCFE</span>
+      <span class="mod">✅ Genetics</span>
+      <span class="mod">✅ Nutrition</span>
+      <span class="mod">✅ Endocrine</span>
+      <span class="mod">✅ Neurodevelopmental</span>
+      <span class="mod">✅ Mental Health</span>
+      <span class="mod">✅ Neurological</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK QUIZ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Neurology Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What are the "SNOOP4" red flags for headache that require neuroimaging?</div>
+        <div class="flip-back teal">Systemic symptoms · Neurologic signs · Onset sudden/thunderclap · Older age new pattern · Postural component · Progressive worsening · Prior headache change · Precipitated by Valsalva.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">First-line acute treatment for pediatric migraine?</div>
+        <div class="flip-back gold">Ibuprofen (NSAIDs) ⭐ — give early at headache onset. Triptans for moderate-severe or NSAID failure. Rest in dark quiet room. High-flow O₂ = cluster headache treatment.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">2-year-old cries, turns blue, goes limp, and briefly loses consciousness. Recovers immediately, no confusion. Diagnosis?</div>
+        <div class="flip-back">Breath holding spell (cyanotic type). Key: triggered event → no postictal state → rapid full recovery. NO routine EEG, neuroimaging, or anticonvulsants needed. Check CBC for iron deficiency.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Most common organisms in bacterial meningitis in a 3-month-old? A 10-year-old?</div>
+        <div class="flip-back rust">3 months: GBS, E. coli, S. pneumoniae, N. meningitidis. 10 years: S. pneumoniae ⭐ (most common overall), N. meningitidis. Empiric tx ≥3 months: vancomycin + ceftriaxone.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">CSF in bacterial vs. viral meningitis — what are the key differences?</div>
+        <div class="flip-back">Bacterial: cloudy, ↑↑ PMNs, ↑↑ protein, ↓↓ glucose. Viral: clear, ↑ lymphocytes, normal/↑ protein, normal glucose. Gram stain positive in bacterial (~60–90%).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">When and with what do you give dexamethasone in bacterial meningitis?</div>
+        <div class="flip-back teal">Give dexamethasone BEFORE or WITH the first antibiotic dose (not after). Reduces inflammation → decreases hearing loss risk. Most benefit for H. influenzae and S. pneumoniae.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">18-month-old has a 2-minute generalized tonic-clonic seizure with fever of 39.5°C. First time. What do you do?</div>
+        <div class="flip-back sage">Simple febrile seizure. No routine LP, EEG, neuroimaging, or antiepileptics needed. Reassure parents. Find and treat source of fever. Recurrence risk ~30%. Antipyretics don't prevent recurrence.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">EEG shows 3 Hz spike-and-wave pattern. Child has staring spells triggered by hyperventilation. Diagnosis and drug of choice?</div>
+        <div class="flip-back gold">Absence epilepsy. Drug of choice: ethosuximide ⭐. If also tonic-clonic: valproate. Never use carbamazepine — it worsens absence seizures.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">6-month-old with clusters of sudden arm-raising/flexion spasms, developmental regression, and chaotic EEG. Diagnosis and treatment?</div>
+        <div class="flip-back rust">Infantile spasms (West syndrome). EEG: hypsarrhythmia ⭐. Treatment: ACTH ⭐ or vigabatrin (especially if tuberous sclerosis). Urgently treat — prolonged spasms → severe developmental disability.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child with nocturnal facial twitching, drooling, speech arrest, normal development, centrotemporal spikes on EEG. Diagnosis and treatment?</div>
+        <div class="flip-back">BECTS (Benign Rolandic Epilepsy). Often no treatment needed — outgrows by adolescence. Most evidence-based — reassure and observe unless seizures are frequent or disruptive.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Status epilepticus — what is the definition and first-line treatment?</div>
+        <div class="flip-back teal">Seizure ≥5 minutes OR ≥2 seizures without recovery. First-line: benzodiazepine ⭐ (lorazepam IV preferred; diazepam rectal; midazolam IM/IN if no IV). Then 2nd line: fosphenytoin, levetiracetam, or valproate.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Teen athlete takes a second hit before recovering from a concussion. What catastrophic syndrome can result?</div>
+        <div class="flip-back rust">Second Impact Syndrome — catastrophic cerebral edema from second concussion before full recovery. Can be fatal or cause severe permanent disability. Prevention: strict graduated return-to-play protocol. Never return same day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

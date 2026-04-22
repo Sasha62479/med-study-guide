@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Genetics · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--lavender); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .subsection-label.rust   { color: var(--rust); }
+    .subsection-label.teal   { color: var(--teal); }
+    .subsection-label.gold   { color: var(--gold); }
+    .subsection-label.sage   { color: var(--sage); }
+    .subsection-label.lav    { color: var(--lavender); }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-lav  { background: #ede9f4; border-left: 3px solid var(--lavender); color: #2a1a3a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    /* syndrome cards — extra emphasis */
+    .syndrome-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+    .syndrome-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; font-weight: 400; }
+    .karyotype-badge { font-family: 'DM Mono', monospace; font-size: 0.68rem; background: var(--border); color: var(--muted); padding: 2px 10px; border-radius: 999px; }
+
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--lavender); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.teal { background: var(--teal); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#overview">Inheritance Overview</a>
+  <a href="#down">Down Syndrome</a>
+  <a href="#turner">Turner Syndrome</a>
+  <a href="#klinefelter">Klinefelter Syndrome</a>
+  <a href="#marfan">Marfan Syndrome</a>
+  <a href="#nf">Neurofibromatosis</a>
+  <a href="#fragile">Fragile X</a>
+  <a href="#pw">Prader-Willi</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · GENETICS · EXAM III · CH 38</div>
+  <h1>Pediatric Genetic Disorders</h1>
+  <p class="subtitle">Chromosomal, Mendelian, X-linked, and non-Mendelian — each syndrome tells its own story.</p>
+  <div class="pill-row">
+    <span class="pill pill-lav">🧬 7 Syndromes</span>
+    <span class="pill pill-rust">⚡ High-Yield</span>
+    <span class="pill pill-teal">📋 Know the Karyotype</span>
+    <span class="pill pill-gold">🔍 Classic Features</span>
+    <span class="pill pill-sage">💊 Screening & Mgmt</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- INHERITANCE OVERVIEW -->
+<!-- ══════════════════════════════════════ -->
+<section id="overview">
+  <div class="section-label">Foundation · Inheritance Patterns</div>
+  <div class="section-title">Inheritance Patterns — Quick Reference</div>
+  <div class="section-sub">Know the pattern before you learn the syndrome — it predicts who gets it, how severe, and recurrence risk.</div>
+
+  <table>
+    <thead>
+      <tr><th>Pattern</th><th>Mechanism</th><th>Example</th><th>Key Board Fact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Chromosomal</strong></td>
+        <td>Extra or missing chromosome; nondisjunction</td>
+        <td>Down (Trisomy 21), Turner (XO), Klinefelter (XXY)</td>
+        <td>Risk ↑ with maternal age (Trisomy 21). Turner/Klinefelter — sex chromosome anomalies.</td>
+      </tr>
+      <tr>
+        <td><strong>Autosomal Dominant</strong></td>
+        <td>One mutated allele sufficient; 50% transmission</td>
+        <td>Marfan syndrome, Neurofibromatosis type 1, Achondroplasia</td>
+        <td>Affected parent = 50% risk each pregnancy. Variable expressivity common.</td>
+      </tr>
+      <tr>
+        <td><strong>Autosomal Recessive</strong></td>
+        <td>Two mutated alleles required; 25% risk if both carriers</td>
+        <td>CF, PKU, Tay-Sachs, sickle cell</td>
+        <td>Parents often unaffected carriers. Consanguinity ↑ risk.</td>
+      </tr>
+      <tr>
+        <td><strong>X-Linked Recessive</strong></td>
+        <td>Gene on X chromosome; males affected, females carriers</td>
+        <td>Fragile X, Duchenne MD, hemophilia</td>
+        <td>No male-to-male transmission. Carrier females may be mildly affected (Fragile X).</td>
+      </tr>
+      <tr>
+        <td><strong>Non-Mendelian (Imprinting)</strong></td>
+        <td>Expression depends on which parent transmits allele</td>
+        <td>Prader-Willi (paternal 15q11 deleted), Angelman (maternal 15q11 deleted)</td>
+        <td>Same chromosomal region → different syndrome depending on parent of origin.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- DOWN SYNDROME -->
+<!-- ══════════════════════════════════════ -->
+<section id="down">
+  <div class="section-label">Chromosomal · Trisomy 21</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Down Syndrome</div>
+    <div class="karyotype-badge">47,XX or XY +21</div>
+  </div>
+  <div class="section-sub">Most common chromosomal disorder and the most common genetic cause of intellectual disability.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Imagine the genetic blueprint as a <strong>recipe book with 46 chapters</strong>. In Down syndrome, chapter 21 got photocopied an extra time and slipped back in — so the body builds everything from three copies of those instructions instead of two. The extra dosage affects development from the earliest weeks, shaping features across every organ system. The "recipe" still works — just with an extra portion of chromosome 21 flavoring everything.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li><strong>Trisomy 21</strong> — nondisjunction (95%), most common</li>
+        <li><strong>Translocation</strong> (4%) — chromosome 21 fused to another (often 14); NOT age-related; recurrence risk higher → karyotype parents</li>
+        <li><strong>Mosaic</strong> (1%) — some cells trisomic; often milder phenotype</li>
+        <li>Risk ↑ with advanced maternal age: age 35 = 1:400; age 45 = 1:30</li>
+        <li>Screening: 1st trimester combined screen (PAPP-A, hCG, nuchal translucency), cell-free fetal DNA</li>
+        <li>Diagnosis: karyotype (gold standard)</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic Features</div>
+      <ul>
+        <li><strong>Facial:</strong> flat facies, upslanting palpebral fissures, epicanthal folds, flat nasal bridge, small ears, macroglossia, Brushfield spots (iris)</li>
+        <li><strong>Neck:</strong> short neck, excess nuchal skin</li>
+        <li><strong>Hands:</strong> single palmar crease (simian crease), short 5th finger (clinodactyly), wide sandal gap between 1st–2nd toes</li>
+        <li><strong>Tone:</strong> generalized hypotonia ⭐ — classic newborn finding</li>
+        <li>Intellectual disability (mild–moderate in most)</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Associated Conditions — Must Screen</div>
+      <ul>
+        <li>❤️ <strong>Congenital heart disease</strong> (40–50%) — most common: <strong>AVSD (AV canal defect)</strong>, VSD, ASD</li>
+        <li>🦠 <strong>Duodenal atresia</strong> — "double bubble" sign on X-ray; bilious vomiting newborn</li>
+        <li>🦠 <strong>Hirschsprung's disease</strong> (10×↑ risk)</li>
+        <li>👁️ Cataracts, strabismus, refractive errors</li>
+        <li>👂 Hearing loss (conductive + sensorineural)</li>
+        <li>🦴 Atlantoaxial instability (C1–C2) — screen before sports/surgery</li>
+        <li>🩸 ↑ Risk leukemia (ALL, AML), transient myeloproliferative disorder (TMD)</li>
+        <li>🧠 Alzheimer's disease (virtually universal by age 40)</li>
+        <li>🦋 Hypothyroidism (check TSH annually)</li>
+        <li>😴 Obstructive sleep apnea</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Surveillance Schedule</div>
+      <ul>
+        <li>Newborn: echo, karyotype, hearing screen, ophthalmology, thyroid</li>
+        <li>Annually: TSH, hearing, vision, dental</li>
+        <li>Atlantoaxial instability: X-ray before sports or anesthesia requiring neck extension</li>
+        <li>Developmental monitoring: EI, PT, OT, speech</li>
+        <li>Hematology: CBC in newborn period (TMD)</li>
+        <li>Sleep study if OSA suspected</li>
+        <li>Life expectancy now >60 years with modern care</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Board Must-Know</div>
+    Most common CHD in Down syndrome = <strong>AVSD (AV canal)</strong>. Most common GI anomaly = <strong>duodenal atresia</strong> ("double bubble"). Translocation Down syndrome = check parental karyotype (higher recurrence risk).
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- TURNER SYNDROME -->
+<!-- ══════════════════════════════════════ -->
+<section id="turner">
+  <div class="section-label">Sex Chromosome · Monosomy X</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Turner Syndrome</div>
+    <div class="karyotype-badge">45,X (XO)</div>
+  </div>
+  <div class="section-sub">Females only — short stature, ovarian failure, and a webbed neck that tells the story at a glance.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Think of the second X chromosome as a <strong>construction supervisor</strong> for female development. Without it, the ovaries — which start as primitive streaks in every embryo — never fully form and become streak gonads (fibrous tissue where ovaries should be). Meanwhile, the lymphatic system during fetal development backs up around the neck (cystic hygroma → webbed neck at birth) and the aorta may be narrowed (coarctation). The body is female in every other way — just missing the supervisor who was supposed to oversee the ovaries and a few other projects.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li>45,X — complete monosomy (most classic)</li>
+        <li>Mosaicism (45,X/46,XX) — milder phenotype</li>
+        <li>Isochromosome Xq — structural variant</li>
+        <li>Most common: nondisjunction of <strong>paternal</strong> sex chromosome</li>
+        <li>NOT associated with advanced maternal age</li>
+        <li>Incidence: 1:2,000–2,500 live female births</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic Features</div>
+      <ul>
+        <li><strong>Short stature</strong> ⭐ — universal; below 3rd percentile without treatment</li>
+        <li><strong>Webbed neck</strong> (pterygium colli) / low posterior hairline</li>
+        <li><strong>Streak gonads</strong> → primary amenorrhea, infertility, no puberty</li>
+        <li>Widely-spaced nipples, shield chest</li>
+        <li>Cubitus valgus (increased carrying angle at elbow)</li>
+        <li>Lymphedema of hands and feet at birth (puffy hands/feet)</li>
+        <li>Low-set, posteriorly rotated ears</li>
+        <li>Multiple nevi</li>
+        <li><strong>Normal intelligence</strong> — may have specific math/spatial difficulties</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Associated Conditions</div>
+      <ul>
+        <li>❤️ <strong>Coarctation of the aorta</strong> — most common CHD ⭐</li>
+        <li>❤️ Bicuspid aortic valve</li>
+        <li>🩺 Hypertension (renal anomalies, aortic)</li>
+        <li>🫘 Horseshoe kidney — most common renal anomaly</li>
+        <li>👂 Recurrent otitis media, sensorineural hearing loss</li>
+        <li>🦋 Autoimmune thyroiditis (Hashimoto's) — screen annually</li>
+        <li>🩸 Celiac disease — screen</li>
+        <li>🦴 Osteoporosis (from estrogen deficiency)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Growth hormone</strong> — start early for short stature (even before puberty)</li>
+        <li><strong>Estrogen replacement</strong> — start ~12–13 years for puberty induction; continue for bone density + cardiovascular health</li>
+        <li>Progestin added after estrogen priming (for uterine protection)</li>
+        <li>Fertility: possible with donor egg IVF</li>
+        <li>Echo at diagnosis; repeat every 5–10 years (aortic root surveillance)</li>
+        <li>Renal ultrasound at diagnosis</li>
+        <li>Annual: TSH, glucose, lipids, BP monitoring</li>
+        <li>Hearing screen, ophthalmology</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- KLINEFELTER -->
+<!-- ══════════════════════════════════════ -->
+<section id="klinefelter">
+  <div class="section-label">Sex Chromosome · XXY</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Klinefelter Syndrome</div>
+    <div class="karyotype-badge">47,XXY</div>
+  </div>
+  <div class="section-sub">Males only — tall, small testes, infertility. Often not diagnosed until adolescence or adulthood.</div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics & Epidemiology</div>
+      <ul>
+        <li>47,XXY — most common sex chromosome disorder in males</li>
+        <li>1:500–1,000 male births</li>
+        <li>Variants: 48,XXXY; 49,XXXXY — more severe features</li>
+        <li>Risk ↑ with advanced maternal age</li>
+        <li>Often diagnosed incidentally on prenatal cell-free DNA</li>
+        <li>Most go undiagnosed until infertility workup in adulthood</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic Features</div>
+      <ul>
+        <li><strong>Tall stature</strong> with long legs (eunuchoid proportions)</li>
+        <li><strong>Small, firm testes</strong> (testicular atrophy/hyalinization) ⭐</li>
+        <li><strong>Azoospermia → infertility</strong> (most common cause of male infertility from genetic cause)</li>
+        <li>Gynecomastia (↑ estrogen:testosterone ratio)</li>
+        <li>Sparse facial and body hair</li>
+        <li>Decreased muscle mass, ↑ adiposity</li>
+        <li>Language-based learning difficulties, reading delays</li>
+        <li>Mild intellectual or behavioral differences (not always)</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Associated Conditions & Management</div>
+      <ul>
+        <li>↑ Risk: autoimmune diseases, type 2 DM, metabolic syndrome</li>
+        <li>↑ Risk: breast cancer (20× vs. 46,XY males), mediastinal germ cell tumors</li>
+        <li>Osteoporosis from testosterone deficiency</li>
+        <li><strong>Testosterone replacement</strong> starting at puberty — improves virilization, muscle mass, mood, bone density</li>
+        <li>Speech/language therapy, educational support</li>
+        <li>Fertility: possible with surgical sperm extraction (TESE) + IVF</li>
+        <li>Screen: glucose, lipids, bone density</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Board Pearls</div>
+      <ul>
+        <li>Most common cause of <strong>hypergonadotropic hypogonadism</strong> in males</li>
+        <li>FSH and LH ↑ (feedback from failing testes); testosterone ↓</li>
+        <li>Diagnosis: karyotype</li>
+        <li>Gynecomastia at puberty in tall male → think Klinefelter</li>
+        <li>Learning/language difficulties often present before diagnosis</li>
+        <li>Azoospermia on semen analysis → karyotype</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- MARFAN SYNDROME -->
+<!-- ══════════════════════════════════════ -->
+<section id="marfan">
+  <div class="section-label">Mendelian · Autosomal Dominant</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Marfan Syndrome</div>
+    <div class="karyotype-badge">FBN1 · Chr 15</div>
+  </div>
+  <div class="section-sub">The tall, stretchy connective tissue disorder — and the aorta is the alarm you cannot ignore.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Fibrillin-1 is the <strong>elastic scaffolding material</strong> used to build stretchy connective tissues — blood vessel walls, ligaments, lens zonules, skin. In Marfan syndrome, this scaffolding material is defective. Structures that depend on it become too flexible (hypermobile joints, lens subluxation) or too weak to hold pressure (dilating aorta). The aorta — which absorbs thousands of pressure pulses every day — is like a garden hose with a manufacturing defect in the rubber. Over time, it stretches and can catastrophically rupture.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li>Autosomal dominant — <strong>FBN1</strong> gene mutation (fibrillin-1 protein), chromosome 15</li>
+        <li>~25% de novo mutations (no family history)</li>
+        <li>Variable expressivity — same family, different severity</li>
+        <li>Ghent nosology criteria used for diagnosis (major + minor criteria across systems)</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic Features — "MARFAN"</div>
+      <ul>
+        <li><strong>M</strong>uscular/skeletal: tall stature, long limbs, arachnodactyly, pectus excavatum/carinatum, scoliosis, pes planus, high arched palate</li>
+        <li><strong>A</strong>ortic: <strong>aortic root dilation → dissection</strong> ⭐ — most life-threatening</li>
+        <li><strong>R</strong>atios: arm span &gt; height; lower segment &gt; upper segment</li>
+        <li><strong>F</strong>lexibility: joint hypermobility, positive wrist sign (Steinberg), thumb sign</li>
+        <li><strong>A</strong>: ectopia lentis (upward lens dislocation) ⭐ — distinguishes from homocystinuria (downward)</li>
+        <li><strong>N</strong>: spontaneous pneumothorax (apical blebs)</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Cardiovascular — The Priority</div>
+      <ul>
+        <li>Aortic root dilation → <strong>aortic regurgitation, dissection, rupture</strong></li>
+        <li>MVP (mitral valve prolapse) — common, usually benign</li>
+        <li><strong>Echo at diagnosis</strong> then every 6–12 months</li>
+        <li>Avoid contact sports, strenuous exertion, isometric exercise</li>
+        <li>Restrict competitive sports if aortic root enlarged</li>
+        <li>Surgery: prophylactic aortic root replacement when diameter reaches threshold (~4.5–5cm)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Beta-blockers</strong> (atenolol) or <strong>losartan</strong> (ARB) — slow aortic root dilation ⭐</li>
+        <li>Annual echo — monitor aortic root</li>
+        <li>Ophthalmology — lens subluxation, myopia, retinal detachment</li>
+        <li>Orthopedics — scoliosis, pectus, pes planus</li>
+        <li>Genetic counseling — 50% transmission</li>
+        <li>Medical alert bracelet (aortic aneurysm risk)</li>
+        <li>Avoid fluoroquinolones (↑ connective tissue risk)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Board Comparison — Marfan vs. Homocystinuria</div>
+    Both have tall stature + arachnodactyly + lens dislocation. Key difference: Marfan = lens dislocates <strong>upward</strong>; Homocystinuria = lens dislocates <strong>downward</strong>. Marfan = normal intelligence; Homocystinuria = intellectual disability + thromboembolism risk.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- NEUROFIBROMATOSIS -->
+<!-- ══════════════════════════════════════ -->
+<section id="nf">
+  <div class="section-label">Mendelian · Autosomal Dominant · NF1</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Neurofibromatosis Type 1</div>
+    <div class="karyotype-badge">NF1 · Chr 17</div>
+  </div>
+  <div class="section-sub">The café-au-lait spot disorder — and the body's way of reminding you that tumors grow where nerves live.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The NF1 gene encodes <strong>neurofibromin</strong> — a tumor suppressor that acts like a <strong>brake pedal</strong> on cell growth in Schwann cells and other neural crest derivatives. When the brake is broken, cells along nerves can proliferate unchecked, forming neurofibromas. Meanwhile, the pigmented skin patches (café-au-lait spots) are like the warning lights on a dashboard — they appear early and signal that the underlying braking system has a problem, even before the tumors are visible.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li>Autosomal dominant — <strong>NF1</strong> gene (neurofibromin tumor suppressor), chromosome 17</li>
+        <li>Most common single-gene disorder: 1:3,000</li>
+        <li>~50% de novo mutations</li>
+        <li>Variable expressivity — same family, wildly different severity</li>
+        <li>NF2: different gene (chr 22), bilateral acoustic neuromas — less common</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Diagnostic Criteria — 2 of 7 Required</div>
+      <ul>
+        <li>☕ <strong>≥6 café-au-lait macules</strong> — &gt;5mm prepubertal, &gt;15mm postpubertal ⭐</li>
+        <li>🦋 <strong>≥2 neurofibromas</strong> OR 1 plexiform neurofibroma</li>
+        <li>👁️ <strong>Lisch nodules</strong> — iris hamartomas (pathognomonic, seen on slit-lamp)</li>
+        <li>👁️ <strong>Optic glioma</strong> — most common CNS tumor in NF1</li>
+        <li>🦴 Sphenoid dysplasia OR tibial pseudarthrosis</li>
+        <li>🧬 First-degree relative with NF1</li>
+        <li>💫 <strong>Axillary/inguinal freckling</strong> (Crowe's sign) ⭐</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Complications & Surveillance</div>
+      <ul>
+        <li>Learning disabilities (~50%) — most common complication</li>
+        <li>ADHD, language delays</li>
+        <li>Scoliosis, short stature</li>
+        <li>Plexiform neurofibromas → malignant peripheral nerve sheath tumor (MPNST)</li>
+        <li>Optic pathway glioma → vision loss; MRI brain/orbits</li>
+        <li>↑ Risk: leukemia (JMML), rhabdomyosarcoma, pheochromocytoma</li>
+        <li>Hypertension: renal artery stenosis or pheochromocytoma</li>
+        <li>Annual: neurological exam, BP, ophthalmology, developmental assessment</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Board Pearls</div>
+      <ul>
+        <li>Café-au-lait spots + axillary freckling = NF1 until proven otherwise</li>
+        <li>Lisch nodules = pathognomonic (but require slit-lamp — not visible to naked eye)</li>
+        <li>Optic glioma: asymptomatic in many; symptomatic = vision changes, proptosis, precocious puberty</li>
+        <li>Plexiform neurofibroma at birth/infancy → higher malignant transformation risk</li>
+        <li>MEK inhibitor (selumetinib) — FDA approved for plexiform neurofibromas in children</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- FRAGILE X -->
+<!-- ══════════════════════════════════════ -->
+<section id="fragile">
+  <div class="section-label">X-Linked · Trinucleotide Repeat</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Fragile X Syndrome</div>
+    <div class="karyotype-badge">FMR1 · CGG repeat · Xq27.3</div>
+  </div>
+  <div class="section-sub">Most common inherited cause of intellectual disability — and it looks different in boys vs. girls.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The FMR1 gene contains a section of <strong>CGG repeating code</strong> — like a sentence that normally says "CGG" about 5–54 times. In Fragile X, this stutter expands to over 200 repeats, and the gene gets chemically silenced (methylated). The protein it makes — FMRP, which helps neurons fine-tune synaptic connections — disappears entirely. Without it, synapses become hyperexcitable and disorganized, which is why intellectual disability, autism features, and seizures all emerge. The "fragile" site is where this expanded repeat makes the X chromosome look physically broken under special staining.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li>X-linked dominant with variable penetrance</li>
+        <li><strong>FMR1</strong> gene — CGG trinucleotide repeat expansion (Xq27.3)</li>
+        <li>Normal: 5–54 repeats</li>
+        <li>Premutation: 55–200 repeats (carriers; at risk for FXTAS in males, FXPOI in females)</li>
+        <li>Full mutation: &gt;200 repeats → methylation → gene silencing → no FMRP</li>
+        <li>Anticipation — repeat expands with each generation</li>
+        <li>Most common <strong>inherited</strong> cause of intellectual disability</li>
+        <li>Most common genetic cause of autism spectrum disorder</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic Features — Males</div>
+      <ul>
+        <li><strong>Intellectual disability</strong> — mild to severe</li>
+        <li><strong>Autism-like features</strong>: hand flapping, poor eye contact, social anxiety, perseverative speech</li>
+        <li><strong>Macroorchidism</strong> (large testes) — most reliable post-pubertal finding ⭐</li>
+        <li>Prominent ears, long narrow face, prominent jaw</li>
+        <li>Hyperextensible joints, flat feet</li>
+        <li>Mitral valve prolapse</li>
+        <li>Seizures (~20%)</li>
+        <li>Hypotonia and delayed motor milestones</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Features — Females & Diagnosis</div>
+      <ul>
+        <li>Females: milder (one normal X); may have learning disabilities, shyness, social anxiety</li>
+        <li>Premutation carrier females: risk of FXPOI (premature ovarian insufficiency) and FXTAS (tremor/ataxia in older age)</li>
+        <li><strong>Diagnosis: FMR1 DNA testing</strong> — Southern blot + PCR for repeat number</li>
+        <li>Chromosome analysis will NOT detect it (no visible chromosomal change)</li>
+        <li>Screen any male with unexplained intellectual disability + autism features</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>No cure — supportive and symptomatic</li>
+        <li>Early intervention: speech therapy, OT, behavioral therapy (ABA)</li>
+        <li>Stimulants or guanfacine for ADHD features</li>
+        <li>SSRIs for anxiety</li>
+        <li>Antiepileptics if seizures present</li>
+        <li>Genetic counseling — maternal premutation carriers at risk for expansion in children</li>
+        <li>Screen siblings and extended family (X-linked inheritance)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- PRADER-WILLI -->
+<!-- ══════════════════════════════════════ -->
+<section id="pw">
+  <div class="section-label">Non-Mendelian · Genomic Imprinting · Chr 15</div>
+
+  <div class="syndrome-header">
+    <div class="section-title">Prader-Willi Syndrome</div>
+    <div class="karyotype-badge">15q11–q13 · Paternal deletion</div>
+  </div>
+  <div class="section-sub">Floppy hypotonic infant → insatiable hungry toddler — the same chromosome region, but which parent matters.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Chromosome 15q11 is a region where <strong>only one parent's copy is expressed</strong> — a phenomenon called imprinting. Normally, you use Dad's copy of this region. In Prader-Willi, Dad's copy is missing (deleted or silenced), and Mom's copy of this region is imprinted (silenced). So there's effectively <strong>no working copy at all</strong>. The hypothalamus, which is supposed to regulate hunger and satiety, loses a critical set of instructions — resulting in the signature hyperphagia. Compare with Angelman syndrome: same region, but when Mom's copy is missing, you get a completely different syndrome (happy, seizures, non-verbal).</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Genetics</div>
+      <ul>
+        <li><strong>Paternal</strong> deletion of 15q11–q13 (70%) — most common</li>
+        <li>Maternal uniparental disomy (UPD) — both chromosome 15s from mom (25%)</li>
+        <li>Imprinting defect (rare)</li>
+        <li>Contrast: <strong>Angelman syndrome</strong> = maternal deletion of same region = different phenotype</li>
+        <li>Incidence: 1:10,000–30,000</li>
+        <li>Diagnosis: methylation analysis (detects all 3 mechanisms) → FISH or chromosomal microarray to characterize</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Biphasic Presentation</div>
+      <ul>
+        <li><strong>Phase 1 — Infancy:</strong>
+          <ul>
+            <li>Profound <strong>hypotonia</strong> ("floppy baby") ⭐</li>
+            <li>Poor suck → feeding difficulties, FTT</li>
+            <li>Undescended testes (males), hypoplastic genitalia</li>
+            <li>Almond-shaped eyes, thin upper lip</li>
+          </ul>
+        </li>
+        <li><strong>Phase 2 — Toddler/childhood:</strong>
+          <ul>
+            <li><strong>Hyperphagia</strong> — insatiable appetite, food-seeking behavior ⭐</li>
+            <li>Rapid obesity if not controlled</li>
+            <li>Short stature (GH deficiency)</li>
+            <li>Mild–moderate intellectual disability</li>
+            <li>Behavioral: temper tantrums, stubbornness, OCD features, skin-picking</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Associated Conditions</div>
+      <ul>
+        <li>Obesity → T2DM, sleep apnea, orthopedic complications</li>
+        <li>Scoliosis</li>
+        <li>Hypogonadism → delayed/incomplete puberty, infertility</li>
+        <li>GH deficiency → short stature</li>
+        <li>Hypothyroidism</li>
+        <li>Psychiatric: psychosis in adolescence/adulthood</li>
+        <li>High pain threshold — may not express signs of injury/illness</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Growth hormone therapy</strong> — improves height, muscle mass, body composition; start early (even infancy)</li>
+        <li><strong>Strict dietary/caloric control</strong> — food access must be supervised; food seeking behavior is uncontrollable without external structure</li>
+        <li>Lock food away — this is a genuine medical necessity, not a preference</li>
+        <li>Early intervention: PT (hypotonia), OT, speech</li>
+        <li>Sex hormone replacement for puberty</li>
+        <li>Behavioral management: structured environment, ABA, mental health support</li>
+        <li>Sleep study (OSA)</li>
+        <li>Scoliosis monitoring</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-lav" style="margin-top:16px;">
+    <div class="callout-label">🧬 Imprinting Quick Comparison</div>
+    <strong>Prader-Willi</strong> = paternal 15q11 deletion → hypotonia + hyperphagia + obesity + intellectual disability. <strong>Angelman</strong> = maternal 15q11 deletion → "happy puppet" — severe intellectual disability, absent speech, seizures, ataxia, inappropriate laughter. Same chromosome, opposite parent = opposite syndrome.
+  </div>
+
+  <!-- MASTER COMPARISON TABLE -->
+  <div class="section-label" style="margin-top:40px;">Master Comparison — All 7 Syndromes</div>
+  <table>
+    <thead>
+      <tr><th>Syndrome</th><th>Genetics</th><th>Classic "Can't Miss" Feature</th><th>Most Common CHD</th><th>Board Trap</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Down (Trisomy 21)</strong></td>
+        <td>47,+21; nondisjunction (95%)</td>
+        <td>Hypotonia, flat facies, single palmar crease, upslanting palpebral fissures</td>
+        <td>AVSD (AV canal) ⭐</td>
+        <td>Translocation = check parents' karyotype</td>
+      </tr>
+      <tr>
+        <td><strong>Turner (XO)</strong></td>
+        <td>45,X; monosomy X</td>
+        <td>Short stature, webbed neck, primary amenorrhea, streak gonads</td>
+        <td>Coarctation of aorta ⭐</td>
+        <td>NOT associated with advanced maternal age</td>
+      </tr>
+      <tr>
+        <td><strong>Klinefelter (XXY)</strong></td>
+        <td>47,XXY; extra X</td>
+        <td>Tall, small firm testes, gynecomastia, azoospermia</td>
+        <td>MVP (mitral valve prolapse)</td>
+        <td>Most go undiagnosed until infertility workup</td>
+      </tr>
+      <tr>
+        <td><strong>Marfan</strong></td>
+        <td>AD; FBN1; chr 15</td>
+        <td>Tall, arachnodactyly, ectopia lentis (upward), aortic root dilation</td>
+        <td>Aortic root dilation / MVP</td>
+        <td>Lens UP in Marfan; DOWN in homocystinuria</td>
+      </tr>
+      <tr>
+        <td><strong>NF1</strong></td>
+        <td>AD; NF1; chr 17</td>
+        <td>≥6 café-au-lait spots, axillary freckling, Lisch nodules</td>
+        <td>Pulmonary stenosis, renal artery stenosis</td>
+        <td>Learning disabilities = most common complication</td>
+      </tr>
+      <tr>
+        <td><strong>Fragile X</strong></td>
+        <td>X-linked; FMR1; CGG &gt;200</td>
+        <td>Intellectual disability, autism features, macroorchidism, prominent ears</td>
+        <td>MVP</td>
+        <td>Most common INHERITED ID; most common genetic cause of autism</td>
+      </tr>
+      <tr>
+        <td><strong>Prader-Willi</strong></td>
+        <td>Paternal 15q11 deletion</td>
+        <td>Hypotonia (infancy) → hyperphagia + obesity (childhood)</td>
+        <td>None specific</td>
+        <td>Angelman = maternal 15q11 = happy, seizures, no speech</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- QUICK QUIZ -->
+<!-- ══════════════════════════════════════ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Genetics Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Newborn with hypotonia, flat facies, upslanting eyes, single palmar crease. Most common cardiac defect?</div>
+        <div class="flip-back rust">Down syndrome (Trisomy 21). Most common CHD = AVSD (atrioventricular septal defect / AV canal). Echo at birth is mandatory.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Down syndrome confirmed with translocation. What do you do next?</div>
+        <div class="flip-back">Karyotype both parents — translocation type has higher recurrence risk (not age-related like nondisjunction). One parent may be a balanced translocation carrier.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">15-year-old girl, short stature, no puberty, webbed neck. Karyotype 45,X. What is the most common cardiac defect?</div>
+        <div class="flip-back teal">Turner syndrome. Coarctation of the aorta is the most common CHD. Also get renal US (horseshoe kidney), TSH annually, and start GH + estrogen therapy.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Is Turner syndrome associated with advanced maternal age?</div>
+        <div class="flip-back sage">NO — Turner syndrome is NOT associated with advanced maternal age. This is a classic board trap. Trisomy 21 and Klinefelter are associated with advanced maternal age.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Tall male, small firm testes, gynecomastia, infertility workup shows azoospermia. Diagnosis?</div>
+        <div class="flip-back">Klinefelter syndrome (47,XXY). Confirm with karyotype. Start testosterone replacement at puberty. Most common genetic cause of male infertility.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Tall teen with arachnodactyly, pectus excavatum, and lens displaced upward. What medication slows aortic dilation?</div>
+        <div class="flip-back rust">Marfan syndrome. Beta-blockers (atenolol) or losartan slow aortic root dilation. Annual echo mandatory. Avoid contact sports.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Marfan vs. Homocystinuria — how do you tell them apart on boards?</div>
+        <div class="flip-back gold">Both: tall + arachnodactyly + lens dislocation. Key difference: Marfan = lens UP, normal IQ. Homocystinuria = lens DOWN, intellectual disability, thromboembolism risk.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child has 7 café-au-lait spots and axillary freckling. What other finding is pathognomonic for this diagnosis?</div>
+        <div class="flip-back">NF1. Pathognomonic finding = Lisch nodules (iris hamartomas on slit-lamp). Requires 2 of 7 criteria for diagnosis. Café-au-lait + axillary freckling already = 2.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Most common CNS tumor in NF1? Most common complication overall?</div>
+        <div class="flip-back teal">Most common CNS tumor = optic glioma. Most common complication overall = learning disabilities (~50%). NF1 is the most common single-gene disorder (1:3,000).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Male with intellectual disability, large ears, autism features, and post-pubertal macroorchidism. Diagnosis and most specific genetic test?</div>
+        <div class="flip-back rust">Fragile X syndrome. FMR1 DNA testing (Southern blot + PCR) — NOT standard karyotype. Most common inherited ID and most common genetic cause of autism.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Floppy hypotonic newborn, poor suck, undescended testes. By toddlerhood: obsessive eating, rapid obesity. Diagnosis?</div>
+        <div class="flip-back">Prader-Willi syndrome. Paternal deletion 15q11. GH therapy + strict dietary control. Lock food — hyperphagia is neurologic, not behavioral choice.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Same chromosomal region as Prader-Willi, but maternal deletion. What syndrome results?</div>
+        <div class="flip-back sage">Angelman syndrome — maternal 15q11 deletion. "Happy puppet": severe intellectual disability, absent speech, seizures, ataxia, inappropriate laughter. Completely different from PWS.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

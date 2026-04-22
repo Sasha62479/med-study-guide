@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Endocrine · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--teal); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .subsection-label.rust { color: var(--rust); }
+    .subsection-label.teal { color: var(--teal); }
+    .subsection-label.gold { color: var(--gold); }
+    .subsection-label.sage { color: var(--sage); }
+    .subsection-label.lav  { color: var(--lavender); }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-sage { background: #e6ede6; border-left: 3px solid var(--sage); color: #1a2a1a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--teal); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.gold { background: var(--gold); }
+    .step-num.sage { background: var(--sage); }
+    .step-num.lav  { background: var(--lavender); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--teal); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-back.lav  { background: var(--lavender); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#thyroid">Thyroid</a>
+  <a href="#t1dm">T1DM</a>
+  <a href="#t2dm">T2DM</a>
+  <a href="#growth">Growth Disorders</a>
+  <a href="#puberty">Puberty Disorders</a>
+  <a href="#adrenal">Adrenal Insufficiency</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · ENDOCRINE · EXAM III · CH 37</div>
+  <h1>Pediatric Endocrine Disorders</h1>
+  <p class="subtitle">Hormones that shape growth, metabolism, and puberty — when the signal goes wrong, the whole system feels it.</p>
+  <div class="pill-row">
+    <span class="pill pill-teal">🧬 8 Topics</span>
+    <span class="pill pill-rust">⚡ DKA = Emergency</span>
+    <span class="pill pill-gold">📏 Growth Curves</span>
+    <span class="pill pill-sage">🌡️ Thyroid High-Yield</span>
+    <span class="pill pill-lav">⏰ Puberty Timing</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- THYROID -->
+<!-- ══════════════════════════════════════ -->
+<section id="thyroid">
+  <div class="section-label">Thyroid · Hypo & Hyper</div>
+  <div class="section-title">Thyroid Disorders</div>
+  <div class="section-sub">Hypothyroidism slows everything down; hyperthyroidism speeds everything up. The brain and growth plate pay the price.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Thyroid hormone is the body's <strong>metabolic thermostat</strong> — it sets the rate at which every cell burns fuel. Turn the thermostat down (hypothyroidism) and the whole house slows: heart rate drops, bowels stop moving, brain fog sets in, and growth stalls. Turn it up too high (hyperthyroidism) and the house runs hot and frantic — heart races, weight drops despite increased appetite, sleep becomes impossible, and the nervous system fires constantly. The pituitary is the programmer controlling this thermostat via TSH — when the thermostat is broken, TSH either shouts louder (↑) or goes quiet (↓).</p>
+  </div>
+
+  <div class="subsection-label rust">Hypothyroidism</div>
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>Congenital</th><th>Acquired (Hashimoto's)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Cause</strong></td><td>Thyroid dysgenesis (most common), dyshormonogenesis, iodine deficiency</td><td>Autoimmune thyroiditis — TPO + anti-thyroglobulin antibodies</td></tr>
+      <tr><td><strong>Age</strong></td><td>Newborn — caught on newborn screen</td><td>Adolescent females most common; school-age possible</td></tr>
+      <tr><td><strong>Symptoms</strong></td><td>Prolonged jaundice, hypotonia, large fontanelle, macroglossia, constipation, hoarse cry, umbilical hernia, poor feeding, cretinism if untreated</td><td>Fatigue, weight gain, cold intolerance, constipation, dry skin, hair loss, bradycardia, delayed puberty, poor growth, goiter</td></tr>
+      <tr><td><strong>Labs</strong></td><td>↓ T4, ↑ TSH</td><td>↓ T4 (or normal), ↑ TSH, + TPO antibodies, + anti-Tg antibodies</td></tr>
+      <tr><td><strong>Newborn Screen</strong></td><td>✅ ↓ T4 + ↑ TSH detected at 24–48h</td><td>Not screened — clinical diagnosis</td></tr>
+      <tr><td><strong>Treatment</strong></td><td>Levothyroxine — start within 2 weeks of birth ⭐ (brain development critical)</td><td>Levothyroxine if symptomatic or TSH >10; monitor if subclinical</td></tr>
+      <tr><td><strong>Associated</strong></td><td>Down syndrome, Turner syndrome screening</td><td>Down, Turner, T1DM, celiac, other autoimmune</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subsection-label teal" style="margin-top:24px;">Hyperthyroidism — Graves' Disease</div>
+  <div class="card-grid">
+    <div class="card teal">
+      <div class="card-title">Graves' Disease — Key Facts</div>
+      <ul>
+        <li>Most common cause of hyperthyroidism in children</li>
+        <li>Autoimmune — TSI (thyroid-stimulating immunoglobulin) mimics TSH → ↑ T3/T4</li>
+        <li>Female > Male (5:1); peak adolescence</li>
+        <li>Associated: other autoimmune diseases, family history</li>
+        <li><strong>Diffuse goiter</strong> — almost always present</li>
+        <li><strong>Exophthalmos</strong> (proptosis) — pathognomonic for Graves'</li>
+        <li>Pretibial myxedema (rare in children)</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Symptoms — "Everything Fast"</div>
+      <ul>
+        <li>Heat intolerance, sweating</li>
+        <li>Weight loss despite ↑ appetite</li>
+        <li>Tachycardia, palpitations, ↑ BP</li>
+        <li>Tremor, nervousness, emotional lability</li>
+        <li>Diarrhea, frequent stools</li>
+        <li>Poor sleep, fatigue paradoxically</li>
+        <li>Accelerated bone age, advanced puberty</li>
+        <li>Declining school performance</li>
+        <li>Labs: ↑ free T4, ↑ T3, <strong>↓ TSH</strong> ⭐, + TSI antibodies</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num gold">1</div><div><div class="step-title">Antithyroid drugs — first-line</div><div class="step-body">Methimazole (preferred in children). PTU — second-line (hepatotoxicity risk). Beta-blockers for symptomatic relief (propranolol).</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">2</div><div><div class="step-title">Radioactive iodine (RAI)</div><div class="step-body">Definitive — destroys thyroid tissue. Preferred for definitive treatment in adolescents. Results in hypothyroidism → lifelong levothyroxine.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">3</div><div><div class="step-title">Thyroidectomy</div><div class="step-body">Surgical option for large goiter, cancer concern, or RAI contraindicated. Risks: hypoparathyroidism, recurrent laryngeal nerve injury.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">⚠️ Thyroid Storm</div>
+      <ul>
+        <li>Rare but life-threatening exacerbation — fever, extreme tachycardia, agitation, vomiting, hypertension, altered mental status, cardiac failure</li>
+        <li>Triggers: surgery, infection, trauma, radioiodine in unprepared patient</li>
+        <li>Tx: propylthiouracil (PTU) + Lugol's iodine + beta-blocker + corticosteroids + supportive ICU care</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Hypo vs. Hyper — Quick Lab Summary</div>
+    Hypothyroidism: ↑ TSH + ↓ T4. Hyperthyroidism: ↓ TSH + ↑ T4. TSH moves opposite to thyroid function — it's the feedback signal. High TSH = thyroid failing = pituitary shouting. Low TSH = thyroid overactive = pituitary going quiet.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- T1DM -->
+<!-- ══════════════════════════════════════ -->
+<section id="t1dm">
+  <div class="section-label">Autoimmune · Insulin Deficient</div>
+  <div class="section-title">Type 1 Diabetes Mellitus (T1DM)</div>
+  <div class="section-sub">Autoimmune destruction of beta cells — no insulin, no cellular fuel uptake, and a body in metabolic freefall.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Insulin is the <strong>key that unlocks the cell door</strong> for glucose. In T1DM, the immune system attacks and destroys the factory (pancreatic beta cells) that makes the keys. Without keys, glucose piles up in the bloodstream (hyperglycemia) while cells starve. The body panics and starts burning fat for fuel — creating ketones as byproducts. When ketones accumulate faster than they can be cleared, the blood becomes acidic: <strong>diabetic ketoacidosis (DKA)</strong>. DKA is the crisis that often brings T1DM to diagnosis.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Pathophysiology & Who</div>
+      <ul>
+        <li>Autoimmune destruction of pancreatic β-cells → absolute insulin deficiency</li>
+        <li>Autoantibodies: <strong>GAD65, IA-2, ZnT8, insulin autoantibodies (IAA)</strong></li>
+        <li>HLA-DR3 and HLA-DR4 associated</li>
+        <li>Peak onset: 5–7 years and 10–14 years (puberty)</li>
+        <li>Most common metabolic disease of childhood</li>
+        <li>Associated: celiac disease (10%), autoimmune thyroiditis (20%), Addison's</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Classic Presentation — "3 Ps + Weight Loss"</div>
+      <ul>
+        <li><strong>Polyuria</strong> — osmotic diuresis from glucosuria</li>
+        <li><strong>Polydipsia</strong> — compensatory thirst</li>
+        <li><strong>Polyphagia</strong> — cellular starvation despite high glucose</li>
+        <li><strong>Weight loss</strong> — catabolism, loss of glucose in urine</li>
+        <li>Fatigue, blurry vision</li>
+        <li>New-onset enuresis in previously dry child</li>
+        <li>~25–40% present in DKA at diagnosis</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis</div>
+      <ul>
+        <li>Random glucose ≥200 mg/dL + symptoms</li>
+        <li>Fasting glucose ≥126 mg/dL on 2 occasions</li>
+        <li>HbA1c ≥6.5%</li>
+        <li>2-hr glucose ≥200 on OGTT</li>
+        <li>Check: <strong>autoantibodies</strong> (GAD65, IA-2), C-peptide (low in T1DM), fasting insulin (low)</li>
+        <li>Distinguish from T2DM: younger, lean, autoantibodies +, C-peptide low</li>
+        <li>Screen at diagnosis: celiac (TTG-IgA), thyroid (TSH), celiac antibodies</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Insulin — lifelong, always required</strong></li>
+        <li>Basal-bolus regimen: long-acting (glargine/detemir) + rapid-acting (lispro/aspart) with meals</li>
+        <li>Insulin pump (CSII) — continuous subcutaneous infusion; preferred for many children</li>
+        <li>Continuous glucose monitor (CGM) — standard of care</li>
+        <li>Closed-loop ("artificial pancreas") — CGM + pump automated</li>
+        <li>Target HbA1c: &lt;7% for most children</li>
+        <li>Carb counting, sick day rules, glucagon kit for severe hypoglycemia</li>
+        <li>Annual: HbA1c (q3 months), lipids, UA (microalbuminuria), ophthalmology after 5 years</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DKA -->
+  <div class="subsection-label rust" style="margin-top:28px;">Diabetic Ketoacidosis (DKA)</div>
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">DKA — Definition & Diagnosis</div>
+      <ul>
+        <li>Triad: <strong>hyperglycemia + ketosis + metabolic acidosis</strong></li>
+        <li>Glucose &gt;200 mg/dL (often &gt;300–600)</li>
+        <li>Ketonemia/ketonuria</li>
+        <li>pH &lt;7.30 + bicarbonate &lt;15 mEq/L</li>
+        <li>Severity: mild (pH 7.20–7.30), moderate (7.10–7.20), severe (&lt;7.10)</li>
+        <li>Triggers: new diagnosis T1DM, missed insulin, infection, stress</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">DKA — Clinical Features</div>
+      <ul>
+        <li>Nausea, vomiting, abdominal pain (can mimic acute abdomen)</li>
+        <li><strong>Kussmaul respirations</strong> — deep, labored breathing to blow off CO₂ ⭐</li>
+        <li><strong>Fruity/acetone breath</strong> — exhaled ketones ⭐</li>
+        <li>Dehydration — dry mucous membranes, decreased skin turgor, tachycardia</li>
+        <li>Altered mental status (severe)</li>
+        <li>Labs: ↑ glucose, ↓ pH, ↓ HCO₃, ↑ anion gap, ↑ BUN/Cr, ↑ ketones</li>
+        <li>K⁺ may be normal or high initially (transcellular shift) → becomes low with treatment</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">DKA Management</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num rust">1</div><div><div class="step-title">IV fluid resuscitation</div><div class="step-body">10–20 mL/kg NS bolus for shock. Then replace deficit slowly over 24–48h (NOT faster — cerebral edema risk). NS or LR.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">2</div><div><div class="step-title">Insulin infusion</div><div class="step-body">Start AFTER fluids (at least 1h). Regular insulin 0.05–0.1 units/kg/hr. Goal: ↓ glucose by 50–75 mg/dL/hr. Do NOT push glucose down too fast.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">3</div><div><div class="step-title">Potassium replacement</div><div class="step-body">Add K⁺ to fluids once urine output confirmed + K⁺ <5.5. Insulin drives K⁺ into cells → hypokalemia. Monitor EKG.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">4</div><div><div class="step-title">Add dextrose to fluids</div><div class="step-body">When glucose reaches ~250–300 mg/dL — continue insulin to clear ketones but add D5 to prevent hypoglycemia.</div></div></div>
+        <div class="ladder-step"><div class="step-num rust">5</div><div><div class="step-title">Monitor for cerebral edema</div><div class="step-body">Most feared complication. Headache + altered mental status during treatment → mannitol or 3% saline immediately. Cause: fluid shifts. Avoid rapid fluid or rapid glucose correction.</div></div></div>
+      </div>
+    </div>
+    <div class="card lav">
+      <div class="card-title">⚠️ Cerebral Edema in DKA</div>
+      <ul>
+        <li>Most common cause of death in pediatric DKA</li>
+        <li>Occurs 4–12h into treatment</li>
+        <li>Signs: headache, change in mental status, papilledema, cushing triad (↑ BP, ↓ HR, irregular breathing)</li>
+        <li>Risk factors: younger age, new-onset DM, rapid fluid correction, low PCO₂ at presentation</li>
+        <li><strong>Treatment: 3% hypertonic saline OR mannitol immediately</strong></li>
+        <li>Prevention: slow correction (48h), avoid hypotonic fluids</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- T2DM -->
+<!-- ══════════════════════════════════════ -->
+<section id="t2dm">
+  <div class="section-label">Insulin Resistance · Adolescent</div>
+  <div class="section-title">Type 2 Diabetes Mellitus (T2DM)</div>
+  <div class="section-sub">Insulin resistance + relative insulin deficiency — the metabolic consequence of obesity in adolescence.</div>
+
+  <div class="card-grid">
+    <div class="card teal">
+      <div class="card-title">T2DM vs. T1DM — Key Differences</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Feature</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">T1DM</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">T2DM</th></tr>
+        <tr><td style="padding:4px 4px; border:none;">Mechanism</td><td style="padding:4px 4px; border:none;">Autoimmune β-cell destruction</td><td style="padding:4px 4px; border:none;">Insulin resistance + relative deficiency</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Body habitus</td><td style="padding:4px 4px; border:none;">Lean (usually)</td><td style="padding:4px 4px; border:none;">Obese (usually)</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Onset</td><td style="padding:4px 4px; border:none;">Often acute (DKA)</td><td style="padding:4px 4px; border:none;">Insidious, often asymptomatic</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Autoantibodies</td><td style="padding:4px 4px; border:none;">Positive</td><td style="padding:4px 4px; border:none;">Negative</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">C-peptide</td><td style="padding:4px 4px; border:none;">Low/absent</td><td style="padding:4px 4px; border:none;">Normal or elevated</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Acanthosis nigricans</td><td style="padding:4px 4px; border:none;">No</td><td style="padding:4px 4px; border:none;">Yes (insulin resistance marker)</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Family history</td><td style="padding:4px 4px; border:none;">Autoimmune</td><td style="padding:4px 4px; border:none;">Strong T2DM family history</td></tr>
+      </table>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Screening Criteria</div>
+      <ul>
+        <li>Screen overweight/obese children (BMI ≥85th percentile) who have ≥1 risk factor:</li>
+        <li>First/second-degree relative with T2DM</li>
+        <li>High-risk race/ethnicity (Hispanic, Black, Native American, Asian, Pacific Islander)</li>
+        <li>Signs of insulin resistance: acanthosis nigricans, HTN, dyslipidemia, PCOS</li>
+        <li>Maternal gestational diabetes or T2DM</li>
+        <li>Start screening at age 10 or onset of puberty</li>
+        <li>Repeat every 3 years; annually if risk factors</li>
+        <li>Tests: fasting glucose, HbA1c, or OGTT</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management — Step Ladder</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num">1</div><div><div class="step-title">Lifestyle modification — always</div><div class="step-body">↓ Calories, ↑ physical activity, ↓ sugary drinks, dietary counseling. Central to all stages.</div></div></div>
+        <div class="ladder-step"><div class="step-num">2</div><div><div class="step-title">Metformin ⭐ — first-line medication</div><div class="step-body">FDA approved for T2DM ≥10 years. Reduces hepatic glucose output. Start low, titrate. SE: GI upset, lactic acidosis (rare). Hold if contrast dye or surgery.</div></div></div>
+        <div class="ladder-step"><div class="step-num">3</div><div><div class="step-title">GLP-1 agonists (liraglutide/semaglutide)</div><div class="step-body">FDA approved for adolescents. Weight loss benefit. Add if metformin insufficient.</div></div></div>
+        <div class="ladder-step"><div class="step-num">4</div><div><div class="step-num lav">4</div><div><div class="step-title">Insulin</div><div class="step-body">If HbA1c >9% at diagnosis, symptomatic hyperglycemia, or ketosis — start insulin. May be able to wean as insulin resistance improves with weight loss.</div></div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Complications & Monitoring</div>
+      <ul>
+        <li>HbA1c every 3 months until stable, then every 6 months</li>
+        <li>Annual: fasting lipids, UA (microalbuminuria), ophthalmology, foot exam</li>
+        <li>BP at every visit</li>
+        <li>Screen for NAFLD: ALT/AST</li>
+        <li>HHS (hyperglycemic hyperosmolar state) — rare but more common in T2DM than T1DM; no significant ketosis; extreme hyperglycemia + hyperosmolarity + severe dehydration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- GROWTH DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="growth">
+  <div class="section-label">Growth · Pituitary</div>
+  <div class="section-title">Growth Disorders</div>
+  <div class="section-sub">GH deficiency · Constitutional delay · Short stature — know your growth velocity and bone age.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Growth is like a <strong>construction project with a master schedule</strong>. Bone age is the building inspector's progress report — it tells you how far along the bones have developed compared to calendar age. If bone age matches chronological age but height is short, the building materials (hormones) are deficient. If bone age is delayed but everything is on track proportionally, the construction crew (growth program) just started late — that's constitutional delay. The growth velocity (how fast the child is growing each year) tells you if active construction is happening or if the project has stalled.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>GH Deficiency</th><th>Constitutional Delay</th><th>Familial Short Stature</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Height</strong></td><td>Short, falling off curve</td><td>Short but parallel to curve</td><td>Short, parallel to curve</td></tr>
+      <tr><td><strong>Growth velocity</strong></td><td>↓↓ (&lt;4 cm/year)</td><td>Normal or mildly ↓</td><td>Normal</td></tr>
+      <tr><td><strong>Bone age</strong></td><td>Delayed</td><td>Delayed ⭐</td><td>Normal (= chronological age)</td></tr>
+      <tr><td><strong>Puberty</strong></td><td>Delayed</td><td>Delayed</td><td>Normal timing</td></tr>
+      <tr><td><strong>Final height</strong></td><td>Short without treatment</td><td>Normal adult height eventually</td><td>Short (matches family)</td></tr>
+      <tr><td><strong>Family history</strong></td><td>No</td><td>Yes (late bloomers)</td><td>Yes (short parents)</td></tr>
+      <tr><td><strong>IGF-1 / IGFBP-3</strong></td><td>↓↓</td><td>Low-normal for age</td><td>Normal</td></tr>
+      <tr><td><strong>Treatment</strong></td><td>GH therapy ⭐</td><td>Reassurance; sex hormone if distressed</td><td>None unless GH deficient</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card teal">
+      <div class="card-title">GH Deficiency — Diagnosis</div>
+      <ul>
+        <li>Screening: IGF-1 + IGFBP-3 (low suggests GHD)</li>
+        <li><strong>GH stimulation test</strong> — gold standard (peak GH &lt;10 ng/mL after stimulation)</li>
+        <li>Bone age X-ray (left hand/wrist) — delayed in GHD</li>
+        <li>MRI brain/pituitary — rule out craniopharyngioma, pituitary hypoplasia, radiation effects</li>
+        <li>Causes: idiopathic (most common), pituitary tumor, craniopharyngioma, radiation, trauma</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">GH Therapy — Indications</div>
+      <ul>
+        <li>GH deficiency (classic)</li>
+        <li>Turner syndrome</li>
+        <li>Prader-Willi syndrome</li>
+        <li>Chronic renal insufficiency</li>
+        <li>Small for gestational age (SGA) not catching up</li>
+        <li>Idiopathic short stature (ISS) — if height &lt;–2.25 SD</li>
+        <li>Given daily SC injection; monitor IGF-1 levels</li>
+        <li>Side effects: pseudotumor cerebri, slipped capital femoral epiphysis (SCFE), glucose intolerance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- PUBERTY DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="puberty">
+  <div class="section-label">Puberty · Timing Disorders</div>
+  <div class="section-title">Precocious Puberty · Constitutional Delay</div>
+  <div class="section-sub">Puberty that starts too early or too late — know the normal timing, then identify the outliers.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Normal Puberty Timing</div>
+      <ul>
+        <li><strong>Girls:</strong> thelarche (breast buds) — normal 8–13 years; menarche 2–3 years later</li>
+        <li><strong>Boys:</strong> testicular enlargement (&gt;4mL/Tanner 2) — normal 9–14 years</li>
+        <li>Adrenarche (pubic/axillary hair) — precedes gonadarche by 1–2 years</li>
+        <li>Growth spurt: girls peak ~12 years; boys peak ~14 years</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Precocious Puberty</div>
+      <ul>
+        <li><strong>Definition:</strong> secondary sex characteristics before age 8 in girls, age 9 in boys</li>
+        <li><strong>Central (GnRH-dependent):</strong> HPG axis activated early; FSH + LH elevated; bone age advanced
+          <ul>
+            <li>Girls: idiopathic (most common 90%)</li>
+            <li>Boys: almost always has organic cause (CNS tumor, hamartoma)</li>
+          </ul>
+        </li>
+        <li><strong>Peripheral (GnRH-independent):</strong> sex hormone excess without HPG axis; LH/FSH suppressed
+          <ul>
+            <li>CAH, McCune-Albright, adrenal/ovarian tumor, exogenous estrogen/androgen</li>
+          </ul>
+        </li>
+        <li>Workup: bone age, LH, FSH, estradiol/testosterone, GnRH stimulation test, MRI brain (boys or neurologic sx)</li>
+        <li>Treatment: <strong>GnRH agonist</strong> (leuprolide) — suppresses HPG axis; preserves adult height</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Delayed Puberty</div>
+      <ul>
+        <li><strong>Definition:</strong> no secondary sex characteristics by age 13 (girls) or 14 (boys)</li>
+        <li><strong>Constitutional delay</strong> (most common in boys): bone age delayed, family history of "late bloomers," normal FSH/LH, normal eventual height — reassure</li>
+        <li><strong>Hypogonadotropic hypogonadism:</strong> ↓ FSH/LH — hypothalamic/pituitary cause; Kallmann syndrome (anosmia + delayed puberty)</li>
+        <li><strong>Hypergonadotropic hypogonadism:</strong> ↑ FSH/LH — gonadal failure; Turner syndrome, Klinefelter syndrome</li>
+        <li>Workup: LH, FSH, estradiol/testosterone, prolactin, TSH, bone age, karyotype if indicated</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Benign Variants — Don't Over-treat</div>
+      <ul>
+        <li><strong>Premature thelarche:</strong> isolated breast development &lt;8 years, no other signs, no bone age advancement, FSH/LH normal → reassure, monitor</li>
+        <li><strong>Premature adrenarche:</strong> early pubic/axillary hair + body odor without other pubertal signs; normal bone age; rule out CAH (↑ DHEA-S) → usually benign</li>
+        <li>Neither requires treatment — both require follow-up</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ADRENAL INSUFFICIENCY -->
+<!-- ══════════════════════════════════════ -->
+<section id="adrenal">
+  <div class="section-label">Adrenal · Cortisol Deficiency</div>
+  <div class="section-title">Adrenal Insufficiency</div>
+  <div class="section-sub">Primary vs. central — both dangerous, both require stress dosing. Know the crisis management cold.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Primary vs. Central AI</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Feature</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Primary (Addison's)</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Central (Secondary)</th></tr>
+        <tr><td style="padding:4px 4px; border:none;">Lesion</td><td style="padding:4px 4px; border:none;">Adrenal glands</td><td style="padding:4px 4px; border:none;">Pituitary/hypothalamus</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Cortisol</td><td style="padding:4px 4px; border:none;">↓↓</td><td style="padding:4px 4px; border:none;">↓↓</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Aldosterone</td><td style="padding:4px 4px; border:none;">↓ (salt-wasting)</td><td style="padding:4px 4px; border:none;">Normal</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">ACTH</td><td style="padding:4px 4px; border:none;">↑↑ (feedback)</td><td style="padding:4px 4px; border:none;">↓ or low-normal</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Hyperpigmentation</td><td style="padding:4px 4px; border:none;">Yes ⭐ (↑ ACTH → ↑ MSH)</td><td style="padding:4px 4px; border:none;">No</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Electrolytes</td><td style="padding:4px 4px; border:none;">↓ Na, ↑ K (salt-wasting)</td><td style="padding:4px 4b; border:none;">Usually normal</td></tr>
+        <tr><td style="padding:4px 4px; border:none;">Common causes</td><td style="padding:4px 4px; border:none;">Autoimmune (Addison's), CAH, infection</td><td style="padding:4px 4px; border:none;">Corticosteroid suppression ⭐, pituitary tumor/surgery</td></tr>
+      </table>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Symptoms — Chronic AI</div>
+      <ul>
+        <li>Fatigue, weakness, weight loss</li>
+        <li>Anorexia, nausea, abdominal pain</li>
+        <li>Salt craving (primary AI)</li>
+        <li>Hyperpigmentation — skin creases, scars, oral mucosa (primary only)</li>
+        <li>Hypotension, dizziness</li>
+        <li>Hypoglycemia (especially in children)</li>
+        <li>Labs: ↓ cortisol, ↓ Na, ↑ K (primary), ↑ ACTH (primary), ↓ ACTH (central)</li>
+        <li><strong>Gold standard:</strong> ACTH stimulation test (cosyntropin) — blunted cortisol response</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">⚠️ Adrenal Crisis — Emergency</div>
+      <ul>
+        <li>Triggered by: illness, surgery, trauma, missed doses, stress in patient with AI</li>
+        <li>Presentation: severe hypotension/shock, vomiting, severe weakness, altered mental status, hypoglycemia, hyponatremia, hyperkalemia</li>
+        <li><strong>Treatment — do NOT delay for labs:</strong></li>
+        <li>1. <strong>Hydrocortisone 50–100mg/m² IV STAT</strong> (or IM if no IV access)</li>
+        <li>2. IV fluids: normal saline bolus (20 mL/kg)</li>
+        <li>3. IV dextrose for hypoglycemia</li>
+        <li>4. ICU monitoring</li>
+        <li>Sick day rules: 2–3× usual steroid dose during illness, fever, or surgery</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Maintenance Management</div>
+      <ul>
+        <li><strong>Hydrocortisone</strong> — cortisol replacement (2–3× daily; highest dose in AM)</li>
+        <li><strong>Fludrocortisone</strong> — aldosterone replacement (primary AI only)</li>
+        <li>Salt supplementation in infants (primary AI)</li>
+        <li>Medical alert bracelet — mandatory</li>
+        <li>Emergency injection kit at home (IM hydrocortisone)</li>
+        <li>Most common cause in children: <strong>exogenous steroid suppression</strong> (after prolonged steroid use)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Steroid Suppression — Board Classic</div>
+    Child on chronic corticosteroids (asthma, nephrotic syndrome, IBD) who abruptly stops steroids → adrenal crisis. The HPA axis is suppressed — it cannot mount a cortisol response to stress. Always taper steroids slowly. Stress dose before surgery or severe illness.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- QUICK QUIZ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Endocrine Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Newborn with prolonged jaundice, hypotonia, macroglossia, umbilical hernia, constipation. Labs show ↓ T4, ↑ TSH. Diagnosis and treatment?</div>
+        <div class="flip-back rust">Congenital hypothyroidism. Start levothyroxine within 2 weeks of birth — critical window for brain development. Caught on newborn screen.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">TSH is ↑ and T4 is ↓. Is this hypothyroid or hyperthyroid? What does this pattern mean?</div>
+        <div class="flip-back">Hypothyroid. TSH is the pituitary's signal to the thyroid. High TSH = pituitary shouting because the thyroid is underperforming. TSH moves OPPOSITE to thyroid function.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Adolescent female with weight loss, tachycardia, tremor, exophthalmos, and diffuse goiter. Diagnosis and first-line treatment?</div>
+        <div class="flip-back teal">Graves' disease. First-line: methimazole + propranolol for symptom control. Definitive: radioactive iodine or thyroidectomy.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">10-year-old with 3 weeks of polyuria, polydipsia, weight loss, random glucose 380 mg/dL. What autoantibodies confirm the diagnosis?</div>
+        <div class="flip-back">T1DM. Autoantibodies: GAD65, IA-2, ZnT8, insulin autoantibodies (IAA). C-peptide will be low. Start insulin — lifelong requirement.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child in DKA develops headache and altered mental status 6 hours into treatment. What happened and what do you give?</div>
+        <div class="flip-back rust">Cerebral edema — most feared complication of DKA treatment. Give 3% hypertonic saline or mannitol immediately. Caused by fluid shifts from overly rapid correction.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">In DKA, potassium is 5.8 at admission. Insulin infusion is started. What happens to potassium and what do you watch for?</div>
+        <div class="flip-back gold">K⁺ will drop — insulin drives K⁺ into cells. Initially high from acidosis-driven shift. Once urine output confirmed and K⁺ <5.5 → add K⁺ to fluids. Monitor EKG for hypokalemia.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Obese 14-year-old with acanthosis nigricans, fasting glucose 118, HbA1c 6.2%. Autoantibodies negative. Diagnosis and first-line medication?</div>
+        <div class="flip-back sage">T2DM (prediabetes/T2DM based on values). First-line medication: metformin. Plus lifestyle modification always. GLP-1 agonists if insufficient.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Short boy, bone age delayed 2 years, growth velocity 3 cm/year, family history of "late bloomer" dad. Diagnosis?</div>
+        <div class="flip-back">Constitutional delay of growth and puberty. Bone age delayed = still has growth potential. Will reach normal adult height. Reassure. Short-term sex hormones if significantly distressed.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">7-year-old girl with breast development, pubic hair, and bone age advanced by 2 years. LH and FSH elevated. Diagnosis and treatment?</div>
+        <div class="flip-back teal">Central precocious puberty. GnRH-dependent. Treatment: GnRH agonist (leuprolide) — suppresses HPG axis, preserves adult height. MRI brain not always required in girls but done if neurologic sx.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child with known adrenal insufficiency develops vomiting and high fever. Parents ask what to do at home. What do you instruct?</div>
+        <div class="flip-back rust">Stress dosing: give 2–3× the usual hydrocortisone dose. If vomiting and cannot take oral meds → IM hydrocortisone injection kit. Go to ED if not improving. Never skip steroids during illness.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What distinguishes primary adrenal insufficiency from central (secondary) AI?</div>
+        <div class="flip-back gold">Primary (Addison's): ↑ ACTH → hyperpigmentation + salt-wasting (↓Na, ↑K) + ↓ aldosterone. Central: ↓ ACTH → no pigmentation, no salt-wasting, aldosterone normal. ACTH is the key differentiator.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">GH therapy is indicated for which conditions besides GH deficiency?</div>
+        <div class="flip-back lav">Turner syndrome · Prader-Willi syndrome · Chronic renal insufficiency · SGA not catching up · Idiopathic short stature (if height &lt;–2.25 SD). Side effect: SCFE, pseudotumor cerebri.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

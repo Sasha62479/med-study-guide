@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Nutrition · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--gold); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-sage { background: #e6ede6; border-left: 3px solid var(--sage); color: #1a2a1a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--gold); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.teal { background: var(--teal); }
+    .step-num.sage { background: var(--sage); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 134px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--gold); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.teal { background: var(--teal); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-back.lav  { background: var(--lavender); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#foodallergy">Food Allergy</a>
+  <a href="#celiac">Celiac Disease</a>
+  <a href="#malnutrition">Malnutrition</a>
+  <a href="#metabolic">Metabolic Syndrome</a>
+  <a href="#obesity">Obesity</a>
+  <a href="#inborn">Inborn Errors</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · NUTRITION & METABOLISM · EXAM III · CH 27 + 38</div>
+  <h1>Pediatric Nutrition Disorders</h1>
+  <p class="subtitle">From food allergy to inborn errors — what the body does with what it's given.</p>
+  <div class="pill-row">
+    <span class="pill pill-gold">🥦 6 Topics</span>
+    <span class="pill pill-rust">⚡ High-Yield</span>
+    <span class="pill pill-teal">🧬 Metabolic + Nutritional</span>
+    <span class="pill pill-sage">📋 Ch 27 + Ch 38</span>
+    <span class="pill pill-lav">⚠️ Anaphylaxis Alert</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- FOOD ALLERGY -->
+<!-- ══════════════════════════════════════ -->
+<section id="foodallergy">
+  <div class="section-label">Immunologic · All Ages</div>
+  <div class="section-title">Food Allergy</div>
+  <div class="section-sub">IgE-mediated hypersensitivity to food proteins — from hives to anaphylaxis.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The immune system is supposed to be a <strong>highly trained security team</strong> that ignores harmless visitors (food proteins) while targeting real threats. In food allergy, the security team has been miscalibrated — it sees peanut protein as a deadly invader and triggers a full alarm response (IgE mast cell degranulation). The first exposure trains the alarm; every subsequent exposure sets it off faster and louder. Epinephrine is the master switch that overrides the alarm before it shuts down the whole building.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">IgE-Mediated (Immediate) — Most Classic</div>
+      <ul>
+        <li>Onset: minutes to 2 hours after ingestion</li>
+        <li>Mechanism: antigen → IgE on mast cells → degranulation → histamine release</li>
+        <li>Most common allergens: <strong>milk, egg, peanut, tree nuts, wheat, soy, fish, shellfish</strong> (Big 8)</li>
+        <li>Peanut + tree nuts → most common cause of fatal anaphylaxis</li>
+        <li>Symptoms: urticaria, angioedema, vomiting, wheeze, hypotension, anaphylaxis</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Non-IgE & Mixed Reactions</div>
+      <ul>
+        <li><strong>FPIES</strong> (Food Protein-Induced Enterocolitis Syndrome): non-IgE; profuse vomiting 1–4h after ingestion + lethargy; cow's milk/soy most common; looks like sepsis</li>
+        <li><strong>Food protein-induced proctocolitis</strong>: bloody stool in well-appearing breast-fed infant; cow's milk protein via breast milk</li>
+        <li><strong>Eosinophilic esophagitis (EoE)</strong>: dysphagia, food impaction, vomiting; >15 eos/hpf on biopsy</li>
+        <li><strong>Celiac disease</strong>: T-cell mediated (see next section)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis</div>
+      <ul>
+        <li>Skin prick test (SPT) — high sensitivity, moderate specificity</li>
+        <li>Serum specific IgE (RAST/ImmunoCAP) — confirms sensitization</li>
+        <li><strong>Oral food challenge (OFC)</strong> — gold standard for diagnosis</li>
+        <li>Sensitization ≠ clinical allergy — need symptoms + exposure history</li>
+        <li>Atopy patch test — for delayed/non-IgE reactions</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>Strict avoidance of allergen</li>
+        <li><strong>Epinephrine auto-injector</strong> (EpiPen) — prescribe to ALL patients with IgE-mediated food allergy</li>
+        <li>Epinephrine IM (thigh) = first-line for anaphylaxis; antihistamines are adjunct only</li>
+        <li>Action plan + allergen avoidance education</li>
+        <li>Oral immunotherapy (OIT) — available for peanut (Palforzia FDA approved); builds tolerance</li>
+        <li>Most children outgrow: milk, egg, wheat, soy; peanut/tree nut/fish/shellfish tend to persist</li>
+        <li>Early introduction of allergenic foods (4–6 months) now recommended for prevention</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">🚨 Anaphylaxis Management</div>
+    <strong>Step 1:</strong> Epinephrine IM (thigh) — immediately. <strong>Step 2:</strong> Call 911. <strong>Step 3:</strong> Supine position. <strong>Step 4:</strong> IV fluids if hypotensive. Antihistamines do NOT treat anaphylaxis — they are adjunct only. Biphasic reaction possible 4–8h later → observe in ED.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- CELIAC DISEASE -->
+<!-- ══════════════════════════════════════ -->
+<section id="celiac">
+  <div class="section-label">Autoimmune · Gluten-Mediated</div>
+  <div class="section-title">Celiac Disease</div>
+  <div class="section-sub">Gluten triggers an autoimmune attack on the small intestine — and the symptoms reach far beyond the gut.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The small intestine is lined with <strong>tiny finger-like projections (villi)</strong> that dramatically increase absorptive surface area — imagine a shag carpet vs. a smooth tile floor. In celiac disease, gluten (gliadin peptides) triggers a T-cell immune attack that shears off these fingers, leaving smooth tile. Food slides over smooth tile without being absorbed. Every gluten exposure re-triggers the attack, so the carpet never fully regrows as long as gluten is being eaten.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card teal">
+      <div class="card-title">Pathophysiology & Who</div>
+      <ul>
+        <li>T-cell mediated autoimmune response to <strong>gliadin</strong> (gluten component) → villous atrophy + crypt hyperplasia</li>
+        <li>Gluten found in: wheat, barley, rye (not rice, corn, or oats unless contaminated)</li>
+        <li>HLA-DQ2 (95%) or HLA-DQ8 — necessary but not sufficient</li>
+        <li>Prevalence: ~1% worldwide; female > male</li>
+        <li>Associated: type 1 DM, Down syndrome, Turner syndrome, autoimmune thyroiditis, IgA deficiency</li>
+        <li>Family history: 10% first-degree relative risk</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Classic vs. Atypical Presentation</div>
+      <ul>
+        <li><strong>Classic (GI):</strong> chronic diarrhea, bloating, abdominal pain, steatorrhea, FTT, weight loss</li>
+        <li>Distended abdomen + wasted buttocks ("potbelly" child)</li>
+        <li><strong>Atypical (extraintestinal — most common today):</strong>
+          <ul>
+            <li>Iron-deficiency anemia (not responsive to oral iron)</li>
+            <li>Short stature / delayed puberty</li>
+            <li>Dermatitis herpetiformis (itchy vesicles on elbows/knees)</li>
+            <li>Osteoporosis / dental enamel defects</li>
+            <li>Elevated liver enzymes</li>
+            <li>Neurologic: ataxia, peripheral neuropathy</li>
+            <li>Fatigue, mood changes</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis</div>
+      <ul>
+        <li><strong>Must be on gluten-containing diet during testing</strong></li>
+        <li>Serology first line:
+          <ul>
+            <li><strong>Anti-tissue transglutaminase IgA (TTG-IgA)</strong> ⭐ — most sensitive/specific</li>
+            <li>Total serum IgA — check simultaneously (IgA deficiency → false negative)</li>
+            <li>If IgA deficient: use IgG-based tests (TTG-IgG, DGP-IgG)</li>
+          </ul>
+        </li>
+        <li><strong>Small bowel biopsy</strong> (endoscopy) — gold standard: villous atrophy + crypt hyperplasia + ↑ intraepithelial lymphocytes</li>
+        <li>Biopsy may be avoided in children with very high TTG-IgA (>10× normal) + positive EMA + HLA-DQ2/DQ8</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Strict lifelong gluten-free diet</strong> — only treatment; allows villous regeneration</li>
+        <li>Dietitian referral — crucial for GFD education</li>
+        <li>Monitor TTG-IgA every 6–12 months to assess dietary adherence</li>
+        <li>Correct nutritional deficiencies: iron, folate, B12, calcium, vitamin D</li>
+        <li>Screen for associated conditions: thyroid, bone density, DM</li>
+        <li>Screen first-degree relatives</li>
+        <li>Complications if untreated: refractory celiac, intestinal T-cell lymphoma (adults)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Board Trap</div>
+    Iron-deficiency anemia not responding to oral iron supplementation in a child → think celiac disease. Also: IgA deficiency causes false-negative TTG-IgA → always check total IgA level with celiac screening.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- MALNUTRITION -->
+<!-- ══════════════════════════════════════ -->
+<section id="malnutrition">
+  <div class="section-label">Nutritional Deficiency · Global & Domestic</div>
+  <div class="section-title">Malnutrition & Undernutrition</div>
+  <div class="section-sub">Not just a global problem — failure to thrive, food insecurity, and micronutrient deficiency happen everywhere.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Protein-Energy Malnutrition</div>
+      <ul>
+        <li><strong>Marasmus</strong> — severe caloric + protein deficiency
+          <ul>
+            <li>Severe wasting, "skin and bones," weight &lt;60% expected</li>
+            <li>No edema</li>
+            <li>Irritable, alert, ravenous</li>
+          </ul>
+        </li>
+        <li><strong>Kwashiorkor</strong> — protein deficiency with adequate calories
+          <ul>
+            <li><strong>Edema</strong> ⭐ — pitting edema, ascites (from ↓ oncotic pressure)</li>
+            <li>"Flaky paint" dermatosis, sparse/depigmented hair</li>
+            <li>Distended abdomen, hepatomegaly (fatty liver)</li>
+            <li>Apathetic, miserable</li>
+          </ul>
+        </li>
+        <li><strong>Marasmic-kwashiorkor</strong> — mixed; both edema + wasting</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Failure to Thrive (FTT)</div>
+      <ul>
+        <li>Weight consistently below 3rd–5th percentile OR crossing ≥2 major percentile lines downward</li>
+        <li><strong>Organic (20%):</strong> underlying medical cause (celiac, CF, CHD, renal disease, malabsorption)</li>
+        <li><strong>Non-organic (80%):</strong> inadequate caloric intake — poverty, caregiver issues, feeding difficulties, psychosocial</li>
+        <li>Workup: CBC, BMP, UA, TFTs, celiac screen, sweat chloride if CF suspected</li>
+        <li>Management: caloric supplementation + address underlying cause + social work</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Micronutrient Deficiencies — Board Targets</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Nutrient</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">Deficiency Findings</th><th style="background:transparent; padding:4px 6px; font-size:0.6rem;">At-Risk Group</th></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Iron</strong></td><td style="padding:4px 6px; border:none;">IDA, pallor, pica, fatigue, ↓ cognition</td><td style="padding:4px 6px; border:none;">9–24 months, toddlers on cow's milk</td></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Vitamin D</strong></td><td style="padding:4px 6px; border:none;">Rickets (bowing legs, rachitic rosary, craniotabes)</td><td style="padding:4px 6px; border:none;">Breastfed infants, dark skin, limited sun</td></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Vitamin B12</strong></td><td style="padding:4px 6px; border:none;">Megaloblastic anemia, neuro symptoms</td><td style="padding:4px 6px; border:none;">Vegan mothers/infants, celiac</td></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Zinc</strong></td><td style="padding:4px 6px; border:none;">Poor wound healing, growth failure, alopecia, acrodermatitis</td><td style="padding:4px 6px; border:none;">Malabsorption, premature infants</td></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Vitamin C</strong></td><td style="padding:4px 6px; border:none;">Scurvy — perifollicular hemorrhage, corkscrew hair, bleeding gums</td><td style="padding:4px 6px; border:none;">Limited fruit/veg intake</td></tr>
+        <tr><td style="padding:4px 6px; border:none;"><strong>Iodine</strong></td><td style="padding:4px 6px; border:none;">Goiter, hypothyroidism, cretinism (congenital)</td><td style="padding:4px 6px; border:none;">Iodine-poor regions</td></tr>
+      </table>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Rickets — Board Favorite</div>
+      <ul>
+        <li>Vitamin D deficiency → ↓ calcium absorption → ↓ bone mineralization</li>
+        <li>Labs: ↓ vitamin D, ↓ calcium, ↓ phosphorus, <strong>↑ alkaline phosphatase</strong> ⭐, ↑ PTH</li>
+        <li>X-ray: cupping/fraying of metaphyses, widened growth plates</li>
+        <li>Clinical: bowing of legs, rachitic rosary (rib beading), craniotabes, frontal bossing, delayed fontanelle closure</li>
+        <li>Treatment: high-dose vitamin D (stoss therapy or daily supplementation) + calcium</li>
+        <li>Prevention: 400 IU/day vitamin D for all breastfed infants from birth</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- METABOLIC SYNDROME -->
+<!-- ══════════════════════════════════════ -->
+<section id="metabolic">
+  <div class="section-label">Cardiometabolic Risk · Adolescent</div>
+  <div class="section-title">Metabolic Syndrome</div>
+  <div class="section-sub">A cluster of cardiometabolic risk factors — insulin resistance is the common thread.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Definition — Pediatric Criteria</div>
+      <ul>
+        <li>≥3 of 5 criteria (IDF pediatric definition, age ≥10):</li>
+        <li>🔴 <strong>Central obesity</strong> — waist circumference ≥90th percentile (required in IDF)</li>
+        <li>🔴 <strong>Elevated triglycerides</strong> ≥150 mg/dL</li>
+        <li>🔴 <strong>Low HDL</strong> &lt;40 mg/dL (males), &lt;50 mg/dL (females)</li>
+        <li>🔴 <strong>Elevated BP</strong> ≥130/85 mmHg</li>
+        <li>🔴 <strong>Elevated fasting glucose</strong> ≥100 mg/dL</li>
+        <li>Core mechanism: <strong>insulin resistance</strong></li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Pathophysiology & Risk</div>
+      <ul>
+        <li>Visceral adiposity → ↑ free fatty acids → insulin resistance → compensatory hyperinsulinemia</li>
+        <li>Downstream: dyslipidemia, hypertension, glucose intolerance</li>
+        <li>Associated: NAFLD (non-alcoholic fatty liver disease), PCOS, sleep apnea, acanthosis nigricans</li>
+        <li>Risk factors: obesity, family history of T2DM/CVD, sedentary lifestyle, high-sugar diet</li>
+        <li>Dramatically ↑ risk of T2DM and cardiovascular disease in adulthood</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num teal">1</div><div><div class="step-title">Lifestyle — First and Always</div><div class="step-body">↓ caloric intake, ↑ physical activity (60 min/day), ↓ screen time, ↓ sugar-sweetened beverages, whole foods diet</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">2</div><div><div class="step-title">Address each component</div><div class="step-body">HTN → DASH diet + medications if severe. Dyslipidemia → dietary fat modification. Glucose → metformin if T2DM develops.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">3</div><div><div class="step-title">Screen for complications</div><div class="step-body">Annual fasting lipids, glucose, ALT/AST (NAFLD), BP monitoring, sleep study if OSA suspected</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- OBESITY -->
+<!-- ══════════════════════════════════════ -->
+<section id="obesity">
+  <div class="section-label">Chronic Disease · Multifactorial</div>
+  <div class="section-title">Pediatric Obesity</div>
+  <div class="section-sub">BMI is the screening tool — but the real work is understanding the whole child.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Think of energy balance like a <strong>bank account</strong>. Calories in are deposits; calories burned are withdrawals. Obesity develops when deposits chronically exceed withdrawals — the surplus gets stored as fat. But unlike a simple bank account, this one has complex regulators: hormones (leptin, ghrelin, insulin), genetics, sleep, stress, medications, the built environment, and socioeconomic factors all influence the deposit and withdrawal rates. Treating obesity by just telling someone to "eat less, move more" is like telling someone to balance their account without showing them where the hidden fees are.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Definitions & Screening</div>
+      <ul>
+        <li><strong>Overweight:</strong> BMI ≥85th–&lt;95th percentile for age/sex</li>
+        <li><strong>Obesity:</strong> BMI ≥95th percentile</li>
+        <li><strong>Severe obesity:</strong> BMI ≥120% of 95th percentile OR BMI ≥35</li>
+        <li>Screen BMI at every well-child visit starting age 2</li>
+        <li>Prevalence: ~20% of US children — significant health equity issue</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Comorbidities to Screen</div>
+      <ul>
+        <li>🩸 T2DM / prediabetes — fasting glucose, HbA1c</li>
+        <li>💊 Dyslipidemia — fasting lipid panel</li>
+        <li>❤️ Hypertension — BP at every visit</li>
+        <li>🫀 NAFLD — ALT/AST</li>
+        <li>😴 Obstructive sleep apnea — sleep study</li>
+        <li>🦴 Orthopedic: SCFE, Blount's disease, flat feet</li>
+        <li>🧠 Depression, anxiety, low self-esteem, bullying</li>
+        <li>👧 PCOS in adolescent females</li>
+        <li>🦋 Hypothyroidism — TSH</li>
+        <li>🍃 Acanthosis nigricans — marker of insulin resistance</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management — Staged Approach</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num">1</div><div><div class="step-title">Prevention + Counseling (All)</div><div class="step-body">Motivational interviewing, family-centered approach, 5-2-1-0 rule: 5 fruits/veg, ≤2hr screen time, 1hr physical activity, 0 sugary drinks</div></div></div>
+        <div class="ladder-step"><div class="step-num">2</div><div><div class="step-title">Structured Weight Management</div><div class="step-body">Structured eating plan, activity goals, behavioral therapy, dietitian referral. Monthly follow-up.</div></div></div>
+        <div class="ladder-step"><div class="step-num">3</div><div><div class="step-title">Comprehensive Multidisciplinary Intervention</div><div class="step-body">Intensive behavioral program (≥26h contact over 12 months). Most effective non-pharmacologic approach.</div></div></div>
+        <div class="ladder-step"><div class="step-num">4</div><div><div class="step-title">Pharmacotherapy (age ≥12)</div><div class="step-body">Orlistat (fat absorption inhibitor) — modest effect. GLP-1 agonists (semaglutide, liraglutide) — FDA approved for adolescent obesity. Adjunct to lifestyle only.</div></div></div>
+        <div class="ladder-step"><div class="step-num">5</div><div><div class="step-title">Metabolic/Bariatric Surgery (age ≥13)</div><div class="step-body">Sleeve gastrectomy or Roux-en-Y for severe obesity + comorbidities refractory to intensive intervention. Significant benefit for T2DM, HTN, OSA.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Secondary Causes of Obesity</div>
+      <ul>
+        <li>Hypothyroidism — ↓ height velocity + weight gain → check TSH</li>
+        <li>Cushing syndrome — central obesity + striae + HTN + growth failure + moon face</li>
+        <li>Prader-Willi syndrome — hyperphagia + hypotonia</li>
+        <li>Medications: corticosteroids, antipsychotics, antiepileptics</li>
+        <li>Insulinoma (rare) — hypoglycemia + weight gain</li>
+        <li>Clue: short stature + obesity = think endocrine cause (hypothyroid, Cushing's, GH deficiency)</li>
+        <li>Tall stature + obesity = more likely simple/exogenous obesity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- INBORN ERRORS OF METABOLISM -->
+<!-- ══════════════════════════════════════ -->
+<section id="inborn">
+  <div class="section-label">Genetic · Neonatal Screening · Ch 38</div>
+  <div class="section-title">Inborn Errors of Metabolism</div>
+  <div class="section-sub">Enzyme defects in metabolic pathways — caught on newborn screen, treated with diet or cofactors.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Metabolism is a <strong>factory assembly line</strong> — raw materials (amino acids, sugars, fats) are converted step-by-step into usable products by enzymes at each station. In inborn errors of metabolism, one enzyme station is broken. The raw material before that station piles up (toxic accumulation) while the product downstream disappears (deficiency). The body tries to reroute, creating abnormal byproducts. Treatment is about reducing the substrate going into the broken station or replacing the missing product downstream.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Disorder</th><th>Defect</th><th>Presentation</th><th>Newborn Screen</th><th>Treatment</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>PKU</strong> (Phenylketonuria)</td>
+        <td>↓ Phenylalanine hydroxylase → ↑ phenylalanine accumulates</td>
+        <td>Normal at birth; intellectual disability, seizures, musty/mousy odor, fair skin/hair (↓ melanin), eczema if untreated</td>
+        <td>✅ Yes — ↑ phenylalanine</td>
+        <td>Low-phenylalanine diet (restrict protein); sapropterin (BH4) cofactor for some variants; formula supplementation</td>
+      </tr>
+      <tr>
+        <td><strong>MSUD</strong> (Maple Syrup Urine Disease)</td>
+        <td>↓ BCKDH enzyme → ↑ branched-chain amino acids (leucine, isoleucine, valine)</td>
+        <td>Encephalopathy, poor feeding, vomiting, maple syrup odor of urine/cerumen, seizures, death if untreated</td>
+        <td>✅ Yes — ↑ branched-chain AAs</td>
+        <td>Restrict branched-chain amino acids; thiamine cofactor for responsive variants; liver transplant curative</td>
+      </tr>
+      <tr>
+        <td><strong>Galactosemia</strong></td>
+        <td>↓ GALT enzyme → ↑ galactose-1-phosphate accumulates (toxic to liver, brain, eyes)</td>
+        <td>Jaundice, vomiting, FTT after milk feeds; cataracts; liver failure; E. coli sepsis in neonate</td>
+        <td>✅ Yes — ↑ galactose</td>
+        <td>Eliminate galactose — no breast milk or cow's milk; soy formula; lifelong restriction</td>
+      </tr>
+      <tr>
+        <td><strong>Congenital Hypothyroidism</strong></td>
+        <td>↓ thyroid hormone production (dysgenesis, dyshormonogenesis)</td>
+        <td>Prolonged jaundice, hypotonia, large fontanelle, macroglossia, constipation, poor feeding, cretinism if untreated</td>
+        <td>✅ Yes — ↓ T4, ↑ TSH</td>
+        <td>Levothyroxine — start within first 2 weeks; excellent prognosis if treated early</td>
+      </tr>
+      <tr>
+        <td><strong>CAH</strong> (Congenital Adrenal Hyperplasia — 21-OH deficiency)</td>
+        <td>↓ 21-hydroxylase → ↓ cortisol + ↓ aldosterone + ↑ androgens</td>
+        <td>Salt-wasting crisis (hyponatremia, hyperkalemia, shock) in neonate; virilization of female genitalia; precocious puberty</td>
+        <td>✅ Yes — ↑ 17-OHP</td>
+        <td>Hydrocortisone (cortisol replacement) + fludrocortisone (aldosterone) + salt supplementation</td>
+      </tr>
+      <tr>
+        <td><strong>Biotinidase Deficiency</strong></td>
+        <td>↓ biotinidase → can't recycle biotin (B7 vitamin) → multiple carboxylase deficiency</td>
+        <td>Seizures, hypotonia, alopecia, rash, hearing loss, optic atrophy if untreated</td>
+        <td>✅ Yes</td>
+        <td>Biotin supplementation — cheap, safe, completely prevents all symptoms</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-note" style="margin-top:8px;">
+    <div class="callout-label">💡 Newborn Screening Overview</div>
+    All states screen for &gt;30 conditions via heel-stick (Guthrie card) — collected at 24–48h of life. Screens most IEM listed above. Early detection before symptoms = dramatically better outcomes. A positive screen requires confirmatory testing — it is not a diagnosis.
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:8px;">
+    <div class="callout-label">⚠️ Board Classic — PKU</div>
+    PKU baby is normal at birth because placenta clears phenylalanine. Damage begins after birth with milk feeds. Early dietary treatment = normal development. Maternal PKU: mother with PKU who is not diet-controlled during pregnancy → teratogenic levels of phenylalanine → baby with microcephaly, cardiac defects, intellectual disability (even if baby does NOT have PKU).
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- QUICK QUIZ -->
+<!-- ══════════════════════════════════════ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Nutrition Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child has anaphylaxis after eating a peanut butter cookie. First treatment?</div>
+        <div class="flip-back rust">Epinephrine IM (thigh) immediately. Then call 911. Antihistamines are adjunct only — they do NOT treat anaphylaxis. Watch for biphasic reaction 4–8h later.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Gold standard test for diagnosing food allergy?</div>
+        <div class="flip-back">Oral food challenge (OFC). Skin prick test and specific IgE detect sensitization but don't confirm clinical allergy. OFC under supervised conditions is definitive.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child with chronic diarrhea, FTT, distended abdomen, iron-deficiency anemia not responding to oral iron. First test?</div>
+        <div class="flip-back teal">TTG-IgA (anti-tissue transglutaminase IgA) + total serum IgA. If positive and IgA normal → small bowel biopsy. Must be eating gluten during testing.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Why check total IgA when ordering celiac serology?</div>
+        <div class="flip-back sage">IgA deficiency causes false-negative TTG-IgA. If IgA deficient → use IgG-based tests (TTG-IgG or DGP-IgG). Missing IgA deficiency = missed celiac diagnosis.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Kwashiorkor vs. Marasmus — what's the key distinguishing feature?</div>
+        <div class="flip-back rust">Kwashiorkor = protein deficiency + edema (↓ oncotic pressure) + apathetic child. Marasmus = caloric + protein deficiency + severe wasting + NO edema + alert/ravenous child.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Breastfed infant, 2 months old, what vitamin supplement is mandatory and why?</div>
+        <div class="flip-back gold">Vitamin D 400 IU/day — breast milk is deficient in vitamin D. Without supplementation → risk of rickets. Start at birth for all breastfed infants.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Short stature + obesity in a child. Why is this different from simple obesity?</div>
+        <div class="flip-back teal">Short stature + obesity = secondary cause until proven otherwise. Think: hypothyroidism, Cushing syndrome, GH deficiency, Prader-Willi. Simple obesity causes tall-normal stature (excess insulin → ↑ IGF-1).</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Newborn with jaundice, cataracts, vomiting after milk feeds, E. coli sepsis. Diagnosis?</div>
+        <div class="flip-back rust">Galactosemia. Stop all lactose immediately (no breast milk or cow's milk — soy formula instead). Galactose-1-phosphate is toxic to liver, brain, and eyes. Confirmed on newborn screen.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">PKU newborn — why are they normal at birth even without treatment?</div>
+        <div class="flip-back">Placenta clears phenylalanine during fetal life. Damage begins postnatally when milk feeds deliver phenylalanine that can't be metabolized. This is why early newborn screening (24–48h) is critical.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Urine smells like maple syrup in a 4-day-old who is encephalopathic and not feeding well. Diagnosis?</div>
+        <div class="flip-back lav">Maple Syrup Urine Disease (MSUD). ↑ Branched-chain amino acids (leucine, isoleucine, valine). Restrict BCAAs in diet; thiamine for responsive variants. Medical emergency.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">5-2-1-0 rule for pediatric obesity counseling — what does it stand for?</div>
+        <div class="flip-back sage">5 fruits/vegetables per day · 2 hours screen time or less · 1 hour physical activity · 0 sugar-sweetened beverages. Simple family counseling framework for every well visit.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Labs in rickets — what's the classic pattern?</div>
+        <div class="flip-back gold">↓ Vitamin D · ↓ Calcium · ↓ Phosphorus · ↑ Alkaline phosphatase ⭐ · ↑ PTH. ALP is the most reliably elevated marker. X-ray: cupping/fraying of metaphyses.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

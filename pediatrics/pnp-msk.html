@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric MSK · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--sage); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .subsection-label.rust   { color: var(--rust); }
+    .subsection-label.teal   { color: var(--teal); }
+    .subsection-label.gold   { color: var(--gold); }
+    .subsection-label.sage   { color: var(--sage); }
+    .subsection-label.lav    { color: var(--lavender); }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-sage { background: #e6ede6; border-left: 3px solid var(--sage); color: #1a2a1a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--sage); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.teal { background: var(--teal); }
+    .step-num.gold { background: var(--gold); }
+    .step-num.lav  { background: var(--lavender); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 134px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--sage); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.teal { background: var(--teal); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.lav  { background: var(--lavender); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+    .scfe-link-box { background: #e6ede6; border: 1px solid #b8d0b8; border-left: 4px solid var(--sage); border-radius: 12px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; }
+    .scfe-link-box .icon { font-size: 2rem; }
+    .scfe-link-box .text h3 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+    .scfe-link-box .text p { font-size: 0.83rem; color: #3a5a3a; line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#packaging">Packaging Deformities</a>
+  <a href="#ddh">DDH</a>
+  <a href="#injuries">Injuries</a>
+  <a href="#scoliosis">Scoliosis</a>
+  <a href="#lowerext">Lower Extremity</a>
+  <a href="#hip">Hip Disorders</a>
+  <a href="#infectious">Infectious/Inflammatory</a>
+  <a href="#neuro">CP & Muscular Dystrophy</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · MUSCULOSKELETAL · EXAM III</div>
+  <h1>Pediatric MSK Disorders</h1>
+  <p class="subtitle">Packaging deformities to infectious emergencies — bones, joints, and the muscles that move them.</p>
+  <div class="pill-row">
+    <span class="pill pill-rust">⚡ High-Yield</span>
+    <span class="pill pill-teal">🦴 15+ Topics</span>
+    <span class="pill pill-gold">👶 Newborn → Adolescent</span>
+    <span class="pill pill-sage">🚨 Septic Arthritis = Emergency</span>
+    <span class="pill pill-lav">📋 Exam III · Ch 34–35</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- PACKAGING DEFORMITIES -->
+<!-- ══════════════════════════════════════ -->
+<section id="packaging">
+  <div class="section-label">Newborn · Packaging Deformities</div>
+  <div class="section-title">Congenital Packaging Deformities</div>
+  <div class="section-sub">Caused by intrauterine positioning — tight quarters, oligohydramnios, multiple gestation. Most resolve with stretching or time.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Think of a baby in utero as a letter <strong>folded and stuffed into an envelope that's slightly too small</strong>. When there's not enough fluid or space, body parts get pressed into abnormal positions for weeks or months. At birth the "crease" is still there — but unlike a permanent fold, most of these packaging deformities unfold with time and gentle stretching, because the underlying bones and joints are completely normal.</p>
+  </div>
+
+  <!-- TORTICOLLIS -->
+  <div class="subsection-label rust">Congenital Muscular Torticollis</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card rust">
+      <div class="card-title">Key Facts</div>
+      <ul>
+        <li>Fibrosis/shortening of the <strong>sternocleidomastoid (SCM)</strong> muscle</li>
+        <li>Head tilts toward affected side, chin rotates away</li>
+        <li>May palpate firm SCM "mass" or "olive" in newborn</li>
+        <li>Associated: difficult delivery, forceps, breech presentation</li>
+        <li>Can cause plagiocephaly (asymmetric head shape) if untreated</li>
+        <li>Rule out: atlantoaxial instability, bony anomaly (Klippel-Feil), ocular torticollis</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Stretching exercises</strong> — first line; begin early (passive ROM, tilt head away from affected side)</li>
+        <li>Refer to PT if not improving by 1–2 months</li>
+        <li>Helmet therapy for significant plagiocephaly</li>
+        <li>Surgical SCM release if refractory (&gt;12–18 months with no improvement)</li>
+        <li>Excellent prognosis if treated early</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLUBFOOT -->
+  <div class="subsection-label teal">Congenital Talipes Equinovarus (Clubfoot)</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card teal">
+      <div class="card-title">Key Facts</div>
+      <ul>
+        <li>Foot fixed in: <strong>equinus</strong> (plantar flexion) + <strong>varus</strong> (heel inward) + forefoot adduction + cavus</li>
+        <li>Mnemonic: <strong>CAVE</strong> — Cavus, Adductus, Varus, Equinus</li>
+        <li>1–2:1000 live births; male > female; bilateral 50%</li>
+        <li>Idiopathic (most common) vs. positional vs. teratologic (spina bifida, arthrogryposis)</li>
+        <li>Cannot be passively corrected (distinguishes from positional)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>Ponseti method</strong> — gold standard: serial casting × 6–8 weeks</li>
+        <li>Percutaneous Achilles tenotomy in 80–90% to correct equinus</li>
+        <li>Foot abduction brace (FAB) worn 23h/day × 3 months → nighttime until age 4–5</li>
+        <li>Surgery reserved for refractory/relapsed cases</li>
+        <li>Begin treatment within first weeks of life</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- METATARSUS ADDUCTUS -->
+  <div class="subsection-label gold">Metatarsus Adductus</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card gold">
+      <div class="card-title">Key Facts</div>
+      <ul>
+        <li>Forefoot turned inward (adducted) — most common foot deformity in infants</li>
+        <li>Heel and ankle are normal (distinguishes from clubfoot)</li>
+        <li>Flexible (passively correctable) vs. rigid</li>
+        <li>Associated with DDH — always examine hips!</li>
+        <li>Most cases resolve spontaneously by age 3–4</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>Flexible: reassurance, gentle stretching — resolves spontaneously</li>
+        <li>Rigid: serial casting or corrective shoes</li>
+        <li>Surgery rare — only for persistent rigid deformity in older child</li>
+        <li><strong>Always examine hips</strong> (associated DDH in 2–10%)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- DDH -->
+<!-- ══════════════════════════════════════ -->
+<section id="ddh">
+  <div class="section-label">Newborn–Infant · Hip</div>
+  <div class="section-title">Developmental Dysplasia of the Hip (DDH)</div>
+  <div class="section-sub">A spectrum from mild instability to frank dislocation — catch it early, treat it early.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>The hip is a <strong>ball-and-socket joint</strong>. In DDH, the socket (acetabulum) is too shallow — like a golf ball sitting on a barely-curved tee instead of nestled in a proper cup. The ball can wobble, sublux, or fully dislocate. The critical window is infancy: the socket is still cartilage and remodels beautifully around a correctly-positioned ball. Miss the window, and you're working with hardened bone — much harder to reshape, requiring surgery instead of a simple harness.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Risk Factors & Who</div>
+      <ul>
+        <li>Female > Male (6:1) — ligamentous laxity from maternal estrogen</li>
+        <li>Firstborn, breech presentation, oligohydramnios</li>
+        <li>Family history (10× risk)</li>
+        <li>Left hip more common (against mother's spine in L occiput anterior)</li>
+        <li>Associated: torticollis, metatarsus adductus, clubfoot</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Exam Findings by Age</div>
+      <ul>
+        <li><strong>Newborn:</strong>
+          <ul>
+            <li><strong>Barlow test</strong> — adduct + posterior force → hip dislocates</li>
+            <li><strong>Ortolani test</strong> — abduct + anterior force → "clunk" as hip reduces</li>
+          </ul>
+        </li>
+        <li><strong>Infant (after 3 months):</strong>
+          <ul>
+            <li>Limited hip abduction (&lt;60°)</li>
+            <li>Asymmetric thigh/gluteal folds</li>
+            <li>Galeazzi sign — unequal knee heights (shorter on affected side)</li>
+          </ul>
+        </li>
+        <li><strong>Toddler/walking child:</strong>
+          <ul>
+            <li>Trendelenburg gait, leg-length discrepancy</li>
+            <li>Lordosis, waddling gait (bilateral)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis</div>
+      <ul>
+        <li><strong>&lt;4–6 months:</strong> <strong>Hip ultrasound</strong> — first line (bones not yet ossified)</li>
+        <li><strong>&gt;4–6 months:</strong> <strong>X-ray pelvis</strong> — femoral head ossified, AP view</li>
+        <li>Universal US screening controversial — targeted screening for risk factors</li>
+        <li>X-ray findings: shallow acetabulum, lateral displacement of femoral head, ↑ acetabular index</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Management by Age</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num teal">1</div><div><div class="step-title">&lt;6 months — Pavlik Harness ⭐</div><div class="step-body">Maintains hip in flexion/abduction. Success ~95% if started early. Worn 23h/day. Monitor with US.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">2</div><div><div class="step-title">6–18 months — Closed reduction + spica cast</div><div class="step-body">If Pavlik fails or late presentation. Under anesthesia.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">3</div><div><div class="step-title">&gt;18 months — Open reduction ± osteotomy</div><div class="step-body">Surgical. More complex. Acetabuloplasty if socket severely dysplastic.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:16px;">
+    <div class="callout-label">⚠️ Board Sequence</div>
+    Barlow = dislocates the hip. Ortolani = reduces it back. "Barlow Out, Ortolani In." Clunk = abnormal (vs. click = benign ligamentous).
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- INJURIES -->
+<!-- ══════════════════════════════════════ -->
+<section id="injuries">
+  <div class="section-label">Injuries · All Ages</div>
+  <div class="section-title">Sprains · Strains · Fractures · Dislocations · Overuse</div>
+
+  <div class="subsection-label rust">Sprains & Strains</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card rust">
+      <div class="card-title">Definitions & Grading</div>
+      <ul>
+        <li><strong>Sprain</strong> — ligament injury (bone-to-bone)</li>
+        <li><strong>Strain</strong> — muscle or tendon injury (muscle-to-bone)</li>
+        <li>Grade I: microscopic tear, mild pain, no instability</li>
+        <li>Grade II: partial tear, moderate pain, mild instability</li>
+        <li>Grade III: complete tear, severe pain, frank instability → may need surgery</li>
+        <li>In children: <strong>physeal fractures more common than ligament tears</strong> — the growth plate is weaker than the ligament!</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Management</div>
+      <ul>
+        <li><strong>RICE</strong>: Rest, Ice, Compression, Elevation</li>
+        <li>NSAIDs for pain/inflammation</li>
+        <li>Grade I–II: functional rehab, progressive weight-bearing</li>
+        <li>Grade III or physeal injury: ortho referral, possible immobilization/surgery</li>
+        <li>Always X-ray to rule out fracture in children — especially at growth plates</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-label teal">Fractures — Pediatric Pearls</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card teal">
+      <div class="card-title">Salter-Harris Classification ⭐</div>
+      <ul>
+        <li>Growth plate (physeal) fractures — unique to children</li>
+        <li><strong>Type I:</strong> through physis only — X-ray may be normal! Tenderness over growth plate = treat as fracture</li>
+        <li><strong>Type II:</strong> through physis + metaphysis — most common (75%)</li>
+        <li><strong>Type III:</strong> through physis + epiphysis — intraarticular</li>
+        <li><strong>Type IV:</strong> through metaphysis + physis + epiphysis</li>
+        <li><strong>Type V:</strong> crush injury of physis — worst prognosis, growth arrest</li>
+        <li>Mnemonic: <strong>SALTR</strong> — Straight, Above, Lower, Through, Ram (crush)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Pediatric Fracture Types</div>
+      <ul>
+        <li><strong>Greenstick:</strong> incomplete — cortex breaks one side, bends other. Like a green branch.</li>
+        <li><strong>Torus (buckle):</strong> cortex buckles on compression side — very common, stable</li>
+        <li><strong>Plastic deformation:</strong> bone bends without breaking — forearm bones</li>
+        <li><strong>Toddler's fracture:</strong> spiral tibial fracture in toddlers from twisting — normal mechanism, but consider NAT if story doesn't fit</li>
+        <li><strong>Clavicle fractures:</strong> most common fracture in children — usually mid-shaft, arm sling</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">⚠️ Non-Accidental Trauma (NAT)</div>
+      <ul>
+        <li>Fractures highly concerning for abuse:
+          <ul>
+            <li>Posterior rib fractures</li>
+            <li>Classic metaphyseal lesions (corner/bucket-handle)</li>
+            <li>Multiple fractures in different stages of healing</li>
+            <li>Spiral fractures in non-ambulatory children</li>
+            <li>Fractures inconsistent with history or developmental stage</li>
+          </ul>
+        </li>
+        <li>Always get skeletal survey + ophthalmology (retinal hemorrhages)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-label sage">Overuse Syndromes</div>
+  <div class="card-grid">
+    <div class="card sage">
+      <div class="card-title">Osgood-Schlatter Disease</div>
+      <ul>
+        <li>Apophysitis of tibial tubercle — overuse traction injury at patellar tendon insertion</li>
+        <li>Active adolescents, males 12–15, females 8–12 (growth spurts)</li>
+        <li>Anterior knee pain ↑ with activity, ↓ with rest</li>
+        <li>Tender prominence at tibial tubercle</li>
+        <li>Tx: activity modification, stretching quads/hamstrings, NSAIDs, ice — self-limited</li>
+      </ul>
+    </div>
+    <div class="card lav">
+      <div class="card-title">Sever's Disease</div>
+      <ul>
+        <li>Apophysitis of calcaneal apophysis — Achilles tendon traction on heel growth plate</li>
+        <li>Active children 8–14, peak growth spurt</li>
+        <li>Heel pain with activity, bilateral common</li>
+        <li>Tender at posterior heel with medial-lateral squeeze</li>
+        <li>Tx: heel cups/lifts, stretching Achilles, activity modification, NSAIDs</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Little League Elbow & Shoulder</div>
+      <ul>
+        <li><strong>Little League Elbow:</strong> medial epicondyle apophysitis from valgus overload — overhead/throwing athletes</li>
+        <li><strong>Little League Shoulder:</strong> proximal humeral physeal stress fracture — shoulder pain with throwing</li>
+        <li>Both: rest from throwing, PT, gradual return</li>
+        <li>Pitch count limits recommended — prevention is key</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- SCOLIOSIS -->
+<!-- ══════════════════════════════════════ -->
+<section id="scoliosis">
+  <div class="section-label">Spinal · Adolescent</div>
+  <div class="section-title">Adolescent Idiopathic Scoliosis (AIS)</div>
+  <div class="section-sub">Lateral curvature of the spine — screen every adolescent, manage based on curve magnitude.</div>
+
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Key Facts</div>
+      <ul>
+        <li>Lateral spinal curve ≥10° (Cobb angle) with vertebral rotation</li>
+        <li>Most common spinal deformity in children — 2–3% prevalence</li>
+        <li>Female > Male (progression risk); onset typically 10–12 years</li>
+        <li>"Idiopathic" — no known cause; genetic component</li>
+        <li>Right thoracic curve most common</li>
+        <li>Risk of progression: ↑ with remaining growth, larger initial curve, female sex</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Screening & Diagnosis</div>
+      <ul>
+        <li><strong>Adam's forward bend test</strong> — child bends forward, observe from behind for rib hump (trunk rotation)</li>
+        <li>Scoliometer reading ≥7° → refer for X-ray</li>
+        <li><strong>Standing PA X-ray</strong> — Cobb angle measurement</li>
+        <li>MRI if: atypical curve (left thoracic), rapid progression, neurologic symptoms, or &lt;10 years old</li>
+        <li>Leg length discrepancy can cause functional scoliosis (not structural)</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management by Cobb Angle</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num gold">1</div><div><div class="step-title">&lt;20° — Observation</div><div class="step-body">Repeat X-ray every 4–6 months during growth. No treatment needed unless progressing.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">2</div><div><div class="step-title">20–40° + still growing — Bracing ⭐</div><div class="step-body">TLSO brace (Boston brace or similar). Slows progression — does NOT correct curve. Worn 16–23h/day until skeletal maturity.</div></div></div>
+        <div class="ladder-step"><div class="step-num gold">3</div><div><div class="step-title">&gt;45–50° — Surgical fusion</div><div class="step-body">Posterior spinal fusion. Prevents cardiopulmonary compromise. Consider if &gt;40° with significant remaining growth.</div></div></div>
+      </div>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Red Flags (Not AIS)</div>
+      <ul>
+        <li>Left thoracic curve → rule out intraspinal pathology (syrinx, Chiari)</li>
+        <li>Rapid progression (&gt;5°/6 months)</li>
+        <li>Pain (AIS is usually painless)</li>
+        <li>Neurologic signs (weakness, bowel/bladder)</li>
+        <li>Age &lt;10 → consider congenital or neuromuscular scoliosis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- LOWER EXTREMITY CONDITIONS -->
+<!-- ══════════════════════════════════════ -->
+<section id="lowerext">
+  <div class="section-label">Lower Extremity · Normal Variants vs. Pathology</div>
+  <div class="section-title">Genu Varum · Genu Valgum · In-Toeing · Idiopathic Toe-Walking</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>A child's lower extremities follow a <strong>predictable developmental arc</strong> — like a pendulum swinging through normal positions before settling in the center. Newborns are bowed (physiologic genu varum), toddlers correct, then swing knock-kneed (genu valgum) around age 3–4, then straighten again by age 6–7. This is the <strong>developmental pendulum</strong> — not pathology, just timing. The question is always: is this child on the arc, or off it?</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Condition</th><th>Age / Normal Peak</th><th>Features</th><th>When to Worry</th><th>Management</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Genu Varum</strong> (bow-legs)</td>
+        <td>Normal until age 2</td>
+        <td>Legs bow outward; physiologic in infants/toddlers</td>
+        <td>Persistent after age 2, unilateral, asymmetric, short stature → Blount's disease, rickets</td>
+        <td>Reassurance if physiologic; Blount's → bracing or osteotomy</td>
+      </tr>
+      <tr>
+        <td><strong>Genu Valgum</strong> (knock-knees)</td>
+        <td>Normal age 3–5; resolves by 7–8</td>
+        <td>Knees touch, feet apart; peak age 3–4</td>
+        <td>Severe (&gt;10cm intermalleolar distance), asymmetric, persistence beyond age 8, obesity</td>
+        <td>Reassurance if physiologic; severe → ortho referral</td>
+      </tr>
+      <tr>
+        <td><strong>In-Toeing</strong></td>
+        <td>Varies by cause</td>
+        <td>Toes point inward with walking</td>
+        <td>Unilateral, painful, rigid, not improving</td>
+        <td>Cause-specific (see below)</td>
+      </tr>
+      <tr>
+        <td><strong>Idiopathic Toe-Walking</strong></td>
+        <td>Persistent after age 2–3</td>
+        <td>Walks on tiptoes, bilateral, flexible ankle</td>
+        <td>Unilateral, rigid, neurologic signs → rule out CP, autism, tethered cord, muscular dystrophy</td>
+        <td>Serial casting, Botox, AFOs; surgery if severe contracture</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subsection-label teal">In-Toeing — Causes by Age</div>
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Metatarsus Adductus (Infant)</div>
+      <ul>
+        <li>Forefoot adduction; heel normal</li>
+        <li>Most common cause of in-toeing in infants</li>
+        <li>Flexible: resolves spontaneously</li>
+        <li>Rigid: serial casting</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Internal Tibial Torsion (Toddler)</div>
+      <ul>
+        <li>Tibia rotated inward — most common cause in toddlers</li>
+        <li>Thigh-foot angle negative (&lt; –10°)</li>
+        <li>Resolves spontaneously by age 4–5</li>
+        <li>No treatment needed; reassure parents</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Femoral Anteversion (School-Age)</div>
+      <ul>
+        <li>Increased internal rotation of femur — "W sitting" posture</li>
+        <li>Most common cause in school-age children</li>
+        <li>Wide range of internal hip rotation, limited external rotation</li>
+        <li>Resolves by adolescence in most cases</li>
+        <li>No treatment for physiologic; reassure</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- HIP DISORDERS -->
+<!-- ══════════════════════════════════════ -->
+<section id="hip">
+  <div class="section-label">Pediatric Hip Disorders</div>
+  <div class="section-title">SCFE · Legg-Calvé-Perthes Disease</div>
+
+  <!-- SCFE cross-reference -->
+  <div class="scfe-link-box" style="margin-bottom:24px;">
+    <div class="icon">🦴</div>
+    <div class="text">
+      <h3>SCFE — Full Guide Available</h3>
+      <p>SCFE (Slipped Capital Femoral Epiphysis) has its own dedicated Derm Design module with full flip cards, Klein's Line diagram, treatment ladder, and differential table. See <strong>pnp-musculoskeletal-scfe.html</strong> for the complete guide. Key pearls below for quick review.</p>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-bottom:24px;">
+    <div class="card sage">
+      <div class="card-title">SCFE — Quick Review</div>
+      <ul>
+        <li>Obese adolescent, 10–16 years, male > female</li>
+        <li>Posterior-inferior slip of femoral epiphysis at physis</li>
+        <li><strong>Obligate external rotation</strong> with hip flexion (Drehmann sign)</li>
+        <li>Knee pain = referred pain — always examine the hip!</li>
+        <li>X-ray: Klein's line fails to intersect epiphysis; "ice cream off cone"</li>
+        <li>Non-weight-bearing + urgent ortho; <strong>in situ pinning</strong>, never reduce</li>
+        <li>Unstable = surgical emergency (AVN risk up to 50%)</li>
+        <li>SCFE without obesity or &lt;10 years → endocrine workup</li>
+      </ul>
+    </div>
+
+    <!-- LCPD -->
+    <div class="card lav">
+      <div class="card-title">Legg-Calvé-Perthes Disease (LCPD)</div>
+      <ul>
+        <li><strong>Idiopathic avascular necrosis</strong> of the femoral head — unknown etiology</li>
+        <li>Age: <strong>4–8 years</strong>; Male > Female (4:1)</li>
+        <li>Gradual onset limp, hip/groin pain, ↓ internal rotation and abduction</li>
+        <li>Bilateral in 10–12% (sequential, not simultaneous)</li>
+        <li>X-ray: <strong>flattened, fragmented, sclerotic femoral head</strong></li>
+        <li>MRI: most sensitive early (shows AVN before X-ray changes)</li>
+        <li>Bone scan: "cold spot" early</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">LCPD — Management</div>
+      <ul>
+        <li>Goal: <strong>containment</strong> — keep femoral head inside acetabulum while it heals and remodels</li>
+        <li>&lt;6 years: observation, activity restriction, NSAIDs — good prognosis</li>
+        <li>&gt;8 years or severe: surgical containment (femoral/pelvic osteotomy)</li>
+        <li>Bracing (Petrie cast/abduction brace) — moderate evidence</li>
+        <li>Prognosis: younger age at onset = better remodeling potential</li>
+        <li>Complications: coxa magna, early OA, femoral head deformity</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HIP DIFFERENTIAL TABLE -->
+  <div class="section-label" style="margin-top:8px;">Hip Disorders — Rapid Differential</div>
+  <table>
+    <thead>
+      <tr><th>Condition</th><th>Age</th><th>Onset</th><th>Key Feature</th><th>X-ray</th><th>Treatment</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>DDH</strong></td><td>Newborn–infant</td><td>At birth</td><td>Ortolani/Barlow+, limited abduction</td><td>Shallow acetabulum</td><td>Pavlik harness → surgery</td></tr>
+      <tr><td><strong>Transient Synovitis</strong></td><td>3–8 years</td><td>Sudden</td><td>Limp, low fever, well-appearing, self-limited</td><td>Normal (US: effusion)</td><td>NSAIDs, rest</td></tr>
+      <tr><td><strong>LCPD</strong></td><td>4–8 years</td><td>Gradual</td><td>Limp, idiopathic AVN, remodeling phase</td><td>Flattened, fragmented head</td><td>Containment ± surgery</td></tr>
+      <tr><td><strong>SCFE</strong></td><td>10–16 years</td><td>Gradual/acute</td><td>Obese, obligate ER, knee pain</td><td>Klein's line fails</td><td>In situ pinning</td></tr>
+      <tr><td><strong>Septic Arthritis</strong></td><td>Any</td><td>Sudden</td><td>Toxic, high fever, won't move hip</td><td>Joint space widening</td><td>Emergent drainage + IV abx</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- INFECTIOUS / INFLAMMATORY -->
+<!-- ══════════════════════════════════════ -->
+<section id="infectious">
+  <div class="section-label">Infectious / Inflammatory</div>
+  <div class="section-title">Osteomyelitis · Septic Arthritis · Transient Synovitis</div>
+
+  <!-- OSTEOMYELITIS -->
+  <div class="subsection-label rust">Osteomyelitis</div>
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Bone is like a <strong>fortified city with a wall (cortex) and an interior (medullary canal)</strong>. In children, the fortification is still under construction — the rich metaphyseal blood supply and relatively sluggish sinusoidal flow near the growth plate create a perfect ambush point for bacteria. Hematogenous seeding delivers the invaders, they set up camp in the metaphysis, and inflammation spreads. The pressure inside the bone builds like a sealed pipe — and if not drained, bursts through the cortex into soft tissue (subperiosteal abscess).</p>
+  </div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card rust">
+      <div class="card-title">Osteomyelitis — Key Facts</div>
+      <ul>
+        <li>Most common: <strong>hematogenous spread</strong> in children</li>
+        <li>Most common site: <strong>metaphysis</strong> of long bones (distal femur, proximal tibia, proximal humerus)</li>
+        <li>Most common organism: <strong>S. aureus</strong> (all ages)</li>
+        <li>Neonates: GBS, S. aureus, gram-negatives</li>
+        <li>Sickle cell patients: <strong>Salmonella</strong> (+ S. aureus)</li>
+        <li>Puncture wound through shoe: <strong>Pseudomonas</strong></li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Presentation & Diagnosis</div>
+      <ul>
+        <li>Fever, localized bone pain, point tenderness, soft tissue swelling, refusal to use limb</li>
+        <li>Labs: ↑ WBC, ↑ ESR, ↑ CRP (ESR + CRP together most sensitive)</li>
+        <li><strong>Blood cultures</strong> — positive in ~50%</li>
+        <li><strong>MRI</strong> — gold standard imaging (most sensitive/specific)</li>
+        <li>X-ray: normal early (&lt;7–10 days); periosteal elevation + lytic lesion later</li>
+        <li>Bone scan: sensitive early; "hot spot"</li>
+        <li>Bone aspiration/biopsy — definitive culture</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>IV antibiotics → oral step-down when clinically improving + ↓ CRP</li>
+        <li>Empiric: <strong>anti-staphylococcal coverage</strong> (nafcillin, oxacillin, or vancomycin if MRSA risk)</li>
+        <li>Total duration: 4–6 weeks</li>
+        <li>Surgical drainage if: subperiosteal abscess, no response to 48–72h IV abx, adjacent septic joint</li>
+        <li>MRSA risk: community-acquired, no prior abx, severe infection → vancomycin</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEPTIC ARTHRITIS -->
+  <div class="subsection-label teal">Septic Arthritis</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card teal">
+      <div class="card-title">Key Facts & Presentation</div>
+      <ul>
+        <li><strong>Surgical emergency</strong> — cartilage destruction begins within hours</li>
+        <li>Most common organism: <strong>S. aureus</strong></li>
+        <li>Neonate: GBS; sexually active teen: N. gonorrhoeae</li>
+        <li>Most common joint: <strong>hip</strong> (especially in young children)</li>
+        <li>Presentation: fever, toxic appearance, severe joint pain, <strong>refusal to move joint</strong>, joint held in position of comfort</li>
+        <li>Hip held in: flexion, abduction, external rotation (FABER position)</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Kocher Criteria (Hip)</div>
+      <ul>
+        <li>Used to differentiate septic arthritis from transient synovitis</li>
+        <li>4 criteria:
+          <ul>
+            <li>Fever &gt;38.5°C</li>
+            <li>Non-weight-bearing</li>
+            <li>ESR &gt;40 mm/hr</li>
+            <li>WBC &gt;12,000</li>
+          </ul>
+        </li>
+        <li>0 criteria: &lt;0.2% probability septic</li>
+        <li>1 criterion: ~3%</li>
+        <li>2 criteria: ~40%</li>
+        <li>3 criteria: ~93%</li>
+        <li>4 criteria: ~99.6% → go to OR</li>
+        <li>CRP &gt;2 mg/dL added to enhance specificity</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Diagnosis & Management</div>
+      <ul>
+        <li><strong>Joint aspiration</strong> — definitive: WBC &gt;50,000–80,000 cells/mm³, ↑ neutrophils, ↓ glucose, + culture</li>
+        <li>Ultrasound: effusion present (also seen in transient synovitis)</li>
+        <li>MRI: distinguishes septic arthritis from adjacent osteomyelitis</li>
+        <li><strong>Emergent surgical drainage + irrigation</strong></li>
+        <li>IV antibiotics: anti-staphylococcal ± vancomycin</li>
+        <li>Complications: AVN (especially hip), growth disturbance, joint destruction, chronic osteomyelitis</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRANSIENT SYNOVITIS -->
+  <div class="subsection-label sage">Transient Synovitis</div>
+  <div class="card-grid">
+    <div class="card sage">
+      <div class="card-title">Key Facts</div>
+      <ul>
+        <li>Most common cause of acute hip pain in children 3–8 years</li>
+        <li>Benign, self-limited inflammatory synovitis — often post-viral</li>
+        <li>Unilateral hip pain, limp, mildly reduced ROM</li>
+        <li><strong>Afebrile or low-grade fever</strong> — child looks well</li>
+        <li>Labs: WBC and ESR normal or mildly elevated</li>
+        <li>Ultrasound: hip effusion (indistinguishable from early septic arthritis by imaging alone)</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Transient Synovitis vs. Septic Arthritis</div>
+      <ul>
+        <li>Use <strong>Kocher criteria</strong> — if low probability, can observe</li>
+        <li>Transient synovitis: afebrile, well-appearing, able to bear weight, normal WBC/ESR</li>
+        <li>Septic arthritis: toxic, high fever, refuses to move, ↑↑ labs</li>
+        <li>If uncertain → joint aspiration</li>
+        <li>Transient synovitis management: NSAIDs, rest, follow-up in 24–48h</li>
+        <li>Resolves in 1–4 weeks; small risk of LCPD later (&lt;2%)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- CP & MUSCULAR DYSTROPHY -->
+<!-- ══════════════════════════════════════ -->
+<section id="neuro">
+  <div class="section-label">Neuromuscular · Ch 35</div>
+  <div class="section-title">Cerebral Palsy · Muscular Dystrophy</div>
+
+  <!-- CP -->
+  <div class="subsection-label lav">Cerebral Palsy (CP)</div>
+  <div class="card-grid" style="margin-bottom:28px;">
+    <div class="card lav">
+      <div class="card-title">What Is CP</div>
+      <ul>
+        <li>Group of permanent, non-progressive disorders of movement/posture from early brain injury</li>
+        <li>Most common cause of physical disability in children</li>
+        <li>Etiology: <strong>periventricular leukomalacia</strong> (premature), hypoxic-ischemic injury, stroke, infection, kernicterus</li>
+        <li>Associated: intellectual disability, epilepsy, visual/hearing impairment, feeding difficulties</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Types of CP</div>
+      <ul>
+        <li><strong>Spastic</strong> (most common — 70–80%): upper motor neuron; increased tone, hyperreflexia, scissor gait</li>
+        <li><strong>Dyskinetic/athetoid</strong>: basal ganglia injury; involuntary writhing movements; associated with kernicterus</li>
+        <li><strong>Ataxic</strong>: cerebellar; poor balance, wide-based gait</li>
+        <li><strong>Mixed</strong>: most common combination = spastic + dyskinetic</li>
+        <li>Distribution: hemiplegia, diplegia (legs &gt; arms, premature infants), quadriplegia (most severe)</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Diagnosis & Early Signs</div>
+      <ul>
+        <li>Clinical diagnosis — no single test</li>
+        <li>Early red flags: persistent primitive reflexes (Moro, ATNR beyond 6 months), hand preference before 18 months, hypotonia or hypertonia</li>
+        <li>MRI brain — identifies lesion in 80–90%</li>
+        <li>Hearing and vision screen, EEG if seizures, developmental evaluation</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management</div>
+      <ul>
+        <li>Multidisciplinary: PT, OT, speech, orthotics, social work</li>
+        <li>Spasticity: baclofen (oral/intrathecal), botulinum toxin injections, selective dorsal rhizotomy</li>
+        <li>Seizure management if epilepsy present</li>
+        <li>Feeding support: GT if aspiration risk</li>
+        <li>Ortho management: hip surveillance (dislocation risk in quadriplegia), scoliosis monitoring</li>
+        <li>Non-progressive — but complications evolve with age</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MUSCULAR DYSTROPHY -->
+  <div class="subsection-label rust">Muscular Dystrophy — Duchenne (DMD)</div>
+  <div class="card-grid">
+    <div class="card rust">
+      <div class="card-title">Duchenne Muscular Dystrophy</div>
+      <ul>
+        <li>X-linked recessive — mutation in <strong>dystrophin gene</strong> (Xp21)</li>
+        <li>Males affected; females are carriers</li>
+        <li>Onset: 2–5 years</li>
+        <li>Progressive proximal muscle weakness — legs before arms</li>
+        <li><strong>Gowers' sign</strong> — uses hands to "walk up" thighs to stand from floor ⭐</li>
+        <li>Pseudohypertrophy of calves (fat + fibrous tissue replacing muscle)</li>
+        <li>Delayed motor milestones, frequent falls, waddling gait</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Diagnosis</div>
+      <ul>
+        <li><strong>CK (creatine kinase)</strong> — massively elevated (10–100× normal) ⭐</li>
+        <li>Genetic testing: dystrophin gene deletion/duplication</li>
+        <li>Muscle biopsy: absent dystrophin staining (if genetic testing inconclusive)</li>
+        <li>EMG: myopathic pattern</li>
+        <li>Echo + ECG: cardiomyopathy monitoring</li>
+        <li>Becker MD: milder, later onset, partial dystrophin</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Management & Prognosis</div>
+      <ul>
+        <li><strong>Corticosteroids</strong> (prednisone/deflazacort) — slow progression, preserve function</li>
+        <li>Exon-skipping therapy (eteplirsen) — some mutations</li>
+        <li>PT, OT, orthotics, spinal bracing (scoliosis)</li>
+        <li>Cardiac: ACE inhibitors when cardiomyopathy develops</li>
+        <li>Pulmonary: nocturnal BiPAP as respiratory muscles weaken</li>
+        <li>Loss of ambulation: typically 9–12 years</li>
+        <li>Life expectancy: late 20s–30s with modern respiratory + cardiac support</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Board Pearls — DMD</div>
+      <ul>
+        <li>Boy with developmental delay, frequent falls, waddling gait → check CK first</li>
+        <li>Gowers' sign = proximal weakness, not cerebellar</li>
+        <li>Pseudohypertrophy of calves = classic; muscle replaced by fat/fibrosis</li>
+        <li>Becker MD = same gene, partial function, milder course</li>
+        <li>Female carrier: may have ↑ CK and mild weakness</li>
+        <li>Confirm with genetic testing before muscle biopsy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- QUICK QUIZ -->
+<!-- ══════════════════════════════════════ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">MSK Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Newborn with head tilted to left, chin rotated right. Firm mass palpated in left neck. Diagnosis and first-line treatment?</div>
+        <div class="flip-back teal">Congenital muscular torticollis (SCM fibrosis). First-line: passive stretching exercises + PT referral. Surgery only if refractory after 12–18 months.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What does CAVE stand for in clubfoot?</div>
+        <div class="flip-back rust">Cavus · Adductus · Varus · Equinus. Gold standard treatment: Ponseti serial casting + tenotomy + foot abduction brace.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Barlow test vs. Ortolani test — what does each do?</div>
+        <div class="flip-back">Barlow = adduct + posterior push → dislocates hip. Ortolani = abduct + anterior lift → reduces it (clunk). "Barlow Out, Ortolani In."</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">6-month-old with DDH not yet treated. What is first-line management?</div>
+        <div class="flip-back teal">Pavlik harness — maintains hip in flexion/abduction. 95% success if started early. Monitor with ultrasound. Worn 23h/day.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Salter-Harris Type II fracture — what bones are involved?</div>
+        <div class="flip-back sage">Physis + Metaphysis. Most common type (75%). Generally good prognosis. Growth plate + the bone above it.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What fractures are most suspicious for non-accidental trauma (child abuse)?</div>
+        <div class="flip-back rust">Posterior rib fractures, classic metaphyseal lesions (corner/bucket-handle), multiple fractures at different healing stages, spiral fractures in non-ambulatory infants.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">When does a child with scoliosis need bracing vs. surgery?</div>
+        <div class="flip-back gold">Bracing: 20–40° Cobb angle + still growing. Surgery (spinal fusion): >45–50°. Observation only: <20°. Brace slows progression, doesn't correct curve.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">4 Kocher criteria for septic arthritis of the hip — name them.</div>
+        <div class="flip-back rust">Fever >38.5°C · Non-weight-bearing · ESR >40 mm/hr · WBC >12,000. 4/4 = ~99.6% probability septic → emergent OR.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Most common organism in pediatric osteomyelitis and septic arthritis?</div>
+        <div class="flip-back">S. aureus — all ages. Exception: Salmonella in sickle cell disease; Pseudomonas in puncture wound through shoe; GBS in neonates.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">5-year-old with sudden limp, mild hip pain, low-grade fever, well-appearing, normal WBC. Ultrasound shows effusion. Diagnosis?</div>
+        <div class="flip-back teal">Transient synovitis — most common cause of acute hip pain in 3–8 year olds. Use Kocher criteria to rule out septic arthritis. Treat with NSAIDs + rest.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Boy age 3 with frequent falls, waddling gait, and calf enlargement. What test do you order first?</div>
+        <div class="flip-back rust">CK (creatine kinase) — massively elevated in Duchenne MD. Then confirm with genetic testing. Gowers' sign and pseudohypertrophy of calves are classic.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What is the difference between LCPD and SCFE in terms of age and mechanism?</div>
+        <div class="flip-back lav">LCPD: age 4–8, idiopathic AVN of femoral head, gradual limp, flattened head on X-ray. SCFE: age 10–16, obese, physis slips, Klein's line fails, obligate ER. Both cause limp — age is the key differentiator.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

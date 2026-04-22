@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Neurodevelopmental · PNP Board Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
+      --muted: #6b7280; --border: #e8e2d9;
+      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
+      --sage: #5a7a5c; --lavender: #6b5c8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
+    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--lavender); }
+
+    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+    .pill-rust { background: #fbeae4; color: var(--rust); }
+    .pill-teal { background: #e0f0f0; color: var(--teal); }
+    .pill-gold { background: #fdf3e0; color: var(--gold); }
+    .pill-sage { background: #e6ede6; color: var(--sage); }
+    .pill-lav  { background: #ede9f4; color: var(--lavender); }
+    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    section { margin-bottom: 56px; scroll-margin-top: 60px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .card.rust::before { background: var(--rust); }
+    .card.teal::before { background: var(--teal); }
+    .card.gold::before { background: var(--gold); }
+    .card.sage::before { background: var(--sage); }
+    .card.lav::before  { background: var(--lavender); }
+    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    .card li { margin-bottom: 3px; }
+
+    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
+    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
+
+    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
+    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
+    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
+    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
+    .callout-lav  { background: #ede9f4; border-left: 3px solid var(--lavender); color: #2a1a3a; }
+    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
+
+    .ladder { display: flex; flex-direction: column; }
+    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ladder-step:last-child { border-bottom: none; }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--lavender); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+    .step-num.rust { background: var(--rust); }
+    .step-num.teal { background: var(--teal); }
+    .step-num.gold { background: var(--gold); }
+    .step-num.sage { background: var(--sage); }
+    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+    .step-body { font-size: 0.83rem; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
+    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
+    tr:nth-child(even) td { background: #fdf9f6; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
+    .tag-rust { background: #fbeae4; color: var(--rust); }
+    .tag-teal { background: #e0f0f0; color: var(--teal); }
+    .tag-gold { background: #fdf3e0; color: var(--gold); }
+    .tag-sage { background: #e6ede6; color: var(--sage); }
+    .tag-lav  { background: #ede9f4; color: var(--lavender); }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
+    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
+    .flip-back { background: var(--lavender); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
+    .flip-back.rust { background: var(--rust); }
+    .flip-back.teal { background: var(--teal); }
+    .flip-back.gold { background: var(--gold); }
+    .flip-back.sage { background: var(--sage); }
+    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
+    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
+
+    @media (max-width: 640px) {
+      header, main { padding: 28px 18px; }
+      h1 { font-size: 1.9rem; }
+      nav { padding: 8px 18px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#id">Intellectual Disability</a>
+  <a href="#ld">Learning Disabilities</a>
+  <a href="#adhd">ADHD</a>
+  <a href="#autism">Autism Spectrum</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+<header>
+  <div class="eyebrow">PNP BOARD PREP · NEURODEVELOPMENTAL · EXAM III · CH 39</div>
+  <h1>Neurodevelopmental Disorders</h1>
+  <p class="subtitle">Intellectual disability · Learning disabilities · ADHD · Autism — each a different way the developing brain diverges from the expected path.</p>
+  <div class="pill-row">
+    <span class="pill pill-lav">🧠 4 Topics</span>
+    <span class="pill pill-teal">📋 DSM-5 Criteria</span>
+    <span class="pill pill-rust">⚡ ADHD Meds High-Yield</span>
+    <span class="pill pill-gold">🔍 Early Screening</span>
+    <span class="pill pill-sage">💊 Evidence-Based Tx</span>
+  </div>
+  <div class="last-updated">Last updated · April 2026</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════ -->
+<!-- INTELLECTUAL DISABILITY -->
+<!-- ══════════════════════════════════════ -->
+<section id="id">
+  <div class="section-label">Cognitive · Lifelong</div>
+  <div class="section-title">Intellectual Disability (ID)</div>
+  <div class="section-sub">Significant limitations in intellectual functioning AND adaptive behavior — both domains matter equally.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Intellectual disability is like a <strong>city where both the roads and the buildings need rebuilding</strong> — it's not just about raw cognitive processing speed (IQ), but about how well a person can navigate daily life (adaptive functioning). A child might score low on an IQ test but be remarkably independent and functional — and vice versa. The diagnosis requires both domains to be significantly limited, because the goal isn't a number — it's understanding how the child moves through the world.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">DSM-5 Diagnostic Criteria</div>
+      <ul>
+        <li>Deficits in <strong>intellectual functioning</strong> (reasoning, problem solving, planning, abstract thinking, learning) — confirmed by clinical assessment + standardized IQ testing</li>
+        <li>Deficits in <strong>adaptive functioning</strong> — conceptual, social, and practical domains — that fail to meet developmental/sociocultural standards</li>
+        <li>Onset during the <strong>developmental period</strong> (before age 18)</li>
+        <li>IQ ≤70 (approximately –2 SD below mean) — but IQ alone does NOT define the diagnosis</li>
+        <li>Severity classified by adaptive functioning, not IQ score alone</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Severity Levels</div>
+      <table style="margin:0; border:none; font-size:0.78rem;">
+        <tr><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Level</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">IQ (approx)</th><th style="background:transparent; padding:3px 5px; font-size:0.6rem;">Adaptive Function</th></tr>
+        <tr><td style="padding:3px 5px; border:none;"><strong>Mild</strong></td><td style="padding:3px 5px; border:none;">50–70</td><td style="padding:3px 5px; border:none;">Academic difficulties; may live independently with support</td></tr>
+        <tr><td style="padding:3px 5px; border:none;"><strong>Moderate</strong></td><td style="padding:3px 5px; border:none;">35–50</td><td style="padding:3px 5px; border:none;">Can learn basic skills; needs supervision</td></tr>
+        <tr><td style="padding:3px 5px; border:none;"><strong>Severe</strong></td><td style="padding:3px 5px; border:none;">20–35</td><td style="padding:3px 5px; border:none;">Limited communication; needs significant support</td></tr>
+        <tr><td style="padding:3px 5px; border:none;"><strong>Profound</strong></td><td style="padding:3px 5px; border:none;">&lt;20</td><td style="padding:3px 5px; border:none;">Minimal self-care; continuous supervision</td></tr>
+      </table>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Common Etiologies</div>
+      <ul>
+        <li><strong>Genetic:</strong> Down syndrome (Trisomy 21), Fragile X, Prader-Willi, Angelman, PKU (untreated)</li>
+        <li><strong>Prenatal:</strong> TORCH infections, alcohol (FASD most common preventable cause), teratogens, iodine deficiency</li>
+        <li><strong>Perinatal:</strong> HIE, prematurity, kernicterus</li>
+        <li><strong>Postnatal:</strong> meningitis/encephalitis, TBI, lead poisoning, severe neglect</li>
+        <li><strong>Idiopathic</strong> — no identifiable cause found in many cases</li>
+        <li>FASD (Fetal Alcohol Spectrum Disorder) — most common <strong>preventable</strong> cause of ID ⭐</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Evaluation & Management</div>
+      <ul>
+        <li>Developmental surveillance at every well-child visit</li>
+        <li>Formal developmental testing when concerns arise</li>
+        <li>Workup: chromosomal microarray (first-line genetic test), Fragile X DNA, metabolic screen, MRI brain, hearing/vision screen</li>
+        <li>Chromosomal microarray — highest yield single genetic test for unexplained ID</li>
+        <li>Early intervention (EI) — birth to age 3: PT, OT, speech</li>
+        <li>IEP (Individualized Education Plan) — school-based services</li>
+        <li>Transition planning — adult services, vocational training</li>
+        <li>Treat comorbidities: epilepsy, ADHD, anxiety, behavioral issues</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-note" style="margin-top:16px;">
+    <div class="callout-label">💡 Board Pearl</div>
+    First-line genetic test for unexplained intellectual disability = <strong>chromosomal microarray</strong> (detects copy number variants missed by standard karyotype). If negative and male → <strong>Fragile X DNA testing</strong>. If both negative → whole exome sequencing becoming more common.
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- LEARNING DISABILITIES -->
+<!-- ══════════════════════════════════════ -->
+<section id="ld">
+  <div class="section-label">Academic · School-Age</div>
+  <div class="section-title">Learning Disabilities (SLD)</div>
+  <div class="section-sub">Average or above intelligence — but a specific brain-based difficulty in reading, writing, or math.</div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Defining Characteristics</div>
+      <ul>
+        <li>Specific Learning Disorder (DSM-5) — average or above intelligence with specific academic deficits</li>
+        <li>NOT due to: intellectual disability, sensory impairment, inadequate instruction, or psychosocial adversity</li>
+        <li>Persistent difficulties despite adequate instruction</li>
+        <li>Three domains:
+          <ul>
+            <li><strong>Reading (dyslexia)</strong> — most common; phonological processing deficit</li>
+            <li><strong>Written expression (dysgraphia)</strong> — spelling, grammar, handwriting</li>
+            <li><strong>Mathematics (dyscalculia)</strong> — number sense, calculation, math reasoning</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Dyslexia — Most High-Yield</div>
+      <ul>
+        <li>Most common learning disability — ~5–15% of school-age children</li>
+        <li>Core deficit: <strong>phonological processing</strong> — difficulty matching letters to sounds</li>
+        <li>Signs: difficulty learning letter sounds, slow/inaccurate reading, poor spelling despite normal intelligence</li>
+        <li>Neurobiological origin — runs in families (50–60% heritability)</li>
+        <li>NOT caused by vision problems or "seeing letters backwards"</li>
+        <li>Strong association with ADHD (~40% comorbidity)</li>
+        <li>Diagnosis: psychoeducational testing — discrepancy between IQ and reading achievement</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Evaluation & Management</div>
+      <ul>
+        <li>Hearing and vision screen first — rule out sensory causes</li>
+        <li>Psychoeducational evaluation — standardized academic and cognitive testing</li>
+        <li>School-based: IEP or 504 Plan</li>
+        <li>Structured literacy instruction (Orton-Gillingham method) — most evidence-based for dyslexia</li>
+        <li>Accommodations: extended time, audiobooks, text-to-speech, reduced reading load</li>
+        <li>Screen for and treat comorbid ADHD, anxiety, depression</li>
+        <li>Early identification and intervention = best outcomes</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">504 Plan vs. IEP</div>
+      <ul>
+        <li><strong>504 Plan</strong> (Section 504, Rehab Act):
+          <ul>
+            <li>Accommodations only (extended time, preferential seating, assistive tech)</li>
+            <li>For students who need accommodations but not specialized instruction</li>
+            <li>Less intensive, easier to establish</li>
+          </ul>
+        </li>
+        <li><strong>IEP</strong> (Individuals with Disabilities Education Act):
+          <ul>
+            <li>Specialized instruction + services + accommodations</li>
+            <li>For students who need modified curriculum or direct special ed services</li>
+            <li>More comprehensive; annual review required</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ADHD -->
+<!-- ══════════════════════════════════════ -->
+<section id="adhd">
+  <div class="section-label">Neurodevelopmental · Most Common</div>
+  <div class="section-title">ADHD</div>
+  <div class="section-sub">The most commonly diagnosed neurodevelopmental disorder — and the one with the most board-testable medication details.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Think of executive function as a <strong>conductor leading an orchestra</strong>. The conductor's job is to cue the right instruments at the right time, keep the tempo, and suppress instruments that are playing out of turn. In ADHD, the conductor is understaffed and undertrained — not because the musicians are bad, but because the prefrontal cortex (where the conductor lives) has lower dopamine and norepinephrine signaling. Stimulant medications essentially give the conductor a megaphone and a clear score — the orchestra can finally play together.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">DSM-5 Diagnostic Criteria</div>
+      <ul>
+        <li>≥6 symptoms of inattention AND/OR ≥6 symptoms of hyperactivity-impulsivity (≥5 if age ≥17)</li>
+        <li>Symptoms present for <strong>≥6 months</strong></li>
+        <li>Onset before age <strong>12 years</strong></li>
+        <li>Symptoms present in <strong>≥2 settings</strong> (home + school) ⭐</li>
+        <li>Symptoms interfere with functioning</li>
+        <li>Not better explained by another condition</li>
+        <li><strong>Presentations:</strong> Predominantly Inattentive, Predominantly Hyperactive-Impulsive, Combined (most common)</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Inattention Symptoms</div>
+      <ul>
+        <li>Fails to pay close attention / makes careless mistakes</li>
+        <li>Difficulty sustaining attention in tasks</li>
+        <li>Does not seem to listen when spoken to directly</li>
+        <li>Does not follow through on instructions / fails to finish tasks</li>
+        <li>Difficulty organizing tasks</li>
+        <li>Avoids tasks requiring sustained mental effort</li>
+        <li>Loses things necessary for tasks</li>
+        <li>Easily distracted by extraneous stimuli</li>
+        <li>Forgetful in daily activities</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Hyperactivity-Impulsivity Symptoms</div>
+      <ul>
+        <li>Fidgets/taps hands or feet, squirms in seat</li>
+        <li>Leaves seat when expected to remain seated</li>
+        <li>Runs/climbs when inappropriate (or feels restless in teens/adults)</li>
+        <li>Unable to play quietly</li>
+        <li>"On the go" / acts as if "driven by a motor"</li>
+        <li>Talks excessively</li>
+        <li>Blurts out answers before question completed</li>
+        <li>Difficulty waiting turn</li>
+        <li>Interrupts or intrudes on others</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Evaluation</div>
+      <ul>
+        <li>Clinical diagnosis — no blood test or imaging required</li>
+        <li>Information from <strong>multiple settings</strong> ⭐ — parent AND teacher report</li>
+        <li>Standardized rating scales: <strong>Vanderbilt</strong> (most used in primary care), Conners</li>
+        <li>Rule out: vision/hearing problems, learning disabilities, anxiety, depression, thyroid disorders, sleep disorders, lead poisoning</li>
+        <li>Developmental and school history</li>
+        <li>No routine neuroimaging or EEG needed for diagnosis</li>
+        <li>Comorbidities: learning disabilities (40%), anxiety (50%), depression, ODD, conduct disorder, tic disorders, ASD</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MEDICATIONS -->
+  <div class="section-label" style="margin-top:32px;">ADHD Medications — Board Gold</div>
+  <table>
+    <thead>
+      <tr><th>Medication</th><th>Class</th><th>Age</th><th>Mechanism</th><th>Key Side Effects</th><th>Board Pearl</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Methylphenidate</strong> (Ritalin, Concerta)</td>
+        <td>Stimulant — Schedule II</td>
+        <td>≥6 years</td>
+        <td>Blocks dopamine + NE reuptake</td>
+        <td>↓ appetite, insomnia, headache, ↑ HR/BP, growth suppression (monitor height)</td>
+        <td>Most studied ADHD medication; short-acting vs long-acting options</td>
+      </tr>
+      <tr>
+        <td><strong>Amphetamine salts</strong> (Adderall, Vyvanse)</td>
+        <td>Stimulant — Schedule II</td>
+        <td>≥6 years (Adderall); ≥6 (Vyvanse)</td>
+        <td>↑ release + blocks reuptake of dopamine + NE</td>
+        <td>Same as methylphenidate; higher abuse potential</td>
+        <td>Vyvanse = prodrug (lisdexamfetamine) — lower abuse potential than Adderall</td>
+      </tr>
+      <tr>
+        <td><strong>Atomoxetine</strong> (Strattera)</td>
+        <td>Non-stimulant — SNRI</td>
+        <td>≥6 years</td>
+        <td>Selective NE reuptake inhibitor</td>
+        <td>GI upset, ↓ appetite, suicidal ideation (black box warning ⭐), hepatotoxicity</td>
+        <td>Good choice if: substance abuse concern, tics, stimulant intolerance. Takes 4–6 weeks to work.</td>
+      </tr>
+      <tr>
+        <td><strong>Guanfacine</strong> (Intuniv)</td>
+        <td>Non-stimulant — alpha-2 agonist</td>
+        <td>≥6 years</td>
+        <td>Alpha-2A agonist → ↑ prefrontal NE signaling</td>
+        <td>Sedation, hypotension, bradycardia, rebound HTN if stopped abruptly</td>
+        <td>Good for: tics, aggression, sleep, ADHD + ASD. Also used for Tourette's.</td>
+      </tr>
+      <tr>
+        <td><strong>Clonidine</strong> (Kapvay)</td>
+        <td>Non-stimulant — alpha-2 agonist</td>
+        <td>≥6 years</td>
+        <td>Alpha-2 agonist (less selective than guanfacine)</td>
+        <td>Sedation (more than guanfacine), hypotension, rebound HTN</td>
+        <td>Preferred for: bedtime use (sedating), tics, ADHD + Tourette's</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid" style="margin-top:16px;">
+    <div class="card sage">
+      <div class="card-title">Age-Based Treatment Guidelines</div>
+      <ul>
+        <li><strong>Ages 4–5:</strong> behavioral therapy FIRST — medication only if severe or inadequate response</li>
+        <li><strong>Ages 6–11:</strong> FDA-approved stimulant medication + behavioral therapy (combined best)</li>
+        <li><strong>Ages 12+:</strong> medication + behavioral therapy + academic support</li>
+        <li>Behavioral therapy alone: age-appropriate for preschool; adjunct for all ages</li>
+        <li>Parent training in behavior management — essential component at all ages</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Stimulant Contraindications & Cautions</div>
+      <ul>
+        <li>Structural heart disease or arrhythmia — cardiac screening before starting</li>
+        <li>Uncontrolled HTN</li>
+        <li>History of psychosis or bipolar disorder</li>
+        <li>Active substance use disorder (consider non-stimulant)</li>
+        <li>Tic disorder — stimulants may worsen tics (consider guanfacine or clonidine)</li>
+        <li>Growth monitoring: measure height/weight every 6 months</li>
+        <li>Cardiac history: ECG before starting if family history of sudden death</li>
+      </ul>
+    </div>
+    <div class="card lav">
+      <div class="card-title">Board Pearls — ADHD</div>
+      <ul>
+        <li>Symptoms must be in ≥2 settings — boards love this criterion</li>
+        <li>Vanderbilt scale = primary care screening tool of choice</li>
+        <li>Atomoxetine black box: suicidal ideation risk — monitor closely</li>
+        <li>Stimulants → Schedule II controlled substances → cannot call in refills</li>
+        <li>Inattentive ADHD more common in girls — often missed until later</li>
+        <li>Preschool ADHD: behavior therapy FIRST, medication second</li>
+        <li>Guanfacine = also used for tics and Tourette's syndrome</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="topic-divider">
+
+<!-- ══════════════════════════════════════ -->
+<!-- AUTISM SPECTRUM DISORDER -->
+<!-- ══════════════════════════════════════ -->
+<section id="autism">
+  <div class="section-label">Social Communication · Neurodevelopmental</div>
+  <div class="section-title">Autism Spectrum Disorder (ASD)</div>
+  <div class="section-sub">Deficits in social communication + restricted/repetitive patterns of behavior — a spectrum, not a single presentation.</div>
+
+  <div class="analogy-box">
+    <div class="label">🎨 Analogy</div>
+    <p>Imagine the social world as a <strong>complex unwritten rulebook</strong> that most people absorb unconsciously through observation and imitation. Children with ASD have a brain wired differently — they may not automatically pick up on the implicit rules: read the room, mirror facial expressions, understand unspoken subtext, or find comfort in eye contact. It's not a lack of intelligence or desire to connect — it's that the software for reading social context runs on a different operating system. The goal isn't to reprogram them into neurotypical children, but to give them tools to navigate a world designed for a different OS — and to help that world become more accommodating.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">DSM-5 Diagnostic Criteria</div>
+      <ul>
+        <li><strong>Domain A:</strong> Persistent deficits in social communication and interaction across multiple contexts:
+          <ul>
+            <li>Deficits in social-emotional reciprocity</li>
+            <li>Deficits in nonverbal communication (eye contact, gestures, facial expression)</li>
+            <li>Deficits in developing/maintaining/understanding relationships</li>
+          </ul>
+        </li>
+        <li><strong>Domain B:</strong> Restricted, repetitive patterns of behavior, interests, or activities (≥2 of 4):
+          <ul>
+            <li>Stereotyped/repetitive motor movements or speech (echolalia, lining up toys)</li>
+            <li>Insistence on sameness, inflexible routines</li>
+            <li>Highly restricted, fixated interests</li>
+            <li>Hyper- or hyporeactivity to sensory input</li>
+          </ul>
+        </li>
+        <li>Symptoms present in <strong>early developmental period</strong> (may not fully manifest until demands exceed capacity)</li>
+        <li>Symptoms cause clinically significant impairment</li>
+      </ul>
+    </div>
+    <div class="card rust">
+      <div class="card-title">Early Red Flags — When to Screen</div>
+      <ul>
+        <li>No babbling by 12 months</li>
+        <li>No pointing or waving by 12 months</li>
+        <li>No single words by 16 months</li>
+        <li>No 2-word phrases by 24 months</li>
+        <li><strong>ANY loss of language or social skills at any age</strong> ⭐</li>
+        <li>Poor eye contact</li>
+        <li>Not responding to name by 12 months</li>
+        <li>No social smile by 6 months</li>
+        <li>Unusual sensory behaviors</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">Screening & Diagnosis</div>
+      <ul>
+        <li><strong>M-CHAT-R/F</strong> (Modified Checklist for Autism in Toddlers) — screen at <strong>18 and 24 months</strong> ⭐ (AAP recommendation)</li>
+        <li>Developmental surveillance at every well-child visit</li>
+        <li>Comprehensive evaluation: developmental pediatrician, psychology, speech-language pathologist</li>
+        <li>Gold standard diagnostic tools: <strong>ADOS-2</strong> (Autism Diagnostic Observation Schedule) + ADI-R</li>
+        <li>Hearing test — always rule out first</li>
+        <li>Chromosomal microarray + Fragile X — order at diagnosis</li>
+        <li>EEG if seizures suspected</li>
+        <li>MRI — not routine unless neurologic signs</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Associated Conditions</div>
+      <ul>
+        <li>Intellectual disability (~30–40%)</li>
+        <li>Epilepsy (~30%) — especially with ID</li>
+        <li>ADHD (~50–70%) — most common comorbid neurodevelopmental</li>
+        <li>Anxiety disorders (~40%)</li>
+        <li>GI issues: constipation, food selectivity</li>
+        <li>Sleep disorders (~80%) — insomnia, dysregulated sleep-wake</li>
+        <li>Sensory processing differences</li>
+        <li>Genetic: Fragile X, Tuberous sclerosis, Angelman, Rett syndrome, 22q11 deletion, PTEN mutations</li>
+        <li>Increased risk of depression in adolescence</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px;">ASD Management — Evidence-Based</div>
+  <div class="card-grid">
+    <div class="card lav">
+      <div class="card-title">Core Interventions</div>
+      <div class="ladder">
+        <div class="ladder-step"><div class="step-num teal">1</div><div><div class="step-title">ABA (Applied Behavior Analysis) ⭐</div><div class="step-body">Most evidence-based behavioral therapy. Teaches communication, social skills, adaptive behavior through positive reinforcement. Intensive (20–40 hrs/week for young children).</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">2</div><div><div class="step-title">Speech-Language Therapy</div><div class="step-body">Core for communication deficits. AAC (augmentative/alternative communication) for nonverbal children.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">3</div><div><div class="step-title">Occupational Therapy</div><div class="step-body">Sensory integration, fine motor skills, ADLs, feeding therapy.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">4</div><div><div class="step-title">Social Skills Training</div><div class="step-body">PEERS program and similar group-based social skills instruction for school-age children/teens.</div></div></div>
+        <div class="ladder-step"><div class="step-num teal">5</div><div><div class="step-title">Educational placement</div><div class="step-body">IEP with appropriate placement — inclusion with support or specialized classroom based on needs.</div></div></div>
+      </div>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Pharmacotherapy — Targets Comorbidities</div>
+      <ul>
+        <li><strong>No medication treats core ASD features</strong> (social communication, restricted behaviors)</li>
+        <li><strong>Risperidone</strong> (FDA approved ≥5 years) and <strong>Aripiprazole</strong> (FDA approved ≥6 years) — for irritability, aggression, self-injurious behavior ⭐</li>
+        <li>Stimulants or guanfacine — for comorbid ADHD</li>
+        <li>SSRIs — for anxiety, repetitive behaviors (mixed evidence in ASD)</li>
+        <li>Melatonin — for sleep disorders (good evidence)</li>
+        <li>Antiepileptics — if seizure disorder present</li>
+      </ul>
+    </div>
+    <div class="card sage">
+      <div class="card-title">Board Pearls — ASD</div>
+      <ul>
+        <li>M-CHAT-R/F at 18 and 24 months — AAP universal screening</li>
+        <li>ANY regression of language or social skills = immediate evaluation</li>
+        <li>Hearing test FIRST before ASD evaluation — always rule out</li>
+        <li>ABA = most evidence-based behavioral intervention</li>
+        <li>Risperidone + aripiprazole = only FDA-approved meds for ASD (for irritability/aggression)</li>
+        <li>Vaccines do NOT cause autism — this is settled science with overwhelming evidence</li>
+        <li>Fragile X = most common known single-gene cause of ASD</li>
+        <li>Melatonin: safe, effective for sleep in ASD</li>
+        <li>Early intensive intervention = significantly better long-term outcomes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="section-label" style="margin-top:32px;">Neurodevelopmental Disorders — Rapid Comparison</div>
+  <table>
+    <thead>
+      <tr><th>Disorder</th><th>Core Deficit</th><th>Intelligence</th><th>Key Diagnostic Tool</th><th>First-Line Treatment</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Intellectual Disability</strong></td>
+        <td>Intellectual functioning + adaptive behavior</td>
+        <td>↓↓ (IQ ≤70)</td>
+        <td>IQ testing + adaptive scales; chromosomal microarray</td>
+        <td>Early intervention, IEP, treat comorbidities</td>
+      </tr>
+      <tr>
+        <td><strong>Learning Disability</strong></td>
+        <td>Specific academic domain (reading, writing, math)</td>
+        <td>Average or above</td>
+        <td>Psychoeducational testing (IQ vs. achievement discrepancy)</td>
+        <td>Structured literacy instruction, IEP/504 accommodations</td>
+      </tr>
+      <tr>
+        <td><strong>ADHD</strong></td>
+        <td>Attention, executive function, impulse control</td>
+        <td>Variable (often average)</td>
+        <td>Clinical + Vanderbilt rating scales (parent + teacher)</td>
+        <td>Stimulants (age ≥6); behavioral therapy (all ages; first-line age 4–5)</td>
+      </tr>
+      <tr>
+        <td><strong>ASD</strong></td>
+        <td>Social communication + restricted/repetitive behavior</td>
+        <td>Variable (30–40% have ID)</td>
+        <td>M-CHAT-R/F (screening); ADOS-2 (diagnostic)</td>
+        <td>ABA + speech + OT; risperidone/aripiprazole for irritability</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="topic-divider">
+
+<!-- QUICK QUIZ -->
+<section id="quiz">
+  <div class="section-label">Board Quick Quiz · Flip to Reveal</div>
+  <div class="section-title">Neurodevelopmental Flash Cards</div>
+  <div class="flip-hint">tap any card to flip ↓</div>
+
+  <div class="quiz-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What is the most common preventable cause of intellectual disability?</div>
+        <div class="flip-back rust">Fetal Alcohol Spectrum Disorder (FASD) — prenatal alcohol exposure. Most common preventable cause of ID in the US. No safe amount of alcohol in pregnancy.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">First-line genetic test for unexplained intellectual disability?</div>
+        <div class="flip-back">Chromosomal microarray — highest yield single genetic test. Detects copy number variants missed by standard karyotype. If negative + male → Fragile X DNA testing.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What are the DSM-5 ADHD criteria for number of symptoms, duration, and age of onset?</div>
+        <div class="flip-back teal">≥6 symptoms (≥5 if age ≥17) · Duration ≥6 months · Onset before age 12 · Present in ≥2 settings · Cause functional impairment.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">4-year-old with ADHD symptoms. What is the first-line treatment?</div>
+        <div class="flip-back sage">Behavioral therapy FIRST for ages 4–5 — specifically parent training in behavior management. Medication is second-line in preschoolers. Stimulants first-line starting age 6.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Which ADHD medication carries a black box warning for suicidal ideation?</div>
+        <div class="flip-back rust">Atomoxetine (Strattera) — non-stimulant SNRI. Black box for suicidal ideation. Monitor closely especially in first months. Takes 4–6 weeks for full effect.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Child with ADHD also has Tourette's syndrome. Which ADHD medication is preferred?</div>
+        <div class="flip-back gold">Guanfacine (Intuniv) or clonidine (Kapvay) — alpha-2 agonists treat both ADHD and tics. Stimulants may worsen tics. Atomoxetine is another option.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">When does AAP recommend universal ASD screening and with what tool?</div>
+        <div class="flip-back teal">M-CHAT-R/F at 18 months AND 24 months — AAP universal screening recommendation. Any developmental regression at any age → immediate evaluation regardless of prior screens.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What are the two FDA-approved medications for ASD — what do they treat?</div>
+        <div class="flip-back">Risperidone (age ≥5) and Aripiprazole (age ≥6) — both approved for irritability and aggression associated with ASD. No medication treats core ASD social/communication features.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">What are ASD early red flags at 12 months?</div>
+        <div class="flip-back lav">No babbling · No pointing or waving · Not responding to name · No social smile (6 months). ANY loss of language or social skills at any age = immediate referral.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Do vaccines cause autism?</div>
+        <div class="flip-back sage">No — vaccines do NOT cause autism. This is settled science with overwhelming evidence from multiple large-scale studies worldwide. The original 1998 Wakefield study was fraudulent and retracted.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">IEP vs. 504 Plan — what's the key difference?</div>
+        <div class="flip-back teal">IEP = specialized instruction + services + accommodations (IDEA). 504 = accommodations only, no specialized instruction (Rehab Act). IEP is more comprehensive; 504 is easier to establish.</div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">Most evidence-based behavioral intervention for ASD?</div>
+        <div class="flip-back rust">ABA (Applied Behavior Analysis) — most evidence-based. Intensive (20–40 hrs/week). Teaches communication, social skills, adaptive behavior through positive reinforcement. Best outcomes when started early.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
