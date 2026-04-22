@@ -1,302 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pediatrics – FNP Prep Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ola Beaucher · Pediatric Study Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
-      --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --steel: #3A5080;
-      --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE;
-      --text: #2D3748; --green: #2E7D6A; --red: #C0392B; --amber: #B7791F;
+      --cream: #faf7f2;
+      --cream-dark: #f0ebe0;
+      --card: #ffffff;
+      --ink: #2c2416;
+      --ink-soft: #5a4f3f;
+      --border: #d9cfc0;
+      --rust: #c0441f;
+      --teal: #1d6b6e;
+      --gold: #b8852a;
+      --sage: #5a7a5c;
+      --lavender: #6b5c8a;
+      --shadow: 0 10px 30px rgba(44, 36, 22, 0.08);
     }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-    a { text-decoration: none; color: inherit; }
-    /* NAV */
-    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
-    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
-    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
-    .nav-group { display: flex; align-items: stretch; list-style: none; }
-    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
-    .nav-group li a:hover, .nav-group li a.active { color: var(--accent); border-bottom-color: var(--accent); }
-    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
-    /* PAGE HEADER */
-    .page-header { max-width: 1200px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
-    .page-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
-    .page-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
-    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
-    /* CONTENT AREA */
-    .section-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem 4rem; }
-    .section-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 2rem 0 1rem; display: flex; align-items: center; gap: 0.5rem; }
-    .pdf-btn { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 0.5rem 1.2rem; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; cursor: pointer; margin-left: auto; transition: background 0.2s; }
-    .pdf-btn:hover { background: var(--steel); }
-    /* Study cards */
-    .study-card { background: var(--surface); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(30,45,78,0.07); margin-bottom: 2rem; border: 1px solid var(--border); }
-    .study-card-header { padding: 0.65rem 1.1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; color: white; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; }
-    .hdr-blue { background: #2563eb; } .hdr-red { background: #dc2626; } .hdr-purple { background: #7c3aed; }
-    .hdr-green { background: #059669; } .hdr-yellow { background: #d97706; } .hdr-pink { background: #db2777; } .hdr-dark { background: #0f172a; }
-    .study-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 14px 16px; }
-    .sg-span2 { grid-column: span 2; } .sg-span3 { grid-column: span 3; }
-    .sg-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
-    .sg-card-header { padding: 6px 11px; font-weight: 700; font-size: 9.5px; text-transform: uppercase; letter-spacing: .4px; color: white; }
-    .sg-card-body { padding: 8px 11px; display: flex; gap: 9px; align-items: flex-start; }
-    .sc-hb { background: #2563eb; } .sc-hr { background: #dc2626; } .sc-hp { background: #7c3aed; }
-    .sc-hg { background: #059669; } .sc-hy { background: #d97706; } .sc-hpk { background: #db2777; } .sc-hdk { background: #0f172a; }
-    .dl { flex: 1; }
-    .ds { margin-bottom: 6px; } .ds:last-child { margin-bottom: 0; }
-    .dn { font-weight: 700; font-size: 10px; color: #1e3a5f; margin-bottom: 1px; }
-    .aka { font-weight: 400; font-size: 8.5px; color: #64748b; }
-    .dd { font-size: 9px; color: #334155; line-height: 1.4; }
-    .pill { display: inline-block; padding: 1px 5px; border-radius: 8px; font-size: 7.5px; font-weight: 700; margin: 1px 2px 1px 0; white-space: nowrap; }
-    .pb { background: #dbeafe; color: #1d4ed8; } .pr { background: #fee2e2; color: #b91c1c; }
-    .pg { background: #d1fae5; color: #047857; } .py { background: #fef9c3; color: #a16207; }
-    .pp { background: #ede9fe; color: #6d28d9; }
-    .ip { display: flex; flex-direction: column; gap: 4px; min-width: 88px; max-width: 88px; }
-    .ip svg { width: 100%; border-radius: 6px; border: 1.5px solid #e2e8f0; height: 70px; display: block; }
-    .ic { font-size: 7px; color: #64748b; text-align: center; font-weight: 600; }
-    .sg-table { width: 100%; border-collapse: collapse; font-size: 8.5px; }
-    .sg-table th { background: #1e3a5f; color: white; padding: 3.5px 6px; text-align: left; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
-    .sg-table td { padding: 3px 6px; border-bottom: 1px solid #e2e8f0; vertical-align: top; line-height: 1.3; }
-    .sg-table tr:nth-child(even) td { background: #f1f5f9; }
-    .sg-table tr:last-child td { border-bottom: none; }
-    .mn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; padding: 8px 11px; }
-    .mn-item { background: white; border: 1.5px solid #e2e8f0; border-radius: 7px; padding: 6px 9px; text-align: center; }
-    .mn-l { font-size: 16px; font-weight: 800; color: #2563eb; line-height: 1; }
-    .mn-w { font-size: 8.5px; font-weight: 700; color: #1e293b; margin: 1px 0; }
-    .mn-d { font-size: 7.5px; color: #64748b; }
-    .dv { border: none; border-top: 1.5px dashed #e2e8f0; margin: 4px 0; }
-    .wn { background: #fff7ed; border: 1.5px solid #f97316; border-radius: 6px; padding: 4px 8px; font-size: 8px; color: #7c2d12; margin-top: 4px; }
-    /* Coming-soon topics */
-    .topics-section { max-width: 700px; margin: 1rem auto 3rem; padding: 1.5rem 2rem; background: var(--surface); border-radius: 12px; box-shadow: 0 2px 12px rgba(30,45,78,0.06); text-align: center; border: 1px solid var(--border); }
-    .topics-section h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
-    .topics-section p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
-    .topics-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-    .topic-tag { background: var(--bg2); color: var(--accent); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.35rem 0.8rem; border-radius: 999px; text-transform: uppercase; border: 1px solid var(--border); }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
-    footer a { color: var(--accent); text-decoration: none; }
-    @media print {
-      .top-nav, .pdf-btn, .topics-section { display: none !important; }
-      body { background: white; }
-      .study-card { box-shadow: none; border: 1px solid #e2e8f0; }
-      .section-container { padding: 0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      background: linear-gradient(180deg, #2c2416 0%, #362c1c 100%);
+      color: var(--cream);
+      padding: 3.5rem 1.5rem 2.75rem;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .header-inner,
+    .main-inner,
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: rgba(250, 247, 242, 0.84);
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: var(--cream);
+    }
+
+    .main-inner {
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .welcome {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .welcome-card,
+    .quick-links,
+    .module-card,
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .welcome-card {
+      padding: 1.4rem 1.35rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .welcome-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin-bottom: 0.45rem;
+    }
+
+    .welcome-card p,
+    .quick-links p,
+    .module-card p,
+    .feature-card p {
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+    }
+
+    .quick-links {
+      padding: 1.3rem 1.2rem;
+    }
+
+    .quick-links ul {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .quick-links a {
+      display: block;
+      padding: 0.78rem 0.9rem;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .quick-links a:hover,
+    .module-card:hover,
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: #bdaea0;
+    }
+
+    .dashboard-section {
+      margin-top: 2.4rem;
+    }
+
+    .dashboard-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .dashboard-sub {
+      color: var(--ink-soft);
+      margin-bottom: 1.1rem;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .module-card {
+      display: block;
+      padding: 1.15rem 1.1rem 1rem;
+      transition: transform 0.16s ease, border-color 0.16s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .module-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+    }
+
+    .module-card.rust::before { background: var(--rust); }
+    .module-card.teal::before { background: var(--teal); }
+    .module-card.gold::before { background: var(--gold); }
+    .module-card.sage::before { background: var(--sage); }
+    .module-card.lav::before  { background: var(--lavender); }
+
+    .module-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.55rem;
+    }
+
+    .module-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.38rem;
+    }
+
+    .module-footer {
+      margin-top: 0.9rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      padding: 1.1rem;
+      display: block;
+      transition: transform 0.16s ease, border-color 0.16s ease;
+    }
+
+    .feature-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.18rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      margin-top: 0.9rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      background: var(--cream-dark);
+      color: var(--ink-soft);
+      border: 1px solid var(--border);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--cream-dark);
+      padding: 1.2rem 1.5rem;
+    }
+
+    .footer-inner {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .welcome {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="top-nav-inner">
-      <a class="site-brand" href="../index.html">FNP Prep Hub</a>
-      <span class="nav-group-label">Learn</span>
-      <ul class="nav-group">
-        <li><a href="../anatomy/index.html">Anatomy</a></li>
-        <li><a href="../physiology/index.html">Physiology</a></li>
-        <li><a href="../pathophysiology/index.html">Pathophys</a></li>
-        <li><a href="../pharmacology/index.html">Pharmacology</a></li>
-        <li><a href="../pediatrics/index.html" class="active">Pediatrics</a></li>
-      </ul>
-      <div class="nav-divider"></div>
-      <span class="nav-group-label">Tools</span>
-      <ul class="nav-group">
-        <li><a href="../cases/index.html">Cases</a></li>
-        <li><a href="../flowcharts/index.html">Flowcharts</a></li>
-        <li><a href="../pharmacology/index.html">Drug Ref</a></li>
-        <li><a href="../quickguides/index.html">Quick Guides</a></li>
-      </ul>
-      <div class="nav-divider"></div>
-      <span class="nav-group-label">Practice</span>
-      <ul class="nav-group">
-        <li><a href="../tests/index.html">Mock Exams</a></li>
-        <li><a href="../flashcards/index.html">Flashcards</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="eyebrow">Ola Beaucher · PNP Board Prep</div>
+      <h1>Pediatric Study Dashboard</h1>
+      <p class="subtitle">
+        A clean, modular home base for pediatric boards review: topic pages, quick-access study sections, and room to grow into cases, games, and final review tools.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Pathophysiology</span>
+        <span class="pill">Clinical Features</span>
+        <span class="pill">Diagnostics</span>
+        <span class="pill">Management</span>
+        <span class="pill">Board Review</span>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <div class="page-header">
-    <h1 class="page-title">Pediatrics</h1>
-    <p class="page-sub">Growth &amp; development, common pediatric conditions &amp; board-tested topics for FNP exam success</p>
-    <div class="accent-line"></div>
-  </div>
-<div class="hero">
-  <div class="tag">PEDIATRICS</div>
-  <h1>Peds Board Prep</h1>
-  <p>Growth &amp; development, common pediatric conditions, and board-tested peds topics for FNP exam success.</p>
-</div>
-<div class="section-container">
-  <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0.75rem;margin:0.5rem 0 1rem">
-    <h2 class="section-title" style="margin:0">&#x1F9A0; Pediatric Dermatology &amp; Infectious Exanthems</h2>
-    <button class="pdf-btn" onclick="window.print()">&#x1F5A8; Print / Save as PDF</button>
-  </div>
-  <p style="font-size:0.85rem;color:#555;margin-bottom:1.25rem">Based on: <em>Zitelli &amp; Davis' Atlas of Pediatric Physical Diagnosis, 8th Ed., Ch. 13</em> &mdash; Michaels &amp; Williams</p>
-
-  <!-- VIRAL EXANTHEMS TABLE -->
-  <div class="study-card">
-    <div class="study-card-header hdr-blue">&#x1F52C; Viral Exanthems &ndash; Quick Reference</div>
-    <div style="padding:0 14px 12px;overflow-x:auto">
-      <table class="sg-table">
-        <tr><th>Disease</th><th>Nickname / #</th><th>Key Rash</th><th>Classic Signs</th><th>Transmission</th><th>Treatment</th></tr>
-        <tr><td><strong>Adenovirus</strong></td><td>&mdash;</td><td>Discrete blanching maculopapular; generalized</td><td>Pharyngitis + conjunctivitis + fever</td><td>Respiratory/contact; &gt;70 types</td><td>Supportive</td></tr>
-        <tr><td><strong>Coxsackievirus</strong></td><td>Hand-Foot-Mouth</td><td>Vesicles on hands/feet; oral ulcers (herpangina)</td><td>Oropharyngeal ulcers; mild fever; severe if EV-A71</td><td>Fecal-oral; highly contagious</td><td>Supportive</td></tr>
-        <tr><td><strong>HSV-1/2</strong></td><td>Herpes simplex</td><td>Grouped thick-walled vesicles on erythematous base &rarr; pustules &rarr; crust</td><td>Gingivostomatitis; herpetic whitlow; ocular HSV &rarr; urgent ophthalmology</td><td>Direct contact; latency in ganglia; recurrent</td><td>Acyclovir</td></tr>
-        <tr><td><strong>EBV</strong></td><td>Mono</td><td>Maculopapular rash 5&ndash;10%; dramatically &uarr; with amoxicillin</td><td>Pharyngitis, posterior LAD, eyelid edema (50%), splenomegaly; heterophile Ab+</td><td>Saliva; 3&ndash;5d prodrome</td><td>Supportive; avoid contact sports</td></tr>
-        <tr><td><strong>Measles (Rubeola)</strong></td><td>1st Disease</td><td>Cephalocaudal maculopapular &rarr; confluent; fades same order</td><td>3 C&apos;s: Cough/Coryza/Conjunctivitis + <strong>Koplik spots</strong> (buccal mucosa, pathognomonic!)</td><td>Airborne; 4d before &rarr; 4d after rash; incub 7&ndash;21d</td><td>Supportive; Vitamin A; MMR vaccine</td></tr>
-        <tr><td><strong>Parvovirus B19</strong></td><td>5th Disease / EI</td><td>&ldquo;Slapped cheek&rdquo; face + lacy reticular rash on limbs</td><td>Warm nontender cheeks; arthropathy; aplastic crisis (sickle cell)</td><td>Respiratory; NOT contagious once rash appears</td><td>Supportive; IVIG (aplastic crisis)</td></tr>
-        <tr><td><strong>HHV-6</strong></td><td>Roseola / 6th Disease</td><td>Rose-pink macules/papules neck &amp; trunk; appear AFTER fever breaks</td><td>High fever 3&ndash;5d &rarr; abrupt defervescence &rarr; rash; age 6&ndash;36 months</td><td>Saliva; febrile seizures possible</td><td>Supportive</td></tr>
-        <tr><td><strong>Rubella</strong></td><td>German Measles / 3rd</td><td>Fine pinkish-red maculopapular; cephalocaudal; clears in 3d</td><td>Forchheimer spots (palatal petechiae); posterior auricular LAD</td><td>Respiratory; 1wk before &ndash; 2wks after; TERATOGENIC!</td><td>Supportive; MMR vaccine</td></tr>
-        <tr><td><strong>Varicella (VZV)</strong></td><td>Chickenpox / 2nd</td><td>&ldquo;Dewdrop on rose petal&rdquo;; all stages simultaneously; centripetal</td><td>Pruritic; enanthem; superinfection (GAS), pneumonia risk</td><td>Airborne + contact; contagious until all lesions crusted</td><td>Acyclovir (immunocompromised); Vaccine</td></tr>
-        <tr><td><strong>Herpes Zoster (VZV)</strong></td><td>Shingles</td><td>Dermatomal grouped vesicles; unilateral; thoracic most common</td><td>Burning pain prodrome; postherpetic neuralgia</td><td>Reactivation of latent VZV in dorsal root ganglia</td><td>Valacyclovir/acyclovir (start EARLY)</td></tr>
-        <tr><td><strong>Gianotti-Crosti</strong></td><td>Papular acrodermatitis</td><td>Flat-topped lichenoid papules; face, arms, legs, buttocks</td><td>Low-grade fever; associated with EBV, HBV; self-limited 2&ndash;8 wks</td><td>Post-viral hypersensitivity</td><td>Supportive</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- ROW: BACTERIAL + LYMPH -->
-  <div class="study-grid" style="padding:0;margin-bottom:12px">
-    <div class="sg-card sg-span2">
-      <div class="sg-card-header sc-hr">&#x1F9EB; Bacterial Exanthems &amp; Skin/Soft Tissue Infections</div>
-      <div class="sg-card-body">
-        <div class="dl">
-          <div class="ds"><div class="dn">Scarlet Fever <span class="aka">(GAS &mdash; S. pyogenes)</span></div>
-          <div class="dd"><span class="pill pr">Sandpaper rash</span><span class="pill pr">Pastia lines</span><span class="pill pr">Strawberry tongue</span><span class="pill pr">Circumoral pallor</span><br>Rash starts trunk; desquamation 1&ndash;2 wks; Tx: <strong>Penicillin &times;10d</strong> (clindamycin if PCN-allergic)</div></div>
-          <hr class="dv">
-          <div class="ds"><div class="dn">SSSS <span class="aka">(Staphylococcal Scalded Skin Syndrome)</span></div>
-          <div class="dd"><span class="pill py">Exfoliative toxin A/B</span><span class="pill py">Nikolsky sign +</span><br>Flaccid bullae, widespread desquamation; spares mucosa (unlike TEN); Tx: anti-staphylococcal abx</div></div>
-          <hr class="dv">
-          <div class="ds"><div class="dn">Toxic Shock Syndrome (TSS)</div>
-          <div class="dd"><span class="pill pr">TSST-1 (Staph)</span><span class="pill pr">Exotoxin A (Strep)</span><br>Fever, sunburn-like rash &rarr; palm/sole desquamation, hypotension, multi-organ failure; Tx: supportive + abx + IVIG</div></div>
-          <hr class="dv">
-          <div class="ds"><div class="dn">SSTI <span class="aka">(S. aureus [MRSA] &amp; S. pyogenes)</span></div>
-          <div class="dd"><span class="pill pb">Impetigo</span> honey-crust &nbsp;<span class="pill pb">Cellulitis</span> diffuse &nbsp;<span class="pill pb">Erysipelas</span> sharp raised margin<br><span class="pill pb">Folliculitis/Furunculosis</span> &rarr; I&amp;D &plusmn; TMP-SMX or clindamycin</div></div>
+  <main>
+    <div class="main-inner">
+      <section class="welcome">
+        <div class="welcome-card">
+          <div class="section-label">Home Base</div>
+          <h2 class="welcome-title">Your main dashboard</h2>
+          <p>
+            This page is designed to replace the old crowded entry flow. Keep each major topic on its own page, and use this as the elegant front door into the whole study system.
+          </p>
         </div>
-        <div class="ip">
-          <svg viewBox="0 0 88 70" xmlns="http://www.w3.org/2000/svg"><rect width="88" height="70" fill="#fef3c7" rx="6"/><text x="44" y="12" text-anchor="middle" font-size="8" font-weight="bold" fill="#92400e" font-family="Arial">IMPETIGO</text><ellipse cx="24" cy="36" rx="14" ry="10" fill="#fbbf24" opacity=".75"/><ellipse cx="50" cy="32" rx="11" ry="8" fill="#fbbf24" opacity=".7"/><ellipse cx="65" cy="44" rx="9" ry="7" fill="#f59e0b" opacity=".8"/><ellipse cx="37" cy="49" rx="12" ry="7" fill="#d97706" opacity=".65"/><text x="44" y="62" text-anchor="middle" font-size="7" fill="#92400e" font-family="Arial" font-style="italic">Honey-yellow crusts</text></svg>
-          <div class="ic">Impetigo</div>
-          <svg viewBox="0 0 88 70" xmlns="http://www.w3.org/2000/svg"><rect width="88" height="70" fill="#fef2f2" rx="6"/><text x="44" y="11" text-anchor="middle" font-size="7" font-weight="bold" fill="#991b1b" font-family="Arial">SCARLET FEVER</text><ellipse cx="44" cy="38" rx="26" ry="24" fill="#fecaca" stroke="#f87171" stroke-width="1"/><circle cx="29" cy="29" r="2" fill="#ef4444"/><circle cx="37" cy="25" r="1.5" fill="#ef4444"/><circle cx="44" cy="28" r="2" fill="#dc2626"/><circle cx="53" cy="26" r="1.5" fill="#ef4444"/><circle cx="60" cy="31" r="2" fill="#ef4444"/><circle cx="34" cy="37" r="1.5" fill="#dc2626"/><circle cx="49" cy="35" r="2" fill="#ef4444"/><circle cx="58" cy="40" r="1.5" fill="#ef4444"/><circle cx="39" cy="46" r="2" fill="#dc2626"/><text x="44" y="64" text-anchor="middle" font-size="7" fill="#991b1b" font-family="Arial" font-style="italic">Sandpaper texture</text></svg>
-          <div class="ic">Scarlet fever</div>
+
+        <aside class="quick-links">
+          <div class="section-label">Quick Links</div>
+          <p>Jump straight into the pages you will use most.</p>
+          <ul>
+            <li><a href="pediatrics/peds_studyguide.html">Pediatrics Master Guide</a></li>
+            <li><a href="pediatrics/pnp-msk.html">MSK</a></li>
+            <li><a href="pediatrics/pnp-endocrine.html">Endocrine</a></li>
+            <li><a href="pediatrics/pnp-neurological.html">Neurology</a></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="dashboard-section">
+        <h2 class="dashboard-heading">Study Modules</h2>
+        <p class="dashboard-sub">Topic-based pages with the same visual language and a cleaner navigation system.</p>
+
+        <div class="module-grid">
+          <a class="module-card rust" href="pediatrics/peds_studyguide.html">
+            <div class="module-meta">Core Guide</div>
+            <h3 class="module-title">Pediatrics Master Study Guide</h3>
+            <p>The main pediatrics review hub with your existing structured board-prep content.</p>
+            <div class="module-footer">Open guide</div>
+          </a>
+
+          <a class="module-card sage" href="pediatrics/pnp-msk.html">
+            <div class="module-meta">Module 9</div>
+            <h3 class="module-title">Musculoskeletal</h3>
+            <p>MSK presentations, high-yield comparisons, diagnostics, and management review.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card lav" href="pediatrics/pnp-genetics.html">
+            <div class="module-meta">Module 10</div>
+            <h3 class="module-title">Genetics</h3>
+            <p>Key syndromes, inheritance patterns, classic clues, and board-style distinctions.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card gold" href="pediatrics/pnp-nutrition.html">
+            <div class="module-meta">Module 10</div>
+            <h3 class="module-title">Nutrition</h3>
+            <p>Growth, deficiencies, dietary pearls, and rapid pediatric nutrition review.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card teal" href="pediatrics/pnp-endocrine.html">
+            <div class="module-meta">Module 10</div>
+            <h3 class="module-title">Endocrine</h3>
+            <p>Thyroid, diabetes, growth issues, pubertal concerns, and endocrine differentials.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card lav" href="pediatrics/pnp-neurodevelopmental.html">
+            <div class="module-meta">Module 11</div>
+            <h3 class="module-title">Neurodevelopmental</h3>
+            <p>Milestones, developmental concerns, autism spectrum disorders, and screening anchors.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card rust" href="pediatrics/pnp-mental-health.html">
+            <div class="module-meta">Module 11</div>
+            <h3 class="module-title">Mental Health</h3>
+            <p>Pediatric psychiatric conditions, red flags, treatment categories, and exam distinctions.</p>
+            <div class="module-footer">Open module</div>
+          </a>
+
+          <a class="module-card teal" href="pediatrics/pnp-neurological.html">
+            <div class="module-meta">Module 12</div>
+            <h3 class="module-title">Neurology</h3>
+            <p>Seizures, headaches, neurologic patterns, localization clues, and urgent presentations.</p>
+            <div class="module-footer">Open module</div>
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="sg-card">
-      <div class="sg-card-header sc-hp">&#x1F534; Lymphadenitis &amp; Abscesses</div>
-      <div class="sg-card-body" style="flex-direction:column">
-        <div class="ds"><div class="dn">Soft Tissue Abscesses</div>
-        <div class="dd"><span class="pill pp">S. aureus / MRSA most common</span><br>Fluctuant, tender purulent collection; Tx: <strong>I&amp;D</strong> (first-line) &plusmn; TMP-SMX or clindamycin</div></div>
-        <hr class="dv">
-        <div class="ds"><div class="dn">Infectious Lymphadenitis</div>
-        <div class="dd"><span class="pill pp">Viral (EBV,CMV)</span><span class="pill pp">Bacterial (GAS,Staph)</span><span class="pill pp">Bartonella</span><br>Bacterial &rarr; localized; Viral &rarr; generalized; Cat-scratch: regional LAD &gt;1wk; NTM &rarr; surgical excision</div></div>
-        <hr class="dv">
-        <div class="ds"><div class="dn">Parotitis</div>
-        <div class="dd"><span class="pill pb">Mumps</span> bilateral parotid swelling; vaccine-preventable<br>Bacterial: unilateral, warm, tender; Tx: antibiotics</div></div>
-      </div>
-    </div>
-  </div>
+      </section>
 
-  <!-- ROW: TICK + TB + TORCH -->
-  <div class="study-grid" style="padding:0;margin-bottom:12px">
-    <div class="sg-card">
-      <div class="sg-card-header sc-hg">&#x1F99F; Tick-Borne Exanthems</div>
-      <div class="sg-card-body" style="flex-direction:column">
-        <div class="ds"><div class="dn">Lyme Disease <span class="aka">(Borrelia burgdorferi / Ixodes tick)</span></div>
-        <div class="dd" style="display:flex;gap:7px;align-items:flex-start">
-          <div style="min-width:82px"><svg viewBox="0 0 88 70" xmlns="http://www.w3.org/2000/svg"><rect width="88" height="70" fill="#f0fdf4" rx="6"/><text x="44" y="10" text-anchor="middle" font-size="7" font-weight="bold" fill="#14532d" font-family="Arial">LYME - EM RASH</text><circle cx="44" cy="39" r="26" fill="#fca5a5" stroke="#dc2626" stroke-width="1.5"/><circle cx="44" cy="39" r="18" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/><circle cx="44" cy="39" r="10" fill="#fca5a5" stroke="#dc2626" stroke-width="1.5"/><circle cx="44" cy="39" r="4" fill="#dc2626"/><text x="44" y="64" text-anchor="middle" font-size="6.5" fill="#14532d" font-family="Arial">Bull&apos;s-eye / EM &ge;5cm</text></svg><div class="ic">EM bull&apos;s-eye</div></div>
-          <div><span class="pill pg">Erythema migrans</span> expanding &ge;5cm from bite<br><strong>Stage 1:</strong> EM, fatigue &rarr; <strong>Stage 2:</strong> facial palsy, carditis &rarr; <strong>Stage 3:</strong> arthritis<br>Tx: <strong>Doxy &ge;8yr</strong>; amox &lt;8yr; ceftriaxone (neuro/carditis)</div>
-        </div></div>
-        <hr class="dv">
-        <div class="ds"><div class="dn">RMSF <span class="aka">(Rickettsia rickettsii / Dermacentor tick)</span></div>
-        <div class="dd" style="display:flex;gap:7px;align-items:flex-start">
-          <div style="min-width:82px"><svg viewBox="0 0 88 70" xmlns="http://www.w3.org/2000/svg"><rect width="88" height="70" fill="#fff1f2" rx="6"/><text x="44" y="10" text-anchor="middle" font-size="7" font-weight="bold" fill="#9f1239" font-family="Arial">RMSF - PETECHIAE</text><rect x="21" y="17" width="46" height="38" rx="7" fill="#fecdd3" stroke="#f43f5e" stroke-width="1.2"/><circle cx="30" cy="26" r="2.5" fill="#be123c"/><circle cx="40" cy="24" r="2" fill="#e11d48"/><circle cx="50" cy="26" r="2.5" fill="#be123c"/><circle cx="58" cy="24" r="2" fill="#e11d48"/><circle cx="34" cy="35" r="2" fill="#be123c"/><circle cx="44" cy="34" r="2.5" fill="#e11d48"/><circle cx="55" cy="35" r="2" fill="#be123c"/><circle cx="38" cy="46" r="2.5" fill="#be123c"/><circle cx="50" cy="45" r="2" fill="#e11d48"/><text x="44" y="63" text-anchor="middle" font-size="6.5" fill="#9f1239" font-family="Arial">Wrists/ankles &rarr; central</text></svg><div class="ic">Petechial rash</div></div>
-          <div><span class="pill pr">Fever + severe headache</span><br>Rash: <strong>wrists/ankles &rarr; centrally</strong>; palms &amp; soles; no rapid test<br>Tx: <strong>Doxy ALL ages &mdash; <span style="color:#dc2626">DO NOT DELAY!</span></strong></div>
-        </div></div>
-        <div class="wn">&#x26A0;&#xFE0F; <strong>RMSF:</strong> Start doxycycline immediately. Delay = significantly &uarr; mortality!</div>
-      </div>
+      <section class="dashboard-section">
+        <h2 class="dashboard-heading">Expansion Space</h2>
+        <p class="dashboard-sub">These can be built next without changing your existing content structure.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3 class="feature-title">Jeopardy Review Games</h3>
+            <p>A dedicated interactive review page for recall practice before exams.</p>
+            <span class="coming-soon">Coming soon</span>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Final Boss Cases</h3>
+            <p>Hard case-based pediatric scenarios with diagnosis, next step, and complication logic.</p>
+            <span class="coming-soon">Coming soon</span>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Rapid Cheat Sheets</h3>
+            <p>One-page quick references for milestones, red flags, endocrine clues, and emergencies.</p>
+            <span class="coming-soon">Coming soon</span>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="sg-card">
-      <div class="sg-card-header sc-hy">&#x1FAC1; TB &amp; Bone/Joint Infections</div>
-      <div class="sg-card-body" style="flex-direction:column">
-        <div class="ds"><div class="dn">Tuberculosis <span class="aka">(M. tuberculosis &mdash; airborne)</span></div>
-        <div class="dd"><strong>LTBI:</strong> TST/IGRA+, asymptomatic; Tx: INH&times;9mo or RIF&times;4mo<br><strong>Active TB:</strong> Cough &gt;3wks, fever, night sweats, weight loss, hemoptysis; CXR: upper lobe &plusmn; cavitation<br><strong>Active Tx: RIPE</strong>&times;2mo &rarr; RI&times;4mo</div></div>
-        <hr class="dv">
-        <div class="ds"><div class="dn">Osteomyelitis &amp; Septic Arthritis</div>
-        <div class="dd"><span class="pill py">S. aureus most common</span><span class="pill py">Neonates: GBS</span><br><strong>Osteo:</strong> point tenderness, &uarr;ESR/CRP; MRI most sensitive<br><strong>Septic arthritis:</strong> hot swollen joint, &darr;ROM &rarr; urgent drainage + IV abx</div></div>
-      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Ola Beaucher · Pediatric Boards</span>
+      <span>Built as a modular study system</span>
     </div>
-    <div class="sg-card">
-      <div class="sg-card-header sc-hpk">&#x1F476; Congenital &amp; Perinatal &mdash; TORCH</div>
-      <div class="sg-card-body" style="flex-direction:column">
-        <table class="sg-table">
-          <tr><th>Pathogen</th><th>Classic Neonatal Findings</th></tr>
-          <tr><td><strong>T</strong>oxoplasma</td><td>Chorioretinitis, hydrocephalus, intracranial calcifications</td></tr>
-          <tr><td><strong>O</strong> &ndash; Syphilis</td><td>Snuffles, palm/sole rash, periostitis, hepatosplenomegaly</td></tr>
-          <tr><td><strong>O</strong> &ndash; Parvo B19</td><td>Hydrops fetalis; fetal aplastic crisis</td></tr>
-          <tr><td><strong>R</strong>ubella (1st tri!)</td><td>Cataracts, PDA/cardiac defects, SNHL, IUGR</td></tr>
-          <tr><td><strong>C</strong>MV (most common)</td><td>Periventricular calcifications, SNHL, petechiae</td></tr>
-          <tr><td><strong>H</strong>SV-2 neonatal</td><td>Vesicular rash, encephalitis &rarr; IV acyclovir URGENTLY</td></tr>
-        </table>
-        <div class="wn" style="margin-top:5px">&#x26A0;&#xFE0F; Subclinical maternal infection &rarr; <strong>severe neonatal disease!</strong></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MNEMONICS -->
-  <div class="study-card">
-    <div class="study-card-header hdr-dark">&#x1F9E0; High-Yield Pearls &amp; Mnemonics</div>
-    <div class="mn-grid">
-      <div class="mn-item"><div class="mn-l">3 C&apos;s</div><div class="mn-w">Measles Prodrome</div><div class="mn-d"><strong>C</strong>ough &middot; <strong>C</strong>oryza &middot; <strong>C</strong>onjunctivitis + Koplik spots (pathognomonic!)</div></div>
-      <div class="mn-item"><div class="mn-l">TORCH</div><div class="mn-w">Congenital Infections</div><div class="mn-d">Toxoplasma &middot; Other (Syphilis/Parvo) &middot; Rubella &middot; CMV &middot; HSV-2</div></div>
-      <div class="mn-item"><div class="mn-l">RIPE</div><div class="mn-w">Active TB Induction (2 mo)</div><div class="mn-d"><strong>R</strong>ifampin &middot; <strong>I</strong>soniazid &middot; <strong>P</strong>yrazinamide &middot; <strong>E</strong>tambutol &rarr; then RI &times; 4 more months</div></div>
-      <div class="mn-item"><div class="mn-l">1&ndash;6</div><div class="mn-w">Numbered Exanthems</div><div class="mn-d">1 Measles &middot; 2 Scarlet Fever &middot; 3 Rubella &middot; 4 Duke&apos;s &middot; <strong>5 Parvovirus B19</strong> &middot; <strong>6 Roseola (HHV-6)</strong></div></div>
-      <div class="mn-item"><div class="mn-l">Doxy</div><div class="mn-w">Tick-Borne Rx</div><div class="mn-d">Lyme + RMSF &rarr; doxycycline. RMSF: treat empirically NOW &mdash; no rapid test available!</div></div>
-      <div class="mn-item"><div class="mn-l">&#x26A1; Traps</div><div class="mn-w">Don&apos;t Miss!</div><div class="mn-d">Amox rash + sore throat = EBV (not allergy!) &middot; Parvo NOT contagious once rash appears &middot; Nikolsky+ in child = SSSS (not TEN)</div></div>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- EXAM RESOURCES SECTION -->
-<div class="topics-section" style="margin-top:2rem">
-  <h3 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:1rem">&#x1F4DA; Exam Resources</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem">
-    <a href="peds_studyguide.html" style="background:var(--surface);border:1.5px solid var(--accent);border-radius:10px;padding:1rem 1.25rem;text-decoration:none;display:block;transition:box-shadow 0.2s" onmouseover="this.style.boxShadow='0 4px 16px rgba(74,127,165,0.15)'" onmouseout="this.style.boxShadow='none'">
-      <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.4rem">&#x1F4D6; Study Guide</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem">Peds Exam III &#8212; Modules 8&#8211;10</div>
-      <div style="font-size:.82rem;color:var(--slate)">Structural anomalies, GI/GU, musculoskeletal, chromosomal disorders, endocrine, growth</div>
-    </a>
-    <a href="../tests/pediatrics-1.html" style="background:var(--surface);border:1.5px solid #059669;border-radius:10px;padding:1rem 1.25rem;text-decoration:none;display:block;transition:box-shadow 0.2s" onmouseover="this.style.boxShadow='0 4px 16px rgba(5,150,105,0.15)'" onmouseout="this.style.boxShadow='none'">
-      <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#059669;margin-bottom:.4rem">&#x2705; Practice Quiz</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem">Pediatrics &#8212; Set 1</div>
-      <div style="font-size:.82rem;color:var(--slate)">Milestones, vaccines, fever, common conditions (10 questions)</div>
-    </a>
-    <a href="../tests/pediatrics-3.html" style="background:var(--surface);border:1.5px solid #7c3aed;border-radius:10px;padding:1rem 1.25rem;text-decoration:none;display:block;transition:box-shadow 0.2s" onmouseover="this.style.boxShadow='0 4px 16px rgba(124,58,237,0.15)'" onmouseout="this.style.boxShadow='none'">
-      <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:.4rem">&#x2705; Practice Quiz</div>
-      <div style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem">Pediatrics &#8212; Exam III (GI/GU)</div>
-      <div style="font-size:.82rem;color:var(--slate)">GI structural, GU, dysmenorrhea &#8212; Ch 26, 28, 29 (20 questions)</div>
-    </a>
-  </div>
-</div>
-
-<!-- COMING SOON TOPICS -->
-<div class="topics-section">
-  <h3>&#x1F4CC; More Topics Coming Soon</h3>
-  <p>This section will continue to grow. Check back for more pediatric board review content.</p>
-  <div class="topics-list">
-    <span class="topic-tag">Growth &amp; Development</span>
-    <span class="topic-tag">Vaccines &amp; Immunizations</span>
-    <span class="topic-tag">Newborn Assessment</span>
-    <span class="topic-tag">Respiratory Conditions</span>
-    <span class="topic-tag">Ear, Nose &amp; Throat</span>
-    <span class="topic-tag">Developmental Milestones</span>
-    <span class="topic-tag">Behavioral Health</span>
-    <span class="topic-tag">GI Disorders</span>
-    <span class="topic-tag">Congenital Conditions</span>
-  </div>
-</div>
-  <footer>
-    <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
-    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
   </footer>
 </body>
 </html>
