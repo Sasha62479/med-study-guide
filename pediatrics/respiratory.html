@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Respiratory | Derm Design Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --text:#1a1a2e;
+    --muted:#6b7280;
+    --border:#e8e2d9;
+    --soft:#f3ede4;
+
+    --rust:#c0441f;
+    --teal:#1d6b6e;
+    --gold:#b8852a;
+    --sage:#5a7a5c;
+    --lavender:#6b5c8a;
+
+    --shadow: 0 1px 2px rgba(26,26,46,0.04), 0 4px 12px rgba(26,26,46,0.04);
+    --shadow-hover: 0 2px 4px rgba(26,26,46,0.06), 0 12px 28px rgba(26,26,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 96px}
+
+  /* ---------- Breadcrumb ---------- */
+  .crumbs{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;text-transform:uppercase}
+  .crumbs a:hover{color:var(--rust)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+
+  /* ---------- Header ---------- */
+  .hero{margin-bottom:40px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;color:var(--rust);text-transform:uppercase;margin-bottom:14px;font-weight:500}
+  h1{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+  .lede{font-size:1.05rem;color:var(--muted);max-width:680px;margin-bottom:22px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em}
+  .pill.rust{background:#fbe7df;color:var(--rust)}
+  .pill.teal{background:#d9ebec;color:var(--teal)}
+  .pill.gold{background:#f3e3c3;color:var(--gold)}
+  .pill.sage{background:#e0ead9;color:var(--sage)}
+  .pill.lav{background:#e3dfe8;color:var(--lavender)}
+
+  /* ---------- In-page TOC ---------- */
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:56px;box-shadow:var(--shadow)}
+  .toc-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .toc-links{display:flex;flex-wrap:wrap;gap:8px}
+  .toc-links a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--text);transition:all .2s ease;background:var(--bg)}
+  .toc-links a:hover{border-color:var(--rust);color:var(--rust);background:#fbe7df}
+
+  /* ---------- Section headers ---------- */
+  .section{margin-bottom:56px;scroll-margin-top:24px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+  .section-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.005em}
+  .section-subtitle{font-size:.92rem;color:var(--muted);margin-top:4px;font-weight:400}
+  .section-tag{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+  /* ---------- Split (upper vs lower airway) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .split-col{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .split-col.upper{border-top:3px solid var(--gold)}
+  .split-col.lower{border-top:3px solid var(--teal)}
+  .split-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .split-icon{font-size:1.3rem}
+  .split-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.1rem}
+  .split-mnemonic{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:18px;padding:8px 12px;background:var(--soft);border-radius:8px;display:inline-block}
+  .condition-list{display:flex;flex-direction:column;gap:8px}
+  .condition{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit}
+  .condition:hover{border-color:var(--rust);background:var(--card);transform:translateX(3px);box-shadow:var(--shadow)}
+  .condition-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);min-width:22px;font-weight:500}
+  .condition-body{flex:1}
+  .condition-name{font-weight:600;font-size:.95rem;margin-bottom:2px}
+  .condition-key{font-size:.82rem;color:var(--muted);line-height:1.35}
+
+  /* ---------- Standard card grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;cursor:pointer;transition:all .25s ease;overflow:hidden;text-decoration:none;color:inherit;display:block}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .card.rust::before{background:var(--rust)}
+  .card.gold::before{background:var(--gold)}
+  .card.sage::before{background:var(--sage)}
+  .card.lav::before{background:var(--lavender)}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .card-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.005em}
+  .card-desc{font-size:.88rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:'DM Mono',monospace;font-size:.68rem;padding:3px 8px;border-radius:4px;background:var(--soft);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .tag.hot{background:#fbe7df;color:var(--rust)}
+  .tag.teal{background:#d9ebec;color:var(--teal)}
+  .tag.sage{background:#e0ead9;color:var(--sage)}
+
+  /* ---------- Breath sounds table (parallel to murmurs) ---------- */
+  .sound-table{width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border-collapse:separate;border-spacing:0}
+  .sound-table th{text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--border);font-weight:500}
+  .sound-table td{padding:16px 18px;border-bottom:1px solid var(--border);font-size:.9rem;vertical-align:top}
+  .sound-table tr:last-child td{border-bottom:0}
+  .sound-table tr:hover td{background:var(--bg)}
+  .sound-name{font-weight:600;color:var(--text)}
+  .sound-location{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
+
+  /* ---------- Pearls strip ---------- */
+  .pearls-wrap{background:linear-gradient(180deg, #f3e3c3 0%, #faf7f2 100%);border:1px solid #e8d5a8;border-radius:16px;padding:28px 24px}
+  .pearls-wrap .section-head{border-bottom-color:#ddc89a}
+  .pearls-wrap .section-title{color:var(--gold)}
+  .pearls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .pearl{background:var(--card);border:1px solid #e8d5a8;border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;transition:all .2s ease}
+  .pearl:hover{transform:translateX(3px);box-shadow:var(--shadow-hover)}
+  .pearl-label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .pearl-text{font-size:.9rem;line-height:1.45}
+  .pearl-text strong{color:var(--text);font-weight:600}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px){
+    .wrap{padding:32px 18px 64px}
+    h1{font-size:2.2rem}
+    .split{grid-template-columns:1fr}
+    .section{margin-bottom:44px}
+    .sound-table{display:block;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../library.html">Library</a><span class="sep">/</span>
+    <a href="pediatrics-dashboard.html">Pediatric Care</a><span class="sep">/</span>
+    <span>Respiratory</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">Pediatric Care · Body Systems</div>
+    <h1>Respiratory</h1>
+    <p class="lede">Pediatric airway disease — from the nose to the alveoli. Organized the way pediatricians actually think about it: upper airway obstruction vs. lower airway pathology, then chronic disease, then breath sound recognition.</p>
+    <div class="pills">
+      <span class="pill gold">🗣️ 5 Upper Airway</span>
+      <span class="pill teal">🫁 5 Lower Airway</span>
+      <span class="pill sage">📆 3 Chronic</span>
+      <span class="pill rust">🎧 6 Breath Sounds</span>
+    </div>
+  </header>
+
+  <!-- In-page TOC -->
+  <div class="toc">
+    <div class="toc-label">In This Module</div>
+    <div class="toc-links">
+      <a href="#acute">Acute Airway Disease</a>
+      <a href="#chronic">Chronic Respiratory</a>
+      <a href="#sounds">Breath Sounds Reference</a>
+      <a href="#apnea">Apnea & Sleep</a>
+      <a href="#pearls">Board Pearls</a>
+    </div>
+  </div>
+
+  <!-- SECTION: Upper vs Lower airway split -->
+  <section id="acute" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Acute Airway Disease</div>
+        <div class="section-subtitle">Localize the problem first: is it above or below the thoracic inlet? Stridor = upper. Wheeze = lower.</div>
+      </div>
+      <div class="section-tag">High Yield</div>
+    </div>
+
+    <div class="split">
+
+      <!-- UPPER AIRWAY -->
+      <div class="split-col upper">
+        <div class="split-header">
+          <span class="split-icon">🗣️</span>
+          <div class="split-name">Upper Airway</div>
+        </div>
+        <div class="split-mnemonic">Inspiratory stridor · barky cough · drooling = the danger sign</div>
+
+        <div class="condition-list">
+          <a href="croup.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Croup (Laryngotracheitis)</div>
+              <div class="condition-key">Parainfluenza · barky "seal" cough · steeple sign · dex + epi if severe</div>
+            </div>
+          </a>
+          <a href="epiglottitis.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Epiglottitis</div>
+              <div class="condition-key">Hib (now rare) · tripod, drooling, toxic · <strong>do NOT examine throat</strong> · OR intubation</div>
+            </div>
+          </a>
+          <a href="bacterial-tracheitis.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Bacterial Tracheitis</div>
+              <div class="condition-key">S. aureus · looks like severe croup not responding to tx · ICU + abx</div>
+            </div>
+          </a>
+          <a href="foreign-body.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Foreign Body Aspiration</div>
+              <div class="condition-key">Toddler · sudden onset · unilateral wheeze · bronchoscopy</div>
+            </div>
+          </a>
+          <a href="retropharyngeal-abscess.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">Retropharyngeal Abscess</div>
+              <div class="condition-key">Neck stiffness · refuses to extend neck · lateral neck XR widens</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- LOWER AIRWAY -->
+      <div class="split-col lower">
+        <div class="split-header">
+          <span class="split-icon">🫁</span>
+          <div class="split-name">Lower Airway</div>
+        </div>
+        <div class="split-mnemonic">Expiratory wheeze · crackles · tachypnea · accessory muscles</div>
+
+        <div class="condition-list">
+          <a href="bronchiolitis.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Bronchiolitis</div>
+              <div class="condition-key">RSV · &lt;2 yrs · wheeze + crackles · supportive care only</div>
+            </div>
+          </a>
+          <a href="pneumonia-peds.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Pneumonia</div>
+              <div class="condition-key">Age dictates bug: Strep pneumo, Mycoplasma, viral · amox first-line</div>
+            </div>
+          </a>
+          <a href="pertussis.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Pertussis</div>
+              <div class="condition-key">Paroxysmal cough + whoop + post-tussive emesis · azithromycin</div>
+            </div>
+          </a>
+          <a href="asthma-exacerbation.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Acute Asthma Exacerbation</div>
+              <div class="condition-key">Albuterol → steroids → Mg · silent chest = impending failure</div>
+            </div>
+          </a>
+          <a href="viral-wheeze.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">Viral-Induced Wheeze</div>
+              <div class="condition-key">Preschooler · episodic · not always asthma · watchful waiting</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: Chronic respiratory -->
+  <section id="chronic" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Chronic Respiratory Disease</div>
+        <div class="section-subtitle">Long-term airway pathology requiring ongoing management.</div>
+      </div>
+      <div class="section-tag">3 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="asthma.html" class="card teal">
+        <div class="card-title">Asthma</div>
+        <div class="card-desc">Reversible airway obstruction · step-up therapy · SABA + ICS foundation · check technique & adherence</div>
+        <div class="card-tags">
+          <span class="tag teal">Common</span>
+          <span class="tag">GINA Steps</span>
+        </div>
+      </a>
+
+      <a href="cystic-fibrosis.html" class="card rust">
+        <div class="card-title">Cystic Fibrosis</div>
+        <div class="card-desc">CFTR mutation · recurrent PNA, Pseudomonas, steatorrhea, FTT · sweat chloride &gt;60 · CFTR modulators</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+          <span class="tag">Genetic</span>
+        </div>
+      </a>
+
+      <a href="bpd.html" class="card lav">
+        <div class="card-title">Bronchopulmonary Dysplasia</div>
+        <div class="card-desc">Chronic lung disease of prematurity · O2 dependence &gt;28 days · palivizumab for RSV prophylaxis</div>
+        <div class="card-tags">
+          <span class="tag">Preemie</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Breath sounds quick reference -->
+  <section id="sounds" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Breath Sounds — Quick Reference</div>
+        <div class="section-subtitle">Pattern match the sound, localize the pathology. The bedside high-yield table.</div>
+      </div>
+      <div class="section-tag">Pattern Recognition</div>
+    </div>
+
+    <table class="sound-table">
+      <thead>
+        <tr>
+          <th>Sound</th>
+          <th>Where / Timing</th>
+          <th>Classic Cause</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="sound-name">Stridor</div>
+            <span class="sound-location">Inspiratory · upper airway</span>
+          </td>
+          <td>Loud, harsh, monophonic</td>
+          <td>Croup, epiglottitis, FB, laryngomalacia</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sound-name">Wheeze</div>
+            <span class="sound-location">Expiratory · lower airway</span>
+          </td>
+          <td>Musical, polyphonic, diffuse</td>
+          <td>Asthma, bronchiolitis, viral wheeze</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sound-name">Unilateral wheeze</div>
+            <span class="sound-location">One side only</span>
+          </td>
+          <td>Localized, monophonic</td>
+          <td>Foreign body until proven otherwise</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sound-name">Crackles (rales)</div>
+            <span class="sound-location">End-inspiratory · alveolar</span>
+          </td>
+          <td>Fine, wet, "velcro"</td>
+          <td>Pneumonia, CHF, pulmonary edema</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sound-name">Grunting</div>
+            <span class="sound-location">Expiratory · neonate</span>
+          </td>
+          <td>Self-applied PEEP</td>
+          <td>RDS, pneumonia, severe distress</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="sound-name">Silent chest</div>
+            <span class="sound-location">Severe asthma</span>
+          </td>
+          <td>No air movement</td>
+          <td><strong>Impending respiratory failure · emergency</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION: Apnea & Sleep -->
+  <section id="apnea" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Apnea & Sleep Disorders</div>
+        <div class="section-subtitle">Less common but board-favorite territory.</div>
+      </div>
+      <div class="section-tag">3 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="osa-peds.html" class="card teal">
+        <div class="card-title">Obstructive Sleep Apnea</div>
+        <div class="card-desc">Snoring, witnessed apnea, enlarged tonsils · polysomnography · T&amp;A first-line</div>
+        <div class="card-tags">
+          <span class="tag teal">Common</span>
+        </div>
+      </a>
+
+      <a href="brue.html" class="card rust">
+        <div class="card-title">BRUE</div>
+        <div class="card-desc">Brief Resolved Unexplained Event · stratify low vs high risk · replaced "ALTE"</div>
+        <div class="card-tags">
+          <span class="tag hot">Updated Guideline</span>
+        </div>
+      </a>
+
+      <a href="apnea-prematurity.html" class="card sage">
+        <div class="card-title">Apnea of Prematurity</div>
+        <div class="card-desc">&lt;37 wks · immature respiratory drive · caffeine citrate · resolves by 36–40 wks PMA</div>
+        <div class="card-tags">
+          <span class="tag">Neonatal</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Board Pearls -->
+  <section id="pearls" class="section">
+    <div class="pearls-wrap">
+      <div class="section-head">
+        <div class="section-title">✨ Board Pearls</div>
+        <div class="section-tag">Don't Miss These</div>
+      </div>
+      <div class="pearls-grid">
+        <div class="pearl">
+          <div class="pearl-label">Don't examine the throat</div>
+          <div class="pearl-text">Toxic child, drooling, tripod posture → suspect <strong>epiglottitis</strong>. Leave the child with a parent, call anesthesia, go to OR. A tongue blade can cause full obstruction.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Bronchiolitis treatment</div>
+          <div class="pearl-text"><strong>Supportive care only</strong>. No routine albuterol, no steroids, no antibiotics. This is the most tested "treatment = none" question in peds.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Silent chest</div>
+          <div class="pearl-text">In a wheezing child, loss of audible wheeze is <strong>ominous</strong>, not reassuring. Means too little air is moving to make sound. Call PICU.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Croup severity</div>
+          <div class="pearl-text">Stridor <em>at rest</em> = moderate-severe. Give <strong>racemic epi</strong> + observe 3–4 hrs (rebound risk) + dexamethasone. Mild = dex alone.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Pneumonia bugs by age</div>
+          <div class="pearl-text">Neonate: GBS, E. coli · 1 mo–5 yr: viral &gt; Strep pneumo · School age: <strong>Mycoplasma</strong>, Strep pneumo · Any age with Pseudomonas/Staph = think <strong>CF</strong>.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Unilateral wheeze</div>
+          <div class="pearl-text">Focal, one-sided wheeze in a toddler = <strong>foreign body</strong> until proven otherwise. Inspiratory/expiratory CXR or fluoroscopy. Bronchoscopy to retrieve.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>olabeaucher.com · Pediatrics · Respiratory</div>
+    <div>Last updated · April 2026</div>
+  </footer>
+</div>
+</body>
+</html>

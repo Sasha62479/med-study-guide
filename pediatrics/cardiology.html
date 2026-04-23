@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Cardiology | Derm Design Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --text:#1a1a2e;
+    --muted:#6b7280;
+    --border:#e8e2d9;
+    --soft:#f3ede4;
+
+    --rust:#c0441f;
+    --teal:#1d6b6e;
+    --gold:#b8852a;
+    --sage:#5a7a5c;
+    --lavender:#6b5c8a;
+
+    --shadow: 0 1px 2px rgba(26,26,46,0.04), 0 4px 12px rgba(26,26,46,0.04);
+    --shadow-hover: 0 2px 4px rgba(26,26,46,0.06), 0 12px 28px rgba(26,26,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 96px}
+
+  /* ---------- Breadcrumb ---------- */
+  .crumbs{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;text-transform:uppercase}
+  .crumbs a:hover{color:var(--teal)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+
+  /* ---------- Header ---------- */
+  .hero{margin-bottom:40px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:14px;font-weight:500}
+  h1{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+  .lede{font-size:1.05rem;color:var(--muted);max-width:680px;margin-bottom:22px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em}
+  .pill.rust{background:#fbe7df;color:var(--rust)}
+  .pill.teal{background:#d9ebec;color:var(--teal)}
+  .pill.gold{background:#f3e3c3;color:var(--gold)}
+  .pill.sage{background:#e0ead9;color:var(--sage)}
+  .pill.lav{background:#e3dfe8;color:var(--lavender)}
+
+  /* ---------- In-page TOC ---------- */
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:56px;box-shadow:var(--shadow)}
+  .toc-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .toc-links{display:flex;flex-wrap:wrap;gap:8px}
+  .toc-links a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--text);transition:all .2s ease;background:var(--bg)}
+  .toc-links a:hover{border-color:var(--teal);color:var(--teal);background:#d9ebec}
+
+  /* ---------- Section headers ---------- */
+  .section{margin-bottom:56px;scroll-margin-top:24px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+  .section-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.005em}
+  .section-subtitle{font-size:.92rem;color:var(--muted);margin-top:4px;font-weight:400}
+  .section-tag{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+  /* ---------- Split CHD section (cyanotic vs acyanotic) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .split-col{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .split-col.cyan{border-top:3px solid var(--lavender)}
+  .split-col.acyan{border-top:3px solid var(--rust)}
+  .split-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .split-icon{font-size:1.3rem}
+  .split-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.1rem}
+  .split-mnemonic{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:18px;padding:8px 12px;background:var(--soft);border-radius:8px;display:inline-block}
+  .condition-list{display:flex;flex-direction:column;gap:8px}
+  .condition{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit}
+  .condition:hover{border-color:var(--teal);background:var(--card);transform:translateX(3px);box-shadow:var(--shadow)}
+  .condition-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);min-width:22px;font-weight:500}
+  .condition-body{flex:1}
+  .condition-name{font-weight:600;font-size:.95rem;margin-bottom:2px}
+  .condition-key{font-size:.82rem;color:var(--muted);line-height:1.35}
+
+  /* ---------- Standard card grid (acquired + arrhythmias) ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;cursor:pointer;transition:all .25s ease;overflow:hidden;text-decoration:none;color:inherit;display:block}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .card.rust::before{background:var(--rust)}
+  .card.gold::before{background:var(--gold)}
+  .card.sage::before{background:var(--sage)}
+  .card.lav::before{background:var(--lavender)}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .card-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.005em}
+  .card-desc{font-size:.88rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:'DM Mono',monospace;font-size:.68rem;padding:3px 8px;border-radius:4px;background:var(--soft);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .tag.hot{background:#fbe7df;color:var(--rust)}
+  .tag.teal{background:#d9ebec;color:var(--teal)}
+
+  /* ---------- Murmurs table ---------- */
+  .murmur-table{width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border-collapse:separate;border-spacing:0}
+  .murmur-table th{text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--border);font-weight:500}
+  .murmur-table td{padding:16px 18px;border-bottom:1px solid var(--border);font-size:.9rem;vertical-align:top}
+  .murmur-table tr:last-child td{border-bottom:0}
+  .murmur-table tr:hover td{background:var(--bg)}
+  .murmur-name{font-weight:600;color:var(--text)}
+  .murmur-lesion{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
+
+  /* ---------- Pearls strip ---------- */
+  .pearls-wrap{background:linear-gradient(180deg, #f3e3c3 0%, #faf7f2 100%);border:1px solid #e8d5a8;border-radius:16px;padding:28px 24px}
+  .pearls-wrap .section-head{border-bottom-color:#ddc89a}
+  .pearls-wrap .section-title{color:var(--gold)}
+  .pearls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .pearl{background:var(--card);border:1px solid #e8d5a8;border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;transition:all .2s ease}
+  .pearl:hover{transform:translateX(3px);box-shadow:var(--shadow-hover)}
+  .pearl-label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .pearl-text{font-size:.9rem;line-height:1.45}
+  .pearl-text strong{color:var(--text);font-weight:600}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px){
+    .wrap{padding:32px 18px 64px}
+    h1{font-size:2.2rem}
+    .split{grid-template-columns:1fr}
+    .section{margin-bottom:44px}
+    .murmur-table{display:block;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../library.html">Library</a><span class="sep">/</span>
+    <a href="pediatrics-dashboard.html">Pediatric Care</a><span class="sep">/</span>
+    <span>Cardiology</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">Pediatric Care · Body Systems</div>
+    <h1>Cardiology</h1>
+    <p class="lede">Congenital and acquired pediatric heart disease — organized by the board's favorite framework: cyanotic vs. acyanotic, then everything else. Includes the murmurs you'll be asked to recognize on day one.</p>
+    <div class="pills">
+      <span class="pill lav">💙 5 Cyanotic CHD</span>
+      <span class="pill rust">❤️ 4 Acyanotic CHD</span>
+      <span class="pill gold">🔥 4 Acquired</span>
+      <span class="pill teal">🎵 7 Murmurs</span>
+    </div>
+  </header>
+
+  <!-- In-page TOC -->
+  <div class="toc">
+    <div class="toc-label">In This Module</div>
+    <div class="toc-links">
+      <a href="#chd">Congenital Heart Disease</a>
+      <a href="#acquired">Acquired Disease</a>
+      <a href="#murmurs">Murmurs Quick Reference</a>
+      <a href="#arrhythmias">Arrhythmias & Heart Failure</a>
+      <a href="#pearls">Board Pearls</a>
+    </div>
+  </div>
+
+  <!-- SECTION: CHD split -->
+  <section id="chd" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Congenital Heart Disease</div>
+        <div class="section-subtitle">Classified by whether they shunt right-to-left (cyanotic) or left-to-right (acyanotic).</div>
+      </div>
+      <div class="section-tag">High Yield</div>
+    </div>
+
+    <div class="split">
+
+      <!-- CYANOTIC -->
+      <div class="split-col cyan">
+        <div class="split-header">
+          <span class="split-icon">💙</span>
+          <div class="split-name">Cyanotic CHD</div>
+        </div>
+        <div class="split-mnemonic">The 5 T's — Tetralogy, Transposition, Truncus, TAPVR, Tricuspid atresia</div>
+
+        <div class="condition-list">
+          <a href="tof.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Tetralogy of Fallot</div>
+              <div class="condition-key">"Tet spells" · boot-shaped heart · squatting relieves cyanosis</div>
+            </div>
+          </a>
+          <a href="transposition.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Transposition of Great Arteries</div>
+              <div class="condition-key">Cyanosis at birth · "egg on a string" · needs PGE1 + balloon septostomy</div>
+            </div>
+          </a>
+          <a href="truncus.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Truncus Arteriosus</div>
+              <div class="condition-key">Single outflow vessel · assoc. DiGeorge (22q11)</div>
+            </div>
+          </a>
+          <a href="tapvr.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">TAPVR</div>
+              <div class="condition-key">Pulm veins drain to RA · "snowman" sign · obstructed form = emergency</div>
+            </div>
+          </a>
+          <a href="tricuspid-atresia.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">Tricuspid Atresia</div>
+              <div class="condition-key">Small RV · L-axis deviation on ECG · needs ASD + VSD to survive</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ACYANOTIC -->
+      <div class="split-col acyan">
+        <div class="split-header">
+          <span class="split-icon">❤️</span>
+          <div class="split-name">Acyanotic CHD</div>
+        </div>
+        <div class="split-mnemonic">L→R shunts · can become cyanotic if Eisenmenger develops</div>
+
+        <div class="condition-list">
+          <a href="vsd.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">VSD</div>
+              <div class="condition-key">Most common CHD · holosystolic murmur at LLSB · small ones often close</div>
+            </div>
+          </a>
+          <a href="asd.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">ASD</div>
+              <div class="condition-key">Fixed split S2 · often asymptomatic until adulthood</div>
+            </div>
+          </a>
+          <a href="pda.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">PDA</div>
+              <div class="condition-key">Machine-like continuous murmur · close w/ indomethacin, keep open w/ PGE1</div>
+            </div>
+          </a>
+          <a href="coarctation.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Coarctation of Aorta</div>
+              <div class="condition-key">BP ↑ arms / ↓ legs · rib notching · assoc. Turner syndrome</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: Acquired -->
+  <section id="acquired" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Acquired Cardiac Disease</div>
+        <div class="section-subtitle">Post-infectious, inflammatory, and infectious causes.</div>
+      </div>
+      <div class="section-tag">4 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="kawasaki.html" class="card rust">
+        <div class="card-title">Kawasaki Disease</div>
+        <div class="card-desc">Fever ≥5 days + CREAM criteria · coronary artery aneurysms · IVIG + aspirin</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+          <span class="tag">Vasculitis</span>
+        </div>
+      </a>
+
+      <a href="rheumatic-fever.html" class="card gold">
+        <div class="card-title">Acute Rheumatic Fever</div>
+        <div class="card-desc">Post-GAS pharyngitis · Jones criteria · prophylactic penicillin after</div>
+        <div class="card-tags">
+          <span class="tag">Post-infectious</span>
+        </div>
+      </a>
+
+      <a href="myocarditis.html" class="card rust">
+        <div class="card-title">Myocarditis</div>
+        <div class="card-desc">Viral (Coxsackie) · CHF in previously well child · troponin ↑ · supportive care</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+        </div>
+      </a>
+
+      <a href="endocarditis.html" class="card lav">
+        <div class="card-title">Infective Endocarditis</div>
+        <div class="card-desc">Duke criteria · Strep viridans / Staph aureus · prophylaxis for high-risk dental procedures</div>
+        <div class="card-tags">
+          <span class="tag">Infectious</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Murmurs quick reference -->
+  <section id="murmurs" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Murmurs — Quick Reference</div>
+        <div class="section-subtitle">The pattern-match table. If you know these seven, you'll nail the board murmur questions.</div>
+      </div>
+      <div class="section-tag">Pattern Recognition</div>
+    </div>
+
+    <table class="murmur-table">
+      <thead>
+        <tr>
+          <th>Murmur</th>
+          <th>Location / Quality</th>
+          <th>Classic Clue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="murmur-name">Still's Murmur</div>
+            <span class="murmur-lesion">Innocent</span>
+          </td>
+          <td>LLSB · vibratory, musical</td>
+          <td>Ages 3–7, disappears with standing</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">VSD</div>
+            <span class="murmur-lesion">L→R shunt</span>
+          </td>
+          <td>LLSB · harsh, holosystolic</td>
+          <td>Louder = smaller defect</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">ASD</div>
+            <span class="murmur-lesion">L→R shunt</span>
+          </td>
+          <td>ULSB · soft systolic ejection</td>
+          <td>Fixed split S2</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">PDA</div>
+            <span class="murmur-lesion">L→R shunt</span>
+          </td>
+          <td>Left infraclavicular · continuous</td>
+          <td>"Machinery" · wide pulse pressure</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">Tetralogy of Fallot</div>
+            <span class="murmur-lesion">Cyanotic</span>
+          </td>
+          <td>ULSB · harsh systolic ejection</td>
+          <td>Boot-shaped heart · tet spells</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">Aortic Stenosis</div>
+            <span class="murmur-lesion">Obstruction</span>
+          </td>
+          <td>URSB · radiates to carotids</td>
+          <td>Bicuspid valve · ejection click</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="murmur-name">Pulmonary Stenosis</div>
+            <span class="murmur-lesion">Obstruction</span>
+          </td>
+          <td>ULSB · radiates to back</td>
+          <td>Assoc. Williams, Noonan syndromes</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION: Arrhythmias & HF -->
+  <section id="arrhythmias" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Arrhythmias & Heart Failure</div>
+        <div class="section-subtitle">Less common but high-yield for the nuanced questions.</div>
+      </div>
+      <div class="section-tag">3 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="svt.html" class="card teal">
+        <div class="card-title">SVT</div>
+        <div class="card-desc">Narrow complex, rate 220+ in infants · vagal → adenosine · cardioversion if unstable</div>
+        <div class="card-tags">
+          <span class="tag teal">Common</span>
+        </div>
+      </a>
+
+      <a href="long-qt.html" class="card lav">
+        <div class="card-title">Long QT Syndrome</div>
+        <div class="card-desc">Syncope w/ exertion, swimming, startle · family hx sudden death · beta-blocker</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+        </div>
+      </a>
+
+      <a href="peds-heart-failure.html" class="card sage">
+        <div class="card-title">Pediatric Heart Failure</div>
+        <div class="card-desc">Poor feeding, diaphoresis, FTT · diuretics + ACEi · causes vary by age</div>
+        <div class="card-tags">
+          <span class="tag">Cross-cutting</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Board Pearls -->
+  <section id="pearls" class="section">
+    <div class="pearls-wrap">
+      <div class="section-head">
+        <div class="section-title">✨ Board Pearls</div>
+        <div class="section-tag">Don't Miss These</div>
+      </div>
+      <div class="pearls-grid">
+        <div class="pearl">
+          <div class="pearl-label">Ductal-dependent lesion</div>
+          <div class="pearl-text">Cyanotic newborn not improving on oxygen? Start <strong>PGE1</strong> immediately. Don't wait for echo.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Tet spell</div>
+          <div class="pearl-text">Knee-to-chest position increases SVR, reduces R→L shunt. Parents are taught to do this at home.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">BP 4 extremities</div>
+          <div class="pearl-text">Always measure in suspected CHD. Arm >> leg = <strong>coarctation</strong>.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Fixed split S2</div>
+          <div class="pearl-text">Pathognomonic for <strong>ASD</strong>. If the split doesn't move with respiration, think ASD.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Kawasaki coronary risk</div>
+          <div class="pearl-text">Treat with <strong>IVIG within 10 days</strong> to prevent coronary artery aneurysms. Echo at baseline, 2 wks, 6–8 wks.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Innocent vs pathologic</div>
+          <div class="pearl-text">Innocent murmurs are systolic, soft (≤2/6), change with position. Diastolic = always pathologic.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>olabeaucher.com · Pediatrics · Cardiology</div>
+    <div>Last updated · April 2026</div>
+  </footer>
+</div>
+</body>
+</html>

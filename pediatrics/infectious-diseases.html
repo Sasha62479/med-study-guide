@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Infectious Diseases | Derm Design Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --text:#1a1a2e;
+    --muted:#6b7280;
+    --border:#e8e2d9;
+    --soft:#f3ede4;
+
+    --rust:#c0441f;
+    --teal:#1d6b6e;
+    --gold:#b8852a;
+    --sage:#5a7a5c;
+    --lavender:#6b5c8a;
+
+    --shadow: 0 1px 2px rgba(26,26,46,0.04), 0 4px 12px rgba(26,26,46,0.04);
+    --shadow-hover: 0 2px 4px rgba(26,26,46,0.06), 0 12px 28px rgba(26,26,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 96px}
+
+  /* ---------- Breadcrumb ---------- */
+  .crumbs{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;text-transform:uppercase}
+  .crumbs a:hover{color:var(--rust)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+
+  /* ---------- Header ---------- */
+  .hero{margin-bottom:40px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;color:var(--rust);text-transform:uppercase;margin-bottom:14px;font-weight:500}
+  h1{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+  .lede{font-size:1.05rem;color:var(--muted);max-width:680px;margin-bottom:22px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em}
+  .pill.rust{background:#fbe7df;color:var(--rust)}
+  .pill.teal{background:#d9ebec;color:var(--teal)}
+  .pill.gold{background:#f3e3c3;color:var(--gold)}
+  .pill.sage{background:#e0ead9;color:var(--sage)}
+  .pill.lav{background:#e3dfe8;color:var(--lavender)}
+
+  /* ---------- In-page TOC ---------- */
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:56px;box-shadow:var(--shadow)}
+  .toc-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .toc-links{display:flex;flex-wrap:wrap;gap:8px}
+  .toc-links a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--text);transition:all .2s ease;background:var(--bg)}
+  .toc-links a:hover{border-color:var(--rust);color:var(--rust);background:#fbe7df}
+
+  /* ---------- Section headers ---------- */
+  .section{margin-bottom:56px;scroll-margin-top:24px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+  .section-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.005em}
+  .section-subtitle{font-size:.92rem;color:var(--muted);margin-top:4px;font-weight:400}
+  .section-tag{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+  /* ---------- Split (viral vs bacterial) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .split-col{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .split-col.viral{border-top:3px solid var(--teal)}
+  .split-col.bacterial{border-top:3px solid var(--rust)}
+  .split-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .split-icon{font-size:1.3rem}
+  .split-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.1rem}
+  .split-mnemonic{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:18px;padding:8px 12px;background:var(--soft);border-radius:8px;display:inline-block}
+  .condition-list{display:flex;flex-direction:column;gap:8px}
+  .condition{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit}
+  .condition:hover{border-color:var(--rust);background:var(--card);transform:translateX(3px);box-shadow:var(--shadow)}
+  .condition-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);min-width:22px;font-weight:500}
+  .condition-body{flex:1}
+  .condition-name{font-weight:600;font-size:.95rem;margin-bottom:2px}
+  .condition-key{font-size:.82rem;color:var(--muted);line-height:1.35}
+
+  /* ---------- Fever workup ladder ---------- */
+  .age-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .age-col{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;border-left:4px solid var(--teal)}
+  .age-col:nth-child(2){border-left-color:var(--gold)}
+  .age-col:nth-child(3){border-left-color:var(--sage)}
+  .age-col:nth-child(4){border-left-color:var(--lavender)}
+  .age-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .age-range{font-family:'DM Serif Display',serif;font-size:1.3rem;line-height:1}
+  .age-badge{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .age-items{display:flex;flex-direction:column;gap:10px;font-size:.88rem;line-height:1.5}
+  .age-item{display:flex;gap:8px;align-items:flex-start}
+  .age-bullet{color:var(--muted);min-width:10px}
+  .age-item strong{font-weight:600;color:var(--text)}
+
+  /* ---------- Standard card grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;cursor:pointer;transition:all .25s ease;overflow:hidden;text-decoration:none;color:inherit;display:block}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .card.rust::before{background:var(--rust)}
+  .card.gold::before{background:var(--gold)}
+  .card.sage::before{background:var(--sage)}
+  .card.lav::before{background:var(--lavender)}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .card-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.005em}
+  .card-desc{font-size:.88rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:'DM Mono',monospace;font-size:.68rem;padding:3px 8px;border-radius:4px;background:var(--soft);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .tag.hot{background:#fbe7df;color:var(--rust)}
+  .tag.teal{background:#d9ebec;color:var(--teal)}
+  .tag.sage{background:#e0ead9;color:var(--sage)}
+
+  /* ---------- Exanthems reference table ---------- */
+  .exanthem-table{width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border-collapse:separate;border-spacing:0}
+  .exanthem-table th{text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--border);font-weight:500}
+  .exanthem-table td{padding:16px 18px;border-bottom:1px solid var(--border);font-size:.9rem;vertical-align:top}
+  .exanthem-table tr:last-child td{border-bottom:0}
+  .exanthem-table tr:hover td{background:var(--bg)}
+  .exan-name{font-weight:600;color:var(--text)}
+  .exan-number{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
+
+  /* ---------- Pearls strip ---------- */
+  .pearls-wrap{background:linear-gradient(180deg, #f3e3c3 0%, #faf7f2 100%);border:1px solid #e8d5a8;border-radius:16px;padding:28px 24px}
+  .pearls-wrap .section-head{border-bottom-color:#ddc89a}
+  .pearls-wrap .section-title{color:var(--gold)}
+  .pearls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .pearl{background:var(--card);border:1px solid #e8d5a8;border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;transition:all .2s ease}
+  .pearl:hover{transform:translateX(3px);box-shadow:var(--shadow-hover)}
+  .pearl-label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .pearl-text{font-size:.9rem;line-height:1.45}
+  .pearl-text strong{color:var(--text);font-weight:600}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px){
+    .wrap{padding:32px 18px 64px}
+    h1{font-size:2.2rem}
+    .split{grid-template-columns:1fr}
+    .section{margin-bottom:44px}
+    .exanthem-table{display:block;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../library.html">Library</a><span class="sep">/</span>
+    <a href="pediatrics-dashboard.html">Pediatric Care</a><span class="sep">/</span>
+    <span>Infectious Diseases</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">Pediatric Care · Body Systems</div>
+    <h1>Infectious Diseases</h1>
+    <p class="lede">Fever, rash, and the question that runs every pediatric visit: do they need antibiotics? Organized by viral vs bacterial, with the classic exanthems you'll match on sight and the age-stratified fever workup every boards loves to test.</p>
+    <div class="pills">
+      <span class="pill teal">🦠 6 Viral</span>
+      <span class="pill rust">💊 6 Bacterial</span>
+      <span class="pill gold">🌡️ 4 Age Groups</span>
+      <span class="pill lav">🎨 6 Classic Exanthems</span>
+    </div>
+  </header>
+
+  <!-- In-page TOC -->
+  <div class="toc">
+    <div class="toc-label">In This Module</div>
+    <div class="toc-links">
+      <a href="#fever">Fever Workup by Age</a>
+      <a href="#infections">Viral vs Bacterial</a>
+      <a href="#exanthems">Classic Exanthems</a>
+      <a href="#special">Special Situations</a>
+      <a href="#pearls">Board Pearls</a>
+    </div>
+  </div>
+
+  <!-- SECTION: Fever workup by age -->
+  <section id="fever" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Fever Workup by Age</div>
+        <div class="section-subtitle">Age defines the workup — the younger the infant, the more aggressive the evaluation. Febrile neonates are a medical emergency.</div>
+      </div>
+      <div class="section-tag">High Yield</div>
+    </div>
+
+    <div class="age-split">
+      <div class="age-col">
+        <div class="age-header">
+          <div class="age-range">0–28 days</div>
+          <div class="age-badge">Neonate</div>
+        </div>
+        <div class="age-items">
+          <div class="age-item"><span class="age-bullet">▸</span><div><strong>Full sepsis workup</strong> — CBC, blood cx, UA + urine cx, LP</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div><strong>Admit + empiric abx</strong> — ampicillin + gentamicin (± acyclovir if HSV concern)</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Cover GBS, <em>E. coli</em>, Listeria</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Fever = T ≥ 38.0°C rectal</div></div>
+        </div>
+      </div>
+
+      <div class="age-col">
+        <div class="age-header">
+          <div class="age-range">29–60 days</div>
+          <div class="age-badge">Young Infant</div>
+        </div>
+        <div class="age-items">
+          <div class="age-item"><span class="age-bullet">▸</span><div>Apply <strong>risk stratification</strong> (Rochester / Philadelphia / PECARN)</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>CBC, blood cx, UA, procalcitonin; LP if high-risk or ill-appearing</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Low-risk + well-appearing → may observe off abx</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Bugs shift toward <em>E. coli</em>, Strep pneumo</div></div>
+        </div>
+      </div>
+
+      <div class="age-col">
+        <div class="age-header">
+          <div class="age-range">3–36 mo</div>
+          <div class="age-badge">Toddler</div>
+        </div>
+        <div class="age-items">
+          <div class="age-item"><span class="age-bullet">▸</span><div>Focused H&amp;P — look for a source</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div><strong>UA if female &lt;24 mo</strong>, male &lt;12 mo uncirc, or male &lt;6 mo circ</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Well-appearing + vaccinated + no source = likely viral</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Watch for <strong>occult pneumonia</strong> if high fever, high WBC</div></div>
+        </div>
+      </div>
+
+      <div class="age-col">
+        <div class="age-header">
+          <div class="age-range">≥3 yr</div>
+          <div class="age-badge">Child</div>
+        </div>
+        <div class="age-items">
+          <div class="age-item"><span class="age-bullet">▸</span><div>Workup driven entirely by <strong>history &amp; exam</strong></div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Most viral — symptomatic care, reassurance</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Red flags: &gt;5 days fever, worsening course, toxic appearance</div></div>
+          <div class="age-item"><span class="age-bullet">▸</span><div>Don't miss: <strong>Kawasaki</strong>, appendicitis, PNA, UTI</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Viral vs Bacterial split -->
+  <section id="infections" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Viral vs Bacterial</div>
+        <div class="section-subtitle">The first bedside question: does this need antibiotics? Pattern recognition for the common ones.</div>
+      </div>
+      <div class="section-tag">Core Content</div>
+    </div>
+
+    <div class="split">
+
+      <!-- VIRAL -->
+      <div class="split-col viral">
+        <div class="split-header">
+          <span class="split-icon">🦠</span>
+          <div class="split-name">Viral Infections</div>
+        </div>
+        <div class="split-mnemonic">Supportive care · exanthems · gradual onset · often seasonal</div>
+
+        <div class="condition-list">
+          <a href="roseola.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Roseola (HHV-6)</div>
+              <div class="condition-key">High fever 3–5 d → fever breaks → pink rash appears. Infants 6–24 mo</div>
+            </div>
+          </a>
+          <a href="measles.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Measles</div>
+              <div class="condition-key">Cough, coryza, conjunctivitis + <strong>Koplik spots</strong> → cephalocaudal rash</div>
+            </div>
+          </a>
+          <a href="varicella.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Varicella (Chickenpox)</div>
+              <div class="condition-key">Crops of lesions in <strong>different stages</strong> · "dew on a rose petal"</div>
+            </div>
+          </a>
+          <a href="hfmd.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Hand, Foot &amp; Mouth</div>
+              <div class="condition-key">Coxsackie A16 · oral ulcers + palm/sole vesicles · supportive</div>
+            </div>
+          </a>
+          <a href="fifth-disease.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">Fifth Disease (Parvovirus B19)</div>
+              <div class="condition-key"><strong>"Slapped cheek"</strong> → lacy body rash. Aplastic crisis in sickle cell</div>
+            </div>
+          </a>
+          <a href="mono.html" class="condition">
+            <span class="condition-num">6.</span>
+            <div class="condition-body">
+              <div class="condition-name">Mononucleosis (EBV)</div>
+              <div class="condition-key">Fatigue, splenomegaly, exudative pharyngitis · avoid contact sports</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- BACTERIAL -->
+      <div class="split-col bacterial">
+        <div class="split-header">
+          <span class="split-icon">💊</span>
+          <div class="split-name">Bacterial Infections</div>
+        </div>
+        <div class="split-mnemonic">Antibiotics change outcome · abrupt onset · localized source</div>
+
+        <div class="condition-list">
+          <a href="gas-pharyngitis.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Strep Pharyngitis (GAS)</div>
+              <div class="condition-key">Centor/McIsaac · rapid strep + throat cx · amoxicillin 10 d</div>
+            </div>
+          </a>
+          <a href="scarlet-fever.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Scarlet Fever</div>
+              <div class="condition-key">GAS + <strong>sandpaper rash</strong> + strawberry tongue · Pastia's lines</div>
+            </div>
+          </a>
+          <a href="impetigo.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Impetigo</div>
+              <div class="condition-key">S. aureus / GAS · <strong>honey-crusted</strong> lesions · mupirocin topical</div>
+            </div>
+          </a>
+          <a href="cellulitis-peds.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Cellulitis</div>
+              <div class="condition-key">Warm, red, tender, spreading · cover MRSA if purulent</div>
+            </div>
+          </a>
+          <a href="uti-peds.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">UTI</div>
+              <div class="condition-key"><em>E. coli</em> &gt;&gt; others · cath or clean catch · consider <strong>VUR</strong> if recurrent</div>
+            </div>
+          </a>
+          <a href="meningitis-peds.html" class="condition">
+            <span class="condition-num">6.</span>
+            <div class="condition-body">
+              <div class="condition-name">Bacterial Meningitis</div>
+              <div class="condition-key">Fever + headache + neck stiffness · <strong>empiric abx before LP</strong> if delayed</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: Classic exanthems -->
+  <section id="exanthems" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Classic Exanthems — Quick Reference</div>
+        <div class="section-subtitle">The "6 classic childhood rashes" — historically numbered. Match the rash to the bug on sight.</div>
+      </div>
+      <div class="section-tag">Pattern Recognition</div>
+    </div>
+
+    <table class="exanthem-table">
+      <thead>
+        <tr>
+          <th>Disease</th>
+          <th>Pathogen</th>
+          <th>Classic Finding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="exan-name">Measles</div>
+            <span class="exan-number">1st disease</span>
+          </td>
+          <td>Measles virus (paramyxovirus)</td>
+          <td><strong>Koplik spots</strong> (buccal mucosa) → cephalocaudal maculopapular rash</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exan-name">Scarlet Fever</div>
+            <span class="exan-number">2nd disease</span>
+          </td>
+          <td>Group A Strep</td>
+          <td><strong>Sandpaper rash</strong> + circumoral pallor + strawberry tongue + Pastia's lines in creases</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exan-name">Rubella</div>
+            <span class="exan-number">3rd disease</span>
+          </td>
+          <td>Rubella virus</td>
+          <td>Mild rash + <strong>postauricular lymphadenopathy</strong>. Teratogenic in pregnancy</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exan-name">Fifth Disease</div>
+            <span class="exan-number">5th disease</span>
+          </td>
+          <td>Parvovirus B19</td>
+          <td><strong>Slapped-cheek</strong> facial rash → lacy reticular body rash. Aplastic crisis in SCD</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exan-name">Roseola</div>
+            <span class="exan-number">6th disease</span>
+          </td>
+          <td>HHV-6</td>
+          <td>High fever × 3–5 d, then <strong>fever breaks and rash appears</strong></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exan-name">Hand, Foot &amp; Mouth</div>
+            <span class="exan-number">Classic mimic</span>
+          </td>
+          <td>Coxsackie A16</td>
+          <td>Oral ulcers + <strong>vesicles on palms &amp; soles</strong>. Late summer/fall</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION: Special situations -->
+  <section id="special" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Special Situations</div>
+        <div class="section-subtitle">Don't-miss infections and cross-cutting ID topics.</div>
+      </div>
+      <div class="section-tag">4 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="kawasaki.html" class="card rust">
+        <div class="card-title">Kawasaki Disease</div>
+        <div class="card-desc">Fever ≥5 d + CREAM criteria · coronary aneurysms if untreated · IVIG + aspirin</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+          <span class="tag">Vasculitis</span>
+        </div>
+      </a>
+
+      <a href="peds-sepsis.html" class="card rust">
+        <div class="card-title">Pediatric Sepsis</div>
+        <div class="card-desc">Early goal-directed therapy · fluid resuscitation · broad-spectrum abx within 1 hr</div>
+        <div class="card-tags">
+          <span class="tag hot">Time-sensitive</span>
+        </div>
+      </a>
+
+      <a href="hsv-neonatal.html" class="card lav">
+        <div class="card-title">Neonatal HSV</div>
+        <div class="card-desc">SEM / CNS / disseminated · high mortality · acyclovir empirically if suspected</div>
+        <div class="card-tags">
+          <span class="tag hot">Don't Miss</span>
+          <span class="tag">Neonate</span>
+        </div>
+      </a>
+
+      <a href="lyme-peds.html" class="card sage">
+        <div class="card-title">Lyme Disease</div>
+        <div class="card-desc">Erythema migrans · arthritis · doxycycline (any age) for confirmed cases</div>
+        <div class="card-tags">
+          <span class="tag sage">Tickborne</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Board Pearls -->
+  <section id="pearls" class="section">
+    <div class="pearls-wrap">
+      <div class="section-head">
+        <div class="section-title">✨ Board Pearls</div>
+        <div class="section-tag">Don't Miss These</div>
+      </div>
+      <div class="pearls-grid">
+        <div class="pearl">
+          <div class="pearl-label">Febrile neonate</div>
+          <div class="pearl-text">Any infant ≤28 days with T ≥ 38.0°C rectal gets a <strong>full sepsis workup + admission + empiric antibiotics</strong>. No exceptions. No "looks well so I'll send them home."</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Kawasaki timing</div>
+          <div class="pearl-text">IVIG <strong>within 10 days</strong> of fever onset drops coronary aneurysm risk from ~25% to ~4%. Fever ≥5 days + 4 of CREAM = treat, don't wait.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Fever + rash that appears when fever breaks</div>
+          <div class="pearl-text">Classic for <strong>roseola</strong> (HHV-6). Toddler had 3 days of high fever, then fever gone and now rash → reassure the parents.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Avoid aspirin</div>
+          <div class="pearl-text">In viral illness (esp. influenza, varicella), aspirin risks <strong>Reye syndrome</strong>. Exception: Kawasaki disease, where aspirin is part of the treatment.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Spleen + mono</div>
+          <div class="pearl-text">EBV mononucleosis → <strong>avoid contact sports × 3–4 weeks</strong> to prevent splenic rupture. Ampicillin → diffuse rash (pathognomonic but not allergic).</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Parvovirus + sickle cell</div>
+          <div class="pearl-text">Parvo B19 infects erythroid precursors → <strong>aplastic crisis</strong> in SCD patients. Admit for transfusion support.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>olabeaucher.com · Pediatrics · Infectious Diseases</div>
+    <div>Last updated · April 2026</div>
+  </footer>
+</div>
+</body>
+</html>

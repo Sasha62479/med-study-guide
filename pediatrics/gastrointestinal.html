@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Gastrointestinal | Derm Design Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --text:#1a1a2e;
+    --muted:#6b7280;
+    --border:#e8e2d9;
+    --soft:#f3ede4;
+
+    --rust:#c0441f;
+    --teal:#1d6b6e;
+    --gold:#b8852a;
+    --sage:#5a7a5c;
+    --lavender:#6b5c8a;
+
+    --shadow: 0 1px 2px rgba(26,26,46,0.04), 0 4px 12px rgba(26,26,46,0.04);
+    --shadow-hover: 0 2px 4px rgba(26,26,46,0.06), 0 12px 28px rgba(26,26,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 96px}
+
+  /* ---------- Breadcrumb ---------- */
+  .crumbs{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;text-transform:uppercase}
+  .crumbs a:hover{color:var(--gold)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+
+  /* ---------- Header ---------- */
+  .hero{margin-bottom:40px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;font-weight:500}
+  h1{font-family:'DM Serif Display',serif;font-size:3rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+  .lede{font-size:1.05rem;color:var(--muted);max-width:680px;margin-bottom:22px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em}
+  .pill.rust{background:#fbe7df;color:var(--rust)}
+  .pill.teal{background:#d9ebec;color:var(--teal)}
+  .pill.gold{background:#f3e3c3;color:var(--gold)}
+  .pill.sage{background:#e0ead9;color:var(--sage)}
+  .pill.lav{background:#e3dfe8;color:var(--lavender)}
+
+  /* ---------- In-page TOC ---------- */
+  .toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:56px;box-shadow:var(--shadow)}
+  .toc-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .toc-links{display:flex;flex-wrap:wrap;gap:8px}
+  .toc-links a{padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--text);transition:all .2s ease;background:var(--bg)}
+  .toc-links a:hover{border-color:var(--gold);color:var(--gold);background:#f3e3c3}
+
+  /* ---------- Section headers ---------- */
+  .section{margin-bottom:56px;scroll-margin-top:24px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+  .section-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.005em}
+  .section-subtitle{font-size:.92rem;color:var(--muted);margin-top:4px;font-weight:400}
+  .section-tag{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+  /* ---------- Split (obstructive vs inflammatory) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .split-col{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+  .split-col.surg{border-top:3px solid var(--rust)}
+  .split-col.med{border-top:3px solid var(--sage)}
+  .split-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .split-icon{font-size:1.3rem}
+  .split-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.1rem}
+  .split-mnemonic{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:18px;padding:8px 12px;background:var(--soft);border-radius:8px;display:inline-block}
+  .condition-list{display:flex;flex-direction:column;gap:8px}
+  .condition{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;transition:all .2s ease;text-decoration:none;color:inherit}
+  .condition:hover{border-color:var(--gold);background:var(--card);transform:translateX(3px);box-shadow:var(--shadow)}
+  .condition-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);min-width:22px;font-weight:500}
+  .condition-body{flex:1}
+  .condition-name{font-weight:600;font-size:.95rem;margin-bottom:2px}
+  .condition-key{font-size:.82rem;color:var(--muted);line-height:1.35}
+
+  /* ---------- Standard card grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;cursor:pointer;transition:all .25s ease;overflow:hidden;text-decoration:none;color:inherit;display:block}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .card.rust::before{background:var(--rust)}
+  .card.gold::before{background:var(--gold)}
+  .card.sage::before{background:var(--sage)}
+  .card.lav::before{background:var(--lavender)}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .card-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.005em}
+  .card-desc{font-size:.88rem;color:var(--muted);line-height:1.45;margin-bottom:12px}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:'DM Mono',monospace;font-size:.68rem;padding:3px 8px;border-radius:4px;background:var(--soft);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .tag.hot{background:#fbe7df;color:var(--rust)}
+  .tag.teal{background:#d9ebec;color:var(--teal)}
+  .tag.sage{background:#e0ead9;color:var(--sage)}
+
+  /* ---------- Vomiting reference table (parallel to murmurs) ---------- */
+  .vomit-table{width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border-collapse:separate;border-spacing:0}
+  .vomit-table th{text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--border);font-weight:500}
+  .vomit-table td{padding:16px 18px;border-bottom:1px solid var(--border);font-size:.9rem;vertical-align:top}
+  .vomit-table tr:last-child td{border-bottom:0}
+  .vomit-table tr:hover td{background:var(--bg)}
+  .vomit-name{font-weight:600;color:var(--text)}
+  .vomit-age{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
+
+  /* ---------- Pearls strip ---------- */
+  .pearls-wrap{background:linear-gradient(180deg, #f3e3c3 0%, #faf7f2 100%);border:1px solid #e8d5a8;border-radius:16px;padding:28px 24px}
+  .pearls-wrap .section-head{border-bottom-color:#ddc89a}
+  .pearls-wrap .section-title{color:var(--gold)}
+  .pearls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+  .pearl{background:var(--card);border:1px solid #e8d5a8;border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;transition:all .2s ease}
+  .pearl:hover{transform:translateX(3px);box-shadow:var(--shadow-hover)}
+  .pearl-label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .pearl-text{font-size:.9rem;line-height:1.45}
+  .pearl-text strong{color:var(--text);font-weight:600}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px){
+    .wrap{padding:32px 18px 64px}
+    h1{font-size:2.2rem}
+    .split{grid-template-columns:1fr}
+    .section{margin-bottom:44px}
+    .vomit-table{display:block;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../library.html">Library</a><span class="sep">/</span>
+    <a href="pediatrics-dashboard.html">Pediatric Care</a><span class="sep">/</span>
+    <span>Gastrointestinal</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">Pediatric Care · Body Systems</div>
+    <h1>Gastrointestinal</h1>
+    <p class="lede">Pediatric GI through a triage lens — does this child need surgery, or can we manage medically? Organized by obstructive/surgical emergencies vs inflammatory/functional conditions, with an age-based vomiting reference to match the pattern at the bedside.</p>
+    <div class="pills">
+      <span class="pill rust">🔪 6 Surgical</span>
+      <span class="pill sage">💊 5 Medical</span>
+      <span class="pill gold">🤮 7 Vomiting Causes</span>
+      <span class="pill teal">🍼 4 Feeding &amp; Nutrition</span>
+    </div>
+  </header>
+
+  <!-- In-page TOC -->
+  <div class="toc">
+    <div class="toc-label">In This Module</div>
+    <div class="toc-links">
+      <a href="#triage">Surgical vs Medical</a>
+      <a href="#vomiting">Vomiting by Age</a>
+      <a href="#feeding">Feeding &amp; Nutrition</a>
+      <a href="#functional">Functional &amp; Chronic</a>
+      <a href="#pearls">Board Pearls</a>
+    </div>
+  </div>
+
+  <!-- SECTION: Surgical vs Medical split -->
+  <section id="triage" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Surgical vs Medical</div>
+        <div class="section-subtitle">First question for any GI complaint: does this child need an OR, or can we treat medically? Red flags (bilious vomiting, peritoneal signs, bloody stools) push you right.</div>
+      </div>
+      <div class="section-tag">High Yield</div>
+    </div>
+
+    <div class="split">
+
+      <!-- SURGICAL / OBSTRUCTIVE -->
+      <div class="split-col surg">
+        <div class="split-header">
+          <span class="split-icon">🔪</span>
+          <div class="split-name">Surgical / Obstructive</div>
+        </div>
+        <div class="split-mnemonic">Bilious vomiting · distension · peritoneal signs · don't delay imaging</div>
+
+        <div class="condition-list">
+          <a href="pyloric-stenosis.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Pyloric Stenosis</div>
+              <div class="condition-key">3–6 wk first-born male · <strong>projectile non-bilious</strong> vomit · olive + hypochloremic alkalosis</div>
+            </div>
+          </a>
+          <a href="malrotation-volvulus.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">Malrotation / Volvulus</div>
+              <div class="condition-key">Neonate + <strong>bilious vomiting</strong> = surgical emergency. UGI series. "Corkscrew"</div>
+            </div>
+          </a>
+          <a href="intussusception.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">Intussusception</div>
+              <div class="condition-key">6 mo–2 yr · colicky pain + <strong>currant jelly stool</strong> · air/contrast enema reduces</div>
+            </div>
+          </a>
+          <a href="appendicitis-peds.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Appendicitis</div>
+              <div class="condition-key">Periumbilical → RLQ · anorexia · kids &lt;5 yr often perforate before dx</div>
+            </div>
+          </a>
+          <a href="hirschsprung.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">Hirschsprung Disease</div>
+              <div class="condition-key">Delayed meconium &gt;48 h · aganglionic segment · <strong>rectal biopsy</strong> = gold std</div>
+            </div>
+          </a>
+          <a href="meckel.html" class="condition">
+            <span class="condition-num">6.</span>
+            <div class="condition-body">
+              <div class="condition-name">Meckel Diverticulum</div>
+              <div class="condition-key">Rule of 2s · painless <strong>lower GI bleed</strong> &lt;2 yr · Meckel scan (99m-Tc)</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- MEDICAL / INFLAMMATORY -->
+      <div class="split-col med">
+        <div class="split-header">
+          <span class="split-icon">💊</span>
+          <div class="split-name">Medical / Inflammatory</div>
+        </div>
+        <div class="split-mnemonic">Diarrhea · dehydration · stool studies · hydration first</div>
+
+        <div class="condition-list">
+          <a href="gastroenteritis.html" class="condition">
+            <span class="condition-num">1.</span>
+            <div class="condition-body">
+              <div class="condition-name">Acute Gastroenteritis</div>
+              <div class="condition-key">Rotavirus, norovirus · <strong>ORS first-line</strong> · ondansetron for vomiting</div>
+            </div>
+          </a>
+          <a href="gerd-peds.html" class="condition">
+            <span class="condition-num">2.</span>
+            <div class="condition-body">
+              <div class="condition-name">GERD</div>
+              <div class="condition-key">"Happy spitter" vs pathologic · upright post-feed, thickened feeds, PPI if severe</div>
+            </div>
+          </a>
+          <a href="ibd-peds.html" class="condition">
+            <span class="condition-num">3.</span>
+            <div class="condition-body">
+              <div class="condition-name">IBD (Crohn / UC)</div>
+              <div class="condition-key">Weight loss, bloody stool, growth failure · fecal calprotectin · scope</div>
+            </div>
+          </a>
+          <a href="celiac.html" class="condition">
+            <span class="condition-num">4.</span>
+            <div class="condition-body">
+              <div class="condition-name">Celiac Disease</div>
+              <div class="condition-key">Chronic diarrhea + FTT + bloating · <strong>tTG-IgA</strong> · biopsy confirms</div>
+            </div>
+          </a>
+          <a href="c-diff-peds.html" class="condition">
+            <span class="condition-num">5.</span>
+            <div class="condition-body">
+              <div class="condition-name">C. difficile Colitis</div>
+              <div class="condition-key">Post-antibiotic diarrhea · <strong>don't test &lt;1 yr</strong> (colonization) · PO vanc</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: Vomiting by age -->
+  <section id="vomiting" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Vomiting — By Age &amp; Pattern</div>
+        <div class="section-subtitle">Age is the most important clue. Match the age, character, and timing to the diagnosis.</div>
+      </div>
+      <div class="section-tag">Pattern Recognition</div>
+    </div>
+
+    <table class="vomit-table">
+      <thead>
+        <tr>
+          <th>Condition</th>
+          <th>Character</th>
+          <th>Classic Clue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="vomit-name">Pyloric Stenosis</div>
+            <span class="vomit-age">3–6 weeks · first-born male</span>
+          </td>
+          <td><strong>Projectile</strong>, non-bilious, forceful</td>
+          <td>Hungry after vomiting · olive RUQ · hypochloremic alkalosis</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">Malrotation / Volvulus</div>
+            <span class="vomit-age">&lt;1 month typically</span>
+          </td>
+          <td><strong>Bilious</strong>, sudden</td>
+          <td>Surgical emergency · UGI shows "corkscrew" / ligament of Treitz on right</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">GERD</div>
+            <span class="vomit-age">Infant, 1–6 mo peak</span>
+          </td>
+          <td>Effortless spit-up, non-bilious</td>
+          <td>Thriving baby · no red flags = reassure + positioning</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">Intussusception</div>
+            <span class="vomit-age">6 mo – 2 yr</span>
+          </td>
+          <td>Intermittent vomiting + pain</td>
+          <td>Colicky episodes · lethargy between · <strong>currant jelly stool</strong> (late)</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">Gastroenteritis</div>
+            <span class="vomit-age">Any age</span>
+          </td>
+          <td>Vomit + diarrhea, non-bilious</td>
+          <td>Sick contacts · self-limited · rehydrate</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">DKA</div>
+            <span class="vomit-age">School-age, adolescent</span>
+          </td>
+          <td>Vomit + abdominal pain + Kussmaul</td>
+          <td>Polyuria, polydipsia, weight loss · check <strong>fingerstick glucose</strong></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vomit-name">Increased ICP</div>
+            <span class="vomit-age">Any age</span>
+          </td>
+          <td>Morning vomiting + HA</td>
+          <td>No nausea · neuro exam abnl · think posterior fossa tumor</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION: Feeding & Nutrition -->
+  <section id="feeding" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Feeding &amp; Nutrition</div>
+        <div class="section-subtitle">Early-life feeding problems and nutritional conditions.</div>
+      </div>
+      <div class="section-tag">4 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="milk-protein-allergy.html" class="card teal">
+        <div class="card-title">Cow's Milk Protein Allergy</div>
+        <div class="card-desc">Blood/mucus in stool in otherwise well infant · eliminate from maternal diet or hydrolyzed formula</div>
+        <div class="card-tags">
+          <span class="tag teal">Common</span>
+        </div>
+      </a>
+
+      <a href="ftt-growth-faltering.html" class="card gold">
+        <div class="card-title">Growth Faltering (FTT)</div>
+        <div class="card-desc">Weight-for-age &lt;5th% or crossing 2 percentile lines · organic vs nonorganic causes · multidisciplinary</div>
+        <div class="card-tags">
+          <span class="tag">Cross-cutting</span>
+        </div>
+      </a>
+
+      <a href="iron-deficiency.html" class="card rust">
+        <div class="card-title">Iron Deficiency</div>
+        <div class="card-desc">Excess cow's milk &gt;24 oz/day · microcytic anemia · supplement + dietary counseling</div>
+        <div class="card-tags">
+          <span class="tag hot">Preventable</span>
+        </div>
+      </a>
+
+      <a href="constipation-peds.html" class="card sage">
+        <div class="card-title">Functional Constipation</div>
+        <div class="card-desc">Withholding behavior · encopresis · PEG 3350 (Miralax) + behavioral plan</div>
+        <div class="card-tags">
+          <span class="tag sage">Common</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Functional & Chronic -->
+  <section id="functional" class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Functional &amp; Chronic Conditions</div>
+        <div class="section-subtitle">Benign but common — and parental reassurance is half the treatment.</div>
+      </div>
+      <div class="section-tag">3 Topics</div>
+    </div>
+
+    <div class="grid">
+      <a href="colic.html" class="card lav">
+        <div class="card-title">Infant Colic</div>
+        <div class="card-desc">Rule of 3s · inconsolable crying &gt;3 h/d · peaks 6 wk · resolves by 3–4 mo · reassure</div>
+        <div class="card-tags">
+          <span class="tag">Benign</span>
+        </div>
+      </a>
+
+      <a href="ibs-peds.html" class="card sage">
+        <div class="card-title">Functional Abdominal Pain / IBS</div>
+        <div class="card-desc">Rome IV criteria · normal growth · no red flags · CBT + dietary management</div>
+        <div class="card-tags">
+          <span class="tag">School-age</span>
+        </div>
+      </a>
+
+      <a href="toddler-diarrhea.html" class="card teal">
+        <div class="card-title">Toddler's Diarrhea</div>
+        <div class="card-desc">1–3 yr · nonbloody watery stools · thriving · limit juice, increase fat · outgrow by 4 yr</div>
+        <div class="card-tags">
+          <span class="tag">Benign</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION: Board Pearls -->
+  <section id="pearls" class="section">
+    <div class="pearls-wrap">
+      <div class="section-head">
+        <div class="section-title">✨ Board Pearls</div>
+        <div class="section-tag">Don't Miss These</div>
+      </div>
+      <div class="pearls-grid">
+        <div class="pearl">
+          <div class="pearl-label">Bilious vomiting</div>
+          <div class="pearl-text">In a neonate, <strong>bilious vomiting is malrotation with volvulus until proven otherwise</strong>. Immediate UGI series. Time matters — bowel ischemia happens fast.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Pyloric stenosis labs</div>
+          <div class="pearl-text">Classic <strong>hypochloremic, hypokalemic metabolic alkalosis</strong> from losing HCl. Rehydrate and correct electrolytes <em>before</em> OR. Pyloromyotomy is elective, not emergent.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Currant jelly stool</div>
+          <div class="pearl-text">Classic sign of intussusception — but it's a <strong>late finding</strong>. Don't wait for it. A colicky toddler with lethargy between episodes is enough to image.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Meckel's Rule of 2s</div>
+          <div class="pearl-text">2% population · 2 feet from ileocecal valve · 2 inches long · 2 years typical age · 2 tissue types (gastric, pancreatic). Painless lower GI bleed in a toddler.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Delayed meconium</div>
+          <div class="pearl-text">Failure to pass meconium &gt;48 hours after birth → think <strong>Hirschsprung</strong>. Rectal biopsy showing absent ganglion cells confirms.</div>
+        </div>
+        <div class="pearl">
+          <div class="pearl-label">Celiac screening</div>
+          <div class="pearl-text"><strong>tTG-IgA + total IgA</strong> is first-line. If total IgA low, use tTG-IgG or DGP-IgG. Child must be eating gluten when tested. Biopsy confirms.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>olabeaucher.com · Pediatrics · Gastrointestinal</div>
+    <div>Last updated · April 2026</div>
+  </footer>
+</div>
+</body>
+</html>

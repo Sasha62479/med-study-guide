@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric Care | Derm Design Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --text:#1a1a2e;
+    --muted:#6b7280;
+    --border:#e8e2d9;
+    --soft:#f3ede4;
+
+    --rust:#c0441f;
+    --teal:#1d6b6e;
+    --gold:#b8852a;
+    --sage:#5a7a5c;
+    --lavender:#6b5c8a;
+
+    --shadow: 0 1px 2px rgba(26,26,46,0.04), 0 4px 12px rgba(26,26,46,0.04);
+    --shadow-hover: 0 2px 4px rgba(26,26,46,0.06), 0 12px 28px rgba(26,26,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 28px 96px}
+
+  /* ---------- Breadcrumb ---------- */
+  .crumbs{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;text-transform:uppercase}
+  .crumbs a:hover{color:var(--rust)}
+  .crumbs .sep{margin:0 8px;opacity:.5}
+
+  /* ---------- Header ---------- */
+  .hero{margin-bottom:48px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;color:var(--rust);text-transform:uppercase;margin-bottom:14px;font-weight:500}
+  h1{font-family:'DM Serif Display',serif;font-size:3.2rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:18px}
+  .lede{font-size:1.08rem;color:var(--muted);max-width:640px;margin-bottom:24px}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.04em}
+  .pill.rust{background:#fbe7df;color:var(--rust)}
+  .pill.teal{background:#d9ebec;color:var(--teal)}
+  .pill.gold{background:#f3e3c3;color:var(--gold)}
+  .pill.sage{background:#e0ead9;color:var(--sage)}
+
+  /* ---------- Quick search ---------- */
+  .search-bar{margin:0 0 56px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow)}
+  .search-bar input{flex:1;border:0;outline:0;background:transparent;font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--text)}
+  .search-bar input::placeholder{color:var(--muted)}
+  .search-icon{font-size:1.1rem;color:var(--muted)}
+  .kbd{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:3px 7px;background:var(--bg)}
+
+  /* ---------- Section headers ---------- */
+  .section{margin-bottom:56px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  .section-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:-.005em;display:flex;align-items:center;gap:10px}
+  .section-tag{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- Life Stages (horizontal strip) ---------- */
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stage{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 20px;text-align:center;cursor:pointer;transition:all .25s ease;position:relative;overflow:hidden}
+  .stage::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--teal);opacity:.9}
+  .stage:nth-child(1)::before{background:var(--rust)}
+  .stage:nth-child(2)::before{background:var(--gold)}
+  .stage:nth-child(3)::before{background:var(--sage)}
+  .stage:nth-child(4)::before{background:var(--lavender)}
+  .stage:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .stage-icon{font-size:1.8rem;margin-bottom:8px;display:block}
+  .stage-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;margin-bottom:4px}
+  .stage-range{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+  /* ---------- Systems grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 22px 20px;position:relative;cursor:pointer;transition:all .25s ease;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal)}
+  .card.rust::before{background:var(--rust)}
+  .card.teal::before{background:var(--teal)}
+  .card.gold::before{background:var(--gold)}
+  .card.sage::before{background:var(--sage)}
+  .card.lav::before{background:var(--lavender)}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+
+  .card-icon{font-size:1.5rem;margin-bottom:12px;display:block}
+  .card-title{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:6px;letter-spacing:-.005em}
+  .card-desc{font-size:.88rem;color:var(--muted);line-height:1.45;margin-bottom:14px}
+  .card-meta{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+  .card-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--muted);opacity:.5}
+
+  /* ---------- Emergency section (distinct styling) ---------- */
+  .emergency-wrap{background:linear-gradient(180deg, #fbe7df 0%, #faf7f2 100%);border:1px solid #f0cfc0;border-radius:16px;padding:32px 28px}
+  .emergency-wrap .section-head{border-bottom-color:#e8c4b3}
+  .emergency-wrap .section-title{color:var(--rust)}
+  .em-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .em-card{background:var(--card);border:1px solid #f0cfc0;border-left:4px solid var(--rust);border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:12px}
+  .em-card:hover{transform:translateX(3px);box-shadow:var(--shadow-hover)}
+  .em-icon{font-size:1.3rem}
+  .em-text{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.95rem;line-height:1.3}
+
+  /* ---------- Preventive section (compact row) ---------- */
+  .prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+  .prev-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .25s ease;display:flex;align-items:center;gap:14px;border-left:4px solid var(--sage)}
+  .prev-card:nth-child(2){border-left-color:var(--gold)}
+  .prev-card:nth-child(3){border-left-color:var(--teal)}
+  .prev-card:nth-child(4){border-left-color:var(--lavender)}
+  .prev-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:#d8cfc0}
+  .prev-icon{font-size:1.4rem}
+  .prev-text{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.95rem}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px){
+    .wrap{padding:32px 18px 64px}
+    h1{font-size:2.3rem}
+    .stages{grid-template-columns:repeat(2,1fr)}
+    .section{margin-bottom:40px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../library.html">Library</a><span class="sep">/</span>
+    <a href="../family-medicine.html">Family Medicine</a><span class="sep">/</span>
+    <span>Pediatric Care</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">Derm Design Library · Pediatric Care</div>
+    <h1>Pediatrics</h1>
+    <p class="lede">Your central hub for pediatric board prep — organized by life stage, body system, and clinical emergency. Built for rapid review, structured like AMBOSS.</p>
+    <div class="pills">
+      <span class="pill rust">⚡ 6 Emergencies</span>
+      <span class="pill teal">🫀 10 Systems</span>
+      <span class="pill gold">📊 4 Preventive Domains</span>
+      <span class="pill sage">👶 4 Life Stages</span>
+    </div>
+  </header>
+
+  <!-- Quick search -->
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Search pediatrics — e.g., 'neonatal jaundice', 'DKA', 'milestones'..." />
+    <span class="kbd">⌘ K</span>
+  </div>
+
+  <!-- SECTION 1: LIFE STAGES -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title">Life Stages</div>
+      <div class="section-tag">By Age</div>
+    </div>
+    <div class="stages">
+      <a href="neonate.html" class="stage">
+        <span class="stage-icon">👶</span>
+        <div class="stage-name">Neonate</div>
+        <div class="stage-range">0 – 28 days</div>
+      </a>
+      <a href="infant.html" class="stage">
+        <span class="stage-icon">🍼</span>
+        <div class="stage-name">Infant</div>
+        <div class="stage-range">1 – 12 months</div>
+      </a>
+      <a href="child.html" class="stage">
+        <span class="stage-icon">🧒</span>
+        <div class="stage-name">Child</div>
+        <div class="stage-range">1 – 11 years</div>
+      </a>
+      <a href="adolescent.html" class="stage">
+        <span class="stage-icon">🧑</span>
+        <div class="stage-name">Adolescent</div>
+        <div class="stage-range">12 – 21 years</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION 2: BODY SYSTEMS -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title">Body Systems</div>
+      <div class="section-tag">Core Content</div>
+    </div>
+    <div class="grid">
+
+      <a href="cardiology.html" class="card teal">
+        <span class="card-icon">🫀</span>
+        <div class="card-title">Cardiology</div>
+        <div class="card-desc">CHD, murmurs, Kawasaki, rheumatic fever, heart failure</div>
+        <div class="card-meta">12 topics<span class="dot"></span>Module 6</div>
+      </a>
+
+      <a href="respiratory.html" class="card rust">
+        <span class="card-icon">🫁</span>
+        <div class="card-title">Respiratory</div>
+        <div class="card-desc">Asthma, bronchiolitis, croup, pneumonia, CF</div>
+        <div class="card-meta">14 topics<span class="dot"></span>Module 5</div>
+      </a>
+
+      <a href="gastrointestinal.html" class="card gold">
+        <span class="card-icon">🫃</span>
+        <div class="card-title">Gastrointestinal</div>
+        <div class="card-desc">Pyloric stenosis, intussusception, GERD, IBD, appendicitis</div>
+        <div class="card-meta">11 topics<span class="dot"></span>Module 8</div>
+      </a>
+
+      <a href="neurology.html" class="card lav">
+        <span class="card-icon">🧠</span>
+        <div class="card-title">Neurology</div>
+        <div class="card-desc">Seizures, meningitis, headache, developmental delay</div>
+        <div class="card-meta">10 topics<span class="dot"></span>Module 7</div>
+      </a>
+
+      <a href="endocrine.html" class="card teal">
+        <span class="card-icon">⚖️</span>
+        <div class="card-title">Endocrine & Metabolic</div>
+        <div class="card-desc">T1DM, DKA, thyroid, CAH, growth disorders</div>
+        <div class="card-meta">9 topics<span class="dot"></span>Module 10</div>
+      </a>
+
+      <a href="renal-gu.html" class="card gold">
+        <span class="card-icon">💧</span>
+        <div class="card-title">Renal & GU</div>
+        <div class="card-desc">UTI, nephrotic/nephritic, VUR, cryptorchidism</div>
+        <div class="card-meta">8 topics<span class="dot"></span>Module 9</div>
+      </a>
+
+      <a href="infectious-diseases.html" class="card rust">
+        <span class="card-icon">🦠</span>
+        <div class="card-title">Infectious Diseases</div>
+        <div class="card-desc">Fever workup, measles, varicella, HFM, sepsis</div>
+        <div class="card-meta">13 topics<span class="dot"></span>Module 4</div>
+      </a>
+
+      <a href="dermatology.html" class="card sage">
+        <span class="card-icon">🌿</span>
+        <div class="card-title">Dermatology</div>
+        <div class="card-desc">Eczema, impetigo, viral exanthems, diaper rash</div>
+        <div class="card-meta">10 topics<span class="dot"></span>Module 4</div>
+      </a>
+
+      <a href="psychiatry.html" class="card lav">
+        <span class="card-icon">🧩</span>
+        <div class="card-title">Psychiatry & Behavioral</div>
+        <div class="card-desc">ADHD, autism, anxiety, depression, eating disorders</div>
+        <div class="card-meta">9 topics</div>
+      </a>
+
+      <a href="msk-ortho.html" class="card sage">
+        <span class="card-icon">🦴</span>
+        <div class="card-title">MSK & Orthopedics</div>
+        <div class="card-desc">DDH, SCFE, Osgood-Schlatter, nursemaid's elbow</div>
+        <div class="card-meta">8 topics<span class="dot"></span>Module 8</div>
+      </a>
+
+      <a href="heme-onc.html" class="card rust">
+        <span class="card-icon">🩸</span>
+        <div class="card-title">Hematology & Oncology</div>
+        <div class="card-desc">Iron deficiency, sickle cell, ALL, Wilms, neuroblastoma</div>
+        <div class="card-meta">10 topics</div>
+      </a>
+
+      <a href="ent-ophtho.html" class="card teal">
+        <span class="card-icon">👁️</span>
+        <div class="card-title">ENT & Ophthalmology</div>
+        <div class="card-desc">AOM, strep throat, conjunctivitis, strabismus</div>
+        <div class="card-meta">9 topics</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: EMERGENCIES / HIGH-YIELD -->
+  <section class="section">
+    <div class="emergency-wrap">
+      <div class="section-head">
+        <div class="section-title">🚨 High-Yield Emergencies</div>
+        <div class="section-tag">Exam Mode</div>
+      </div>
+      <div class="em-grid">
+        <a href="em-neonatal-fever.html" class="em-card">
+          <span class="em-icon">🔥</span>
+          <div class="em-text">Fever in the neonate</div>
+        </a>
+        <a href="em-peds-sepsis.html" class="em-card">
+          <span class="em-icon">⚡</span>
+          <div class="em-text">Pediatric sepsis</div>
+        </a>
+        <a href="em-resp-distress.html" class="em-card">
+          <span class="em-icon">💨</span>
+          <div class="em-text">Respiratory distress</div>
+        </a>
+        <a href="em-cyanosis.html" class="em-card">
+          <span class="em-icon">💙</span>
+          <div class="em-text">Cyanosis</div>
+        </a>
+        <a href="em-dka.html" class="em-card">
+          <span class="em-icon">🧪</span>
+          <div class="em-text">DKA</div>
+        </a>
+        <a href="em-acute-abdomen.html" class="em-card">
+          <span class="em-icon">🩻</span>
+          <div class="em-text">Acute abdomen</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PREVENTIVE CARE -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title">Preventive Care & Development</div>
+      <div class="section-tag">Well-Child</div>
+    </div>
+    <div class="prev-grid">
+      <a href="well-child-visits.html" class="prev-card">
+        <span class="prev-icon">🧾</span>
+        <div class="prev-text">Well-Child Visits</div>
+      </a>
+      <a href="growth-charts.html" class="prev-card">
+        <span class="prev-icon">📈</span>
+        <div class="prev-text">Growth & Faltering</div>
+      </a>
+      <a href="vaccines.html" class="prev-card">
+        <span class="prev-icon">💉</span>
+        <div class="prev-text">Vaccines & Schedule</div>
+      </a>
+      <a href="milestones.html" class="prev-card">
+        <span class="prev-icon">🧠</span>
+        <div class="prev-text">Development & Milestones</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div>olabeaucher.com · Pediatric Care Hub</div>
+    <div>Last updated · April 2026</div>
+  </footer>
+</div>
+</body>
+</html>
