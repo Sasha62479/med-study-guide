@@ -465,3 +465,122 @@ footer a:hover { text-decoration: underline; }
   .top-nav-inner { padding: 0 0.8rem; }
   .top-nav .brand, .site-brand { font-size: 1.2rem; }
 }
+
+/* ============================================================
+   LEGACY COMPAT — supports older inline-style markup so pages
+   can switch to <link rel="stylesheet" href="../styles.css">
+   without changing their HTML structure. Safe to remove later
+   once all pages have been migrated to the canonical markup.
+   ============================================================ */
+
+/* Top nav: support pages without a .top-nav-inner wrapper */
+.top-nav:not(:has(.top-nav-inner)) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  min-height: 56px;
+}
+
+/* Top nav: bare <a> children (no .nav-item class) get pill styling */
+.top-nav > a:not(.brand):not(.site-brand):not(.nav-item) {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--forest);
+  text-decoration: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.top-nav > a:not(.brand):not(.site-brand):not(.nav-item):hover {
+  background: rgba(242,80,50,0.1);
+}
+.top-nav > a.active:not(.brand):not(.site-brand):not(.nav-item) {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* Sub nav: support pages without a .sub-nav-inner wrapper */
+.sub-nav:not(:has(.sub-nav-inner)) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.5rem 1.5rem;
+}
+
+/* TOC: support legacy <h3>Contents</h3> instead of .toc-title */
+.toc h3 {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--forest);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.7;
+  font-weight: normal;
+}
+
+/* Content sections: apply card styling to bare <section> children */
+.content > section {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  border: 1.5px solid rgba(255,255,255,0.9);
+  box-shadow: var(--shadow-card);
+}
+.content > section > h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--orange);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1.5px solid rgba(20,61,13,0.08);
+}
+.content > section > h3 {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--forest);
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem;
+  opacity: 0.8;
+}
+.content > section p,
+.content > section li {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.content > section ul,
+.content > section ol {
+  padding-left: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Boxes: support legacy <strong> as the label inside .box-* */
+.box-clinical,
+.box-pearl,
+.box-mnemonic {
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin: 0.8rem 0;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.box-clinical > strong:first-child,
+.box-pearl > strong:first-child,
+.box-mnemonic > strong:first-child {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  opacity: 0.9;
+  font-weight: 700;
+}
