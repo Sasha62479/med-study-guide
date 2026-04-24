@@ -1,0 +1,467 @@
+/* ============================================================
+   FNP Prep — Unified Stylesheet
+   Place at: /med-study-guide/styles.css
+   Fonts are loaded per-page via <link> in <head>
+   ============================================================ */
+
+/* -------- RESET -------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------- DESIGN TOKENS -------- */
+:root {
+  --lavender:   #D7D9FB;
+  --cream:      #F3F5E7;
+  --forest:     #143D0D;
+  --orange:     #F25032;
+  --purple:     #734E93;
+  --mid-green:  #92B079;
+  --white:      #FFFFFF;
+
+  --card-bg:    rgba(255,255,255,0.75);
+  --nav-bg:     rgba(255,255,255,0.92);
+
+  --text:       #2A2A2A;
+  --text-muted: #5A6A52;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 20px rgba(20,61,13,0.07);
+
+  --font-display: 'Barrio', fantasy;
+  --font-label:   'Aboreto', sans-serif;
+  --font-body:    'Nunito', sans-serif;
+}
+
+/* -------- BASE -------- */
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--cream) 100%);
+  min-height: 100vh;
+  color: var(--text);
+}
+
+/* -------- TOP NAV (subject tabs) -------- */
+.top-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(242,80,50,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  min-height: 56px;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.site-brand,
+.top-nav .brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--orange);
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+/* Subject tabs (Anatomy / Physiology / etc.) */
+.subject-tabs {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+}
+.subject-tabs li a {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--forest);
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.subject-tabs li a:hover,
+.subject-tabs li a.active {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+/* Pill-style nav items (used on root index) */
+.top-nav a.nav-item {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--forest);
+  text-decoration: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.top-nav a.nav-item:hover { background: rgba(242,80,50,0.1); }
+.top-nav a.nav-item.active { background: var(--orange); color: #fff; }
+
+/* -------- SUB NAV (organ pills) -------- */
+.sub-nav {
+  background: rgba(215,217,251,0.35);
+  border-bottom: 1px solid rgba(20,61,13,0.07);
+  padding: 0 2rem;
+}
+.sub-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+}
+.sub-nav a {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  transition: all 0.2s;
+  opacity: 0.7;
+}
+.sub-nav a:hover,
+.sub-nav a.active-sub {
+  background: rgba(242,80,50,0.1);
+  color: var(--orange);
+  opacity: 1;
+}
+
+/* -------- PAGE HERO -------- */
+.page-hero {
+  background: linear-gradient(120deg, rgba(215,217,251,0.8) 0%, rgba(243,245,231,0.8) 100%);
+  border-bottom: 1px solid rgba(20,61,13,0.1);
+  padding: 2rem 2rem 1.8rem;
+}
+.page-hero-inner { max-width: 1200px; margin: 0 auto; }
+.page-tag {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--forest);
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--orange);
+  text-shadow: 3px 3px 0 rgba(115,78,147,0.3);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.page-subtitle {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--forest);
+  opacity: 0.65;
+}
+
+/* Simpler hero (used on root index.html) */
+.hero { text-align: center; padding: 3rem 1rem 1.5rem; }
+.hero .tag {
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--forest);
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--orange);
+  text-shadow: 3px 3px 0 rgba(115,78,147,0.35);
+  margin-top: 0.3rem;
+}
+.hero p { max-width: 640px; margin: 0.8rem auto 0; font-size: 1.05rem; color: #555; }
+
+/* -------- LAYOUT WITH TOC -------- */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 2rem;
+}
+.toc {
+  position: sticky;
+  top: 98px;
+  align-self: start;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 16px rgba(20,61,13,0.07);
+}
+.toc-title {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--forest);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.7;
+}
+.toc a {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.2rem;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+}
+.toc a:hover {
+  background: rgba(242,80,50,0.08);
+  color: var(--orange);
+  border-left-color: var(--orange);
+}
+
+/* Plain-main wrapper (root index) */
+.main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.5rem 3rem; }
+
+/* -------- CONTENT CARDS -------- */
+.content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  border: 1.5px solid rgba(255,255,255,0.9);
+  box-shadow: var(--shadow-card);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1.5px solid rgba(20,61,13,0.08);
+}
+.card-header-icon { font-size: 1.4rem; }
+.card-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--orange);
+}
+.card p, .card li {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.card ul, .card ol { padding-left: 1.4rem; margin-bottom: 0.8rem; }
+.card h3 {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--forest);
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem;
+  opacity: 0.8;
+}
+.card strong { color: var(--forest); }
+
+/* -------- INFO BOXES -------- */
+.box {
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+.box-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+.box-clinical  { background: rgba(210,228,199,0.5); border-left: 3px solid #6BA057; }
+.box-pearl     { background: rgba(255,240,180,0.5); border-left: 3px solid #E8B400; }
+.box-mnemonic  { background: rgba(210,190,230,0.4); border-left: 3px solid var(--purple); }
+.box-clinical  .box-label { color: #3D6B2A; }
+.box-pearl     .box-label { color: #8A6A00; }
+.box-mnemonic  .box-label { color: var(--purple); }
+
+/* -------- TABLES -------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 0.8rem 0;
+}
+th {
+  background: var(--forest);
+  color: var(--white);
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+td { padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(20,61,13,0.08); }
+tr:nth-child(even) td { background: rgba(210,228,199,0.25); }
+
+/* -------- SECTION HEADS (root index) -------- */
+.section-head { margin: 2rem 0 1rem; }
+.section-head .label {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  color: var(--forest);
+  text-transform: uppercase;
+}
+.section-head .title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--orange);
+  margin-top: 0.2rem;
+}
+.section-head .sub { font-size: 0.9rem; color: #666; margin-top: 0.2rem; }
+.section-head .divider {
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--purple));
+  border-radius: 2px;
+  margin-top: 0.6rem;
+}
+
+/* -------- SYSTEMS GRID (root index) -------- */
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.system-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(114,78,147,0.18);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.system-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(115,78,147,0.12);
+}
+.system-card .system-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--forest);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.system-card .system-name .icon { font-size: 1.1rem; }
+
+/* -------- SPECIAL TOPICS (root index) -------- */
+.special-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+.special-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(114,78,147,0.18);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+}
+.special-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--orange);
+  margin-bottom: 0.4rem;
+}
+.special-card p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+/* -------- PILL ROW (used on root index cards) -------- */
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pill {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1.5px solid;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.pill.anatomy      { color: var(--purple); border-color: var(--purple); background: rgba(115,78,147,0.06); }
+.pill.anatomy:hover{ background: var(--purple); color: #fff; }
+.pill.physiology   { color: #0e7490; border-color: #0ea5e9; background: rgba(14,165,233,0.06); }
+.pill.physiology:hover{ background: #0ea5e9; color: #fff; }
+.pill.pathophys    { color: #be123c; border-color: #f43f5e; background: rgba(244,63,94,0.06); }
+.pill.pathophys:hover{ background: #f43f5e; color: #fff; }
+.pill.pharmacology { color: #b45309; border-color: var(--orange); background: rgba(242,80,50,0.06); }
+.pill.pharmacology:hover{ background: var(--orange); color: #fff; }
+.pill.cases        { color: var(--forest); border-color: var(--forest); background: rgba(20,61,13,0.06); }
+.pill.cases:hover  { background: var(--forest); color: #fff; }
+.pill.peds         { color: var(--purple); border-color: var(--purple); background: rgba(115,78,147,0.06); }
+.pill.peds:hover   { background: var(--purple); color: #fff; }
+
+/* -------- FOOTER -------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--forest);
+  opacity: 0.55;
+  border-top: 1px solid rgba(20,61,13,0.1);
+}
+footer a { color: var(--orange); text-decoration: none; font-weight: 700; }
+footer a:hover { text-decoration: underline; }
+
+/* -------- SCROLLBAR -------- */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--mid-green); border-radius: 4px; }
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { display: none; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 2rem 1rem 1rem; }
+  .top-nav-inner { padding: 0 0.8rem; }
+  .top-nav .brand, .site-brand { font-size: 1.2rem; }
+}
