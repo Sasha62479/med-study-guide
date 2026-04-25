@@ -7,57 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Barrio&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{--orange:#F25032;--green:#143D0D;--purple:#734E93;--lav:#D7D9FB;--cream:#F3F5E7;--ink:#1a1a1a;--mute:#5c5c5c;}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--lav) 0%,var(--cream) 100%);min-height:100vh;}
-  a{color:var(--green);text-decoration:none}
-  a:hover{color:var(--orange)}
-  .top-nav{display:flex;align-items:center;gap:32px;padding:18px 40px;background:#fff;border-bottom:1px solid #eee;}
-  .brand{font-family:'Barrio',cursive;font-size:28px;color:var(--orange);letter-spacing:1px}
-  .brand .leaf{color:var(--green);margin-right:4px}
-  .top-nav a{font-weight:700;color:var(--green);font-size:14px;letter-spacing:.5px;text-transform:uppercase}
-  .top-nav a.active{color:var(--orange);border-bottom:3px solid var(--orange);padding-bottom:4px}
-  .sub-nav{display:flex;gap:10px;flex-wrap:wrap;padding:12px 40px;background:rgba(215,217,251,.5);}
-  .sub-nav a{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;color:var(--green);}
-  .sub-nav a.active{background:var(--green);color:#fff}
-  .hero{padding:50px 40px 30px;text-align:center}
-  .hero .tag{font-family:'Aboreto',serif;font-size:14px;letter-spacing:3px;color:var(--green);text-transform:uppercase}
-  .hero h1{font-family:'Barrio',cursive;font-size:72px;color:var(--orange);margin:10px 0;text-shadow:3px 3px 0 rgba(115,78,147,.25);letter-spacing:2px}
-  .hero p{font-size:17px;color:var(--mute);max-width:780px;margin:10px auto 0}
-  .layout{display:grid;grid-template-columns:240px 1fr;gap:30px;padding:20px 40px 60px;max-width:1400px;margin:0 auto;}
-  .toc{position:sticky;top:20px;align-self:start;background:#fff;border-radius:14px;padding:20px 18px;box-shadow:0 2px 10px rgba(20,61,13,.06);max-height:calc(100vh - 40px);overflow-y:auto}
-  .toc h3{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;color:var(--green);margin:0 0 12px;text-transform:uppercase}
-  .toc ul{list-style:none;padding:0;margin:0}
-  .toc li{margin:6px 0}
-  .toc a{font-size:14px;color:var(--ink);font-weight:600}
-  .toc a:hover{color:var(--orange)}
-  .toc .sub{padding-left:12px;font-size:13px;font-weight:500;color:var(--mute)}
-  .content{background:rgba(255,255,255,.65);border-radius:18px;padding:30px 36px;box-shadow:0 2px 16px rgba(20,61,13,.05)}
-  .content section{margin-bottom:44px;scroll-margin-top:20px}
-  .content h2{font-family:'Aboreto',serif;font-size:22px;color:var(--green);letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid var(--orange);padding-bottom:8px;margin:0 0 16px}
-  .content h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);font-size:20px;margin:24px 0 10px}
-  .content h4{font-weight:800;color:var(--purple);font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px}
-  .content p,.content li{font-size:15.5px;line-height:1.65}
-  .content strong{color:var(--green)}
-  table{width:100%;border-collapse:collapse;margin:12px 0;background:#fff;border-radius:8px;overflow:hidden;font-size:14px}
-  th{background:var(--green);color:#fff;padding:10px;text-align:left;font-family:'Aboreto',serif;letter-spacing:1px;font-weight:400;font-size:12px;text-transform:uppercase}
-  td{padding:10px;border-top:1px solid #eee;vertical-align:top}
-  tr:nth-child(even) td{background:#fafafa}
-  .box{border-radius:12px;padding:16px 20px;margin:16px 0;border-left:5px solid}
-  .box-clinical{background:rgba(20,61,13,.06);border-color:var(--green)}
-  .box-pearl{background:rgba(242,80,50,.08);border-color:var(--orange)}
-  .box-mnemonic{background:rgba(115,78,147,.08);border-color:var(--purple)}
-  .box .label{font-family:'Aboreto',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
-  .box-clinical .label{color:var(--green)}
-  .box-pearl .label{color:var(--orange)}
-  .box-mnemonic .label{color:var(--purple)}
-  .pill{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--lav);color:var(--green);margin-right:6px}
-  .disorder-card{border:1px solid rgba(20,61,13,.12);border-radius:14px;padding:20px 24px;margin:18px 0;background:#fff}
-  .disorder-card>h3:first-child{margin-top:0}
-  footer{text-align:center;padding:30px;color:var(--mute);font-size:13px}
-  @media (max-width:900px){.layout{grid-template-columns:1fr}.toc{position:static}.hero h1{font-size:52px}}
-</style>
+<link rel="stylesheet" href="../styles.css" />
 </head><body>
 <nav class="top-nav">
   <div class="brand"><span class="leaf">🌿</span>FNP PREP</div>
