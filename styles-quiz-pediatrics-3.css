@@ -1,0 +1,26 @@
+/* styles-quiz-pediatrics-3.css — design for pediatrics-3 quiz page */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F0F2F7;--surface:#fff;--border:rgba(100,120,160,.13);--navy:#1E2D4E;--slate:#4A5568;--muted:#718096;--accent:#4A7FA5;--text:#2D3748;--green:#2E7D6A;--red:#C53030}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.top-nav{background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;height:52px;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.top-nav a{text-decoration:none;color:var(--slate);font-size:.875rem;font-weight:500}
+.top-nav a:hover{color:var(--accent)}
+.site-brand{font-size:1rem;font-weight:800;color:var(--navy);margin-right:auto}
+.page-header{max-width:760px;margin:2.5rem auto 2rem;padding:0 2rem}
+.page-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.page-subtitle{color:var(--muted);font-size:.875rem;margin-top:.3rem}
+.accent-line{width:36px;height:3px;background:var(--accent);border-radius:2px;margin-top:.75rem}
+.quiz-container{max-width:760px;margin:0 auto;padding:0 2rem 4rem}
+.ch-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:2rem 0 1rem}
+.question-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem}
+.q-num{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.q-stem{font-size:.97rem;font-weight:600;color:var(--navy);line-height:1.55;margin-bottom:1rem}
+.options{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
+.option{background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:.6rem .9rem;font-size:.88rem}
+.reveal-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:.55rem 1.2rem;font-size:.82rem;font-weight:600;cursor:pointer}
+.reveal-btn:hover{opacity:.9}
+.explanation{display:none;background:#f0f7ff;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.85rem 1rem;margin-top:.75rem;font-size:.88rem;line-height:1.6;color:var(--slate)}
+.explanation strong{color:var(--navy)}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:.75rem}
+.sg-link{display:inline-flex;align-items:center;gap:.4rem;background:#f0f7ff;border:1.5px solid var(--accent);color:var(--accent);text-decoration:none;padding:.45rem 1rem;border-radius:8px;font-size:.82rem;font-weight:600;margin-bottom:1.5rem;margin-left:.75rem}
+.sg-link:hover{background:var(--accent);color:#fff}
