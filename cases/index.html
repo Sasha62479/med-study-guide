@@ -5,38 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clinical Cases – FNP Prep Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
-      --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --steel: #3A5080;
-      --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE;
-      --text: #2D3748; --green: #2E7D6A;
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
-    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
-    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
-    .nav-group { display: flex; align-items: stretch; list-style: none; }
-    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
-    .nav-group li a:hover, .nav-group li a.active { color: var(--accent); border-bottom-color: var(--accent); }
-    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
-    .page-header { max-width: 1200px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
-    .page-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
-    .page-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
-    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    .subject-card { background: var(--surface); border-radius: 12px; padding: 1.4rem 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(30,45,78,0.05); transition: all 0.22s; display: flex; flex-direction: column; gap: 0.3rem; position: relative; overflow: hidden; }
-    .subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent2); opacity: 0; transition: opacity 0.22s; }
-    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(30,45,78,0.11); border-color: var(--accent2); }
-    .subject-card:hover::before { opacity: 1; }
-    .subject-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
-    .subject-desc { font-size: 0.78rem; color: var(--slate); line-height: 1.5; margin-top: 0.2rem; }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
-    footer a { color: var(--accent); text-decoration: none; }
-  </style>
+  <link rel="stylesheet" href="../styles-hub.css" />
 </head>
 <body>
   <nav class="top-nav">
