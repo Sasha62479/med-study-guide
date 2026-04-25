@@ -5,71 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>FNP Prep – Learn Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{min-height:100vh;background:linear-gradient(135deg,#D7D9FB 0%,#F3F5E7 100%);font-family:'Nunito',sans-serif;color:#2d2d2d;}
-
-/* TOP NAV — single, clean, AMBOSS-style */
-.top-nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(8px);padding:0.7rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:2px solid rgba(114,78,147,0.2);position:sticky;top:0;z-index:100;}
-.top-nav .brand{font-family:'Barrio',cursive;font-size:1.5rem;color:#F25032;text-decoration:none;margin-right:auto;}
-.top-nav a.nav-item{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:#143D0D;text-decoration:none;padding:0.35rem 0.8rem;border-radius:20px;transition:background 0.2s;}
-.top-nav a.nav-item:hover{background:rgba(242,80,50,0.1);}
-.top-nav a.nav-item.active{background:#F25032;color:#fff;}
-
-/* HERO */
-.hero{text-align:center;padding:3rem 1rem 1.5rem;}
-.hero .tag{font-family:'Aboreto',cursive;font-size:0.8rem;letter-spacing:3px;color:#143D0D;text-transform:uppercase;}
-.hero h1{font-family:'Barrio',cursive;font-size:clamp(2.5rem,6vw,4rem);color:#F25032;text-shadow:3px 3px 0 rgba(115,78,147,0.35);margin-top:0.3rem;}
-.hero p{max-width:640px;margin:0.8rem auto 0;font-size:1.05rem;color:#555;}
-
-/* MAIN */
-.main{max-width:1200px;margin:0 auto;padding:1.5rem 1.5rem 3rem;}
-
-/* SECTION HEADERS */
-.section-head{margin:2rem 0 1rem;}
-.section-head .label{font-family:'Aboreto',cursive;font-size:0.75rem;letter-spacing:2.5px;color:#143D0D;text-transform:uppercase;}
-.section-head .title{font-family:'Barrio',cursive;font-size:1.8rem;color:#F25032;margin-top:0.2rem;}
-.section-head .sub{font-size:0.9rem;color:#666;margin-top:0.2rem;}
-.section-head .divider{width:50px;height:3px;background:linear-gradient(90deg,#F25032,#734E93);border-radius:2px;margin-top:0.6rem;}
-
-/* SYSTEM GRID — AMBOSS style cards */
-.systems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:2rem;}
-.system-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);border:1px solid rgba(114,78,147,0.18);border-radius:16px;padding:1.1rem 1rem;transition:transform 0.15s,box-shadow 0.15s;}
-.system-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(115,78,147,0.12);}
-.system-card .system-name{font-family:'Barrio',cursive;font-size:1.3rem;color:#143D0D;margin-bottom:0.7rem;display:flex;align-items:center;gap:0.4rem;}
-.system-card .system-name .icon{font-size:1.1rem;}
-.pill-row{display:flex;flex-wrap:wrap;gap:0.35rem;}
-.pill{font-family:'Nunito',sans-serif;font-size:0.74rem;font-weight:700;text-decoration:none;padding:0.3rem 0.75rem;border-radius:20px;border:1.5px solid;transition:all 0.18s;white-space:nowrap;}
-.pill.anatomy{color:#734E93;border-color:#734E93;background:rgba(115,78,147,0.06);}
-.pill.anatomy:hover{background:#734E93;color:#fff;}
-.pill.physiology{color:#0e7490;border-color:#0ea5e9;background:rgba(14,165,233,0.06);}
-.pill.physiology:hover{background:#0ea5e9;color:#fff;}
-.pill.pathophys{color:#be123c;border-color:#f43f5e;background:rgba(244,63,94,0.06);}
-.pill.pathophys:hover{background:#f43f5e;color:#fff;}
-.pill.pharmacology{color:#b45309;border-color:#F25032;background:rgba(242,80,50,0.06);}
-.pill.pharmacology:hover{background:#F25032;color:#fff;}
-.pill.cases{color:#143D0D;border-color:#143D0D;background:rgba(20,61,13,0.06);}
-.pill.cases:hover{background:#143D0D;color:#fff;}
-.pill.peds{color:#734E93;border-color:#734E93;background:rgba(115,78,147,0.06);}
-.pill.peds:hover{background:#734E93;color:#fff;}
-
-/* SPECIAL TOPICS */
-.special-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;}
-.special-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);border:1px solid rgba(114,78,147,0.18);border-radius:16px;padding:1.2rem 1.2rem;}
-.special-card h3{font-family:'Barrio',cursive;font-size:1.4rem;color:#F25032;margin-bottom:0.4rem;}
-.special-card p{font-size:0.85rem;color:#555;margin-bottom:0.8rem;line-height:1.5;}
-
-/* FOOTER */
-footer{text-align:center;padding:2rem 1rem 1.5rem;font-size:0.78rem;color:#143D0D;border-top:1px solid rgba(114,78,147,0.18);background:rgba(255,255,255,0.4);margin-top:2rem;}
-footer a{color:#F25032;text-decoration:none;font-weight:700;}
-footer a:hover{text-decoration:underline;}
-
-@media(max-width:640px){
-  .hero{padding:2rem 1rem 1rem;}
-  .top-nav{padding:0.5rem 0.8rem;}
-  .top-nav .brand{font-size:1.2rem;}
-}
-</style>
+<link rel="stylesheet" href="styles-home.css" />
 </head>
 <body>
 
