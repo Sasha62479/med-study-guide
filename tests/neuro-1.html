@@ -5,74 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Neurology Set 1 | FNP Prep Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --navy: #1E2D4E;
-    --accent: #4A7FA5;
-    --accent2: #6B8CBE;
-    --bg: #F0F2F7;
-    --green: #2E7D6A;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1a1a2e; }
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--navy); display: flex; flex-wrap: wrap;
-    gap: 4px; padding: 10px 20px;
-  }
-  nav a {
-    color: #cbd5e1; text-decoration: none; font-size: 0.8rem;
-    padding: 4px 10px; border-radius: 4px; transition: background 0.2s;
-  }
-  nav a:hover { background: var(--accent); color: #fff; }
-  .page-header {
-    background: linear-gradient(135deg, var(--navy), var(--accent));
-    color: #fff; padding: 40px 20px 30px; text-align: center;
-  }
-  .page-header .back-link { color: #a0c4e0; font-size: 0.85rem; text-decoration: none; display: inline-block; margin-bottom: 10px; }
-  .page-header .back-link:hover { color: #fff; }
-  .page-header h1 { font-size: 2rem; font-weight: 700; }
-  .page-header p { margin-top: 6px; color: #c8dff0; font-size: 0.95rem; }
-  .accent-line { width: 60px; height: 4px; background: var(--accent2); border-radius: 2px; margin: 14px auto 0; }
-  .progress-bar-wrap { max-width: 720px; margin: 24px auto 0; padding: 0 20px; }
-  .prog-label { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
-  .prog-track { background: #dde3ec; border-radius: 8px; height: 10px; overflow: hidden; }
-  .prog-fill { height: 10px; background: var(--green); border-radius: 8px; width: 0%; transition: width 0.4s; }
-  .container { max-width: 720px; margin: 30px auto 60px; padding: 0 20px; }
-  .question-block {
-    background: #fff; border-radius: 12px; padding: 24px;
-    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    border-left: 5px solid var(--accent);
-  }
-  .q-number { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
-  .q-stem { font-size: 1rem; line-height: 1.6; margin-bottom: 16px; }
-  .options { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-  .options li {
-    padding: 10px 14px; background: #f5f7fa; border-radius: 8px;
-    border: 2px solid transparent; font-size: 0.92rem; cursor: default;
-  }
-  .options li.correct {
-    background: #e8f5e9 !important; border-color: var(--green) !important;
-    color: #1b5e20; font-weight: 600;
-  }
-  .reveal-btn {
-    background: var(--accent); color: #fff; border: none;
-    padding: 9px 20px; border-radius: 8px; font-size: 0.88rem;
-    font-weight: 600; cursor: pointer; transition: background 0.2s;
-  }
-  .reveal-btn:hover { background: var(--navy); }
-  .explanation {
-    display: none; margin-top: 14px; padding: 14px;
-    background: #f0f6ff; border-radius: 8px;
-    font-size: 0.9rem; line-height: 1.6; color: #333;
-    border-left: 4px solid var(--accent2);
-  }
-  footer {
-    text-align: center; padding: 24px;
-    font-size: 0.8rem; color: #888;
-    border-top: 1px solid #dde3ec;
-  }
-</style>
+<link rel="stylesheet" href="../styles-quiz.css" />
 </head>
 <body>
 <nav>
