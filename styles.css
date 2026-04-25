@@ -596,3 +596,10 @@ footer a:hover { text-decoration: underline; }
 .brand .leaf { color: var(--green); margin-right: 4px; }
 .disorder-card { border: 1px solid rgba(20,61,13,.12); border-radius: 14px; padding: 20px 24px; margin: 18px 0; background: #fff; }
 .disorder-card > h3:first-child { margin-top: 0; }
+
+/* === added for root-level body-system pages: top nav with .nav-* classes === */
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap; min-height: 58px; gap: 0.5rem; }
+.nav-brand { font-family: 'Barrio', fantasy; font-size: 1.4rem; color: var(--orange); text-decoration: none; margin-right: 1rem; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 0.15rem; align-items: center; list-style: none; }
+.nav-links a { font-family: 'Aboreto', sans-serif; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--forest); text-decoration: none; padding: 0.35rem 0.65rem; border-radius: 20px; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { background: var(--orange); color: var(--white); }
