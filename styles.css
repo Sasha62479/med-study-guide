@@ -584,3 +584,15 @@ footer a:hover { text-decoration: underline; }
   opacity: 0.9;
   font-weight: 700;
 }
+
+/* === added for anatomy/{gu,neuro,skin}.html: tab nav + grid body === */
+.nav-tabs { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.nav-tabs a { font-family: 'Aboreto', sans-serif; font-size: 0.7rem; letter-spacing: 0.08em; color: #143D0D; padding: 0.9rem 0.9rem; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; }
+.nav-tabs a:hover { color: #F25032; border-bottom-color: #F25032; }
+.nav-tabs a.active { color: #F25032; border-bottom-color: #F25032; font-weight: 700; }
+.page-body { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; max-width: 1100px; margin: 2rem auto; padding: 0 2rem 4rem; }
+@media (max-width: 700px) { .page-body { grid-template-columns: 1fr; } }
+/* === added for anatomy/psychiatry.html === */
+.brand .leaf { color: var(--green); margin-right: 4px; }
+.disorder-card { border: 1px solid rgba(20,61,13,.12); border-radius: 14px; padding: 20px 24px; margin: 18px 0; background: #fff; }
+.disorder-card > h3:first-child { margin-top: 0; }
