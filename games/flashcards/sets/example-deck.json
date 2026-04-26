@@ -1,0 +1,20 @@
+{
+  "id": "example-1",
+  "name": "Example Deck — Pediatric Basics",
+  "description": "Sample deck showing the format. Replace with your own.",
+  "created": "2026-04-26T00:00:00Z",
+  "cards": [
+    {
+      "q": "What is the typical age range for diagnosing autism spectrum disorder?",
+      "a": "Symptoms typically present before age 3, though diagnosis can occur later. Reliable diagnosis is often possible by age 2."
+    },
+    {
+      "q": "Name three core features of ADHD.",
+      "a": "Inattention, hyperactivity, and impulsivity — present in two or more settings before age 12."
+    },
+    {
+      "q": "What screening tool is commonly used for autism in toddlers?",
+      "a": "M-CHAT-R/F (Modified Checklist for Autism in Toddlers, Revised with Follow-Up), used at 18 and 24 months."
+    }
+  ]
+}
