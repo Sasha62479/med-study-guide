@@ -1,0 +1,268 @@
+<script>
+/* ... everything above stays the same ... continuing the generateWithAI function: */
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5',
+        max_tokens: 4096,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      status.innerHTML = `<div class="fc-status error">API error (${res.status}): ${escapeHtml(errText.slice(0, 300))}</div>`;
+      return;
+    }
+
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+
+    // Extract JSON array from the response
+    const match = text.match(/\[[\s\S]*\]/);
+    if (!match) {
+      status.innerHTML = '<div class="fc-status error">Could not parse AI response as JSON. Try again or use manual entry.</div>';
+      console.log('Raw response:', text);
+      return;
+    }
+
+    const cards = JSON.parse(match[0]);
+    if (!Array.isArray(cards) || !cards.length) {
+      status.innerHTML = '<div class="fc-status error">AI returned no usable cards.</div>';
+      return;
+    }
+
+    // Add to draft
+    cards.forEach(c => {
+      if (c.q && c.a) draftCards.push({ q: String(c.q), a: String(c.a) });
+    });
+    status.innerHTML = `<div class="fc-status">✓ Added ${cards.length} cards to draft.</div>`;
+    renderDraft();
+  } catch (e) {
+    status.innerHTML = `<div class="fc-status error">Network error: ${escapeHtml(e.message)}</div>`;
+  }
+}
+
+/* ============================================================
+   CSV / TSV PARSER
+   ============================================================ */
+function parseCSV() {
+  const raw = document.getElementById('csv-source').value.trim();
+  if (!raw) return;
+  const lines = raw.split(/\r?\n/).filter(l => l.trim());
+  let added = 0;
+  lines.forEach(line => {
+    // Try TAB first (Quizlet style), then comma, then dash separator
+    let parts;
+    if (line.includes('\t')) parts = line.split('\t');
+    else if (line.includes(' - ')) parts = line.split(' - ');
+    else parts = splitCSVLine(line);
+    if (parts.length >= 2) {
+      const q = parts[0].trim().replace(/^["']|["']$/g, '');
+      const a = parts.slice(1).join(',').trim().replace(/^["']|["']$/g, '');
+      if (q && a) {
+        draftCards.push({ q, a });
+        added++;
+      }
+    }
+  });
+  document.getElementById('csv-source').value = '';
+  alert(`Added ${added} cards to draft.`);
+  renderDraft();
+}
+
+// Simple CSV line splitter that handles quoted fields
+function splitCSVLine(line) {
+  const result = [];
+  let cur = '', inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') { inQuotes = !inQuotes; continue; }
+    if (ch === ',' && !inQuotes) { result.push(cur); cur = ''; continue; }
+    cur += ch;
+  }
+  result.push(cur);
+  return result;
+}
+
+/* ============================================================
+   MANUAL ENTRY
+   ============================================================ */
+function addManualCard() {
+  const q = document.getElementById('manual-q').value.trim();
+  const a = document.getElementById('manual-a').value.trim();
+  if (!q || !a) { alert('Both question and answer required.'); return; }
+  draftCards.push({ q, a });
+  document.getElementById('manual-q').value = '';
+  document.getElementById('manual-a').value = '';
+  document.getElementById('manual-q').focus();
+  renderDraft();
+}
+
+/* ============================================================
+   DRAFT MANAGEMENT
+   ============================================================ */
+function renderDraft() {
+  const section = document.getElementById('draft-section');
+  const list = document.getElementById('draft-list');
+  document.getElementById('draft-count').textContent = draftCards.length;
+  if (draftCards.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  list.innerHTML = '';
+  draftCards.forEach((c, i) => {
+    const item = document.createElement('div');
+    item.className = 'fc-card-item';
+    item.innerHTML = `
+      <div class="qa">
+        <strong>Q:</strong> ${escapeHtml(c.q)}<br>
+        <strong>A:</strong> ${escapeHtml(c.a)}
+      </div>
+      <button onclick="removeDraftCard(${i})">Remove</button>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function removeDraftCard(i) {
+  draftCards.splice(i, 1);
+  renderDraft();
+}
+
+function clearDraft() {
+  if (!confirm('Discard all draft cards?')) return;
+  draftCards = [];
+  renderDraft();
+}
+
+function saveDeck() {
+  const name = document.getElementById('new-deck-name').value.trim();
+  if (!name) { alert('Give the deck a name first.'); return; }
+  if (draftCards.length === 0) { alert('Add at least one card.'); return; }
+  const desc = document.getElementById('new-deck-desc').value.trim();
+  const deck = {
+    id: 'd_' + Date.now(),
+    name,
+    description: desc,
+    created: new Date().toISOString(),
+    cards: draftCards.slice()
+  };
+  myDecks.push(deck);
+  saveMyDecks();
+  draftCards = [];
+  document.getElementById('new-deck-name').value = '';
+  document.getElementById('new-deck-desc').value = '';
+  renderDraft();
+  renderMyDecks();
+  renderDeckGrid();
+  alert(`Saved "${name}" with ${deck.cards.length} cards.`);
+}
+
+/* ============================================================
+   MY DECKS LIST (creator view)
+   ============================================================ */
+function renderMyDecks() {
+  const wrap = document.getElementById('my-decks');
+  wrap.innerHTML = '';
+  if (myDecks.length === 0) {
+    wrap.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">No saved decks yet.</p>';
+    return;
+  }
+  myDecks.forEach((d, i) => {
+    const item = document.createElement('div');
+    item.className = 'fc-card-item';
+    item.innerHTML = `
+      <div class="qa">
+        <strong>${escapeHtml(d.name)}</strong> · ${d.cards.length} cards
+        ${d.description ? `<br><span style="color:var(--text-muted); font-size:0.8rem;">${escapeHtml(d.description)}</span>` : ''}
+      </div>
+      <div style="display:flex; gap:0.3rem; flex-wrap:wrap;">
+        <button onclick="exportDeck(${i})" style="border-color:var(--forest); color:var(--forest);">Export</button>
+        <button onclick="deleteDeck(${i})">Delete</button>
+      </div>
+    `;
+    wrap.appendChild(item);
+  });
+}
+
+function exportDeck(i) {
+  const d = myDecks[i];
+  const slug = d.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  downloadJSON(d, slug + '.json');
+}
+
+function exportAllDecks() {
+  if (myDecks.length === 0) { alert('No decks to export.'); return; }
+  downloadJSON({ decks: myDecks, exported: new Date().toISOString() }, 'flashcards-backup.json');
+}
+
+function importDecks(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      let imported = 0;
+      if (Array.isArray(data.decks)) {
+        data.decks.forEach(d => { if (d.name && d.cards) { myDecks.push(d); imported++; } });
+      } else if (data.name && data.cards) {
+        myDecks.push(data); imported = 1;
+      } else {
+        alert('Unrecognized file format.'); return;
+      }
+      saveMyDecks();
+      renderMyDecks();
+      renderDeckGrid();
+      alert(`Imported ${imported} deck(s).`);
+    } catch (err) {
+      alert('Could not parse JSON: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function deleteDeck(i) {
+  if (!confirm(`Delete "${myDecks[i].name}"? This cannot be undone.`)) return;
+  myDecks.splice(i, 1);
+  saveMyDecks();
+  renderMyDecks();
+  renderDeckGrid();
+}
+
+function downloadJSON(obj, filename) {
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/* ============================================================
+   GO
+   ============================================================ */
+init();
+</script>
+
+</body>
+</html>
