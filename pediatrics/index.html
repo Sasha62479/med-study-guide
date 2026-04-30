@@ -1,438 +1,2690 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ola Beaucher · Pediatric Study Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --cream: #faf7f2;
-      --cream-dark: #f0ebe0;
-      --card: #ffffff;
-      --ink: #2c2416;
-      --ink-soft: #5a4f3f;
-      --border: #d9cfc0;
-      --rust: #c0441f;
-      --teal: #1d6b6e;
-      --gold: #b8852a;
-      --sage: #5a7a5c;
-      --lavender: #6b5c8a;
-      --shadow: 0 10px 30px rgba(44, 36, 22, 0.08);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNP Peds Exam 3 — Comprehensive Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e8e2d9;
+    --subtle: #f3ede4;
+    --rust: #c0441f;
+    --teal: #1d6b6e;
+    --gold: #b8852a;
+    --sage: #5a7a5c;
+    --lavender: #6b5c8a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; scroll-behavior: smooth; }
+  body { display: flex; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  /* --- STICKY SIDEBAR NAV --- */
+  .sidenav {
+    position: sticky;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 32px 20px 32px 32px;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+  .sidenav .brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .sidenav h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 18px 0 8px;
+  }
+  .sidenav a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin: 1px 0;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+  }
+  .sidenav a:hover {
+    background: var(--subtle);
+    border-left-color: var(--rust);
+  }
 
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-    }
+  .main {
+    flex: 1;
+    max-width: 960px;
+    padding: 48px 48px 96px;
+    min-width: 0;
+  }
 
-    a { color: inherit; text-decoration: none; }
+  /* --- HEADER --- */
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 0 24px;
+    line-height: 1.55;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--subtle);
+    color: var(--text);
+    border: 1px solid var(--border);
+    letter-spacing: 0.04em;
+  }
+  .pill.rust { background: #fbeae4; color: var(--rust); border-color: #f2c9bc; }
+  .pill.teal { background: #dff0f0; color: var(--teal); border-color: #b8dbdb; }
+  .pill.gold { background: #f6ead0; color: var(--gold); border-color: #e6d09a; }
+  .pill.sage { background: #e2ebe0; color: var(--sage); border-color: #c2d3bf; }
+  .pill.lavender { background: #e7e2ef; color: var(--lavender); border-color: #cbbedd; }
 
-    .site-header {
-      background: linear-gradient(180deg, #2c2416 0%, #362c1c 100%);
-      color: var(--cream);
-      padding: 3.5rem 1.5rem 2.75rem;
-      border-bottom: 3px solid var(--gold);
-    }
+  .updated {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 18px;
+  }
 
-    .header-inner,
-    .main-inner,
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
+  /* --- MODULE HEADERS --- */
+  .mod-header {
+    margin: 64px 0 32px;
+    padding: 24px 28px;
+    background: var(--card);
+    border-left: 6px solid var(--rust);
+    border-radius: 4px 12px 12px 4px;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .mod-header.m8 { border-left-color: var(--rust); }
+  .mod-header.m9 { border-left-color: var(--teal); }
+  .mod-header.m10 { border-left-color: var(--gold); }
+  .mod-header.m11 { border-left-color: var(--lavender); }
+  .mod-header.m12 { border-left-color: var(--sage); }
 
-    .eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
+  .mod-header .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .mod-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin: 4px 0 6px;
+    line-height: 1.15;
+  }
+  .mod-header .mod-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
 
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 5vw, 3.8rem);
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
-    }
+  /* --- CONDITION CARD --- */
+  .condition {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 20px;
+  }
+  .condition::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+  .condition.rust::before { background: var(--rust); }
+  .condition.teal::before { background: var(--teal); }
+  .condition.gold::before { background: var(--gold); }
+  .condition.sage::before { background: var(--sage); }
+  .condition.lavender::before { background: var(--lavender); }
 
-    .subtitle {
-      max-width: 760px;
-      color: rgba(250, 247, 242, 0.84);
-      font-size: 1rem;
-      font-weight: 300;
-      margin-bottom: 1.25rem;
-    }
+  .condition h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+    line-height: 1.2;
+  }
+  .condition .cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
+  /* --- SECTION BLOCKS WITHIN CONDITION --- */
+  .sec {
+    margin: 18px 0 4px;
+  }
+  .sec-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-label::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--rust);
+  }
+  .condition.teal .sec-label { color: var(--teal); }
+  .condition.teal .sec-label::before { background: var(--teal); }
+  .condition.gold .sec-label { color: var(--gold); }
+  .condition.gold .sec-label::before { background: var(--gold); }
+  .condition.sage .sec-label { color: var(--sage); }
+  .condition.sage .sec-label::before { background: var(--sage); }
+  .condition.lavender .sec-label { color: var(--lavender); }
+  .condition.lavender .sec-label::before { background: var(--lavender); }
 
-    .pill {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.38rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: var(--cream);
-    }
+  .sec p {
+    margin: 0 0 10px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .sec strong { color: var(--text); font-weight: 600; }
 
-    .main-inner {
-      padding: 2rem 1.5rem 4rem;
-    }
+  /* Why it makes sense block */
+  .why {
+    background: var(--subtle);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .why .why-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
 
-    .welcome {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
-    }
+  /* Pearl / board box */
+  .pearl {
+    background: #fbeae4;
+    border: 1px solid #f2c9bc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .pearl .p-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
 
-    .welcome-card,
-    .quick-links,
-    .module-card,
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
+  ul.clean { margin: 4px 0 10px; padding-left: 20px; font-size: 0.94rem; line-height: 1.6; }
+  ul.clean li { margin-bottom: 4px; }
 
-    .welcome-card {
-      padding: 1.4rem 1.35rem;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--ink-soft);
-      margin-bottom: 0.75rem;
-    }
-
-    .welcome-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.7rem;
-      font-weight: 400;
-      margin-bottom: 0.45rem;
-    }
-
-    .welcome-card p,
-    .quick-links p,
-    .module-card p,
-    .feature-card p {
-      color: var(--ink-soft);
-      font-size: 0.96rem;
-    }
-
-    .quick-links {
-      padding: 1.3rem 1.2rem;
-    }
-
-    .quick-links ul {
-      list-style: none;
-      margin-top: 0.8rem;
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .quick-links a {
-      display: block;
-      padding: 0.78rem 0.9rem;
-      border-radius: 12px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.74rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: transform 0.16s ease, border-color 0.16s ease;
-    }
-
-    .quick-links a:hover,
-    .module-card:hover,
-    .feature-card:hover {
-      transform: translateY(-2px);
-      border-color: #bdaea0;
-    }
-
-    .dashboard-section {
-      margin-top: 2.4rem;
-    }
-
-    .dashboard-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.85rem;
-      font-weight: 400;
-      margin-bottom: 0.3rem;
-    }
-
-    .dashboard-sub {
-      color: var(--ink-soft);
-      margin-bottom: 1.1rem;
-    }
-
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .module-card {
-      display: block;
-      padding: 1.15rem 1.1rem 1rem;
-      transition: transform 0.16s ease, border-color 0.16s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .module-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 5px;
-    }
-
-    .module-card.rust::before { background: var(--rust); }
-    .module-card.teal::before { background: var(--teal); }
-    .module-card.gold::before { background: var(--gold); }
-    .module-card.sage::before { background: var(--sage); }
-    .module-card.lav::before  { background: var(--lavender); }
-
-    .module-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 0.55rem;
-    }
-
-    .module-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 0.38rem;
-    }
-
-    .module-footer {
-      margin-top: 0.9rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .feature-card {
-      padding: 1.1rem;
-      display: block;
-      transition: transform 0.16s ease, border-color 0.16s ease;
-    }
-
-    .feature-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.18rem;
-      font-weight: 400;
-      margin-bottom: 0.4rem;
-    }
-
-    .coming-soon {
-      display: inline-block;
-      margin-top: 0.9rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.28rem 0.55rem;
-      border-radius: 999px;
-      background: var(--cream-dark);
-      color: var(--ink-soft);
-      border: 1px solid var(--border);
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--border);
-      background: var(--cream-dark);
-      padding: 1.2rem 1.5rem;
-    }
-
-    .footer-inner {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 860px) {
-      .welcome {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  /* Responsive */
+  @media (max-width: 960px) {
+    body { flex-direction: column; }
+    .sidenav { position: static; width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+    .sidenav a { display: inline-block; margin-right: 4px; }
+    .main { padding: 32px 24px 60px; max-width: 100%; }
+    h1 { font-size: 2rem; }
+    .condition { padding: 22px 20px; }
+  }
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="eyebrow">Ola Beaucher · PNP Board Prep</div>
-      <h1>Pediatric Study Dashboard</h1>
-      <p class="subtitle">
-        A clean, modular home base for pediatric boards review: topic pages, quick-access study sections, and room to grow into cases, games, and final review tools.
-      </p>
-      <div class="pill-row">
-        <span class="pill">Pathophysiology</span>
-        <span class="pill">Clinical Features</span>
-        <span class="pill">Diagnostics</span>
-        <span class="pill">Management</span>
-        <span class="pill">Board Review</span>
-      </div>
+
+<nav class="sidenav">
+  <div class="brand">PNP BOARD · EXAM 3</div>
+
+  <h4>Mod 8 · GI/GU</h4>
+  <a href="#pyloric">Pyloric stenosis</a>
+  <a href="#umbilical">Umbilical hernia</a>
+  <a href="#appendicitis">Appendicitis</a>
+  <a href="#constipation">Constipation / encopresis</a>
+  <a href="#gerd">GERD</a>
+  <a href="#fap">Functional abd pain</a>
+  <a href="#uti">UTI</a>
+  <a href="#vur">VUR</a>
+  <a href="#enuresis">Nocturnal enuresis</a>
+  <a href="#labial">Labial adhesions</a>
+  <a href="#vulvovag">Vulvovaginitis</a>
+  <a href="#crypto">Cryptorchidism</a>
+
+  <h4>Mod 9 · MSK/Genetics</h4>
+  <a href="#ddh">DDH</a>
+  <a href="#clubfoot">Talipes equinovarus</a>
+  <a href="#osgood">Osgood-Schlatter</a>
+  <a href="#nursemaid">Nursemaid's elbow</a>
+  <a href="#toewalk">Toe walking</a>
+  <a href="#lcpd">Legg-Calvé-Perthes</a>
+  <a href="#scfe">SCFE</a>
+  <a href="#osteo">Osteomyelitis</a>
+  <a href="#synovitis">Transient synovitis</a>
+  <a href="#down">Down syndrome</a>
+  <a href="#marfan">Marfan</a>
+  <a href="#fragilex">Fragile X</a>
+
+  <h4>Mod 10 · Nutr/Endo</h4>
+  <a href="#foodallergy">Food allergy</a>
+  <a href="#celiac">Celiac</a>
+  <a href="#malnutr">Malnutrition / FTT</a>
+  <a href="#obesity">Obesity</a>
+  <a href="#hypothy">Hypothyroidism</a>
+  <a href="#hyperthy">Hyperthyroidism</a>
+  <a href="#t1dm">T1DM</a>
+  <a href="#t2dm">T2DM</a>
+  <a href="#cdgp">CDGP</a>
+  <a href="#precocious">Precocious puberty</a>
+
+  <h4>Mod 11 · Neurodev/MH</h4>
+  <a href="#ld">Learning disability</a>
+  <a href="#adhd">ADHD</a>
+  <a href="#autism">Autism</a>
+  <a href="#anorexia">Anorexia</a>
+  <a href="#bulimia">Bulimia</a>
+  <a href="#bed">Binge eating</a>
+  <a href="#arfid">ARFID</a>
+  <a href="#sepanx">Separation anxiety</a>
+  <a href="#gad">GAD</a>
+  <a href="#mdd">MDD</a>
+  <a href="#dmdd">DMDD</a>
+  <a href="#cd-odd">ODD / Conduct</a>
+
+  <h4>Mod 12 · Neuro</h4>
+  <a href="#headache">Headaches</a>
+  <a href="#breathhold">Breath-holding</a>
+  <a href="#febrile">Febrile seizures</a>
+  <a href="#epilepsy">Epilepsy</a>
+  <a href="#tbi">Concussion / mTBI</a>
+</nav>
+
+<div class="main">
+
+  <div class="eyebrow">FNP PEDS · NGR · EXAM 3 · COMPREHENSIVE STUDY GUIDE</div>
+  <h1>The "Why It Makes Sense" Guide</h1>
+  <p class="sub">Every condition walked through: pathophysiology → clinical findings (and why they appear) → diagnostics (and why we pick them) → treatment (and why it works). Built for application-level questions.</p>
+
+  <div class="pill-row">
+    <span class="pill rust">⚡ 45+ conditions</span>
+    <span class="pill teal">🧠 Patho → Signs → Dx → Tx</span>
+    <span class="pill gold">📋 Board pearls</span>
+    <span class="pill lavender">🎯 Application-focused</span>
+  </div>
+
+  <div class="updated">LAST UPDATED · APR 23 2026</div>
+
+  <!-- ====================== MODULE 8 ====================== -->
+  <div class="mod-header m8">
+    <div class="num">MODULE 8 · CHAPTER 26 & 28 · 10 QUESTIONS</div>
+    <h2>Gastrointestinal & Genitourinary</h2>
+    <div class="mod-meta">5 GI · 5 GU</div>
+  </div>
+
+  <!-- PYLORIC STENOSIS -->
+  <div class="condition rust" id="pyloric">
+    <h3>Pyloric Stenosis</h3>
+    <div class="cat">GI · STRUCTURAL ANOMALY · 2–12 WEEKS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Hypertrophy and hyperplasia of the circular muscle of the pylorus narrows the gastric outlet. The thickened muscle acts like a closed valve — milk enters the stomach but cannot pass into the duodenum. Over days to weeks, the baby vomits more forcefully, becomes dehydrated, and loses HCl and K⁺ through vomited gastric contents.</p>
     </div>
-  </header>
 
-  <main>
-    <div class="main-inner">
-      <section class="welcome">
-        <div class="welcome-card">
-          <div class="section-label">Home Base</div>
-          <h2 class="welcome-title">Your main dashboard</h2>
-          <p>
-            This page is designed to replace the old crowded entry flow. Keep each major topic on its own page, and use this as the elegant front door into the whole study system.
-          </p>
-        </div>
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p><strong>Classic:</strong> firstborn male, 3–6 weeks old, previously feeding well, now with <strong>non-bilious projectile vomiting</strong> after feeds. Hungry immediately after vomiting ("hungry vomiter"). Weight loss, dehydration, decreased wet diapers.</p>
+      <p><strong>Exam:</strong> olive-shaped mass palpable in RUQ (hypertrophied pylorus). Visible peristaltic waves across epigastrium.</p>
+    </div>
 
-        <aside class="quick-links">
-          <div class="section-label">Quick Links</div>
-          <p>Jump straight into the pages you will use most.</p>
-          <ul>
-            <li><a href="pediatrics/peds_studyguide.html">Pediatrics Master Guide</a></li>
-            <li><a href="pediatrics/pnp-msk.html">MSK</a></li>
-            <li><a href="pediatrics/pnp-endocrine.html">Endocrine</a></li>
-            <li><a href="pediatrics/pnp-neurological.html">Neurology</a></li>
+    <div class="why">
+      <span class="why-label">Why the signs make sense</span>
+      <strong>Non-bilious</strong> because the obstruction is <em>proximal</em> to the ampulla of Vater — bile can't mix with the vomitus. <strong>Projectile</strong> because the stomach must generate massive pressure to push through a closed pylorus. <strong>Hungry after vomiting</strong> because nothing has reached the duodenum to trigger satiety.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>Abdominal US</strong> (first line): pyloric muscle thickness &gt; 3 mm, channel length &gt; 15 mm.</p>
+      <p><strong>Labs:</strong> hypochloremic, hypokalemic metabolic alkalosis (classic).</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why those labs</span>
+      Persistent vomiting loses <strong>HCl</strong> → alkalosis + low chloride. Volume depletion triggers aldosterone, which retains Na⁺ and dumps K⁺ and H⁺ into urine → paradoxic aciduria + hypokalemia. Fix the fluids <em>before</em> surgery.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Pyloromyotomy</strong> (Ramstedt procedure) — surgeon splits the hypertrophied muscle longitudinally without cutting mucosa. <strong>Correct electrolytes and dehydration first</strong> — anesthesia is dangerous with alkalosis.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      If you see a 4–6 week old with progressive projectile vomiting and an olive mass, <strong>US first, IVF + electrolyte correction, then surgery</strong>. Do not cath for UA, do not work up sepsis first — this is mechanical.
+    </div>
+  </div>
+
+  <!-- UMBILICAL HERNIA -->
+  <div class="condition rust" id="umbilical">
+    <h3>Umbilical Hernia</h3>
+    <div class="cat">GI · STRUCTURAL · COMMON IN INFANTS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Incomplete closure of the fascial ring at the umbilicus after cord separation allows abdominal contents (usually omentum or bowel) to bulge through. Much more common in African American infants and preemies.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Soft, reducible bulge at the umbilicus that protrudes with crying, straining, or standing. Usually <strong>painless</strong>. Size usually &lt; 1–2 cm.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why it's usually fine</span>
+      Most (&gt; 90%) close spontaneously by age 4–5 as the rectus abdominis fascia develops and comes together. Incarceration or strangulation is <em>rare</em> in umbilical hernias (unlike inguinal hernias), so watchful waiting is safe.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Observation</strong> until age 4–5. <strong>Surgical repair</strong> if: persists past 5 yrs, defect &gt; 1.5–2 cm, symptomatic, or incarcerated. Do <strong>not</strong> tape/bind — no evidence it helps and can cause skin breakdown.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      <strong>Umbilical hernia = wait.</strong> <strong>Inguinal hernia = refer to surgery</strong> (high incarceration risk, especially &lt; 6 mo).
+    </div>
+  </div>
+
+  <!-- APPENDICITIS -->
+  <div class="condition rust" id="appendicitis">
+    <h3>Appendicitis</h3>
+    <div class="cat">GI · ACUTE · MOST COMMON PEDS SURGICAL EMERGENCY</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>The appendiceal lumen gets obstructed (fecalith, lymphoid hyperplasia after viral illness, rarely tumor). Mucus and bacteria accumulate behind the obstruction → pressure rises → venous and then arterial compromise → wall ischemia → bacterial invasion → perforation within 24–72 hrs if untreated.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Classic sequence:</strong> anorexia → periumbilical pain → nausea/vomiting → pain migrates to RLQ → low-grade fever</li>
+        <li><strong>McBurney's point tenderness</strong> (1/3 way from ASIS to umbilicus)</li>
+        <li><strong>Rovsing sign</strong> (LLQ palpation → RLQ pain), <strong>psoas sign</strong>, <strong>obturator sign</strong></li>
+        <li>Children under 5 often present atypically with diffuse pain and perforate early (delayed dx)</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why pain moves</span>
+      <strong>Periumbilical first</strong> because visceral (stretch) pain from the appendix refers to the T10 dermatome — the umbilicus. <strong>Then RLQ</strong> when inflammation reaches the parietal peritoneum, which gives sharp, localized somatic pain. Once pain localizes, perforation is closer.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>CBC:</strong> WBC 10–18K with left shift; &gt; 20K suggests perforation</li>
+        <li><strong>CRP</strong> elevated</li>
+        <li><strong>US first</strong> in kids (no radiation); <strong>CT</strong> if US equivocal</li>
+        <li><strong>UA</strong> to rule out UTI / pyelonephritis (can mimic)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Appendectomy</strong> + IV antibiotics. NPO, fluids, pain management. Perforated appendicitis may need drainage and longer abx course.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      <strong>Sudden relief of pain before surgery = perforation</strong>, not improvement. Pressure releases when the appendix bursts — then diffuse peritonitis follows.
+    </div>
+  </div>
+
+  <!-- CONSTIPATION / ENCOPRESIS -->
+  <div class="condition rust" id="constipation">
+    <h3>Constipation & Encopresis</h3>
+    <div class="cat">GI · CHRONIC · FUNCTIONAL IN &gt; 95%</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A painful stool (illness, dehydration, toilet training, dietary change) → child withholds → stool sits in the rectum → water is reabsorbed → stool becomes harder → next BM hurts more → withholding cycle. Over time, the rectum distends and loses sensation; liquid stool leaks around the impaction = <strong>encopresis</strong> (involuntary soiling).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Infrequent, painful, hard stools; straining; blood-streaked stool (anal fissure)</li>
+        <li>Posturing (heel-standing, stiffening) that parents often misread as trying to poop — actually withholding</li>
+        <li>Abdominal pain, decreased appetite</li>
+        <li>Encopresis in older children (after age 4)</li>
+        <li>Palpable stool mass in LLQ or suprapubic area</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why encopresis is not "bad behavior"</span>
+      The distended rectum physically loses its ability to sense fullness. Liquid stool slides around the impaction without warning. Shaming the child makes withholding worse and treatment harder.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Red flags (r/o organic cause)</div>
+      <ul class="clean">
+        <li>Onset in <strong>neonate</strong> or delayed passage of meconium &gt; 48 hrs → <strong>Hirschsprung</strong></li>
+        <li>FTT, bilious vomiting, ribbon stools, tight empty rectum on exam</li>
+        <li>Spine abnormalities (tuft of hair, dimple) → tethered cord</li>
+        <li>No response to aggressive therapy</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Step 1 — Disimpaction:</strong> PEG 3350 (Miralax) 1–1.5 g/kg/day × 3–6 days, or enemas.</p>
+      <p><strong>Step 2 — Maintenance:</strong> PEG 0.4–0.8 g/kg/day for <em>months</em>. Goal: 1–2 soft stools daily until the rectum regains tone.</p>
+      <p><strong>Step 3 — Behavior:</strong> toilet sits 5–10 min after meals (takes advantage of gastrocolic reflex), reward the sitting not the producing, fiber + fluids.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why PEG works (and why it takes months)</span>
+      PEG is an osmotic laxative — it pulls water into the colon, keeping stool soft so the child relearns that pooping doesn't hurt. The stretched rectum needs <em>months</em> to shrink back and regain normal sensation. Stopping PEG too early = relapse.
+    </div>
+  </div>
+
+  <!-- GERD -->
+  <div class="condition rust" id="gerd">
+    <h3>GERD (vs. Physiologic Reflux)</h3>
+    <div class="cat">GI · CHRONIC</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Lower esophageal sphincter (LES) tone is immature in infants; transient LES relaxations allow gastric contents to reflux. <strong>Physiologic reflux</strong> ("happy spitter") = normal; resolves by 12–18 months as LES matures. <strong>GERD</strong> = reflux causing <em>complications</em> — esophagitis, poor growth, respiratory symptoms.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Physiologic:</strong> effortless spit-up, thriving, happy</li>
+        <li><strong>GERD:</strong> poor weight gain, feeding refusal, arching/irritability with feeds, recurrent aspiration/pneumonia, apnea, Sandifer syndrome (back arching)</li>
+        <li>Older kids: heartburn, regurgitation, chest/epigastric pain, nocturnal cough</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why it self-resolves in most infants</span>
+      As the infant grows, the esophagus lengthens, the LES matures and tightens, they spend more time upright, and solid foods replace liquids. By 12–18 months, the mechanical and developmental issues resolve.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p>Clinical. Consider <strong>upper GI</strong> (r/o anatomic — malrotation, pyloric stenosis), <strong>pH probe</strong> or <strong>impedance study</strong> for atypical presentations, endoscopy if esophagitis suspected.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Conservative first:</strong> thickened feeds (rice cereal), smaller more frequent feeds, upright 20–30 min after, left-side positioning, elevate head of bed (older kids), avoid tobacco smoke exposure.</p>
+      <p><strong>Pharm (only if true GERD):</strong> H2 blocker (famotidine) or PPI (omeprazole). Avoid empiric PPIs in happy spitters — no benefit, and they increase risk of infection and fracture.</p>
+    </div>
+  </div>
+
+  <!-- FUNCTIONAL ABD PAIN -->
+  <div class="condition rust" id="fap">
+    <h3>Functional Abdominal Pain</h3>
+    <div class="cat">GI · CHRONIC · ROME IV</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Visceral hypersensitivity — the gut-brain axis is dysregulated. Normal gut distention or motility is perceived as painful. Often worsened by stress, anxiety, and poor sleep. Not psychosomatic, not "faking" — the pain is real but without structural disease.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Recurrent abdominal pain, often periumbilical, &gt; 2 months</li>
+        <li>No weight loss, no nocturnal pain, no blood, normal growth</li>
+        <li>Normal physical exam, normal labs</li>
+        <li>Often in 5–12 year olds; school avoidance pattern</li>
+      </ul>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🚨 Red flags that make it NOT functional</span>
+      Pain that wakes from sleep · blood in stool · weight loss · FTT · fever · joint pain · perianal disease · family hx IBD · vomiting (esp. bilious) · dysphagia · pain far from umbilicus
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>Limited workup:</strong> CBC, ESR/CRP, CMP, UA, celiac screen, stool studies if diarrhea. Extensive workup is usually low-yield and reinforces illness behavior.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Validation</strong> + <strong>school attendance</strong> + <strong>CBT</strong> + regular meals, sleep, exercise. Treat anxiety/depression if present. Peppermint oil helpful for IBS-type. Avoid extensive workup — it reinforces the sick role.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "the pain is real" matters</span>
+      Dismissing the pain ("there's nothing wrong") makes it worse. Families need to hear: "This pain is real. Your gut is hypersensitive. We're going to help you function with it, not search for a disease that isn't there." That reframe is therapeutic.
+    </div>
+  </div>
+
+  <!-- UTI -->
+  <div class="condition rust" id="uti">
+    <h3>Urinary Tract Infection</h3>
+    <div class="cat">GU · INFECTION · E. COLI IN &gt; 80%</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Ascending bacterial colonization from the perineum → urethra → bladder (cystitis) → ureters/kidneys (pyelonephritis). <strong>E. coli</strong> is the dominant pathogen; others include Klebsiella, Proteus, Enterococcus. Girls are at higher risk (short urethra, proximity to anus); uncircumcised boys in the first year.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Infants:</strong> fever without a source, poor feeding, irritability, vomiting, jaundice (newborns)</li>
+        <li><strong>Toddlers/preschool:</strong> fever, abdominal pain, new-onset enuresis</li>
+        <li><strong>School-age:</strong> classic dysuria, urgency, frequency, suprapubic pain</li>
+        <li><strong>Pyelonephritis:</strong> high fever, flank/CVA tenderness, vomiting, ill-appearing</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why infants present with just fever</span>
+      Infants can't localize or verbalize pain. <strong>Fever without a source</strong> in any child &lt; 2 years should trigger UTI workup — a "normal" exam doesn't rule it out. AAP: obtain UA + Cx in febrile infants 2–24 mo without a clear source.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Cath UA + Cx</strong> in pre-continent children (bag specimens = 85% false positive — skin contamination)</li>
+        <li><strong>Midstream clean catch</strong> if toilet-trained</li>
+        <li><strong>Positive UA:</strong> leukocyte esterase, nitrites, WBC &gt; 5/hpf</li>
+        <li><strong>Positive Cx:</strong> ≥ 50,000 CFU/mL from cath, ≥ 100,000 from clean catch</li>
+        <li><strong>After first febrile UTI in &lt; 24 mo:</strong> renal/bladder ultrasound</li>
+        <li><strong>VCUG:</strong> only if recurrent febrile UTIs or abnormal US</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why nitrites matter</span>
+      Gram-negative enteric bacteria (like E. coli) reduce urinary nitrates to nitrites. A <strong>positive nitrite is very specific</strong> for UTI but not sensitive — needs bacteria to sit in the bladder for 4+ hrs, so frequent voiders can have false negatives. LE is more sensitive but less specific.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Outpatient:</strong> cephalexin, cefixime, TMP-SMX, or nitrofurantoin × 7–14 days (longer for febrile/pyelo). <strong>Admit</strong> if: &lt; 2 mo old, toxic, vomiting, dehydrated, immunocompromised, or failing outpatient therapy.</p>
+    </div>
+  </div>
+
+  <!-- VUR -->
+  <div class="condition rust" id="vur">
+    <h3>Vesicoureteral Reflux (VUR)</h3>
+    <div class="cat">GU · STRUCTURAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Normally, ureters enter the bladder at an oblique angle — bladder pressure during voiding <em>closes</em> the ureteral orifice. In VUR, the ureter-bladder junction is abnormal (short tunnel) and urine flows <strong>backward</strong> up the ureter during voiding. Primary VUR = congenital anatomic defect. Retrograde urine carries bacteria to kidneys → pyelonephritis → renal scarring → HTN and CKD long-term.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Often silent — diagnosed after a child presents with febrile UTI. Suspect in any child with <strong>recurrent febrile UTIs</strong> or pyelonephritis.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Grading (I–V)</div>
+      <ul class="clean">
+        <li><strong>I:</strong> reflux into distal ureter only</li>
+        <li><strong>II:</strong> into renal pelvis, no dilation</li>
+        <li><strong>III:</strong> mild dilation</li>
+        <li><strong>IV:</strong> moderate dilation + blunting of calyces</li>
+        <li><strong>V:</strong> severe dilation, tortuous ureter, intrarenal reflux</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>VCUG</strong> = gold standard; performed after recurrent febrile UTI or abnormal renal US.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Low grade (I–III):</strong> often spontaneously resolves as the child grows. Observation ± prophylactic antibiotics (amoxicillin or TMP-SMX).</p>
+      <p><strong>High grade (IV–V):</strong> surgical correction (ureteral reimplantation, Deflux injection).</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why we care</span>
+      Repeated pyelonephritis in a reflux kidney causes <strong>permanent renal scarring</strong> → HTN and CKD in adulthood. Preventing febrile UTIs in the first 5 years matters for lifetime renal health.
+    </div>
+  </div>
+
+  <!-- ENURESIS -->
+  <div class="condition rust" id="enuresis">
+    <h3>Nocturnal Enuresis</h3>
+    <div class="cat">GU · BEHAVIORAL / DEVELOPMENTAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Three mechanisms — often combined:</p>
+      <ul class="clean">
+        <li><strong>Delayed arousal:</strong> child doesn't wake to a full bladder</li>
+        <li><strong>Nocturnal polyuria:</strong> insufficient nighttime ADH release → large urine volumes</li>
+        <li><strong>Small functional bladder capacity</strong></li>
+      </ul>
+      <p><strong>Primary enuresis:</strong> child was never dry (most common). <strong>Secondary:</strong> dry ≥ 6 mo, now wetting — look for trigger (UTI, new stressor, DM, constipation, OSA, abuse).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Involuntary nighttime wetting in a child ≥ 5 years, at least 2×/week for 3 months, not explained by a medical condition. Strong family history (if both parents were bedwetters, child has ~75% risk).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>UA</strong> to rule out UTI, DM, DI. History focused on daytime symptoms (if daytime wetting or dysfunctional voiding → different workup). Screen for constipation (hugely underdiagnosed contributor) and OSA.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Age &lt; 6–7:</strong> reassure, avoid treatment — most outgrow it.</p>
+      <p><strong>Age ≥ 6–7 when child is bothered:</strong></p>
+      <ul class="clean">
+        <li><strong>First-line: bedwetting alarm</strong> (60–70% cure; relapse low)</li>
+        <li><strong>DDAVP (desmopressin):</strong> for short-term use (sleepovers, camp). Works by mimicking ADH — reduces nighttime urine production</li>
+        <li>Treat any constipation or OSA first — often fixes it</li>
+        <li>Motivation + bladder-stretching exercises</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the alarm works (and takes time)</span>
+      The alarm conditions the brain to associate bladder fullness with arousal. It takes <strong>8–12 weeks of consistent use</strong> — parents must wake with the child every time. Stopping after a few weeks = failure. The alarm teaches the brain, which is why the effect is durable after it's discontinued.
+    </div>
+  </div>
+
+  <!-- LABIAL ADHESIONS -->
+  <div class="condition rust" id="labial">
+    <h3>Labial Adhesions</h3>
+    <div class="cat">GU · FEMALE · 3 MO – 6 YRS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>In the hypoestrogenic state between infancy and puberty, inflammation of the vulvar skin (from chronic moisture, diapers, mild irritation) causes the labia minora to stick together midline. The fusion is <em>epithelial</em>, not fibrous.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Midline raphe where labia minora fuse. <strong>Usually asymptomatic</strong> and incidental. Occasional complications: post-void dribbling, UTI, vulvitis.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Asymptomatic:</strong> observation. Resolves at puberty when estrogen rises.</li>
+        <li><strong>Symptomatic:</strong> topical estrogen cream to the raphe nightly × 2–6 weeks. Betamethasone cream is an alternative.</li>
+        <li><strong>Never forcibly separate</strong> — traumatic and will re-adhere.</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why estrogen works</span>
+      Estrogen thickens the vulvar epithelium and loosens the epithelial adhesions. It's topical, locally acting, and brief use is safe. Watch for transient breast budding or vulvar pigmentation with prolonged use.
+    </div>
+  </div>
+
+  <!-- VULVOVAGINITIS -->
+  <div class="condition rust" id="vulvovag">
+    <h3>Vulvovaginitis (Prepubertal)</h3>
+    <div class="cat">GU · FEMALE · MOST COMMON GYN COMPLAINT</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>The prepubertal vagina is <strong>hypoestrogenic</strong> (thin, alkaline epithelium, no protective lactobacilli), making it vulnerable to irritants and infections. Most cases are <strong>nonspecific</strong> — from poor perineal hygiene, wiping back-to-front, bubble baths, tight clothing, soaps.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Vulvar erythema, itching, burning, dysuria</li>
+        <li>Discharge (usually minimal in nonspecific; thick/purulent suggests infection)</li>
+        <li>Consider <strong>foreign body</strong> (toilet paper) if foul, bloody discharge</li>
+        <li>Consider <strong>group A strep</strong> if beefy erythema (esp. after strep pharyngitis)</li>
+        <li>Consider <strong>pinworms</strong> if nocturnal itching</li>
+        <li>Consider <strong>sexual abuse</strong> if STI pathogen isolated</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p>Hygiene education (front-to-back wiping, cotton underwear, no bubble baths, loose clothing, sitz baths). Treat specific infections as identified. <strong>Candida is uncommon prepubertally</strong> — don't reach for fluconazole reflexively.</p>
+    </div>
+  </div>
+
+  <!-- CRYPTORCHIDISM -->
+  <div class="condition rust" id="crypto">
+    <h3>Cryptorchidism (Undescended Testis)</h3>
+    <div class="cat">GU · MALE · MOST COMMON MALE GU DISORDER</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>The testes normally descend from the abdominal cavity through the inguinal canal into the scrotum between 7–9 months gestation. Descent can arrest anywhere along this path. <strong>~3% of term and 30% of preterm males</strong> have undescended testes at birth; 75% descend spontaneously by 3–6 months.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Empty or small hemiscrotum; testis may be palpable in the inguinal canal or not palpable at all. Bilateral non-palpable testes → workup for DSD.</p>
+      <p><strong>Retractile testis</strong> (cremaster pulls testis up but it returns to scrotum) is normal — differentiate carefully.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Watchful waiting until 6 months</strong> (most descend by then). <strong>Refer to urology at 6 months</strong> if still undescended. <strong>Orchiopexy by 12–18 months</strong>.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the 12–18 month window matters</span>
+      The testis needs the <strong>cooler scrotal environment</strong> for spermatogenesis. Body-temperature testes cause irreversible germ cell loss after about 12–18 months. Even after surgical correction, fertility can be impaired — so early surgery matters. Also: undescended testes have <strong>4–10× lifetime risk of germ cell tumors</strong>, and scrotal positioning allows self-exam for early detection.
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      Never tell a parent "it'll descend eventually" beyond 6 months — that window closes. <strong>Refer by 6 months, operate by 12–18 months.</strong>
+    </div>
+  </div>
+
+  <!-- ====================== MODULE 9 ====================== -->
+  <div class="mod-header m9">
+    <div class="num">MODULE 9 · CHAPTERS 31 & 32 · 12 QUESTIONS</div>
+    <h2>Musculoskeletal & Genetic Conditions</h2>
+    <div class="mod-meta">9 MSK · 3 Genetics</div>
+  </div>
+
+  <!-- DDH -->
+  <div class="condition teal" id="ddh">
+    <h3>Developmental Dysplasia of the Hip (DDH)</h3>
+    <div class="cat">MSK · PACKAGING DEFORMITY · NEWBORN SCREENING</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A spectrum of abnormal hip development — from mild acetabular dysplasia (shallow socket) to frank dislocation. The femoral head and acetabulum are a complementary pair; each shapes the other during development. If the femoral head sits outside the socket, the acetabulum doesn't form properly → progressive dysplasia → early osteoarthritis if untreated.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Risk factors ("6 Fs")</div>
+      <ul class="clean">
+        <li><strong>Female</strong> (4–6× more common — maternal estrogens loosen ligaments more in female fetuses)</li>
+        <li><strong>First-born</strong> (tight uterus)</li>
+        <li><strong>Family history</strong></li>
+        <li><strong>Frank breech</strong> (most significant — hip held flexed + externally rotated in utero)</li>
+        <li><strong>Fluid</strong> (oligohydramnios)</li>
+        <li><strong>"Footling"</strong> and other non-vertex positions</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical exam</div>
+      <ul class="clean">
+        <li><strong>Barlow</strong> (dislocates a dislocatable hip): adduct + push posteriorly — feel "clunk" OUT</li>
+        <li><strong>Ortolani</strong> (relocates a dislocated hip): abduct + lift anteriorly — feel "clunk" IN</li>
+        <li><strong>Older infant (&gt; 3 mo):</strong> Barlow/Ortolani become negative; look for <strong>asymmetric thigh/gluteal folds</strong>, <strong>limited abduction</strong>, <strong>Galeazzi sign</strong> (knees at unequal heights when hips flexed — short femur on affected side)</li>
+        <li><strong>Walking child:</strong> Trendelenburg gait, waddling (bilateral)</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the exam changes with age</span>
+      In the newborn, the hip is <em>reducible</em> — you can pop it in and out. By 3 months, soft tissues tighten and the hip becomes fixed — Barlow/Ortolani disappear. That's why <strong>early detection matters</strong>: a hip that's reducible responds beautifully to a Pavlik harness; a fixed hip needs surgery.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>&lt; 4–6 months: ultrasound</strong> (femoral head is mostly cartilage — not yet ossified → invisible on X-ray)</li>
+        <li><strong>&gt; 4–6 months: X-ray</strong> (femoral head ossification center appears)</li>
+        <li>Universal US screening in breech girls and high-risk infants at 4–6 weeks</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>&lt; 6 months:</strong> Pavlik harness — holds hips flexed and abducted (the "frog-leg" position that encourages proper socket formation)</li>
+        <li><strong>6–18 months:</strong> closed reduction + spica cast</li>
+        <li><strong>&gt; 18 months:</strong> open reduction ± femoral/pelvic osteotomy</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why Pavlik works</span>
+      The harness holds the femoral head centered in the acetabulum. Because each half of the joint shapes the other, proper positioning during growth <em>remodels</em> both the head and the socket into normal anatomy. No surgery needed if caught early.
+    </div>
+  </div>
+
+  <!-- CLUBFOOT -->
+  <div class="condition teal" id="clubfoot">
+    <h3>Talipes Equinovarus (Clubfoot)</h3>
+    <div class="cat">MSK · PACKAGING · "TALI-PES EQUINO-VARUS" = "TOE-FOOT HORSE-INWARD"</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A complex congenital foot deformity with four components (remember <strong>CAVE</strong>):</p>
+      <ul class="clean">
+        <li><strong>C</strong>avus (high arch)</li>
+        <li><strong>A</strong>dductus (forefoot turned inward)</li>
+        <li><strong>V</strong>arus (hindfoot inverted)</li>
+        <li><strong>E</strong>quinus (ankle pointed down — "horse-like")</li>
+      </ul>
+      <p>Soft tissues (tendons, ligaments) are short on the medial and posterior side; bones are malpositioned. Can be isolated (idiopathic) or syndromic (spina bifida, arthrogryposis).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Obvious at birth — foot looks like a golf club. <strong>Rigid</strong> (true clubfoot) vs <strong>flexible</strong> (positional — corrects passively; benign).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Ponseti method</strong> — serial casting starting in the first 1–2 weeks of life. Weekly manipulation + casting for 5–8 weeks → percutaneous Achilles tenotomy → bracing (boots-and-bar) for several years to prevent recurrence.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why start so early</span>
+      Infant soft tissues are highly plastic and remodel easily. The Ponseti method has &gt; 90% success without major surgery if started early. Delay = rigid deformity requiring surgical release.
+    </div>
+  </div>
+
+  <!-- OSGOOD-SCHLATTER -->
+  <div class="condition teal" id="osgood">
+    <h3>Osgood-Schlatter Disease</h3>
+    <div class="cat">MSK · OVERUSE · ADOLESCENT ATHLETE</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Traction apophysitis of the tibial tubercle. Repetitive quadriceps contraction pulls on the patellar tendon, which inserts on the <strong>tibial tubercle</strong> — an active growth plate in adolescents. Repeated traction causes microavulsion, inflammation, and bony prominence.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>10–15 yo, active boy (or girl) in jumping/running sports (basketball, soccer, gymnastics)</li>
+        <li>Anterior knee pain, worse with activity</li>
+        <li><strong>Tender, enlarged tibial tubercle</strong></li>
+        <li>Pain reproduced with resisted knee extension</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why adolescents specifically</span>
+      The tibial tubercle apophysis is cartilaginous in pre-teens. During the growth spurt, the quadriceps muscle grows faster than the tendon/bone, creating increased traction right where the tendon inserts on a fragile growing apophysis. After skeletal maturity (apophysis fuses), Osgood-Schlatter can't happen.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Self-limited</strong> — resolves when growth plate closes. Ice, NSAIDs, quad stretching, activity modification (not full rest — partial is fine). Patellar strap may help. Residual bony prominence may persist.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      Osgood-Schlatter = <strong>tibial tubercle</strong>. <strong>Sinding-Larsen-Johansson</strong> = inferior pole of patella (same mechanism, different site). <strong>Sever disease</strong> = calcaneal apophysitis in younger child (heel pain in runners age 8–12).
+    </div>
+  </div>
+
+  <!-- NURSEMAID -->
+  <div class="condition teal" id="nursemaid">
+    <h3>Nursemaid's Elbow (Radial Head Subluxation)</h3>
+    <div class="cat">MSK · DISLOCATION · TODDLER</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Sudden <strong>axial traction on a pronated, extended arm</strong> (adult pulls child by the hand) slips the annular ligament partially off the radial head. The ligament gets trapped in the radiohumeral joint. Peak age 1–4 yrs — after age 5 the annular ligament thickens and it becomes rare.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Toddler who <strong>refuses to use one arm</strong>, holds it slightly flexed and pronated at side</li>
+        <li>Cries only when the arm is moved; otherwise seems fine</li>
+        <li>No swelling, no deformity, no bruising</li>
+        <li><strong>Classic history:</strong> "I pulled him up by the hand" or "he slipped off the couch while I was holding his hand"</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p>Clinical. X-ray <strong>not needed</strong> if history is classic — just reduce. Get X-rays if history inconsistent, swelling, or deformity (r/o fracture, abuse).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Reduction:</strong> supinate and flex (or hyperpronate) — feel a click. Child uses the arm within 10–15 min. No immobilization needed.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why this matters for board stems</span>
+      Classic scenario: toddler + "not using arm" + mechanism involving a pull. <strong>Do not X-ray first</strong> — reduce first. Also: counsel parents to lift under the armpits, not by the hand.
+    </div>
+  </div>
+
+  <!-- TOE WALKING -->
+  <div class="condition teal" id="toewalk">
+    <h3>Idiopathic Toe Walking</h3>
+    <div class="cat">MSK · LOWER EXTREMITY · AGE &lt; 3 NORMAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology & workup</div>
+      <p>Walking on the balls of the feet without heel strike. Common and benign in children under 3 as part of gait development. Persistent toe walking &gt; 3 yrs needs evaluation to rule out:</p>
+      <ul class="clean">
+        <li><strong>Cerebral palsy</strong> (hyperreflexia, spasticity)</li>
+        <li><strong>Muscular dystrophy</strong> (Gower sign, calf hypertrophy, CK elevation)</li>
+        <li><strong>Tethered cord</strong> (spine findings)</li>
+        <li><strong>Autism</strong> (associated sensory/behavioral findings)</li>
+        <li><strong>Short Achilles tendon</strong> (limited passive dorsiflexion)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p>Idiopathic: observation, stretching, heel-cord exercises. Serial casting or botulinum toxin if persistent/painful. Surgery (tendon lengthening) rare.</p>
+    </div>
+  </div>
+
+  <!-- LCPD -->
+  <div class="condition teal" id="lcpd">
+    <h3>Legg-Calvé-Perthes Disease (LCPD)</h3>
+    <div class="cat">MSK · HIP · IDIOPATHIC AVASCULAR NECROSIS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>Idiopathic avascular necrosis of the femoral head</strong>. Blood supply to the ossification center is interrupted → bone dies → over months, bone is resorbed → new bone remodels (reossification). The softened head can deform during this vulnerable phase, leading to a misshapen hip and early osteoarthritis.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Boys 4–8 years</strong> (5:1 M:F), typically <strong>short, thin, and very active</strong></li>
+        <li><strong>Painless limp</strong> or intermittent <strong>pain referred to the knee, thigh, or groin</strong></li>
+        <li>Limited hip abduction and internal rotation</li>
+        <li>Bilateral in ~15%</li>
+        <li>Delayed bone age</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why knee pain = look at the hip</span>
+      The obturator and femoral nerves supply both the hip joint and the skin over the medial thigh/knee. Hip pain refers to the knee via these shared nerve roots. <strong>Every child with knee pain needs a hip exam</strong> (and vice versa). This is one of the review's most emphasized points.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>X-ray:</strong> AP and frog-leg lateral. Findings evolve — early: increased femoral head density, joint space widening. Later: fragmentation, flattening. <strong>MRI</strong> if X-ray normal but suspicion high.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p>Goal: <strong>containment</strong> — keep the femoral head seated in the acetabulum during healing so it remodels round. NSAIDs, activity restriction, PT for range of motion. Bracing or surgery (osteotomy) for more severe cases.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      Review said: <em>"Leg-Calvé-Perthes disease typically affects short, active boys with a delay in bone age."</em> Classic test clue is the young active boy with a <em>painless</em> limp or knee pain — X-ray the hip.
+    </div>
+  </div>
+
+  <!-- SCFE -->
+  <div class="condition teal" id="scfe">
+    <h3>Slipped Capital Femoral Epiphysis (SCFE)</h3>
+    <div class="cat">MSK · HIP · ADOLESCENT · URGENT</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>During the adolescent growth spurt, the femoral head "slips" <strong>posteriorly and medially</strong> off the femoral neck at the growth plate (physis), like a scoop of ice cream sliding off a cone. Mechanical weakness + hormonal factors during puberty weaken the physis.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Who gets it</div>
+      <ul class="clean">
+        <li><strong>Obese adolescents</strong>, typically 10–15 years old</li>
+        <li>Boys &gt; girls, <strong>African American children at higher risk</strong></li>
+        <li>Endocrine associations: hypothyroidism, growth hormone therapy, renal osteodystrophy (think about SCFE in short/young-looking or unusual stature kids)</li>
+        <li>Bilateral in ~40% — screen the other side</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Hip, groin, thigh, or KNEE pain</strong> (often only knee pain!)</li>
+        <li>Limp, antalgic gait</li>
+        <li>Leg held in <strong>external rotation</strong> when hip flexed (pathognomonic — the displaced head forces external rotation)</li>
+        <li>Limited internal rotation and abduction</li>
+        <li><strong>Stable:</strong> able to bear weight. <strong>Unstable:</strong> cannot bear weight — high risk of AVN.</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why external rotation happens</span>
+      The femoral head slips posteriorly, so the femoral neck rotates anteriorly — when the hip flexes, the whole leg has to rotate externally to accommodate the displacement. This "obligate external rotation on flexion" is a classic SCFE exam finding.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>Bilateral AP + frog-leg lateral X-rays</strong>. Look for widening/lucency of the physis (pre-slip) or the "ice cream slipping off the cone" sign. Draw <strong>Klein's line</strong> along the superior femoral neck — it should cross some of the femoral head. If it doesn't cross, think SCFE.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Urgent orthopedic referral</strong>. <strong>Non-weight-bearing on crutches immediately</strong>. <strong>In situ screw fixation</strong> — one screw through the femoral neck into the head prevents further slippage while the physis fuses.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      Overweight adolescent with <strong>knee or thigh pain and a limp</strong> = think SCFE until proven otherwise. Non-weight-bearing, XR both hips, urgent ortho. Delay = <strong>avascular necrosis</strong>.
+    </div>
+  </div>
+
+  <!-- OSTEOMYELITIS -->
+  <div class="condition teal" id="osteo">
+    <h3>Osteomyelitis</h3>
+    <div class="cat">MSK · INFECTIOUS · S. AUREUS DOMINANT</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Bacterial infection of bone, almost always from <strong>hematogenous seeding</strong> in children (bacteremia → bone). The metaphysis of long bones has sluggish blood flow and abundant vessels — bacteria get trapped there. Infection spreads into bone, forms an abscess, and can track to the joint (especially in infants whose metaphysis is intracapsular at the hip).</p>
+      <p><strong>S. aureus</strong> is the dominant pathogen across all ages. Others: Group A strep, Kingella (&lt; 5 yrs), Salmonella (in sickle cell), Pseudomonas (puncture wound through sneaker).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Fever + focal bone pain + refusal to use/bear weight on the limb</li>
+        <li><strong>Point tenderness over the bone</strong> — cardinal feature that differentiates from joint infection</li>
+        <li>Warmth, erythema, swelling over the affected bone</li>
+        <li>Limp if in the lower extremity</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>CBC with diff, ESR, CRP</strong> — all elevated. CRP rises within 6–8 hrs and trends with response.</li>
+        <li><strong>Blood culture</strong> — positive in ~50%</li>
+        <li><strong>X-ray</strong> — normal in first 7–10 days (bone changes lag behind). Useful to r/o fracture or tumor.</li>
+        <li><strong>MRI</strong> — study of choice; shows marrow edema within days</li>
+        <li>Bone aspiration/biopsy for definitive organism + sensitivities</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why CRP matters more than ESR</span>
+      CRP rises and falls quickly (6–8 hrs to peak, normalizes within days of treatment). ESR is sluggish — takes weeks to normalize. CRP is the better <strong>real-time</strong> marker of response to treatment.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>IV antibiotics</strong> covering S. aureus (MSSA: cefazolin; MRSA coverage: clindamycin or vancomycin), usually 4–6 weeks total (can transition to PO after clinical response). <strong>Surgical drainage</strong> if abscess, failure to respond, or joint involvement.</p>
+    </div>
+  </div>
+
+  <!-- TRANSIENT SYNOVITIS -->
+  <div class="condition teal" id="synovitis">
+    <h3>Transient Synovitis (Toxic Synovitis)</h3>
+    <div class="cat">MSK · INFLAMMATORY · POST-VIRAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Self-limited inflammation of the hip synovium, most often <strong>post-viral</strong> (URI in the preceding 1–2 weeks) or reactive. <strong>Most common cause of hip pain in children 3–10 years</strong>. Exactly the scenario from Case Study #1.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>3–10 yo, recent URI or viral illness</li>
+        <li>Acute hip pain, limp, or refusal to bear weight</li>
+        <li>Hip held <strong>flexed, abducted, externally rotated</strong> — position of lowest intracapsular pressure</li>
+        <li><strong>Afebrile or low-grade</strong> fever (high fever suggests septic arthritis)</li>
+        <li><strong>Not systemically ill</strong> — this is the key clinical distinction from septic arthritis</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why that hip position</span>
+      Flexion + abduction + external rotation <strong>maximizes the intracapsular volume</strong> — giving the inflamed, swollen joint the most room. Any forced motion that reduces that volume (extension, adduction, internal rotation) compresses the inflamed tissue and hurts. The position itself is a physiologic pressure-relief valve.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Kocher criteria — septic arthritis vs. transient synovitis</div>
+      <p><strong>Four predictors of septic arthritis:</strong></p>
+      <ul class="clean">
+        <li>History of fever (&gt; 38.5°C)</li>
+        <li>Non-weight-bearing</li>
+        <li>ESR ≥ 40</li>
+        <li>WBC &gt; 12,000</li>
+      </ul>
+      <p>All 4 present → <strong>~99% probability of septic arthritis</strong>. 0 present → &lt; 0.2%. <strong>Add CRP &gt; 2.0 mg/dL</strong> for improved sensitivity (rises within 6–8 hrs of inflammation).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics & workup</div>
+      <ul class="clean">
+        <li><strong>X-ray hip</strong> (AP + frog-leg) — usually normal; r/o other causes</li>
+        <li><strong>CBC with diff, ESR, CRP, blood Cx</strong></li>
+        <li><strong>Hip US ± aspiration</strong> if septic arthritis suspected — effusion &gt; 2 mm suspicious; aspirate and send fluid for cell count, Gram stain, culture</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Rest + ibuprofen 7–10 days</strong>. Often improves within 24–48 hrs. Follow up in 24 hrs if uncertain — septic arthritis <em>worsens</em> while transient synovitis <em>improves</em>. Return immediately for high fever, worsening pain, or inability to move the joint.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl (directly from review)</span>
+      <em>"Children with bacterial infection will rapidly worsen, and children with synovitis will often improve over time. In general, children with septic arthritis appear more acutely ill than those with toxic synovitis."</em> If you can watch the child for 12–24 hrs, the trajectory itself makes the diagnosis.
+    </div>
+  </div>
+
+  <!-- ============ GENETICS ============ -->
+
+  <!-- DOWN SYNDROME -->
+  <div class="condition teal" id="down">
+    <h3>Down Syndrome (Trisomy 21)</h3>
+    <div class="cat">GENETIC · CHROMOSOMAL · MOST COMMON AUTOSOMAL TRISOMY</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Three copies of chromosome 21 — 95% from maternal meiotic nondisjunction (risk rises with maternal age), 4% from translocation, 1% mosaic. Extra dose of chromosome 21 genes causes the multisystem phenotype.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical features</div>
+      <ul class="clean">
+        <li><strong>Facies:</strong> upslanting palpebral fissures, epicanthal folds, flat nasal bridge, small ears, protruding tongue (relative macroglossia), brachycephaly</li>
+        <li><strong>Hands:</strong> single transverse palmar crease, short fifth finger with clinodactyly, wide gap between 1st and 2nd toes ("sandal gap")</li>
+        <li><strong>Tone:</strong> hypotonia (the "floppy baby")</li>
+        <li><strong>Growth:</strong> short stature, use Down-specific growth charts</li>
+        <li><strong>Intellectual disability</strong> (mild to moderate usually)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Medical surveillance ("everything is at risk")</div>
+      <ul class="clean">
+        <li><strong>Cardiac:</strong> ~50% have CHD — <strong>AV canal (AVSD)</strong> most characteristic; also VSD, ASD, tetralogy. Echo at birth.</li>
+        <li><strong>GI:</strong> duodenal atresia (double-bubble sign), Hirschsprung, celiac disease</li>
+        <li><strong>Thyroid:</strong> hypothyroidism (congenital + acquired) — screen at birth, 6 mo, 12 mo, then annually</li>
+        <li><strong>Hematologic:</strong> 10–20× risk of leukemia (ALL and AML); transient myeloproliferative disorder in newborns</li>
+        <li><strong>Atlantoaxial instability</strong> — screen before contact sports; avoid cervical manipulation</li>
+        <li><strong>Hearing & vision:</strong> OME, cataracts, refractive errors — screen regularly</li>
+        <li><strong>OSA</strong> — polysomnography by age 4</li>
+        <li><strong>Alzheimer disease</strong> — early onset (chromosome 21 carries APP gene)</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why Alzheimer's?</span>
+      The <strong>APP gene</strong> (amyloid precursor protein) is on chromosome 21. Three copies = lifelong overproduction of amyloid → nearly universal early-onset Alzheimer's disease by age 50–60. This is a powerful window into sporadic Alzheimer's biology.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Management</div>
+      <p>Early intervention (PT/OT/ST), educational support, treatment of comorbidities, regular surveillance per AAP guidelines. Genetic counseling for family.</p>
+    </div>
+  </div>
+
+  <!-- MARFAN -->
+  <div class="condition teal" id="marfan">
+    <h3>Marfan Syndrome</h3>
+    <div class="cat">GENETIC · MENDELIAN · AUTOSOMAL DOMINANT · FBN1</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Mutation in <strong>FBN1</strong> (fibrillin-1), a connective tissue protein that provides structural support in elastic tissues (aorta, lens zonules, periosteum, skin). Defective fibrillin weakens these tissues → aortic dilation, lens subluxation, tall stature with long limbs.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical features</div>
+      <ul class="clean">
+        <li><strong>Skeletal:</strong> tall, long limbs (dolichostenomelia), <strong>arachnodactyly</strong> (long spider-like fingers), pectus excavatum or carinatum, scoliosis, high-arched palate, joint hypermobility</li>
+        <li><strong>Positive wrist sign</strong> (Walker-Murdoch — thumb and 5th finger overlap when gripping wrist) and <strong>thumb sign</strong> (Steinberg — thumb protrudes past ulnar border of fist)</li>
+        <li><strong>Cardiovascular:</strong> <strong>aortic root dilation</strong> → aneurysm → <strong>dissection</strong> (main cause of death). Mitral valve prolapse.</li>
+        <li><strong>Ocular:</strong> <strong>ectopia lentis</strong> (upward lens subluxation), myopia, retinal detachment</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "up and out" lens subluxation</span>
+      Fibrillin forms the <strong>zonular fibers</strong> that suspend the lens. When fibrillin is defective, zonular fibers stretch — the lens tilts and shifts. In Marfan, zonular failure is typically <strong>superior</strong>, so the lens drops <em>upward</em>. (In homocystinuria, it drops down and in — "HOmocystinuria = HO lens goes down.")
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics (Revised Ghent criteria)</div>
+      <p><strong>Echocardiogram</strong> (aortic root dimension, Z-score), slit lamp, genetic testing (FBN1). Family history key.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Management</div>
+      <ul class="clean">
+        <li><strong>Annual echo</strong> to monitor aortic root</li>
+        <li><strong>Beta blockers</strong> (atenolol) or <strong>ARBs</strong> (losartan) to slow aortic dilation</li>
+        <li><strong>Avoid contact sports and isometric/max-effort activities</strong> (weightlifting) — aortic dissection risk</li>
+        <li>Prophylactic aortic root replacement when diameter reaches threshold</li>
+        <li>Annual eye exam; genetic counseling</li>
+      </ul>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl</span>
+      Tall adolescent with pectus, arachnodactyly, and a murmur → <strong>echo before the sports physical</strong>. Cleared with beta blocker; excluded from contact/max-effort sports. This is classic PPE content.
+    </div>
+  </div>
+
+  <!-- FRAGILE X -->
+  <div class="condition teal" id="fragilex">
+    <h3>Fragile X Syndrome</h3>
+    <div class="cat">GENETIC · X-LINKED · MOST COMMON INHERITED ID</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>CGG trinucleotide repeat expansion</strong> in the <strong>FMR1</strong> gene on the X chromosome. Normal: &lt; 45 repeats. Premutation: 55–200. Full mutation: &gt; 200 → gene is silenced (methylated) → no FMRP protein → abnormal synaptic plasticity. <strong>Anticipation</strong> — the repeat expands from generation to generation, so symptoms worsen across generations.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical features</div>
+      <ul class="clean">
+        <li><strong>Intellectual disability</strong> (most common <em>inherited</em> cause; Down is most common overall but not inherited)</li>
+        <li><strong>Autism features</strong> (Fragile X is one of the most common identifiable genetic causes of autism)</li>
+        <li><strong>Facies:</strong> long face, prominent jaw, large ears (often protruding)</li>
+        <li><strong>Macroorchidism</strong> — large testes, emerges post-pubertally</li>
+        <li>Joint hypermobility, flat feet, mitral valve prolapse</li>
+        <li>Anxiety, hyperactivity, gaze aversion, stereotyped hand movements, tactile defensiveness</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why boys are more affected</span>
+      Fragile X is <strong>X-linked</strong>. Males have one X → full mutation fully expresses. Females have a second X → often partially compensated; they tend to have milder ID, learning disabilities, and anxiety. Premutation carriers can develop <strong>FXTAS</strong> (tremor/ataxia) in adulthood and <strong>premature ovarian insufficiency</strong>.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>DNA testing</strong> for CGG repeat number (direct gene testing). Recommended for any child with unexplained ID, developmental delay, or autism.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Management</div>
+      <p>Early intervention, educational support, SSRI for anxiety, stimulants for ADHD symptoms, treat comorbid epilepsy. Genetic counseling for family — mother is at minimum a carrier; sisters, aunts, cousins need testing.</p>
+    </div>
+  </div>
+
+  <!-- ====================== MODULE 10 ====================== -->
+  <div class="mod-header m10">
+    <div class="num">MODULE 10 · CHAPTERS 27 & 37 · 10 QUESTIONS</div>
+    <h2>Nutritional & Endocrine Conditions</h2>
+    <div class="mod-meta">4 Nutritional · 6 Endocrine</div>
+  </div>
+
+  <!-- FOOD ALLERGY -->
+  <div class="condition gold" id="foodallergy">
+    <h3>Food Allergy</h3>
+    <div class="cat">NUTRITIONAL · IgE-MEDIATED HYPERSENSITIVITY</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>IgE-mediated (immediate):</strong> prior sensitization → food-specific IgE on mast cells/basophils → re-exposure → crosslinking → histamine and cytokine release within minutes to 2 hours. <strong>Non-IgE-mediated:</strong> cell-mediated, delayed (hours to days) — e.g., FPIES, eosinophilic esophagitis, milk protein proctocolitis.</p>
+      <p><strong>Top 9 allergens:</strong> milk, egg, peanut, tree nuts, soy, wheat, fish, shellfish, sesame.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation (IgE-mediated)</div>
+      <ul class="clean">
+        <li><strong>Skin:</strong> urticaria, angioedema, flushing, pruritus</li>
+        <li><strong>GI:</strong> vomiting, abdominal pain, diarrhea</li>
+        <li><strong>Respiratory:</strong> wheeze, stridor, cough</li>
+        <li><strong>Cardiovascular:</strong> hypotension, tachycardia (anaphylaxis)</li>
+        <li>Onset within minutes, peaks within 2 hours</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "two systems = anaphylaxis"</span>
+      Anaphylaxis is defined by involvement of <strong>two or more organ systems</strong> (skin, GI, resp, cardiovascular) OR hypotension alone after exposure to a known allergen. Epinephrine IM (thigh) immediately — <em>do not delay for antihistamines</em>. Antihistamines treat hives; they don't treat airway or blood pressure.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Skin prick test</strong> or <strong>food-specific IgE</strong> (RAST/ImmunoCAP) — support diagnosis but don't diagnose alone (false positives common)</li>
+        <li><strong>Oral food challenge</strong> = gold standard (in a controlled setting)</li>
+        <li>Detailed history is most important — timing, reproducibility, dose</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Avoidance</strong> of the trigger</li>
+        <li><strong>Epinephrine auto-injector × 2</strong> (always prescribe two — biphasic reactions)</li>
+        <li><strong>Action plan</strong> for home, school, caregivers</li>
+        <li><strong>Early introduction</strong> of peanut in high-risk infants (LEAP trial) — starting 4–6 months reduces peanut allergy</li>
+        <li>Consider oral immunotherapy for selected patients</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CELIAC -->
+  <div class="condition gold" id="celiac">
+    <h3>Celiac Disease</h3>
+    <div class="cat">NUTRITIONAL · AUTOIMMUNE · GLUTEN-TRIGGERED</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>In genetically predisposed children (<strong>HLA-DQ2 or HLA-DQ8</strong>), ingestion of <strong>gluten</strong> (wheat, barley, rye) triggers an autoimmune reaction in the small intestine. Gluten peptides are modified by tissue transglutaminase (tTG) → presented to T cells → inflammation → <strong>villous atrophy</strong> → malabsorption. The damage is entirely reversible with strict gluten avoidance.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li><strong>Classic (infants/toddlers after gluten introduction):</strong> chronic diarrhea, abdominal distension, FTT, irritability</li>
+        <li><strong>Older children:</strong> short stature, delayed puberty, iron-deficiency anemia refractory to iron, dental enamel defects, <strong>dermatitis herpetiformis</strong> (grouped pruritic vesicles on elbows/knees)</li>
+        <li><strong>Silent celiac:</strong> asymptomatic but serology +, damage present</li>
+        <li><strong>Associated conditions:</strong> T1DM, Down syndrome, Turner syndrome, autoimmune thyroiditis, IgA deficiency, first-degree relatives</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why all those GI symptoms</span>
+      Villous atrophy reduces the intestinal surface area 10- to 100-fold → malabsorption of fats (steatorrhea), iron, B12, folate, calcium, vitamin D. Short stature and delayed puberty are the growth consequences of chronic malnutrition. Dermatitis herpetiformis is the same autoimmune reaction, just deposited in skin.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>tTG-IgA + total IgA</strong> (check total IgA because IgA deficiency is common in celiac and would give a false negative tTG-IgA)</li>
+        <li>If IgA deficient: use <strong>tTG-IgG or DGP-IgG</strong></li>
+        <li><strong>Gold standard: duodenal biopsy</strong> showing villous atrophy + crypt hyperplasia + intraepithelial lymphocytes</li>
+        <li><strong>Must be on gluten-containing diet</strong> when testing — gluten-free diet normalizes labs and biopsy</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Strict lifelong gluten-free diet</strong>. Referral to dietitian essential. Screen for nutrient deficiencies (iron, vitamin D, folate, B12) and treat. Monitor growth and tTG to confirm adherence. Screen first-degree relatives.</p>
+    </div>
+  </div>
+
+  <!-- MALNUTRITION / FTT -->
+  <div class="condition gold" id="malnutr">
+    <h3>Malnutrition / Failure to Thrive</h3>
+    <div class="cat">NUTRITIONAL · GROWTH FAILURE</div>
+
+    <div class="sec">
+      <div class="sec-label">Definition & pathophysiology</div>
+      <p>Inadequate nutritional intake, absorption, or utilization for the child's growth needs. Defined as:</p>
+      <ul class="clean">
+        <li>Weight-for-age &lt; 5th percentile</li>
+        <li>Weight-for-length &lt; 5th percentile</li>
+        <li>Downward crossing of ≥ 2 major percentile lines</li>
+      </ul>
+      <p>Categorized as: <strong>inadequate intake</strong> (most common — feeding problems, poverty, neglect, food refusal), <strong>inadequate absorption</strong> (celiac, CF, milk protein allergy), <strong>increased metabolic demand</strong> (CHD, chronic infection, hyperthyroidism), or <strong>defective utilization</strong> (metabolic disorders).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical approach</div>
+      <ul class="clean">
+        <li>Detailed <strong>feeding history</strong> — what, how much, how often, who feeds, mealtime behavior</li>
+        <li>Plot growth on standardized curves — pattern often reveals cause (head circumference spared suggests nutritional; all parameters affected suggests genetic/structural)</li>
+        <li>Observe a feeding</li>
+        <li>Psychosocial assessment — caregiver mental health, food security, family stress</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why head circumference matters</span>
+      In <strong>nutritional</strong> (simple) malnutrition, the body conserves the brain — <strong>HC is preserved</strong> while weight drops first, then length. In <strong>intrauterine or genetic</strong> causes, all three (HC, weight, length) are affected from the start. The pattern of the growth curve alone can narrow your differential.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Address underlying cause</strong>. Increase caloric density (add fats, oils; concentrate formula carefully). Feeding therapy. Multidisciplinary approach — pediatrician, dietitian, social work, behavioral health. Admit if severe, dehydrated, or social concerns. Watch for <strong>refeeding syndrome</strong> (hypophosphatemia, hypokalemia, hypomagnesemia) in severely malnourished children.</p>
+    </div>
+  </div>
+
+  <!-- OBESITY -->
+  <div class="condition gold" id="obesity">
+    <h3>Pediatric Obesity</h3>
+    <div class="cat">NUTRITIONAL · EPIDEMIC · MULTIFACTORIAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Definition</div>
+      <ul class="clean">
+        <li><strong>Overweight:</strong> BMI 85th–94th percentile for age/sex</li>
+        <li><strong>Obesity (class 1):</strong> BMI ≥ 95th percentile</li>
+        <li><strong>Class 2 obesity:</strong> ≥ 120% of 95th percentile (or BMI ≥ 35)</li>
+        <li><strong>Class 3 (severe):</strong> ≥ 140% of 95th percentile (or BMI ≥ 40)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Energy imbalance — intake &gt; expenditure, modulated by genetics, early-life programming, sleep, stress, gut microbiome, food environment, and activity. Adipose tissue is an active endocrine organ — excess fat produces inflammatory cytokines and disrupts insulin signaling, leading to <strong>insulin resistance</strong> and the metabolic consequences.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Comorbidities to screen for</div>
+      <ul class="clean">
+        <li><strong>Metabolic:</strong> T2DM, dyslipidemia, HTN, NAFLD</li>
+        <li><strong>Respiratory:</strong> OSA, asthma</li>
+        <li><strong>Orthopedic:</strong> SCFE, Blount disease (tibia vara)</li>
+        <li><strong>Dermatologic:</strong> acanthosis nigricans (marker of insulin resistance)</li>
+        <li><strong>Reproductive:</strong> PCOS in adolescent girls, precocious puberty</li>
+        <li><strong>Mental health:</strong> depression, anxiety, disordered eating, bullying</li>
+        <li><strong>GI:</strong> GERD, gallstones</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Screening (starting at age 9–11)</div>
+      <ul class="clean">
+        <li>Fasting lipid panel</li>
+        <li>ALT (NAFLD screen — most common cause of chronic liver disease in kids now)</li>
+        <li>Fasting glucose or HbA1c if BMI ≥ 85th + risk factors</li>
+        <li>BP at every visit</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment (2023 AAP guidelines)</div>
+      <ul class="clean">
+        <li><strong>Intensive health behavior and lifestyle treatment (IHBLT)</strong> — ≥ 26 contact hours over 3–12 months, family-based</li>
+        <li><strong>Pharmacotherapy</strong> ≥ 12 yrs with obesity: metformin, GLP-1 agonists (liraglutide, semaglutide), orlistat</li>
+        <li><strong>Metabolic and bariatric surgery</strong> ≥ 13 yrs with severe obesity</li>
+        <li>Do <strong>not</strong> use "watchful waiting" as a default strategy — early intervention works better</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the 2023 shift</span>
+      The previous "wait and see" approach allowed metabolic damage to compound. 2023 AAP guidelines shifted to early, intensive, evidence-based treatment — recognizing obesity as a chronic disease, not a behavior failure.
+    </div>
+  </div>
+
+  <!-- HYPOTHYROIDISM -->
+  <div class="condition gold" id="hypothy">
+    <h3>Hypothyroidism</h3>
+    <div class="cat">ENDOCRINE · THYROID · CONGENITAL OR ACQUIRED</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>Congenital hypothyroidism (CH):</strong> thyroid dysgenesis (aplasia, ectopy — 85%), dyshormonogenesis, transient (maternal antibodies, iodine exposure). Universal newborn screening catches nearly all cases. Untreated CH causes irreversible intellectual disability and growth failure.</p>
+      <p><strong>Acquired hypothyroidism:</strong> most commonly <strong>Hashimoto thyroiditis</strong> (autoimmune lymphocytic infiltration destroying thyroid tissue). Associated with T1DM, Down syndrome, Turner syndrome, celiac.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p><strong>Congenital (if screening missed or late):</strong> large fontanelles, poor feeding, lethargy, constipation, prolonged jaundice, macroglossia, umbilical hernia, cool/mottled skin, hoarse cry, hypotonia.</p>
+      <p><strong>Acquired:</strong> <strong>growth failure + delayed bone age</strong>, fatigue, cold intolerance, constipation, weight gain (usually modest — not as dramatic as adults), dry skin/hair, bradycardia, delayed puberty or <strong>precocious pseudopuberty</strong>, goiter.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why growth failure is the flag in kids</span>
+      Thyroid hormone is essential for linear growth. Kids don't usually describe cold intolerance or fatigue — but pediatricians see them <strong>dropping percentiles on the growth chart</strong>. A child whose weight keeps climbing while height plateaus = hypothyroidism until proven otherwise. (Obesity alone tends to cause tall stature from insulin effects.)
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Primary hypothyroidism:</strong> ↑ TSH, ↓ free T4</li>
+        <li><strong>Central hypothyroidism:</strong> ↓ or inappropriately normal TSH, ↓ free T4</li>
+        <li><strong>Subclinical:</strong> ↑ TSH, normal free T4</li>
+        <li><strong>Antibodies:</strong> anti-TPO, anti-thyroglobulin (Hashimoto)</li>
+        <li>Bone age X-ray — delayed in hypothyroidism</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Levothyroxine</strong> daily, on empty stomach. Start full replacement immediately in CH (10–15 mcg/kg/day); lower doses for acquired. Recheck TSH in 4–6 weeks after dose change. Goal: TSH in normal range. Do not take with calcium, iron, or soy (reduces absorption).</p>
+    </div>
+  </div>
+
+  <!-- HYPERTHYROIDISM -->
+  <div class="condition gold" id="hyperthy">
+    <h3>Hyperthyroidism</h3>
+    <div class="cat">ENDOCRINE · THYROID · GRAVES DOMINATES IN PEDS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>Graves disease</strong> — autoimmune, TSH receptor antibodies (TRAb) stimulate the thyroid → excess T3/T4 + goiter. Most common cause in children, peaks in adolescence, 5:1 female:male. Can also occur in neonates born to mothers with Graves (antibodies cross the placenta — transient).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Weight loss with increased appetite, hyperphagia</li>
+        <li>Heat intolerance, sweating</li>
+        <li>Tachycardia, palpitations, HTN with widened pulse pressure</li>
+        <li>Tremor, anxiety, emotional lability, poor concentration (often misdiagnosed as ADHD)</li>
+        <li>Declining school performance despite hyperactivity</li>
+        <li><strong>Goiter</strong> (diffuse, firm, possible bruit)</li>
+        <li><strong>Ophthalmopathy</strong> (exophthalmos, lid lag — Graves specific)</li>
+        <li>Growth acceleration, advanced bone age</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why advanced bone age (but not necessarily taller adult)</span>
+      Excess thyroid hormone accelerates both linear growth and skeletal maturation — but the growth plates also close earlier. Net effect: tall as a child but often normal-to-short as adults if untreated. Treating promptly preserves growth potential.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p>↓ TSH, ↑ free T4/T3. TRAb or TSI confirms Graves. Thyroid US or uptake scan if nodular. Bone age advanced.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Methimazole</strong> = first-line in peds (avoid PTU in kids — hepatotoxicity risk; exception: first trimester pregnancy)</li>
+        <li><strong>Beta blocker</strong> (propranolol or atenolol) for symptomatic relief of tachycardia/tremor while methimazole works</li>
+        <li><strong>Radioactive iodine</strong> or <strong>thyroidectomy</strong> for definitive treatment in refractory cases or adolescents</li>
+        <li>Monitor CBC (methimazole can cause agranulocytosis) and LFTs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- T1DM -->
+  <div class="condition gold" id="t1dm">
+    <h3>Type 1 Diabetes Mellitus</h3>
+    <div class="cat">ENDOCRINE · AUTOIMMUNE · INSULIN-DEFICIENT</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Autoimmune destruction of pancreatic <strong>β-cells</strong> (T-cell mediated, with autoantibodies as markers: GAD65, IA-2, insulin, ZnT8). &gt; 90% of β-cells must be destroyed before symptoms appear. Without insulin, glucose can't enter cells → cells starve → the body shifts to <strong>fat breakdown</strong> for fuel → ketone bodies accumulate → <strong>diabetic ketoacidosis (DKA)</strong>. About <strong>30% of new-onset T1DM presents in DKA</strong>.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Classic triad: <strong>polyuria, polydipsia, polyphagia</strong> — with weight loss</li>
+        <li>New-onset nocturnal enuresis in a previously dry child</li>
+        <li>Fatigue, blurred vision</li>
+        <li><strong>DKA (emergency):</strong> nausea, vomiting, abdominal pain, altered mental status, fruity breath (acetone), Kussmaul respirations (deep, rapid — compensatory for acidosis), tachycardia, hypotension, dehydration signs (tenting, poor cap refill, tachypnea)</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why every symptom makes sense (Case 2)</span>
+      <strong>Polyuria:</strong> glucose exceeds the renal threshold (~180 mg/dL) → osmotic diuresis. <strong>Polydipsia:</strong> response to the fluid loss. <strong>Weight loss:</strong> cells can't use glucose → fat and muscle are catabolized. <strong>Fruity breath:</strong> ketones (acetone) exhaled. <strong>Kussmaul breathing:</strong> blowing off CO₂ to compensate for metabolic acidosis. <strong>Abdominal pain:</strong> ketone-induced visceral irritation. <strong>AMS:</strong> cerebral edema, hyperosmolality.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Random glucose &gt; 200</strong> + symptoms, or</li>
+        <li><strong>Fasting glucose &gt; 126</strong>, or</li>
+        <li><strong>HbA1c ≥ 6.5%</strong>, or</li>
+        <li>2-hr OGTT &gt; 200</li>
+        <li><strong>UA:</strong> glucose + ketones</li>
+        <li><strong>Confirmatory / typing:</strong> C-peptide (low in T1), islet cell antibodies (GAD65, IA-2)</li>
+        <li><strong>CMP in DKA:</strong> metabolic acidosis, hyponatremia (often pseudo — glucose pulls water into vessels), normal-or-↑ K (total body K is depleted but acidosis shifts K extracellularly), elevated BUN/Cr from dehydration</li>
+        <li><strong>CBC:</strong> WBC often elevated</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>New-onset or DKA:</strong> ED/hospital admission. IV fluids (careful — too fast = cerebral edema), IV regular insulin drip, potassium replacement as acidosis corrects, gradual glucose correction.</p>
+      <p><strong>Ongoing:</strong> basal-bolus insulin (long-acting glargine/detemir + rapid-acting aspart/lispro with meals), or insulin pump. Carb counting. CGM. Target HbA1c &lt; 7%. Multidisciplinary diabetes team.</p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl — Case Study 2</span>
+      5 y/o with N/V, weight loss, polydipsia, polyuria, new enuresis + tachycardia, hypotension, hypothermia, tachypnea, fruity breath, AMS, tenting, poor cap refill = <strong>DKA → ED now</strong>. Don't waste time on oral rehydration or clinic workup.
+    </div>
+  </div>
+
+  <!-- T2DM -->
+  <div class="condition gold" id="t2dm">
+    <h3>Type 2 Diabetes Mellitus</h3>
+    <div class="cat">ENDOCRINE · INSULIN RESISTANCE · RISING IN ADOLESCENTS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Peripheral tissues become <strong>resistant</strong> to insulin — the pancreas initially compensates with hyperinsulinemia, but β-cells eventually fatigue. Associated with obesity, family history, certain ethnicities (Hispanic, Black, AI/AN, Asian), puberty (normal physiologic insulin resistance worsens), and PCOS.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Obese adolescent (typically at or after puberty)</li>
+        <li>Asymptomatic on screening, or mild polyuria/polydipsia</li>
+        <li><strong>Acanthosis nigricans</strong> (velvety hyperpigmented skin, neck/axilla) — marker of insulin resistance</li>
+        <li>Can rarely present with DKA or hyperosmolar hyperglycemic state</li>
+        <li>Family history of T2DM common</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Screening (ADA / AAP)</div>
+      <p>BMI ≥ 85% + ≥ 1 risk factor (family hx, high-risk race/ethnicity, signs of insulin resistance, maternal DM/GDM). Start at age 10 or onset of puberty. Screen every 3 years.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p>Same criteria as T1DM (HbA1c ≥ 6.5%, fasting ≥ 126, random ≥ 200 + symptoms). Differentiation: C-peptide normal or high (β-cells still working), no autoantibodies, usually obese.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Lifestyle</strong>: nutrition, exercise, weight management</li>
+        <li><strong>First-line pharmacotherapy: metformin</strong> (improves insulin sensitivity). If HbA1c &gt; 8.5% or symptomatic → start insulin + metformin.</li>
+        <li><strong>Second-line</strong> (if metformin alone fails): GLP-1 agonists (liraglutide) approved ≥ 10 yrs; insulin</li>
+        <li>Screen for comorbidities: NAFLD, dyslipidemia, HTN, PCOS, OSA, microalbuminuria, retinopathy</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CDGP -->
+  <div class="condition gold" id="cdgp">
+    <h3>Constitutional Delay of Growth & Puberty (CDGP)</h3>
+    <div class="cat">ENDOCRINE · GROWTH · "LATE BLOOMER"</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A variation of normal — the child is on a delayed tempo. Growth velocity is normal, but the child enters puberty late. Bone age is <strong>delayed</strong> (matches the delayed growth), and final adult height is usually normal.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Short stature relative to peers</li>
+        <li><strong>Delayed pubertal onset</strong> (no breast budding by 13 in girls, no testicular enlargement by 14 in boys)</li>
+        <li><strong>Family history of "late bloomers"</strong> — dad shaved late, mom had late menarche</li>
+        <li>Normal growth velocity, delayed bone age</li>
+        <li>Usually self-conscious about being shorter/less developed than peers</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the bone age tells the story</span>
+      In CDGP, height and bone age are delayed in parallel — <strong>height for bone age is normal</strong>. That means the child has "catch-up time" — when puberty eventually fires, they'll reach a normal adult height. In pathologic short stature (e.g., GH deficiency, hypothyroidism, Turner), height is short for bone age too.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p>Bone age X-ray (delayed), TSH/free T4, IGF-1, CBC, CMP, ESR, celiac screen, karyotype in girls (r/o Turner). Normal workup + family history + delayed bone age = CDGP.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>Reassurance</strong> is primary. For significant psychosocial distress, a short course of <strong>low-dose testosterone</strong> (boys) or <strong>estrogen</strong> (girls) can kick-start puberty without affecting final height. Not usually needed.</p>
+    </div>
+  </div>
+
+  <!-- PRECOCIOUS PUBERTY -->
+  <div class="condition gold" id="precocious">
+    <h3>Precocious Puberty</h3>
+    <div class="cat">ENDOCRINE · GROWTH · EARLY SEXUAL MATURATION</div>
+
+    <div class="sec">
+      <div class="sec-label">Definition</div>
+      <ul class="clean">
+        <li><strong>Girls:</strong> secondary sexual characteristics before age 8 (or menarche before 9.5)</li>
+        <li><strong>Boys:</strong> secondary sexual characteristics before age 9</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology — two types</div>
+      <p><strong>Central (GnRH-dependent, "true"):</strong> early activation of the HPG axis → all sex hormones rise together, orderly Tanner progression. In girls, <strong>~90% is idiopathic</strong>. In boys, <strong>~50% has a pathologic cause</strong> (CNS lesion, hamartoma) — always work up boys carefully.</p>
+      <p><strong>Peripheral (GnRH-independent, "pseudo"):</strong> sex hormones from somewhere <em>other</em> than the HPG axis — adrenal (CAH, tumor), gonadal (McCune-Albright, ovarian cyst, Leydig cell tumor), exogenous (topical estrogen/testosterone exposure). Progression is often out of order.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Breast development (thelarche) in girls</li>
+        <li>Testicular enlargement (&gt; 4 mL or 2.5 cm) in boys — <strong>earliest sign</strong></li>
+        <li>Pubic/axillary hair, body odor, acne</li>
+        <li><strong>Accelerated growth velocity</strong> and advanced bone age → tall as a child, <strong>short as an adult</strong> (early growth plate closure)</li>
+        <li>Psychosocial distress, early menarche</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "tall as a child, short as an adult"</span>
+      Sex hormones both accelerate growth and close growth plates. Early exposure = early growth spurt <em>and</em> early plate closure → less time in the plates open state → shorter adult height than predicted by genetic potential. Treatment preserves height.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Bone age X-ray</strong> of left hand/wrist — first step; advanced &gt; chronological</li>
+        <li>LH, FSH (baseline + GnRH-stimulation test — pubertal response = central)</li>
+        <li>Estradiol (girls), testosterone (boys)</li>
+        <li>TSH (primary hypothyroidism can cause incomplete precocious puberty — Van Wyk-Grumbach)</li>
+        <li>17-OHP (r/o CAH), DHEAS (adrenal source)</li>
+        <li>Pelvic US (ovarian size, uterine changes)</li>
+        <li><strong>Brain MRI</strong> for central precocious puberty in boys, or girls &lt; 6</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Central:</strong> GnRH agonist (leuprolide) — continuous stimulation <em>desensitizes</em> the pituitary, shutting down LH/FSH pulses → stops progression and preserves adult height</li>
+        <li><strong>Peripheral:</strong> treat the underlying cause (tumor removal, hormone replacement for CAH, etc.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====================== MODULE 11 ====================== -->
+  <div class="mod-header m11">
+    <div class="num">MODULE 11 · CHAPTERS 39 & 40 · 13 QUESTIONS</div>
+    <h2>Neurodevelopmental & Mental Health Conditions</h2>
+    <div class="mod-meta">5 Neurodev · 8 Mental Health · Biggest chunk of the exam</div>
+  </div>
+
+  <!-- LEARNING DISABILITY -->
+  <div class="condition lavender" id="ld">
+    <h3>Specific Learning Disability</h3>
+    <div class="cat">NEURODEVELOPMENTAL · ACADEMIC DISCREPANCY</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A heterogeneous group of neurologically-based disorders in which a child's <strong>academic achievement is substantially below expected</strong> for age and IQ, despite adequate instruction. Involves differences in brain processing of specific academic skills — reading (<strong>dyslexia</strong> — most common), math (<strong>dyscalculia</strong>), written expression (<strong>dysgraphia</strong>).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical features</div>
+      <ul class="clean">
+        <li>Normal IQ</li>
+        <li>Persistent difficulty in one or more academic areas despite adequate instruction ≥ 6 months</li>
+        <li>Academic skills substantially and measurably below age-expected</li>
+        <li>Begins in school-age years, emerges when demands exceed capacities</li>
+        <li>Not explained by ID, vision/hearing deficit, neurologic disorder, lack of instruction, language barrier</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>Psychoeducational evaluation</strong> — IQ test + achievement testing, demonstrating the discrepancy. Schools are required under IDEA to evaluate if parents request. Audiology/vision screening to rule out sensory contributors.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p><strong>IEP or 504 plan</strong> — individualized educational interventions, accommodations (extended time, text-to-speech, oral testing). Screen for and treat comorbid ADHD (co-occurs in 30–50%), anxiety, depression. Early intervention = best outcomes.</p>
+    </div>
+  </div>
+
+  <!-- ADHD -->
+  <div class="condition lavender" id="adhd">
+    <h3>ADHD (Attention-Deficit/Hyperactivity Disorder)</h3>
+    <div class="cat">NEURODEVELOPMENTAL · DSM-5 · MOST COMMON IN PEDS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Neurodevelopmental disorder of <strong>executive function</strong> — dysregulation in prefrontal cortex dopamine and norepinephrine circuits. Prefrontal cortex governs attention, working memory, impulse control, and task initiation. Highly heritable (~75%).</p>
+      <p>Three presentations: <strong>predominantly inattentive</strong>, <strong>predominantly hyperactive/impulsive</strong>, or <strong>combined</strong>.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <p><strong>≥ 6 symptoms</strong> of inattention AND/OR hyperactivity/impulsivity, <strong>persisting ≥ 6 months</strong>, inconsistent with developmental level. Several symptoms present <strong>before age 12</strong>. Symptoms in <strong>≥ 2 settings</strong> (home + school). Interfering with functioning. Not better explained by another disorder.</p>
+      <p><strong>Adolescents/adults ≥ 17:</strong> only 5 symptoms needed.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Inattention symptoms</div>
+      <p>Careless mistakes, trouble sustaining attention, doesn't listen, doesn't follow through, poor organization, avoids sustained mental effort, loses things, easily distracted, forgetful.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Hyperactivity/impulsivity symptoms</div>
+      <p>Fidgeting, leaves seat, runs/climbs inappropriately, unable to play quietly, "on the go" / "driven by motor," talks excessively, blurts answers, can't wait turn, interrupts.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <ul class="clean">
+        <li><strong>Vanderbilt Rating Scales</strong> — from <strong>both parent and teacher</strong> (symptoms in ≥ 2 settings is a diagnostic requirement)</li>
+        <li>Other validated tools: Conners, SNAP-IV</li>
+        <li>Comprehensive history — developmental, medical, psychosocial, academic</li>
+        <li>Rule out mimics: sleep deprivation/OSA, hearing/vision problems, absence seizures, anxiety, depression, learning disability, lead poisoning, thyroid dysfunction, trauma</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why parents + teachers both</span>
+      DSM-5 requires symptoms in <strong>≥ 2 settings</strong>. Classroom-only behavior could be a learning disability, a bad class fit, or a struggling teacher. Home-only behavior could be family dysfunction or anxiety. Rating scales from both reveal the pattern.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Ages 4–5:</strong> <strong>behavioral therapy/parent training first</strong>. Consider methylphenidate only if behavioral fails and symptoms severe.</li>
+        <li><strong>Ages ≥ 6:</strong> <strong>stimulant medication + behavioral therapy</strong> (the combination outperforms either alone — MTA study).</li>
+        <li><strong>First-line stimulants:</strong> methylphenidate (Ritalin, Concerta) or amphetamines (Adderall, Vyvanse). Start low, titrate to effect.</li>
+        <li><strong>Non-stimulants:</strong> atomoxetine (Strattera — SNRI), alpha-2 agonists (guanfacine, clonidine) — useful for stimulant side effects, comorbid tics, or sleep issues</li>
+        <li><strong>Monitor:</strong> growth (weight, height), BP, HR, sleep, appetite, tics, mood</li>
+      </ul>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🎯 Board pearl (from review)</span>
+      <em>"Parents and teachers are more reliable in reporting external symptoms such as those in ADHD or oppositional defiant disorder."</em> Compare that to depression where the adolescent is the most reliable reporter — external behavior vs. internal state.
+    </div>
+  </div>
+
+  <!-- AUTISM -->
+  <div class="condition lavender" id="autism">
+    <h3>Autism Spectrum Disorder</h3>
+    <div class="cat">NEURODEVELOPMENTAL · EARLY ONSET · SPECTRUM</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>A neurodevelopmental disorder with strong genetic contribution (twin concordance ~90% MZ) and altered brain connectivity — differences in social cognition networks, sensory processing, and executive function. Onset before age 3 (though diagnosis may come later). <strong>Not</strong> caused by vaccines, parenting, or anything the family did.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 diagnostic criteria — 2 domains</div>
+      <p><strong>Domain A — Persistent deficits in social communication and interaction</strong> (all 3 required):</p>
+      <ul class="clean">
+        <li>Deficits in social-emotional reciprocity (back-and-forth conversation, sharing interests/emotions)</li>
+        <li>Deficits in nonverbal communication (eye contact, gestures, facial expressions)</li>
+        <li>Deficits in developing, maintaining, understanding relationships</li>
+      </ul>
+      <p><strong>Domain B — Restricted, repetitive patterns of behavior/interests</strong> (≥ 2 of 4):</p>
+      <ul class="clean">
+        <li>Stereotyped or repetitive motor movements (hand flapping), use of objects, or speech (echolalia)</li>
+        <li>Insistence on sameness, rigid routines, ritualized behavior</li>
+        <li>Highly restricted, fixated interests of abnormal intensity</li>
+        <li>Hyper- or hyporeactivity to sensory input (fascination with lights, aversion to textures/sounds)</li>
+      </ul>
+      <p>Symptoms in early developmental period; cause functional impairment; not better explained by ID.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Red flags by age</div>
+      <ul class="clean">
+        <li><strong>6 mo:</strong> no joyful expressions, limited eye contact</li>
+        <li><strong>9 mo:</strong> no back-and-forth sounds or facial expressions</li>
+        <li><strong>12 mo:</strong> no babbling, no pointing/gestures, no response to name</li>
+        <li><strong>16 mo:</strong> no words</li>
+        <li><strong>24 mo:</strong> no 2-word phrases</li>
+        <li><strong>Any age:</strong> loss of skills (regression)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Screening</div>
+      <ul class="clean">
+        <li><strong>M-CHAT-R/F</strong> at <strong>18 and 24 months</strong> — universal screening</li>
+        <li>Any concern at any age → refer for formal evaluation <strong>and</strong> early intervention <em>simultaneously</em> — don't wait</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "early intervention simultaneously"</span>
+      Diagnostic evaluation takes months. Neuroplasticity is greatest in the first 3 years. Starting <strong>Early Intervention services right away</strong> while the full evaluation is being completed gives the child weeks to months of therapy they'd otherwise miss. Don't wait for the diagnosis to act.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Early intensive behavioral intervention</strong> (ABA, NDBI), speech-language therapy, OT, special education</li>
+        <li><strong>No medications for core features</strong></li>
+        <li>Treat comorbidities: irritability/aggression (risperidone, aripiprazole — only FDA-approved meds for autism, for irritability), ADHD symptoms, anxiety, sleep disturbance (melatonin), GI issues</li>
+        <li>Family support, parent training, respite care</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ MENTAL HEALTH ============ -->
+
+  <!-- ANOREXIA -->
+  <div class="condition lavender" id="anorexia">
+    <h3>Anorexia Nervosa</h3>
+    <div class="cat">EATING DISORDER · RESTRICTION · HIGHEST MORTALITY OF ANY PSYCH DISORDER</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Multifactorial — genetic, neurobiologic, psychological, sociocultural. Dysregulation of hunger/satiety circuits, reward processing, and body image perception. Restriction becomes reinforcing (both psychologically and neurobiologically — starvation itself alters serotonin and dopamine signaling).</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Restriction of energy intake → significantly low body weight</li>
+        <li>Intense fear of weight gain or behavior that interferes with weight gain</li>
+        <li>Disturbance in body image, self-evaluation unduly influenced by weight/shape, or denial of seriousness</li>
+        <li>Subtypes: restricting vs. binge-eating/purging</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical signs (consequences of starvation)</div>
+      <ul class="clean">
+        <li><strong>Vitals:</strong> bradycardia, hypotension, orthostatic changes, hypothermia</li>
+        <li><strong>Skin:</strong> dry, lanugo (fine downy hair — body insulation response), yellowish (hypercarotenemia), acrocyanosis</li>
+        <li><strong>Cardiac:</strong> prolonged QTc, arrhythmias, mitral valve prolapse, pericardial effusion</li>
+        <li><strong>Endocrine:</strong> amenorrhea, low T3 (sick euthyroid), delayed puberty, osteoporosis</li>
+        <li><strong>GI:</strong> delayed gastric emptying, constipation</li>
+        <li><strong>Labs:</strong> ↓ WBC, ↓ platelets, low electrolytes, low albumin, transaminitis</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why lanugo and bradycardia</span>
+      The body enters a conservation state. <strong>Lanugo</strong> grows because subcutaneous fat is gone and core temp can't be maintained — fine hair provides insulation. <strong>Bradycardia</strong> (HR 40s–50s) is parasympathetic dominance + reduced metabolic demand — the body slows everything down to conserve energy.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Medical admission criteria (any one)</div>
+      <ul class="clean">
+        <li>&lt; 75% median BMI or rapid weight loss</li>
+        <li>HR &lt; 50 daytime or &lt; 45 nighttime</li>
+        <li>BP &lt; 90/45</li>
+        <li>Temp &lt; 35.6°C</li>
+        <li>Orthostatic HR increase &gt; 20 or BP drop &gt; 20/10</li>
+        <li>Electrolyte abnormalities, arrhythmia, syncope, dehydration, acute food refusal</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Family-Based Therapy (FBT / Maudsley)</strong> = first-line for adolescents — parents take charge of refeeding</li>
+        <li>Nutritional rehabilitation with slow caloric advancement</li>
+        <li><strong>Watch for refeeding syndrome</strong>: after prolonged starvation, sudden refeeding causes insulin surge → cells take up phosphate, potassium, magnesium → severe hypophosphatemia, hypokalemia, hypomagnesemia → cardiac arrhythmias, delirium, seizures. Prevent with slow advancement + electrolyte monitoring/supplementation.</li>
+        <li>SSRIs <strong>don't work</strong> for anorexia until weight is restored</li>
+        <li>Multidisciplinary team: pediatrics, psychiatry, dietitian, therapy</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BULIMIA -->
+  <div class="condition lavender" id="bulimia">
+    <h3>Bulimia Nervosa</h3>
+    <div class="cat">EATING DISORDER · BINGE + COMPENSATORY</div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Recurrent <strong>binge eating</strong> (large amount + loss of control)</li>
+        <li>Recurrent <strong>compensatory behavior</strong> — vomiting, laxatives, diuretics, fasting, excessive exercise</li>
+        <li>≥ 1×/week for ≥ 3 months</li>
+        <li>Self-evaluation unduly influenced by weight/shape</li>
+        <li>Does not occur exclusively during anorexia</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical signs</div>
+      <ul class="clean">
+        <li><strong>Weight often normal or slightly elevated</strong> — doesn't exclude diagnosis</li>
+        <li><strong>Russell's sign</strong> — calluses/scars on knuckles from self-induced vomiting</li>
+        <li><strong>Parotid gland enlargement</strong> ("chipmunk cheeks") — from chronic purging</li>
+        <li><strong>Dental erosion</strong> — lingual surfaces of upper teeth (perimolysis) from gastric acid</li>
+        <li>Esophagitis, Mallory-Weiss tears, aspiration</li>
+        <li>Electrolyte derangements: <strong>hypokalemia, metabolic alkalosis</strong> (from vomiting), hypochloremia</li>
+        <li>Menstrual irregularity but usually not amenorrhea</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why lingual dental erosion (not buccal)</span>
+      Vomit acid pools against the <strong>lingual (tongue-side)</strong> surfaces of the upper incisors. The buccal surfaces are bathed in saliva and spared. Lingual erosion + Russell's sign + normal weight + menstrual issues = bulimia until proven otherwise.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>CBT-E</strong> (Enhanced CBT for eating disorders) = first-line</li>
+        <li><strong>Fluoxetine</strong> (FDA approved; only SSRI with indication) — works for bulimia even at normal weight</li>
+        <li>Nutritional counseling, regular meal structure</li>
+        <li>Treat electrolyte abnormalities, dental referrals</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BED -->
+  <div class="condition lavender" id="bed">
+    <h3>Binge Eating Disorder</h3>
+    <div class="cat">EATING DISORDER · BINGE WITHOUT COMPENSATION</div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Recurrent binge eating episodes (large amount + loss of control)</li>
+        <li>Associated with ≥ 3 of: eating rapidly, eating until uncomfortably full, eating when not hungry, eating alone (embarrassment), feeling disgusted/guilty after</li>
+        <li>Marked distress</li>
+        <li>≥ 1×/week for ≥ 3 months</li>
+        <li><strong>No compensatory behaviors</strong> (distinguishes from bulimia)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation & treatment</div>
+      <p>Often associated with obesity, depression, shame. Most common eating disorder in adults; also in adolescents. <strong>CBT</strong> = first-line. Lisdexamfetamine (Vyvanse) is FDA-approved for BED in adults (not first-line in adolescents). SSRIs may help mood symptoms.</p>
+    </div>
+  </div>
+
+  <!-- ARFID -->
+  <div class="condition lavender" id="arfid">
+    <h3>ARFID (Avoidant/Restrictive Food Intake Disorder)</h3>
+    <div class="cat">EATING DISORDER · NOT ABOUT BODY IMAGE</div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Eating disturbance → significant weight loss, nutritional deficiency, dependence on supplements, or marked psychosocial impairment</li>
+        <li><strong>Not about body image or weight concerns</strong> (this is the key distinction from anorexia)</li>
+        <li>Not explained by food scarcity or a medical/psych condition</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Three common drivers</div>
+      <ul class="clean">
+        <li><strong>Sensory aversion</strong> — extreme picky eating (texture, smell, color)</li>
+        <li><strong>Lack of interest</strong> in food — low appetite drive</li>
+        <li><strong>Fear of consequences</strong> — choking, vomiting, allergic reaction (often after a traumatic episode)</li>
+      </ul>
+      <p>Strongly associated with autism spectrum and anxiety disorders.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p>CBT for ARFID, feeding therapy, OT for sensory issues, nutritional rehabilitation, treat comorbid anxiety. Very different approach than anorexia — weight restoration alone isn't the goal; the underlying driver must be addressed.</p>
+    </div>
+  </div>
+
+  <!-- SEPARATION ANXIETY -->
+  <div class="condition lavender" id="sepanx">
+    <h3>Separation Anxiety Disorder</h3>
+    <div class="cat">ANXIETY · DEVELOPMENTALLY INAPPROPRIATE</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Separation anxiety is <strong>normal</strong> from 8 months to ~3 years (stranger/separation anxiety develops with object permanence). It becomes a <strong>disorder</strong> when it's developmentally inappropriate (persisting past expected age or resurfacing), excessive, and functionally impairing.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <p>≥ 3 of the following, for ≥ 4 weeks in children:</p>
+      <ul class="clean">
+        <li>Excessive distress when separation occurs or is anticipated</li>
+        <li>Persistent worry about losing attachment figures (accident, illness, death)</li>
+        <li>Persistent worry that an event will cause separation (getting lost, kidnapped)</li>
+        <li>Reluctance or refusal to go to school or elsewhere alone</li>
+        <li>Reluctance to sleep away from home or without attachment figure nearby</li>
+        <li>Nightmares about separation</li>
+        <li><strong>Physical symptoms</strong> (headaches, stomachaches) when separation occurs or is anticipated</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why the stomachaches</span>
+      Anxiety activates the autonomic nervous system → GI hypersensitivity, nausea, and true visceral distress. The child isn't "faking" a stomachache to avoid school — the stomachache is <em>real</em>, and the school-related anxiety causes it. This reframe helps with family communication.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>CBT</strong> with graduated exposure = first-line</li>
+        <li><strong>SSRI</strong> (fluoxetine, sertraline) if moderate-severe or CBT inadequate</li>
+        <li>School re-entry plan; don't allow prolonged school avoidance (deepens the pattern)</li>
+        <li>Parent training — avoid reinforcing avoidance with excessive accommodation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GAD -->
+  <div class="condition lavender" id="gad">
+    <h3>Generalized Anxiety Disorder</h3>
+    <div class="cat">ANXIETY · PERVASIVE WORRY</div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Excessive anxiety/worry about multiple events, more days than not, for ≥ 6 months</li>
+        <li>Difficult to control the worry</li>
+        <li>≥ 1 (in children) of: restlessness, fatigue, difficulty concentrating, irritability, muscle tension, sleep disturbance (adults need 3)</li>
+        <li>Clinically significant distress/impairment</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>The "worrier" — worries about school, family, future, world events</li>
+        <li>Perfectionism, reassurance-seeking</li>
+        <li>Somatic: headaches, abdominal pain, fatigue, sleep disturbance</li>
+        <li>Often misattributed to "stress" for years before diagnosis</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>CBT</strong> = first-line</li>
+        <li><strong>SSRIs</strong> (fluoxetine, sertraline, escitalopram) — all first-line for moderate-severe</li>
+        <li>Combination CBT + SSRI = best outcomes (CAMS study)</li>
+        <li>Avoid benzodiazepines in pediatrics — dependence risk, disinhibition</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MDD -->
+  <div class="condition lavender" id="mdd">
+    <h3>Major Depressive Disorder</h3>
+    <div class="cat">MOOD · CASE STUDY #3 REFERENCE</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Complex interaction of genetic vulnerability, neurotransmitter dysregulation (serotonin, norepinephrine, dopamine), stress/HPA axis, and psychosocial factors. In adolescents, hormonal changes, social/academic stress, and developing identity all contribute.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <p><strong>≥ 5 of the following, ≥ 2 weeks, with at least one being low mood OR anhedonia.</strong> Mnemonic: <strong>SIGECAPS</strong> + mood.</p>
+      <ul class="clean">
+        <li><strong>S</strong>leep disturbance (insomnia or hypersomnia)</li>
+        <li><strong>I</strong>nterest loss (anhedonia)</li>
+        <li><strong>G</strong>uilt or worthlessness</li>
+        <li><strong>E</strong>nergy loss / fatigue</li>
+        <li><strong>C</strong>oncentration impaired</li>
+        <li><strong>A</strong>ppetite/weight changes</li>
+        <li><strong>P</strong>sychomotor agitation or retardation</li>
+        <li><strong>S</strong>uicidal ideation</li>
+        <li><strong>M</strong>ood (sad/depressed) — or <strong>irritability in children/adolescents</strong></li>
+      </ul>
+      <p>In kids/teens, <strong>irritability</strong> can substitute for depressed mood. "Failure to make expected weight gain" can substitute for weight loss.</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why irritability in adolescents (Case 3)</span>
+      The adolescent brain is still developing emotional regulation. Depression often manifests as <strong>irritability, anger outbursts, somatic complaints (headaches, abdominal pain), school decline, or withdrawal</strong> rather than classic "sad mood." The 14 y/o in Case 3 who <em>"loses his temper easily and punched a hole in the wall"</em> — that's depression, not conduct disorder.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostic workup</div>
+      <ul class="clean">
+        <li><strong>PHQ-A</strong> (modified PHQ-9 for adolescents) — 9 symptom questions + 4 follow-ups (duration, impairment, SI in past month, lifetime SI attempt)</li>
+        <li><strong>Interview the adolescent privately</strong> — essential before anything else (Case 3 step 1)</li>
+        <li><strong>Rule out medical:</strong> CBC, TSH, CMP, B12, urine tox, mono if indicated</li>
+        <li><strong>Rule out substance use</strong> (marijuana, alcohol, other)</li>
+        <li><strong>Rule out medications</strong> — steroids, clonidine, Accutane, beta blockers, OCPs, benzos, thyroid supplements</li>
+        <li><strong>Rule out psychiatric comorbidities</strong> — ADHD, bipolar, anxiety, substance use disorder</li>
+        <li><strong>Screen for suicidality</strong> — direct, non-judgmental</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Mild:</strong> psychoeducation, CBT, supportive care, regular exercise/sleep/nutrition, follow-up in 1–2 weeks</li>
+        <li><strong>Moderate–severe:</strong> <strong>SSRI + CBT</strong> (TADS study showed combination superior)</li>
+        <li><strong>First-line SSRIs in adolescents:</strong> fluoxetine (FDA approved ≥ 8 yrs) and escitalopram (≥ 12 yrs). (Review said you just need to know SSRIs are first-line.)</li>
+        <li><strong>Dosing rule:</strong> <em>start low, go slow</em>. Increase every 5–7 days to target dose; <strong>hold dose 4–6 weeks</strong> before further increases.</li>
+        <li><strong>Black box warning</strong> — SSRIs can transiently increase suicidal ideation in youth; weekly contact for first 4 weeks, every 2 weeks for next month, monthly thereafter for the first 12 weeks.</li>
+        <li>Refer to psychiatry if severe, suicidal, multiple diagnoses, or not comfortable managing</li>
+      </ul>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">⚠️ Serotonin syndrome</span>
+      <strong>Hyperthermia + autonomic instability + neuromuscular hyperactivity (clonus, hyperreflexia, rigidity, tremor) + mental status changes</strong>. Can progress to seizures, rhabdo, DIC, death. Triggered by SSRI + another serotonergic agent (MAOI, triptan, tramadol, linezolid, dextromethorphan, St John's wort) or SSRI overdose. Treatment: stop offending agents, supportive care, cyproheptadine if severe.
+    </div>
+  </div>
+
+  <!-- DMDD -->
+  <div class="condition lavender" id="dmdd">
+    <h3>Disruptive Mood Dysregulation Disorder (DMDD)</h3>
+    <div class="cat">MOOD · NEWER DIAGNOSIS · SEPARATES FROM PEDIATRIC BIPOLAR</div>
+
+    <div class="sec">
+      <div class="sec-label">Why it exists</div>
+      <p>DMDD was added to DSM-5 specifically to reduce overdiagnosis of pediatric bipolar disorder. Kids with chronic irritability and outbursts were being labeled bipolar (and treated with mood stabilizers), but long-term follow-up showed most develop <strong>depression or anxiety</strong>, not bipolar. DMDD captures this group correctly.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">DSM-5 criteria</div>
+      <ul class="clean">
+        <li>Severe recurrent temper outbursts (verbal or behavioral) <strong>grossly out of proportion</strong> to situation</li>
+        <li><strong>≥ 3 times per week</strong></li>
+        <li>Persistently irritable/angry mood <strong>between</strong> outbursts</li>
+        <li>Present for <strong>≥ 12 months</strong>, no symptom-free period &gt; 3 months</li>
+        <li>Present in ≥ 2 settings</li>
+        <li>Diagnosis only between ages <strong>6 and 18</strong></li>
+        <li>Onset before age 10</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <p>Limited evidence base. Psychotherapy (parent management training, CBT). Medications target comorbidities — SSRIs for depression/anxiety symptoms, stimulants for comorbid ADHD. Atypical antipsychotics only for severe aggression.</p>
+    </div>
+  </div>
+
+  <!-- ODD / CD -->
+  <div class="condition lavender" id="cd-odd">
+    <h3>Oppositional Defiant Disorder & Conduct Disorder</h3>
+    <div class="cat">BEHAVIORAL · EXTERNALIZING SPECTRUM</div>
+
+    <div class="sec">
+      <div class="sec-label">ODD — DSM-5 criteria</div>
+      <p>A pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness lasting ≥ 6 months, with ≥ 4 symptoms from these categories:</p>
+      <ul class="clean">
+        <li><strong>Angry/irritable mood:</strong> loses temper, touchy/annoyed, angry/resentful</li>
+        <li><strong>Argumentative/defiant:</strong> argues with authority, actively defies rules, deliberately annoys, blames others</li>
+        <li><strong>Vindictive:</strong> spiteful at least twice in 6 months</li>
+      </ul>
+      <p><strong>ODD does NOT include aggression toward people/animals, destruction, theft, or serious rule violations.</strong></p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Conduct Disorder — DSM-5 criteria</div>
+      <p>A repetitive pattern of violating rights of others or major age-appropriate norms, with ≥ 3 symptoms in past 12 months from these categories:</p>
+      <ul class="clean">
+        <li><strong>Aggression</strong> toward people or animals (bullying, fights, weapons, cruelty, forced sex)</li>
+        <li><strong>Destruction</strong> of property (fire-setting, vandalism)</li>
+        <li><strong>Deceitfulness / theft</strong> (breaking in, lying to obtain, shoplifting)</li>
+        <li><strong>Serious rule violations</strong> (staying out despite parental prohibition before age 13, running away, truancy)</li>
+      </ul>
+      <p>Childhood-onset (&lt; 10) = worse prognosis; adolescent-onset = better. CD can progress to antisocial personality disorder in adulthood (but not always).</p>
+    </div>
+
+    <div class="why">
+      <span class="why-label">The ODD → CD distinction matters</span>
+      <strong>ODD is defiance. CD is violation of others' rights.</strong> An ODD kid refuses to clean their room and argues with mom. A CD kid steals the neighbor's bike and sets fires. Treatment approach differs: ODD responds well to parent management training and family therapy; CD often requires more intensive multisystemic therapy and has worse long-term outcomes. Screen for <strong>callous-unemotional traits</strong> in CD — poorer response to treatment and higher risk of progression.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Parent Management Training (PMT)</strong> = first-line for ODD</li>
+        <li><strong>Multisystemic therapy (MST)</strong>, <strong>functional family therapy</strong> for CD</li>
+        <li>School-based interventions, mentoring, skills training</li>
+        <li>Treat comorbid ADHD (high overlap — treating ADHD alone can resolve ODD in many cases)</li>
+        <li>Treat comorbid mood/anxiety disorders</li>
+        <li>No medication specifically for ODD or CD — target comorbidities</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====================== MODULE 12 ====================== -->
+  <div class="mod-header m12">
+    <div class="num">MODULE 12 · CHAPTER 36 · 5 QUESTIONS</div>
+    <h2>Neurologic Conditions</h2>
+    <div class="mod-meta">Non-infectious HA · Seizures · TBI</div>
+  </div>
+
+  <!-- HEADACHES -->
+  <div class="condition sage" id="headache">
+    <h3>Pediatric Headaches (Migraine & Tension)</h3>
+    <div class="cat">NEURO · NON-INFECTIOUS · PRIMARY VS SECONDARY</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p><strong>Migraine:</strong> cortical spreading depression + activation of the trigeminovascular system → release of CGRP and other neuropeptides → meningeal inflammation + vasodilation + pain. Genetic (~60% have FH). <strong>Tension-type:</strong> pericranial muscle contraction, stress, poor sleep, posture; mechanism less well defined.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Migraine features (pediatric)</div>
+      <ul class="clean">
+        <li><strong>Duration in kids:</strong> 2–72 hrs (shorter than adults)</li>
+        <li><strong>Location:</strong> often <strong>bilateral</strong> in kids (in adults more typically unilateral)</li>
+        <li><strong>Quality:</strong> throbbing/pulsating</li>
+        <li><strong>Severity:</strong> moderate-to-severe, interferes with activity</li>
+        <li><strong>Associated:</strong> photo- and phonophobia (may be inferred from behavior in young kids — seeking dark quiet room), nausea/vomiting</li>
+        <li><strong>Aura</strong> (sensory, visual, motor) in ~25% — precedes headache by up to 1 hr</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Tension features</div>
+      <p><strong>Bilateral, band-like, pressing/tightening, mild-moderate, not aggravated by activity, no nausea/vomiting, possibly mild photo- or phonophobia but not both.</strong></p>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🚨 Secondary headache red flags — SNOOP4</span>
+      <strong>S</strong>ystemic symptoms (fever, weight loss) · <strong>N</strong>eurologic signs (focal deficits, altered mental status, papilledema) · <strong>O</strong>nset sudden ("thunderclap") · <strong>O</strong>lder (not a factor in peds but applies to adults) · <strong>P</strong>attern change or <strong>P</strong>rogressive · <strong>P</strong>ositional (worse lying down — ↑ICP) · <strong>P</strong>recipitated by Valsalva · <strong>P</strong>apilledema · <strong>P</strong>arents/partners (family history concerns)
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Diagnostics</div>
+      <p><strong>Clinical diagnosis</strong> — headache diary. <strong>Neuroimaging (MRI preferred over CT for peds)</strong> <em>only</em> if red flags, abnormal neuro exam, change in pattern, or recent trauma. Routine neuroimaging for recurrent migraines with normal exam = not indicated.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Acute/abortive:</strong>
+          <ul class="clean">
+            <li><strong>First-line:</strong> ibuprofen 10 mg/kg or acetaminophen 15 mg/kg — <em>at onset</em> (don't wait to see if it gets bad)</li>
+            <li><strong>Triptans:</strong> almotriptan ≥ 12 yrs, rizatriptan ≥ 6 yrs, sumatriptan nasal spray ≥ 12 yrs</li>
+            <li>Antiemetic (ondansetron) for nausea</li>
           </ul>
-        </aside>
-      </section>
-
-      <section class="dashboard-section">
-        <h2 class="dashboard-heading">Study Modules</h2>
-        <p class="dashboard-sub">Topic-based pages with the same visual language and a cleaner navigation system.</p>
-
-        <div class="module-grid">
-          <a class="module-card rust" href="pediatrics/peds_studyguide.html">
-            <div class="module-meta">Core Guide</div>
-            <h3 class="module-title">Pediatrics Master Study Guide</h3>
-            <p>The main pediatrics review hub with your existing structured board-prep content.</p>
-            <div class="module-footer">Open guide</div>
-          </a>
-
-          <a class="module-card sage" href="pediatrics/pnp-msk.html">
-            <div class="module-meta">Module 9</div>
-            <h3 class="module-title">Musculoskeletal</h3>
-            <p>MSK presentations, high-yield comparisons, diagnostics, and management review.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card lav" href="pediatrics/pnp-genetics.html">
-            <div class="module-meta">Module 10</div>
-            <h3 class="module-title">Genetics</h3>
-            <p>Key syndromes, inheritance patterns, classic clues, and board-style distinctions.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card gold" href="pediatrics/pnp-nutrition.html">
-            <div class="module-meta">Module 10</div>
-            <h3 class="module-title">Nutrition</h3>
-            <p>Growth, deficiencies, dietary pearls, and rapid pediatric nutrition review.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card teal" href="pediatrics/pnp-endocrine.html">
-            <div class="module-meta">Module 10</div>
-            <h3 class="module-title">Endocrine</h3>
-            <p>Thyroid, diabetes, growth issues, pubertal concerns, and endocrine differentials.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card lav" href="pediatrics/pnp-neurodevelopmental.html">
-            <div class="module-meta">Module 11</div>
-            <h3 class="module-title">Neurodevelopmental</h3>
-            <p>Milestones, developmental concerns, autism spectrum disorders, and screening anchors.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card rust" href="pediatrics/pnp-mental-health.html">
-            <div class="module-meta">Module 11</div>
-            <h3 class="module-title">Mental Health</h3>
-            <p>Pediatric psychiatric conditions, red flags, treatment categories, and exam distinctions.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-
-          <a class="module-card teal" href="pediatrics/pnp-neurological.html">
-            <div class="module-meta">Module 12</div>
-            <h3 class="module-title">Neurology</h3>
-            <p>Seizures, headaches, neurologic patterns, localization clues, and urgent presentations.</p>
-            <div class="module-footer">Open module</div>
-          </a>
-        </div>
-      </section>
-
-      <section class="dashboard-section">
-        <h2 class="dashboard-heading">Expansion Space</h2>
-        <p class="dashboard-sub">These can be built next without changing your existing content structure.</p>
-
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h3 class="feature-title">Jeopardy Review Games</h3>
-            <p>A dedicated interactive review page for recall practice before exams.</p>
-            <span class="coming-soon">Coming soon</span>
-          </div>
-
-          <div class="feature-card">
-            <h3 class="feature-title">Final Boss Cases</h3>
-            <p>Hard case-based pediatric scenarios with diagnosis, next step, and complication logic.</p>
-            <span class="coming-soon">Coming soon</span>
-          </div>
-
-          <div class="feature-card">
-            <h3 class="feature-title">Rapid Cheat Sheets</h3>
-            <p>One-page quick references for milestones, red flags, endocrine clues, and emergencies.</p>
-            <span class="coming-soon">Coming soon</span>
-          </div>
-        </div>
-      </section>
+        </li>
+        <li><strong>Lifestyle triggers:</strong> regular sleep, hydration, regular meals, stress management, identify food triggers (chocolate, cheese, nitrates, MSG) — but individual variation</li>
+        <li><strong>Prophylaxis</strong> (≥ 4 headaches/mo or severely disabling): amitriptyline, topiramate, propranolol, cyproheptadine. Riboflavin/magnesium/CoQ10 nutritional supplements</li>
+        <li><strong>Medication overuse headache</strong> — analgesics &gt; 2–3x/week perpetuate headaches</li>
+      </ul>
     </div>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>Ola Beaucher · Pediatric Boards</span>
-      <span>Built as a modular study system</span>
+    <div class="why">
+      <span class="why-label">Why "at onset"</span>
+      Once the migraine cascade (cortical spreading depression + trigeminovascular activation) is fully engaged, abortive meds work poorly. Taking ibuprofen within the first 30 min gives much better relief than waiting to see if the headache will pass. Teach families: "don't wait for it to get bad."
     </div>
-  </footer>
+  </div>
+
+  <!-- BREATH-HOLDING -->
+  <div class="condition sage" id="breathhold">
+    <h3>Breath-Holding Spells</h3>
+    <div class="cat">NEURO · NON-EPILEPTIC · 6 MO – 6 YRS</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Reflexive response, not volitional. Two types:</p>
+      <ul class="clean">
+        <li><strong>Cyanotic:</strong> triggered by <strong>anger, frustration, or crying</strong>. Child cries forcefully → exhales → breath-holds at end-expiration → cyanosis → brief LOC. <strong>More common.</strong></li>
+        <li><strong>Pallid:</strong> triggered by <strong>pain or sudden fright</strong> (minor head bump). Vagally mediated bradycardia/asystole → pallor → LOC. Less common.</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <ul class="clean">
+        <li>Consistent trigger → single cry (cyanotic) or no cry (pallid) → color change → LOC (lasts seconds) → possible brief tonic posturing or myoclonic jerk → spontaneous recovery → tired but otherwise fine</li>
+        <li>Peak age 1–3 yrs; resolves by 4–6 yrs</li>
+        <li>Family history common</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why this isn't a seizure (important for parents)</span>
+      Breath-holding has a clear <strong>provocation</strong> (emotional or painful trigger), a <strong>predictable sequence</strong> (cry → color change → LOC), and <strong>immediate recovery</strong>. True seizures are usually unprovoked, with post-ictal confusion. The child is not "holding their breath on purpose" — it's an involuntary reflex. Reassurance is the primary intervention.
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Workup</div>
+      <p><strong>Check iron</strong> — <strong>iron deficiency anemia</strong> is strongly associated with breath-holding; iron supplementation reduces spells in many kids even with only borderline labs. EKG (r/o long QT if pallid/syncopal). EEG only if atypical.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Reassurance</strong> — benign, self-limited, no long-term sequelae, outgrown by school age</li>
+        <li>Iron supplementation if deficient or borderline ferritin (&lt; 50)</li>
+        <li>Don't reinforce with overreaction — the cyanotic type especially can become a behavior pattern if the child learns it produces a panicked caregiver response</li>
+        <li>Keep the child safe during the spell (cushion fall)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FEBRILE SEIZURES -->
+  <div class="condition sage" id="febrile">
+    <h3>Febrile Seizures</h3>
+    <div class="cat">NEURO · SEIZURE · MOST COMMON PEDS SEIZURE</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Age-dependent susceptibility — immature brain has a lower seizure threshold when body temperature rises rapidly. It's the <strong>rate of temperature rise</strong>, not the absolute temperature, that's most important. Strong genetic component.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Definition</div>
+      <p>Seizure in a child <strong>6 months to 5 years</strong> with fever, without CNS infection, metabolic disturbance, prior afebrile seizure, or other identifiable cause.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Classification</div>
+      <p><strong>Simple febrile seizure</strong> (all of the following):</p>
+      <ul class="clean">
+        <li>Generalized (tonic-clonic)</li>
+        <li>Duration &lt; 15 minutes</li>
+        <li>Single event in 24 hours</li>
+        <li>Prior neurologically normal child</li>
+      </ul>
+      <p><strong>Complex febrile seizure</strong> (any of the following):</p>
+      <ul class="clean">
+        <li>Focal features</li>
+        <li>Duration &gt; 15 minutes</li>
+        <li>Recurs within 24 hours</li>
+        <li>Postictal neurologic abnormality (e.g., Todd's paralysis)</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Evaluation</div>
+      <ul class="clean">
+        <li><strong>Simple febrile seizure with identifiable source of fever:</strong> no routine labs, no EEG, no neuroimaging. Focus on the source of fever.</li>
+        <li><strong>LP considerations:</strong> any child &lt; 12 mo with incomplete or absent Hib/pneumococcal vaccination, any concern for meningitis (irritability, bulging fontanelle, neck stiffness, petechiae), any child on antibiotics (could partially treat meningitis)</li>
+        <li><strong>Complex febrile seizure:</strong> consider further workup — EEG, labs, imaging depending on features</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li><strong>Most (&gt; 95%) resolve spontaneously within 5 minutes</strong></li>
+        <li><strong>&gt; 5 min or persistent:</strong> benzodiazepine (IV lorazepam, IM/rectal midazolam, rectal diazepam)</li>
+        <li><strong>Treat the fever source</strong></li>
+        <li>Antipyretics for comfort — but they <strong>do not prevent recurrence</strong>; don't oversell</li>
+        <li>Chronic anticonvulsants <strong>not</strong> indicated for simple febrile seizures</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Prognosis (parental counseling)</div>
+      <ul class="clean">
+        <li><strong>~30% recur</strong> with future febrile illness; higher if first seizure &lt; 18 mo</li>
+        <li><strong>Risk of later epilepsy after simple FS: ~1%</strong> (same as general population slightly)</li>
+        <li>Complex febrile seizures carry somewhat higher epilepsy risk (~4–15%)</li>
+        <li>No long-term neurodevelopmental effects from simple febrile seizures</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why antipyretics don't prevent recurrence</span>
+      Scheduled antipyretics during febrile illnesses have been shown in trials <em>not</em> to prevent febrile seizures. The trigger is the <em>rate of temperature rise</em>, which can happen before the parent is aware of the fever. Counsel families to use antipyretics for the child's comfort, not to prevent seizures — which avoids false reassurance.
+    </div>
+  </div>
+
+  <!-- EPILEPSY -->
+  <div class="condition sage" id="epilepsy">
+    <h3>Epilepsy</h3>
+    <div class="cat">NEURO · RECURRENT UNPROVOKED SEIZURES</div>
+
+    <div class="sec">
+      <div class="sec-label">Definition (ILAE)</div>
+      <p>Any of:</p>
+      <ul class="clean">
+        <li>≥ 2 unprovoked seizures &gt; 24 hrs apart, OR</li>
+        <li>1 unprovoked seizure + probability of recurrence ≥ 60% over next 10 yrs, OR</li>
+        <li>Diagnosis of an epilepsy syndrome</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Seizure types (ILAE 2017)</div>
+      <ul class="clean">
+        <li><strong>Focal onset</strong> — one brain region; may have motor or nonmotor signs; may impair awareness or not; may spread to bilateral tonic-clonic</li>
+        <li><strong>Generalized onset</strong> — bilateral networks from the start: tonic-clonic, absence, myoclonic, atonic, tonic, clonic</li>
+        <li><strong>Unknown onset</strong></li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Common peds syndromes</div>
+      <ul class="clean">
+        <li><strong>Childhood absence epilepsy:</strong> 4–10 yrs, brief staring spells (5–10 sec), multiple daily, subtle eye fluttering; EEG = 3 Hz spike-and-wave; triggered by hyperventilation in clinic. Often remits by adolescence. Tx: ethosuximide first-line.</li>
+        <li><strong>Benign rolandic epilepsy (BECTS):</strong> 3–13 yrs, nocturnal facial/oropharyngeal twitching, drooling, speech arrest; EEG = centrotemporal spikes; outgrown by puberty.</li>
+        <li><strong>Juvenile myoclonic epilepsy (JME):</strong> adolescent onset, morning myoclonic jerks (drops toothbrush, spills cereal), GTC seizures, sometimes absence; lifelong treatment needed; levetiracetam or valproate.</li>
+        <li><strong>Infantile spasms (West syndrome):</strong> sudden flexor/extensor "jackknife" spasms in clusters, 3–12 mo; EEG = hypsarrhythmia; developmental regression; <em>urgent</em> — ACTH or vigabatrin.</li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Workup</div>
+      <p><strong>EEG</strong> (awake + sleep, often with hyperventilation and photic stimulation), <strong>MRI brain</strong> (preferred over CT; CT only for acute setting — bleed, mass). Labs if metabolic cause suspected. Genetic testing for specific syndromes.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment</div>
+      <ul class="clean">
+        <li>AED selection based on seizure type + syndrome</li>
+        <li>Monotherapy preferred; 2/3 seizure-free on first or second agent</li>
+        <li><strong>Goal:</strong> seizure freedom with minimal side effects</li>
+        <li><strong>Refractory</strong> (2 drugs failed) → refer to epileptologist; consider ketogenic diet, VNS, epilepsy surgery</li>
+        <li>Counsel about driving, bathing safety, seizure action plan, medication adherence</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONCUSSION / mTBI -->
+  <div class="condition sage" id="tbi">
+    <h3>Concussion / Mild Traumatic Brain Injury</h3>
+    <div class="cat">NEURO · INJURY · FUNCTIONAL NOT STRUCTURAL</div>
+
+    <div class="sec">
+      <div class="sec-label">Pathophysiology</div>
+      <p>Traumatic force (direct or inertial) → axonal stretch → neurometabolic cascade: K⁺ efflux, glutamate release, ionic imbalance, mitochondrial dysfunction, vasoreactivity changes → energy crisis. <strong>Imaging is normal</strong> — this is a functional disturbance, not a structural injury.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Clinical presentation</div>
+      <p>Any combination of:</p>
+      <ul class="clean">
+        <li><strong>Physical:</strong> headache, nausea/vomiting, dizziness, light/noise sensitivity, balance problems, fatigue, blurred vision</li>
+        <li><strong>Cognitive:</strong> slowed thinking, difficulty concentrating, memory problems, feeling "foggy"</li>
+        <li><strong>Emotional:</strong> irritability, sadness, anxiety, emotional lability</li>
+        <li><strong>Sleep:</strong> sleeping more or less, trouble falling asleep</li>
+      </ul>
+      <p>Loss of consciousness is <strong>not required</strong> for diagnosis — most concussions have no LOC.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">When to image (PECARN rules apply)</div>
+      <p><strong>Age &lt; 2 years — CT if any of:</strong></p>
+      <ul class="clean">
+        <li>AMS or signs of AMS</li>
+        <li>Palpable skull fracture</li>
+        <li>Scalp hematoma (non-frontal, in infants)</li>
+        <li>LOC &gt; 5 seconds</li>
+        <li>Severe mechanism (MVC, fall &gt; 3 ft, high-impact object)</li>
+        <li>Not acting normally per parent</li>
+      </ul>
+      <p><strong>Age ≥ 2 years — CT if any of:</strong></p>
+      <ul class="clean">
+        <li>AMS or signs of AMS</li>
+        <li>Signs of basilar skull fracture (hemotympanum, Battle's sign, raccoon eyes, CSF otorrhea/rhinorrhea)</li>
+        <li>LOC</li>
+        <li>Vomiting</li>
+        <li>Severe headache</li>
+        <li>Severe mechanism</li>
+      </ul>
+    </div>
+
+    <div class="pearl">
+      <span class="p-label">🚨 Red flags after head injury — go to ED</span>
+      Progressively worsening headache · repeated vomiting · seizures · focal weakness or numbness · slurred speech · severe drowsiness or difficulty waking · unequal pupils · confusion that worsens · neck pain
+    </div>
+
+    <div class="sec">
+      <div class="sec-label">Treatment — modern approach</div>
+      <ul class="clean">
+        <li><strong>Initial relative rest 24–48 hrs</strong> (physical AND cognitive — limit screens, schoolwork)</li>
+        <li><strong>Avoid strict prolonged rest</strong> — older "sit in a dark room until symptoms resolve" approach is outdated and actually prolongs recovery</li>
+        <li><strong>Gradual symptom-limited return</strong> to activity after 24–48 hrs — light aerobic activity (walking, stationary bike) below symptom threshold actually speeds recovery</li>
+        <li><strong>Return to school before return to play</strong> — graduated academic accommodations</li>
+        <li><strong>Stepwise return-to-play protocol</strong> — each step takes ≥ 24 hrs; any symptom return → step back and rest 24 hrs</li>
+        <li>Acetaminophen for headache (avoid NSAIDs in the first 24–48 hrs due to bleeding concerns, then OK)</li>
+      </ul>
+    </div>
+
+    <div class="why">
+      <span class="why-label">Why "return to school before return to play"</span>
+      The brain needs to handle normal cognitive load before high-risk physical activity resumes. Returning to contact sports before cognitive symptoms have resolved risks <strong>second-impact syndrome</strong> — a second concussion before the first has healed can cause catastrophic cerebral edema, especially in adolescents. Return-to-play protocols exist for this reason.
+    </div>
+  </div>
+
+  <!-- ========== CLOSING ========== -->
+
+  <hr style="border: none; border-top: 1px solid var(--border); margin: 64px 0 32px;">
+
+  <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center; background: var(--subtle);">
+    <div style="font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px;">END OF GUIDE</div>
+    <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.8rem; margin: 0 0 12px;">You've got this, Sasha.</h3>
+    <p style="font-size: 0.95rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.6;">Every condition here maps to the exam review transcript and Dr. [reviewer]'s emphasis. Walk through the three case studies one more time before exam day — the reasoning is the content.</p>
+  </div>
+
+</div>
+
 </body>
 </html>
