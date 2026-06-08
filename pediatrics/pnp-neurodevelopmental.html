@@ -1,140 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pediatric Neurodevelopmental · PNP Board Prep</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #faf7f2; --card: #ffffff; --text: #1a1a2e;
-      --muted: #6b7280; --border: #e8e2d9;
-      --rust: #c0441f; --teal: #1d6b6e; --gold: #b8852a;
-      --sage: #5a7a5c; --lavender: #6b5c8a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; padding-bottom: 80px; }
-
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 16px; flex-wrap: wrap; font-family: 'DM Mono', monospace; font-size: 0.65rem; }
-    nav a { color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.07em; transition: color 0.2s; white-space: nowrap; }
-    nav a:hover { color: var(--lavender); }
-
-    header { padding: 56px 40px 36px; max-width: 1200px; margin: 0 auto; }
-    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-    h1 { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
-    .subtitle { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 24px; }
-    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-    .pill { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
-    .pill-rust { background: #fbeae4; color: var(--rust); }
-    .pill-teal { background: #e0f0f0; color: var(--teal); }
-    .pill-gold { background: #fdf3e0; color: var(--gold); }
-    .pill-sage { background: #e6ede6; color: var(--sage); }
-    .pill-lav  { background: #ede9f4; color: var(--lavender); }
-    .last-updated { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--border); margin-top: 8px; }
-
-    main { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    section { margin-bottom: 56px; scroll-margin-top: 60px; }
-    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    .section-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
-    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
-
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 18px 22px; position: relative; overflow: hidden; }
-    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
-    .card.rust::before { background: var(--rust); }
-    .card.teal::before { background: var(--teal); }
-    .card.gold::before { background: var(--gold); }
-    .card.sage::before { background: var(--sage); }
-    .card.lav::before  { background: var(--lavender); }
-    .card-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
-    .card p, .card li { font-size: 0.85rem; color: #374151; line-height: 1.6; }
-    .card ul { padding-left: 16px; }
-    .card li { margin-bottom: 3px; }
-
-    .analogy-box { background: #fdf8f2; border: 1px solid #e8d9c0; border-left: 4px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px; }
-    .analogy-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
-    .analogy-box p { font-size: 0.88rem; color: #4b3c2a; line-height: 1.7; }
-
-    .callout { border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; font-size: 0.86rem; line-height: 1.65; }
-    .callout-note { background: #e8f4f4; border-left: 3px solid var(--teal); color: #1a3a3a; }
-    .callout-warn { background: #fbeae4; border-left: 3px solid var(--rust); color: #3a1a10; }
-    .callout-gold { background: #fdf3e0; border-left: 3px solid var(--gold); color: #3a2a10; }
-    .callout-lav  { background: #ede9f4; border-left: 3px solid var(--lavender); color: #2a1a3a; }
-    .callout-label { font-family: 'DM Mono', monospace; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 500; }
-
-    .ladder { display: flex; flex-direction: column; }
-    .ladder-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-    .ladder-step:last-child { border-bottom: none; }
-    .step-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; background: var(--lavender); color: white; border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
-    .step-num.rust { background: var(--rust); }
-    .step-num.teal { background: var(--teal); }
-    .step-num.gold { background: var(--gold); }
-    .step-num.sage { background: var(--sage); }
-    .step-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
-    .step-body { font-size: 0.83rem; color: var(--muted); }
-
-    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 16px 0; }
-    th { background: #f3ede4; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 10px 14px; text-align: left; }
-    td { padding: 9px 14px; border-top: 1px solid var(--border); color: #374151; line-height: 1.5; vertical-align: top; }
-    tr:nth-child(even) td { background: #fdf9f6; }
-
-    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 2px 8px; border-radius: 999px; margin: 2px; font-weight: 500; }
-    .tag-rust { background: #fbeae4; color: var(--rust); }
-    .tag-teal { background: #e0f0f0; color: var(--teal); }
-    .tag-gold { background: #fdf3e0; color: var(--gold); }
-    .tag-sage { background: #e6ede6; color: var(--sage); }
-    .tag-lav  { background: #ede9f4; color: var(--lavender); }
-
-    .quiz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
-    .flip-card { perspective: 1000px; height: 140px; cursor: pointer; }
-    .flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
-    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
-    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; border: 1px solid var(--border); }
-    .flip-front { background: var(--card); font-weight: 600; font-size: 0.83rem; color: var(--text); }
-    .flip-back { background: var(--lavender); color: white; font-size: 0.77rem; transform: rotateY(180deg); line-height: 1.5; }
-    .flip-back.rust { background: var(--rust); }
-    .flip-back.teal { background: var(--teal); }
-    .flip-back.gold { background: var(--gold); }
-    .flip-back.sage { background: var(--sage); }
-    .flip-hint { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); margin-bottom: 12px; }
-    .topic-divider { border: none; border-top: 2px solid var(--border); margin: 48px 0 40px; }
-
-    @media (max-width: 640px) {
-      header, main { padding: 28px 18px; }
-      h1 { font-size: 1.9rem; }
-      nav { padding: 8px 18px; gap: 10px; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neurodevelopmental Disorders – FNP Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Aboreto&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-
-<nav>
-  <a href="#id">Intellectual Disability</a>
-  <a href="#ld">Learning Disabilities</a>
-  <a href="#adhd">ADHD</a>
-  <a href="#autism">Autism Spectrum</a>
-  <a href="#quiz">Quick Quiz</a>
-</nav>
-
-<header>
-  <div class="eyebrow">PNP BOARD PREP · NEURODEVELOPMENTAL · EXAM III · CH 39</div>
-  <h1>Neurodevelopmental Disorders</h1>
-  <p class="subtitle">Intellectual disability · Learning disabilities · ADHD · Autism — each a different way the developing brain diverges from the expected path.</p>
-  <div class="pill-row">
-    <span class="pill pill-lav">🧠 4 Topics</span>
-    <span class="pill pill-teal">📋 DSM-5 Criteria</span>
-    <span class="pill pill-rust">⚡ ADHD Meds High-Yield</span>
-    <span class="pill pill-gold">🔍 Early Screening</span>
-    <span class="pill pill-sage">💊 Evidence-Based Tx</span>
-  </div>
-  <div class="last-updated">Last updated · April 2026</div>
-</header>
-
-<main>
-
-<!-- ══════════════════════════════════════ -->
-<!-- INTELLECTUAL DISABILITY -->
-<!-- ══════════════════════════════════════ -->
+<nav class="top-nav"><div class="top-nav-inner"><a class="site-brand" href="../index.html">🌿 FNP Prep</a><ul class="subject-tabs"><li><a href="index.html">Pediatric Hub</a></li><li><a href="pnp-endocrine.html">Endocrine</a></li><li><a href="pnp-msk.html">MSK</a></li><li><a href="pnp-neurological.html">Neurological</a></li><li><a href="pnp-nutrition.html">Nutrition</a></li><li><a href="pnp-mental-health.html">Mental Health</a></li></ul></div></nav>
+<div class="hero">
+<div class="tag">Pediatric Hub</div>
+<h1>Neurodevelopmental Disorders</h1>
+<p>Intellectual Disability, Learning Disabilities, ADHD &amp; Autism Spectrum</p>
+</div>
+<div class="layout">
+<aside class="toc">
+<h3>Contents</h3>
+<a href="#id">Intellectual Disability</a>
+<a href="#ld">Learning Disabilities</a>
+<a href="#adhd">ADHD</a>
+<a href="#autism">Autism Spectrum</a>
+</aside>
+<div class="content">
 <section id="id">
   <div class="section-label">Cognitive · Lifelong</div>
   <div class="section-title">Intellectual Disability (ID)</div>
@@ -671,6 +559,8 @@
   </div>
 </section>
 
-</main>
+
+</div>
+</div>
 </body>
 </html>
