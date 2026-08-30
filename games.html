@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Games — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --cream:#ECEBE4;
+    --ink:#221E20;
+    --olive:#75693F;
+    --hairline:rgba(34,30,32,.35);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Jost","Futura",-apple-system,"Helvetica Neue",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--white);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;}
+  header{
+    display:flex;justify-content:space-between;align-items:center;padding:1.4rem 2.2rem;
+  }
+  .logo{font-weight:400;font-size:1rem;letter-spacing:.14em;text-decoration:none;color:var(--ink);}
+  nav.top{display:flex;gap:2rem;}
+  nav.top a{
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
+    text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent;
+  }
+  nav.top a:hover,nav.top a.active{border-bottom-color:var(--ink);}
+
+  .page-head{padding:5rem 1.5rem 3.6rem;text-align:center;}
+  .page-head .kicker{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:1.4rem;opacity:.75;}
+  .page-head h1{
+    font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,6vw,4.6rem);
+    letter-spacing:.08em;text-transform:uppercase;line-height:1.05;
+  }
+
+  .row{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;
+    padding:1.05rem 2.2rem;border-top:1px solid var(--hairline);
+    text-decoration:none;color:var(--ink);transition:background .25s;
+  }
+  .row:last-of-type{border-bottom:1px solid var(--hairline);}
+  .row .name{font-family:var(--serif);font-weight:300;font-size:clamp(1.3rem,2.4vw,1.9rem);letter-spacing:.06em;text-transform:uppercase;}
+  .row .meta{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;display:flex;gap:2.4rem;}
+  .row .dest{font-family:var(--serif);font-weight:300;font-size:clamp(1.1rem,2vw,1.5rem);letter-spacing:.1em;text-transform:uppercase;text-align:right;white-space:nowrap;}
+  .row .dest::after{content:"  →";font-family:var(--sans);}
+  .row:hover{background:var(--cream);}
+  .row.soon{pointer-events:none;opacity:.45;}
+
+  .spacer{flex:1;}
+  footer{background:var(--olive);color:var(--cream);padding:2.2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:5rem;}
+  footer div,footer a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);text-decoration:none;}
+  footer a:hover{color:var(--white);}
+  @media (max-width:760px){
+    .row{grid-template-columns:1fr;gap:.3rem;padding:1.2rem 1.4rem;}
+    .row .dest{text-align:left;}
+    header{padding:1.1rem 1.4rem;}
+    nav.top{gap:1rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">FNP&nbsp;PREP</a>
+  <nav class="top">
+    <a href="index.html">Home</a>
+    <a href="learn.html">Learn</a>
+    <a href="games.html" class="active">Games</a>
+    <a href="pediatrics/index.html">Peds</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <div class="kicker">Active Recall</div>
+  <h1>Study Games</h1>
+</div>
+
+<div>
+  <a class="row" href="games/flashcards/index.html">
+    <span class="name">Flashcards</span>
+    <span class="meta"><span>(01)</span><span>All Decks</span></span>
+    <span class="dest">Play</span>
+  </a>
+  <div class="row soon">
+    <span class="name">More Coming</span>
+    <span class="meta"><span>(02)</span><span>In Progress</span></span>
+    <span class="dest"></span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<footer>
+  <div>FNP Prep — olabeaucher.com</div>
+  <a href="index.html">Home</a>
+</footer>
+
+</body>
+</html>
