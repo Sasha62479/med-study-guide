@@ -109,6 +109,10 @@
     padding:1.05rem 2.2rem;border-top:1px solid var(--hairline);
     text-decoration:none;color:var(--ink);position:relative;
     transition:background .25s;
+    background:var(--white);
+  }
+  @media (min-width:761px){
+    .list-section .row{position:sticky;z-index:10;}
   }
   .row:last-of-type{border-bottom:1px solid var(--hairline);}
   .row .name{
@@ -125,6 +129,68 @@
   }
   .row .dest::after{content:"  →";font-family:var(--sans);font-weight:300;}
   .row:hover{background:var(--cream);}
+
+  /* ---------- SCROLL-FOLD IMAGE PANELS ----------
+     The rows are position:sticky and stack up at the top of the
+     viewport; the image panels simply scroll up underneath them,
+     which produces the template's fold-away effect. */
+  .fold{
+    overflow:hidden;height:62vh;position:relative;
+    border-top:1px solid var(--hairline);
+  }
+  .fold .scene{
+    position:absolute;left:0;right:0;bottom:0;height:62vh;
+  }
+  .scene-reeded{
+    background:
+      radial-gradient(120% 80% at 50% 30%, rgba(255,231,196,.5), rgba(0,0,0,0) 60%),
+      repeating-linear-gradient(90deg,
+        #8a7457 0 7px, #a98f6d 7px 15px, #c4a983 15px 23px, #a98f6d 23px 31px),
+      linear-gradient(180deg,#6b563c,#8a7457 50%,#6b563c);
+    background-blend-mode:screen,normal,normal;
+  }
+  .scene-olive{
+    background:
+      radial-gradient(90% 70% at 30% 20%, rgba(236,235,228,.18), rgba(0,0,0,0) 55%),
+      linear-gradient(180deg,#75693F,#5B5231);
+  }
+  .scene-olive::after{
+    content:"";position:absolute;left:10%;right:10%;top:55%;height:8px;
+    background:linear-gradient(180deg,#ECEBE4,#989075);
+    box-shadow:0 16px 44px 10px rgba(236,235,228,.35);
+  }
+  .scene-rose{
+    background:
+      radial-gradient(100% 80% at 60% 35%, rgba(255,250,244,.65), rgba(0,0,0,0) 60%),
+      linear-gradient(180deg,#D1BCBC,#A28A8B 70%,#745152);
+  }
+  .scene-rose::after{
+    content:"";position:absolute;left:14%;top:30%;width:110px;height:110px;
+    background:radial-gradient(circle at 34% 28%, #4D3637, #271B1B 72%);
+    border-radius:50%;
+    box-shadow:0 26px 44px rgba(39,27,27,.4);
+  }
+  .scene-dark{
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 2px, rgba(0,0,0,0) 2px 90px),
+      linear-gradient(180deg,#271B1B,#4D3637 60%,#271B1B);
+  }
+  .scene-dark .orb{
+    position:absolute;top:0;width:2px;background:rgba(236,235,228,.25);
+  }
+  .scene-dark .orb::after{
+    content:"";position:absolute;bottom:-70px;left:50%;transform:translateX(-50%);
+    width:70px;height:70px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, rgba(255,231,196,.9), rgba(116,90,60,.7) 55%, rgba(39,27,27,.9));
+    box-shadow:0 0 60px 12px rgba(255,222,175,.35);
+  }
+  .scene-dark .orb:nth-child(1){left:30%;height:32%;}
+  .scene-dark .orb:nth-child(2){left:52%;height:48%;}
+  .scene-dark .orb:nth-child(3){left:70%;height:24%;}
+
+  @media (prefers-reduced-motion: reduce){
+    .fold{height:40vh !important;}
+  }
 
   /* ---------- COUNTDOWN ---------- */
   .countdown-section{
@@ -204,21 +270,25 @@
     <span class="meta"><span>(01)</span><span>All Systems</span></span>
     <span class="dest">Enter</span>
   </a>
+  <div class="fold"><div class="scene scene-reeded"></div></div>
   <a class="row" href="games.html">
     <span class="name">Games</span>
     <span class="meta"><span>(02)</span><span>Flashcards</span></span>
     <span class="dest">Play</span>
   </a>
+  <div class="fold"><div class="scene scene-olive"></div></div>
   <a class="row" href="pediatrics/index.html">
     <span class="name">Pediatrics</span>
     <span class="meta"><span>(03)</span><span>PNP Guides</span></span>
     <span class="dest">Open</span>
   </a>
+  <div class="fold"><div class="scene scene-rose"></div></div>
   <a class="row" href="https://sasha62479.github.io/med-prep/">
     <span class="name">Biochemistry</span>
     <span class="meta"><span>(04)</span><span>Full Course</span></span>
     <span class="dest">Begin</span>
   </a>
+  <div class="fold"><div class="scene scene-dark"><span class="orb"></span><span class="orb"></span><span class="orb"></span></div></div>
 </section>
 
 <!-- To change the exam date, edit data-exam-date (YYYY-MM-DD). -->
@@ -279,6 +349,21 @@
   document.querySelectorAll('.menu a').forEach(function(a){
     a.addEventListener('click',function(){document.body.classList.remove('menu-open');});
   });
+
+  // Spazio-style fold: sticky rows stack at the top of the viewport
+  // while the image panels scroll away underneath them.
+  function layoutStickyRows(){
+    if(window.innerWidth <= 760) return;
+    var rows = document.querySelectorAll('.list-section .row');
+    var offset = 0;
+    rows.forEach(function(r){
+      r.style.top = offset + 'px';
+      offset += r.offsetHeight - 1; /* -1 collapses the hairlines */
+    });
+  }
+  layoutStickyRows();
+  window.addEventListener('resize', layoutStickyRows);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(layoutStickyRows); }
 })();
 </script>
 
