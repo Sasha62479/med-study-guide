@@ -1,90 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharmacology – FNP Prep Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles-hub.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pharmacology — FNP Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --cream:#ECEBE4; --ink:#221E20; --olive:#75693F;
+    --olive-deep:#5B5231; --hairline:rgba(34,30,32,.35);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Jost","Futura",-apple-system,"Helvetica Neue",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;}
+  header.top{
+    position:sticky;top:0;z-index:60;background:var(--white);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.3rem 2.2rem;border-bottom:1px solid var(--hairline);
+  }
+  .logo{font-weight:400;font-size:1rem;letter-spacing:.14em;text-decoration:none;color:var(--ink);}
+  nav.inline{display:flex;gap:1.8rem;flex-wrap:wrap;}
+  nav.inline a{
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
+    text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap;
+  }
+  nav.inline a:hover,nav.inline a.active{border-bottom-color:var(--ink);}
+  .page-head{padding:4.6rem 1.5rem 3.4rem;text-align:center;}
+  .kicker{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;opacity:.75;margin-bottom:1.3rem;}
+  .page-head h1{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(2.8rem,8vw,5.6rem);letter-spacing:.09em;text-transform:uppercase;line-height:1.02;
+  }
+  .intro{
+    max-width:52ch;margin:0 auto;padding:0 1.5rem 3rem;text-align:center;
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.6;
+  }
+  .rows{flex:0 0 auto;}
+  .row{
+    display:grid;grid-template-columns:minmax(12rem,1fr) auto 1fr;align-items:center;gap:1.5rem;
+    padding:1rem 2.2rem;border-top:1px solid var(--hairline);
+    color:var(--ink);transition:background .25s;background:var(--white);text-decoration:none;
+  }
+  .rows > .row:last-child{border-bottom:1px solid var(--hairline);}
+  a.row:hover{background:var(--cream);}
+  .row .name{
+    font-family:var(--serif);font-weight:300;font-size:clamp(1.2rem,2.2vw,1.75rem);
+    letter-spacing:.06em;text-transform:uppercase;
+  }
+  .row .meta{
+    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;
+    display:flex;gap:2rem;white-space:nowrap;
+  }
+  .row .dest{
+    font-family:var(--serif);font-weight:300;font-size:clamp(1rem,1.8vw,1.35rem);
+    letter-spacing:.1em;text-transform:uppercase;text-align:right;white-space:nowrap;
+  }
+  a.row .dest::after{content:"  \2192";font-family:var(--sans);}
+  .row.soon{opacity:.42;}
+  .group-label{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:2.8rem 2.2rem 1.1rem;
+  }
+  .group-label .big{
+    font-family:var(--serif);font-weight:300;font-size:clamp(1.3rem,2.6vw,1.9rem);
+    letter-spacing:.1em;text-transform:uppercase;
+  }
+  .group-label .small{font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;opacity:.75;}
+  .spacer{flex:1;}
+  footer{background:var(--olive);color:var(--cream);padding:3rem 2.2rem 0;overflow:hidden;margin-top:4.5rem;}
+  .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;align-items:start;}
+  .foot-col .h{
+    font-family:var(--serif);font-weight:300;font-size:1rem;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:.7rem;
+  }
+  .foot-col a{
+    color:var(--cream);text-decoration:none;display:block;
+    font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;line-height:2.05;
+  }
+  .foot-col a:hover{color:var(--white);}
+  .wordmark{margin-top:2.4rem;line-height:0;transform:translateY(12%);}
+  .wordmark svg{display:block;width:100%;height:auto;}
+  .wordmark text{font-family:var(--sans);font-weight:400;fill:var(--ink);}
+  @media (max-width:760px){
+    header.top{padding:1rem 1.2rem;}
+    nav.inline{gap:.9rem;}
+    .row{grid-template-columns:1fr;gap:.35rem;padding:1.05rem 1.4rem;}
+    .row .dest{text-align:left;}
+    .group-label{flex-direction:column;gap:.3rem;padding:2.2rem 1.4rem .9rem;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="top-nav-inner">
-      <a class="site-brand" href="../index.html">FNP Prep Hub</a>
-      <span class="nav-group-label">Learn</span>
-      <ul class="nav-group">
-        <li><a href="../anatomy/index.html">Anatomy</a></li>
-        <li><a href="../physiology/index.html">Physiology</a></li>
-        <li><a href="../pathophysiology/index.html">Pathophys</a></li>
-        <li><a href="../pharmacology/index.html" class="active">Pharmacology</a></li>
-        <li><a href="../pediatrics/index.html">Pediatrics</a></li>
-      </ul>
-      <div class="nav-divider"></div>
-      <span class="nav-group-label">Tools</span>
-      <ul class="nav-group">
-        <li><a href="../cases/index.html">Cases</a></li>
-        
-        <li><a href="../pharmacology/index.html" class="active">Drug Ref</a></li>
-        </ul>
-      <div class="nav-divider"></div>
-      <span class="nav-group-label">Practice</span>
-      <ul class="nav-group">
-        <li><a href="../tests/index.html">Mock Exams</a></li>
-        <li><a href="../games/flashcards/index.html">Flashcards</a></li>
-      </ul>
-    </div>
+
+<header class="top">
+  <a class="logo" href="../index.html">FNP&nbsp;PREP</a>
+  <nav class="inline">
+    <a href="../index.html">Home</a>
+    <a href="../learn.html">Learn</a>
+    <a href="../games.html">Games</a>
+    <a href="../pediatrics/index.html">Peds</a>
+    <a href="../tests/index.html">Tests</a>
+    <a href="../quickguides/index.html">Guides</a>
   </nav>
+</header>
 
-  <div class="page-header">
-    <h1 class="page-title">Pharmacology</h1>
-    <p class="page-sub">Drug classes, mechanisms, side effects &amp; contraindications — organized by body system</p>
-    <div class="accent-line"></div>
-  </div>
+<div class="page-head">
+  <div class="kicker">FNP Board Exam Prep · Treatment</div>
+  <h1>Pharmacology</h1>
+</div>
+<div class="intro">Drug classes, mechanisms, monitoring &amp; pearls.</div>
 
-  <div class="container">
-    <div class="cards-grid">
-      <a class="subject-card" href="liver.html">
-        <div class="subject-name">Liver</div>
-        <div class="subject-desc">Antivirals (DAAs, tenofovir), lactulose, rifaximin, hepatotoxic drugs, ursodiol.</div>
-      </a>
-      <a class="subject-card" href="gallbladder.html">
-        <div class="subject-name">Gallbladder</div>
-        <div class="subject-desc">Ursodiol, cholestyramine, antibiotics for biliary infections, antispasmodics.</div>
-      </a>
-      <a class="subject-card" href="pancreas.html">
-        <div class="subject-name">Pancreas</div>
-        <div class="subject-desc">Insulin types, metformin, GLP-1 agonists, SGLT-2 inhibitors, DPP-4 inhibitors, pancreatic enzymes.</div>
-      </a>
-      <a class="subject-card" href="kidney.html">
-        <div class="subject-name">Kidney</div>
-        <div class="subject-desc">Diuretics, ACE-I/ARBs, SGLT-2 inhibitors, phosphate binders, ESAs, patiromer.</div>
-      </a>
-      <a class="subject-card" href="heart.html">
-        <div class="subject-name">Heart</div>
-        <div class="subject-desc">Beta-blockers, ACE-I/ARNi, statins, antiarrhythmics, anticoagulants, antiplatelets.</div>
-      </a>
-      <a class="subject-card" href="lungs.html">
-        <div class="subject-name">Lungs</div>
-        <div class="subject-desc">SABAs, LABAs, LAMAs, ICS, biologics (omalizumab), antibiotics, mucolytics.</div>
-      </a>
-      <a class="subject-card" href="neuro.html">
-        <div class="subject-name">Neuro</div>
-        <div class="subject-desc">AEDs, levodopa/carbidopa, tPA, MS disease-modifying therapies, dementia drugs.</div>
-      </a>
-      <a class="subject-card" href="gu.html">
-        <div class="subject-name">GU / Repro</div>
-        <div class="subject-desc">OCPs, spironolactone, GnRH agonists, UTI antibiotics, oxytocin, magnesium.</div>
-      </a>
-      <a class="subject-card" href="skin.html">
-        <div class="subject-name">Skin</div>
-        <div class="subject-desc">Topical steroids, retinoids, isotretinoin, biologics (dupilumab, adalimumab), antifungals.</div>
-      </a>
+<div class="rows">
+  <a class="row" href="kidney.html"><span class="name">Kidney</span><span class="meta"><span>(01)</span><span>Renal</span></span><span class="dest">Study</span></a>
+  <a class="row" href="heart.html"><span class="name">Heart</span><span class="meta"><span>(02)</span><span>Cardiovascular</span></span><span class="dest">Study</span></a>
+  <a class="row" href="lungs.html"><span class="name">Lungs</span><span class="meta"><span>(03)</span><span>Pulmonary</span></span><span class="dest">Study</span></a>
+  <a class="row" href="liver.html"><span class="name">Liver</span><span class="meta"><span>(04)</span><span>Hepatic</span></span><span class="dest">Study</span></a>
+  <a class="row" href="gallbladder.html"><span class="name">Gallbladder</span><span class="meta"><span>(05)</span><span>Biliary</span></span><span class="dest">Study</span></a>
+  <a class="row" href="pancreas.html"><span class="name">Pancreas</span><span class="meta"><span>(06)</span><span>Endocrine / GI</span></span><span class="dest">Study</span></a>
+  <a class="row" href="neuro.html"><span class="name">Neurological</span><span class="meta"><span>(07)</span><span>Neuro</span></span><span class="dest">Study</span></a>
+  <a class="row" href="gu.html"><span class="name">GU / Reproductive</span><span class="meta"><span>(08)</span><span>GU</span></span><span class="dest">Study</span></a>
+  <a class="row" href="skin.html"><span class="name">Integumentary</span><span class="meta"><span>(09)</span><span>Derm</span></span><span class="dest">Study</span></a>
+  <a class="row" href="psychiatry.html"><span class="name">Psychiatry</span><span class="meta"><span>(10)</span><span>Psych</span></span><span class="dest">Study</span></a>
+</div>
+
+<div class="spacer"></div>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="h">Navigate</div>
+      <a href="../index.html">Home</a>
+      <a href="../learn.html">Learn</a>
+      <a href="../games.html">Games</a>
+      <a href="../pediatrics/index.html">Pediatrics</a>
+    </div>
+    <div class="foot-col">
+      <div class="h">Subjects</div>
+      <a href="../anatomy/index.html">Anatomy</a>
+      <a href="../physiology/index.html">Physiology</a>
+      <a href="../pathophysiology/index.html">Pathophysiology</a>
+      <a href="../pharmacology/index.html">Pharmacology</a>
+    </div>
+    <div class="foot-col">
+      <div class="h">Practice</div>
+      <a href="../tests/index.html">Mock Exams</a>
+      <a href="../quickguides/index.html">Quick Guides</a>
+      <a href="../cases/index.html">Clinical Cases</a>
+      <a href="../games/flashcards/index.html">Flashcards</a>
+    </div>
+    <div class="foot-col">
+      <div class="h">More</div>
+      <a href="https://sasha62479.github.io/med-prep/">Biochemistry Course</a>
+      <a href="../index.html#countdown">Exam Countdown</a>
     </div>
   </div>
+  <div class="wordmark" aria-hidden="true">
+    <svg viewBox="0 0 1000 195" preserveAspectRatio="xMidYMax meet">
+      <text x="500" y="185" text-anchor="middle" font-size="230" textLength="990" lengthAdjust="spacingAndGlyphs">FNP&#8202;PREP</text>
+    </svg>
+  </div>
+</footer>
 
-  <footer>
-    <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
-    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
-  </footer>
 </body>
 </html>
