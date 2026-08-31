@@ -1,371 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>FNP Prep — Board Exam Study Hub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --white:#FFFFFF;
-    --cream:#ECEBE4;
-    --ink:#221E20;
-    --olive:#75693F;
-    --olive-deep:#5B5231;
-    --grey:#949494;
-    --hairline:rgba(34,30,32,.35);
-    --serif:"Cormorant Garamond",Georgia,serif;
-    --sans:"Jost","Futura",-apple-system,"Helvetica Neue",sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--white);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.5;}
-
-  /* ---------- TOP BAR ---------- */
-  header{
-    position:absolute;top:0;left:0;right:0;z-index:60;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:1.4rem 2.2rem;
-  }
-  .logo{font-family:var(--sans);font-weight:400;font-size:1rem;letter-spacing:.14em;text-decoration:none;color:var(--ink);}
-  .burger{background:none;border:none;cursor:pointer;padding:.6rem 0;width:44px;display:flex;flex-direction:column;gap:7px;}
-  .burger span{display:block;height:1.5px;background:var(--ink);width:100%;transition:transform .25s,opacity .25s;}
-  body.menu-open .burger span:nth-child(1){transform:translateY(4.25px) rotate(45deg);}
-  body.menu-open .burger span:nth-child(2){transform:translateY(-4.25px) rotate(-45deg);}
-
-  /* ---------- OVERLAY MENU ---------- */
-  .menu{
-    position:fixed;inset:0;background:var(--white);z-index:55;
-    display:flex;flex-direction:column;justify-content:center;
-    opacity:0;pointer-events:none;transition:opacity .3s;
-  }
-  body.menu-open .menu{opacity:1;pointer-events:auto;}
-  .menu a{
-    font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3.4vw,2.4rem);
-    letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;
-    text-align:center;padding:1.1rem 1rem;border-top:1px solid var(--hairline);
-    transition:color .2s;
-  }
-  .menu a:last-of-type{border-bottom:1px solid var(--hairline);}
-  .menu a:hover{color:var(--olive);}
-
-  /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;}
-  .hero-split{flex:1;display:grid;grid-template-columns:1fr 1fr;}
-  .hero-left{
-    background:var(--white);display:flex;align-items:center;justify-content:center;
-    padding:7rem 2rem 2rem;
-  }
-  .hero-left h2{
-    font-family:var(--serif);font-weight:300;text-align:center;
-    font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.15;
-    letter-spacing:.06em;text-transform:uppercase;max-width:16ch;
-  }
-  /* warm reeded-panel wall, drawn in CSS */
-  .hero-right{
-    position:relative;overflow:hidden;
-    background:
-      radial-gradient(120% 90% at 50% 38%, rgba(255,231,196,.55), rgba(0,0,0,0) 55%),
-      repeating-linear-gradient(90deg,
-        #2a2118 0 6px, #4a3a28 6px 14px, #6b563c 14px 22px, #4a3a28 22px 30px),
-      linear-gradient(180deg,#241c14,#3a2d1f 45%,#2a2118);
-    background-blend-mode:screen,normal,normal;
-  }
-  .hero-right::before{ /* lit shelf */
-    content:"";position:absolute;left:8%;right:8%;top:46%;height:10px;
-    background:linear-gradient(180deg,#e8d9c0,#b49b78);
-    box-shadow:0 18px 50px 12px rgba(255,222,175,.5), 0 -60px 90px 20px rgba(255,222,175,.28);
-  }
-  .hero-right::after{ /* bowl object */
-    content:"";position:absolute;right:18%;top:31%;width:130px;height:80px;
-    background:radial-gradient(ellipse at 38% 30%, #3d3a37, #17130f 70%);
-    border-radius:0 0 999px 999px / 0 0 999px 999px;
-    transform:rotate(-14deg);
-    box-shadow:0 22px 35px rgba(0,0,0,.45);
-  }
-
-  /* ---------- GIANT WORDMARK ---------- */
-  .wordmark{
-    position:relative;z-index:5;background:transparent;
-    margin-top:-1px;line-height:0;
-  }
-  .hero .wordmark{position:absolute;left:0;right:0;bottom:0;}
-  .wordmark svg{display:block;width:100%;height:auto;}
-  .wordmark text{
-    font-family:var(--sans);font-weight:400;letter-spacing:.01em;fill:var(--ink);
-  }
-
-  /* ---------- SECTION LIST (Projects-style) ---------- */
-  .list-section{padding:6rem 0 0;background:var(--white);}
-  .list-section .heading{
-    font-family:var(--serif);font-weight:300;text-align:center;
-    font-size:clamp(2.2rem,4.5vw,3.4rem);letter-spacing:.1em;text-transform:uppercase;
-    margin-bottom:3.2rem;
-  }
-  .row{
-    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;
-    padding:1.05rem 2.2rem;border-top:1px solid var(--hairline);
-    text-decoration:none;color:var(--ink);position:relative;
-    transition:background .25s;
-    background:var(--white);
-  }
-  @media (min-width:761px){
-    .list-section .row{position:sticky;z-index:10;}
-  }
-  .row:last-of-type{border-bottom:1px solid var(--hairline);}
-  .row .name{
-    font-family:var(--serif);font-weight:300;font-size:clamp(1.3rem,2.4vw,1.9rem);
-    letter-spacing:.06em;text-transform:uppercase;
-  }
-  .row .meta{
-    font-family:var(--sans);font-weight:300;font-size:.66rem;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--ink);opacity:.75;display:flex;gap:2.4rem;
-  }
-  .row .dest{
-    font-family:var(--serif);font-weight:300;font-size:clamp(1.1rem,2vw,1.5rem);
-    letter-spacing:.1em;text-transform:uppercase;text-align:right;white-space:nowrap;
-  }
-  .row .dest::after{content:"  →";font-family:var(--sans);font-weight:300;}
-  .row:hover{background:var(--cream);}
-
-  /* ---------- SCROLL-FOLD IMAGE PANELS ----------
-     The rows are position:sticky and stack up at the top of the
-     viewport; the image panels simply scroll up underneath them,
-     which produces the template's fold-away effect. */
-  .fold{
-    overflow:hidden;height:62vh;position:relative;
-    border-top:1px solid var(--hairline);
-  }
-  .fold .scene{
-    position:absolute;left:0;right:0;bottom:0;height:62vh;
-  }
-  .scene-reeded{
-    background:
-      radial-gradient(120% 80% at 50% 30%, rgba(255,231,196,.5), rgba(0,0,0,0) 60%),
-      repeating-linear-gradient(90deg,
-        #8a7457 0 7px, #a98f6d 7px 15px, #c4a983 15px 23px, #a98f6d 23px 31px),
-      linear-gradient(180deg,#6b563c,#8a7457 50%,#6b563c);
-    background-blend-mode:screen,normal,normal;
-  }
-  .scene-olive{
-    background:
-      radial-gradient(90% 70% at 30% 20%, rgba(236,235,228,.18), rgba(0,0,0,0) 55%),
-      linear-gradient(180deg,#75693F,#5B5231);
-  }
-  .scene-olive::after{
-    content:"";position:absolute;left:10%;right:10%;top:55%;height:8px;
-    background:linear-gradient(180deg,#ECEBE4,#989075);
-    box-shadow:0 16px 44px 10px rgba(236,235,228,.35);
-  }
-  .scene-rose{
-    background:
-      radial-gradient(100% 80% at 60% 35%, rgba(255,250,244,.65), rgba(0,0,0,0) 60%),
-      linear-gradient(180deg,#D1BCBC,#A28A8B 70%,#745152);
-  }
-  .scene-rose::after{
-    content:"";position:absolute;left:14%;top:30%;width:110px;height:110px;
-    background:radial-gradient(circle at 34% 28%, #4D3637, #271B1B 72%);
-    border-radius:50%;
-    box-shadow:0 26px 44px rgba(39,27,27,.4);
-  }
-  .scene-dark{
-    background:
-      repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 2px, rgba(0,0,0,0) 2px 90px),
-      linear-gradient(180deg,#271B1B,#4D3637 60%,#271B1B);
-  }
-  .scene-dark .orb{
-    position:absolute;top:0;width:2px;background:rgba(236,235,228,.25);
-  }
-  .scene-dark .orb::after{
-    content:"";position:absolute;bottom:-70px;left:50%;transform:translateX(-50%);
-    width:70px;height:70px;border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, rgba(255,231,196,.9), rgba(116,90,60,.7) 55%, rgba(39,27,27,.9));
-    box-shadow:0 0 60px 12px rgba(255,222,175,.35);
-  }
-  .scene-dark .orb:nth-child(1){left:30%;height:32%;}
-  .scene-dark .orb:nth-child(2){left:52%;height:48%;}
-  .scene-dark .orb:nth-child(3){left:70%;height:24%;}
-
-  @media (prefers-reduced-motion: reduce){
-    .fold{height:40vh !important;}
-  }
-
-  /* ---------- COUNTDOWN ---------- */
-  .countdown-section{
-    background:var(--cream);text-align:center;padding:5rem 1.5rem 4.6rem;margin-top:6rem;
-  }
-  .countdown-section .label{
-    font-family:var(--sans);font-weight:300;font-size:.66rem;letter-spacing:.32em;
-    text-transform:uppercase;margin-bottom:2.2rem;
-  }
-  .count-grid{display:flex;justify-content:center;gap:clamp(1.5rem,6vw,4.5rem);flex-wrap:wrap;}
-  .count-cell .num{
-    font-family:var(--serif);font-weight:300;font-size:clamp(3rem,8vw,5.6rem);line-height:1;
-  }
-  .count-cell .unit{
-    font-family:var(--sans);font-weight:300;font-size:.62rem;letter-spacing:.28em;
-    text-transform:uppercase;margin-top:.7rem;opacity:.75;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--olive);color:var(--cream);padding:3.5rem 2.2rem 0;overflow:hidden;}
-  .foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start;}
-  .foot-col{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;line-height:2;}
-  .foot-col a{color:var(--cream);text-decoration:none;display:block;}
-  .foot-col a:hover{color:var(--white);}
-  .foot-social{
-    font-family:var(--serif);font-weight:300;font-size:clamp(1.1rem,2.4vw,1.6rem);
-    letter-spacing:.12em;text-transform:uppercase;margin:3rem 0 1rem;
-  }
-  footer .wordmark text{fill:var(--ink);}
-  footer .wordmark{transform:translateY(12%);}
-
-  @media (max-width:760px){
-    .hero-split{grid-template-columns:1fr;}
-    .hero-right{min-height:38vh;}
-    .row{grid-template-columns:1fr;gap:.3rem;padding:1.2rem 1.4rem;}
-    .row .dest{text-align:left;}
-    .foot-grid{grid-template-columns:1fr;}
-    header{padding:1.1rem 1.4rem;}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Cases – FNP Prep Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0F2F7; --bg2: #E8EBF2; --surface: #FFFFFF;
+      --border: rgba(100,120,160,0.13); --navy: #1E2D4E; --steel: #3A5080;
+      --slate: #4A5568; --muted: #718096; --accent: #4A7FA5; --accent2: #6B8CBE;
+      --text: #2D3748; --green: #2E7D6A;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .top-nav { background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 0 2rem; min-height: 52px; flex-wrap: wrap; gap: 0.3rem; }
+    .site-brand { font-size: 1rem; font-weight: 800; color: var(--navy); text-decoration: none; margin-right: 1.5rem; letter-spacing: -0.01em; white-space: nowrap; }
+    .nav-group-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; padding: 0 0.6rem; white-space: nowrap; }
+    .nav-group { display: flex; align-items: stretch; list-style: none; }
+    .nav-group li a { font-size: 0.78rem; font-weight: 500; color: var(--slate); text-decoration: none; padding: 0 0.7rem; height: 52px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
+    .nav-group li a:hover, .nav-group li a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-divider { width: 1px; background: var(--border); margin: 10px 0.4rem; }
+    .page-header { max-width: 1200px; margin: 2.5rem auto 2rem; padding: 0 2rem; }
+    .page-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .page-sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; }
+    .accent-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.75rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .subject-card { background: var(--surface); border-radius: 12px; padding: 1.4rem 1.25rem; text-decoration: none; color: inherit; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(30,45,78,0.05); transition: all 0.22s; display: flex; flex-direction: column; gap: 0.3rem; position: relative; overflow: hidden; }
+    .subject-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent2); opacity: 0; transition: opacity 0.22s; }
+    .subject-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(30,45,78,0.11); border-color: var(--accent2); }
+    .subject-card:hover::before { opacity: 1; }
+    .subject-name { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .subject-desc { font-size: 0.78rem; color: var(--slate); line-height: 1.5; margin-top: 0.2rem; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
 </head>
 <body>
-
-<header>
-  <a class="logo" href="index.html">FNP&nbsp;PREP</a>
-  <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')">
-    <span></span><span></span>
-  </button>
-</header>
-
-<nav class="menu">
-  <a href="index.html">Home</a>
-  <a href="learn.html">Learn</a>
-  <a href="games.html">Games</a>
-  <a href="pediatrics/index.html">Pediatrics</a>
-</nav>
-
-<section class="hero">
-  <div class="hero-split">
-    <div class="hero-left">
-      <h2>Board Exam<br/>Prep</h2>
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a class="site-brand" href="../index.html">FNP Prep Hub</a>
+      <span class="nav-group-label">Learn</span>
+      <ul class="nav-group">
+        <li><a href="../anatomy/index.html">Anatomy</a></li>
+        <li><a href="../physiology/index.html">Physiology</a></li>
+        <li><a href="../pathophysiology/index.html">Pathophys</a></li>
+        <li><a href="../pharmacology/index.html">Pharmacology</a></li>
+        <li><a href="../pediatrics/index.html">Pediatrics</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Tools</span>
+      <ul class="nav-group">
+        <li><a href="../cases/index.html" class="active">Cases</a></li>
+        
+        <li><a href="../pharmacology/index.html">Drug Ref</a></li>
+        <li><a href="../quickguides/index.html">Quick Guides</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-group-label">Practice</span>
+      <ul class="nav-group">
+        <li><a href="../tests/index.html">Mock Exams</a></li>
+        <li><a href="../games/flashcards/index.html">Flashcards</a></li>
+      </ul>
     </div>
-    <div class="hero-right"></div>
+  </nav>
+
+  <div class="page-header">
+    <h1 class="page-title">Clinical Cases</h1>
+    <p class="page-sub">FNP board-style clinical vignettes &mdash; develop your clinical reasoning case by case</p>
+    <div class="accent-line"></div>
   </div>
-  <div class="wordmark" aria-hidden="true">
-    <svg viewBox="0 0 1000 195" preserveAspectRatio="xMidYMax meet">
-      <text x="500" y="185" text-anchor="middle" font-size="230" textLength="990" lengthAdjust="spacingAndGlyphs">FNP&#8202;PREP</text>
-    </svg>
-  </div>
-</section>
 
-<section class="list-section">
-  <div class="heading">Study</div>
-
-  <a class="row" href="learn.html">
-    <span class="name">Learn Hub</span>
-    <span class="meta"><span>(01)</span><span>All Systems</span></span>
-    <span class="dest">Enter</span>
-  </a>
-  <div class="fold"><div class="scene scene-reeded"></div></div>
-  <a class="row" href="games.html">
-    <span class="name">Games</span>
-    <span class="meta"><span>(02)</span><span>Flashcards</span></span>
-    <span class="dest">Play</span>
-  </a>
-  <div class="fold"><div class="scene scene-olive"></div></div>
-  <a class="row" href="pediatrics/index.html">
-    <span class="name">Pediatrics</span>
-    <span class="meta"><span>(03)</span><span>PNP Guides</span></span>
-    <span class="dest">Open</span>
-  </a>
-  <div class="fold"><div class="scene scene-rose"></div></div>
-  <a class="row" href="https://sasha62479.github.io/med-prep/">
-    <span class="name">Biochemistry</span>
-    <span class="meta"><span>(04)</span><span>Full Course</span></span>
-    <span class="dest">Begin</span>
-  </a>
-  <div class="fold"><div class="scene scene-dark"><span class="orb"></span><span class="orb"></span><span class="orb"></span></div></div>
-</section>
-
-<!-- To change the exam date, edit data-exam-date (YYYY-MM-DD). -->
-<section class="countdown-section" id="countdown" data-exam-date="2026-12-01">
-  <div class="label" id="cd-caption">Until Exam Day</div>
-  <div class="count-grid">
-    <div class="count-cell"><div class="num" id="cd-days">–</div><div class="unit">Days</div></div>
-    <div class="count-cell"><div class="num" id="cd-hrs">–</div><div class="unit">Hours</div></div>
-    <div class="count-cell"><div class="num" id="cd-mins">–</div><div class="unit">Minutes</div></div>
-    <div class="count-cell"><div class="num" id="cd-secs">–</div><div class="unit">Seconds</div></div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-grid">
-    <div class="foot-col">
-      olabeaucher.com<br/>
-      FNP Board Exam Prep
-    </div>
-    <div class="foot-col">
-      <a href="index.html">Home</a>
-      <a href="learn.html">Learn</a>
-      <a href="games.html">Games</a>
-      <a href="pediatrics/index.html">Pediatrics</a>
-    </div>
-    <div class="foot-col" style="text-align:right;">
-      © 2026 FNP Prep<br/>
-      Built on GitHub Pages
+  <div class="container">
+    <div class="cards-grid">
+      <a class="subject-card" href="liver.html">
+        <div class="subject-name">Liver</div>
+        <div class="subject-desc">Cirrhosis, hepatitis, liver failure, portal hypertension vignettes.</div>
+      </a>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Gallbladder</div>
+        <div class="subject-desc">Cholelithiasis, cholecystitis, cholangitis presentations.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Pancreas</div>
+        <div class="subject-desc">Pancreatitis, diabetes, DKA/HHS, pancreatic mass vignettes.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Kidney</div>
+        <div class="subject-desc">AKI, CKD, nephrotic/nephritic syndromes, electrolyte disorders.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Heart</div>
+        <div class="subject-desc">Chest pain, ACS, heart failure, arrhythmia, valvular disease.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Lungs</div>
+        <div class="subject-desc">Asthma, COPD, pneumonia, PE, dyspnea, hypoxia vignettes.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Neuro</div>
+        <div class="subject-desc">Stroke, seizure, headache, altered mental status, dementia.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">GU / Repro</div>
+        <div class="subject-desc">UTI, STIs, OB complications, PCOS, BPH vignettes.</div>
+      </span>
+      <span class="subject-card"  style="opacity:.45;cursor:default">
+        <div class="subject-name">Skin</div>
+        <div class="subject-desc">Rash identification, acne, psoriasis, skin infections, melanoma.</div>
+      </span>
     </div>
   </div>
-  <div class="foot-social">Study&nbsp;·&nbsp;Repeat&nbsp;·&nbsp;Pass</div>
-  <div class="wordmark" aria-hidden="true">
-    <svg viewBox="0 0 1000 195" preserveAspectRatio="xMidYMax meet">
-      <text x="500" y="185" text-anchor="middle" font-size="230" textLength="990" lengthAdjust="spacingAndGlyphs">FNP&#8202;PREP</text>
-    </svg>
-  </div>
-</footer>
 
-<script>
-(function(){
-  var el=document.getElementById('countdown');
-  var target=new Date(el.getAttribute('data-exam-date')+'T08:00:00');
-  function pad(n){return n<10?'0'+n:''+n;}
-  function set(id,v){document.getElementById(id).textContent=v;}
-  function tick(){
-    var diff=target-new Date();
-    if(diff<=0){set('cd-days','00');set('cd-hrs','00');set('cd-mins','00');set('cd-secs','00');
-      document.getElementById('cd-caption').textContent="It's Exam Day";return;}
-    var s=Math.floor(diff/1000);
-    set('cd-days',pad(Math.floor(s/86400)));
-    set('cd-hrs',pad(Math.floor(s%86400/3600)));
-    set('cd-mins',pad(Math.floor(s%3600/60)));
-    set('cd-secs',pad(s%60));
-    setTimeout(tick,1000);
-  }
-  tick();
-  // close menu when a link is clicked
-  document.querySelectorAll('.menu a').forEach(function(a){
-    a.addEventListener('click',function(){document.body.classList.remove('menu-open');});
-  });
-
-  // Spazio-style fold: sticky rows stack at the top of the viewport
-  // while the image panels scroll away underneath them.
-  function layoutStickyRows(){
-    if(window.innerWidth <= 760) return;
-    var rows = document.querySelectorAll('.list-section .row');
-    var offset = 0;
-    rows.forEach(function(r){
-      r.style.top = offset + 'px';
-      offset += r.offsetHeight - 1; /* -1 collapses the hairlines */
-    });
-  }
-  layoutStickyRows();
-  window.addEventListener('resize', layoutStickyRows);
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(layoutStickyRows); }
-})();
-</script>
-
+  <footer>
+    <p>FNP Board Exam Prep &mdash; Built for NP Students</p>
+    <p>Content compiled for personal study purposes. Sources: <a href="https://www.youtube.com/@medicosisperfectionalis" target="_blank">Medicosis Perfectionalis</a> &middot; Amboss &middot; Open Evidence</p>
+  </footer>
 </body>
 </html>
